@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hackathon on 不知所云集</title>
+    <link>https://shuoyin03.github.io/tags/hackathon/</link>
+    <description>Recent content in Hackathon on 不知所云集</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 Oct 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/hackathon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hackathon参赛后记</title>
+      <link>https://shuoyin03.github.io/2017/11/03/Hackathon%E5%8F%82%E8%B5%9B%E5%90%8E%E8%AE%B0/</link>
+      <pubDate>Tue, 31 Oct 2023 12:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2017/11/03/Hackathon%E5%8F%82%E8%B5%9B%E5%90%8E%E8%AE%B0/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Clean White Theme for Hugo</title>
+      <link>https://shuoyin03.github.io/post/readme/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/post/readme/</guid>
+      <description>Clean White Theme for Hugo CleanWhite is a clean, elegant, but fully functional blog theme for Hugo. Here is a live demo site using this theme. It is based on huxblog Jekyll Theme and Clean Blog Jekyll Theme. These two upstream projects have done awesome jobs to create a blog theme, what I&amp;rsquo;m doing here is porting it to Hugo, of which I like the simplicity and the much faster</description>
+    </item>
+    
+  </channel>
+</rss>

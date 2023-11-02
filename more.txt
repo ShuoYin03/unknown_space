@@ -1,0 +1,195 @@
+params
+  author = "TenpagesY"
+
+    # Use content from _index.md on homepage
+  # useIndexContent = true # default is false
+
+  # Navigation, use Bulma options here
+  # navbarStyle = "is-transparent" # Default is "is-transparent"
+  # navbarTitleStyle = "has-text-black" # Default is "has-text-black"
+
+  # # Override Bulma schemes with values
+  # schemeMain = "" # Change background color, default is white
+  # link = "#000" # Bulma default is blue, though theme is black
+  # linkHover = "#888" # Bulma default is grey-darker, though theme is #888
+  # footerBackgroundColor = "false" # Bulma default is #fafafa. You can use "false" or #hex
+  # navbarItemHoverColor = "#444" # Bulma default is blue, though theme is #444
+  # navbarItemColor = "#888" # Bulma default is grey-dark, though theme is #888
+
+[menu]
+
+# Top Navigation
+[[menu.nav]]
+  identifier = 'home'
+  name = 'Home'
+  title = 'Home'
+  url = '/'
+  weight = 10
+
+[[menu.nav]]
+  identifier = 'about'
+  name = 'About'
+  title = 'About'
+  url = '/about/'
+  weight = 20
+
+[[menu.nav]]
+  identifier = 'archive'
+  name = 'Archive'
+  title = "Archive"
+  url = '/archive/'
+  weight = 30
+
+# Contacts
+
+[[ menu.social]]
+  identifier = 'linkedin'
+  name = 'LinkedIn'
+  pre = "<i class='fab fa-linkedin fa-lg'></i>"
+  url = "https://linkedin.com/in/yourlinkedinprofile"
+  weight = 10
+
+[[ menu.social]]
+  identifier = 'github'
+  name = 'Github'
+  pre = "<i class='fab fa-github fa-lg'></i>"
+  url = "https://github.com/yourgithubname"
+  weight = 20
+
+[[ menu.social]]
+  identifier = 'twitter'
+  name = 'Twitter'
+  pre = "<i class='fab fa-twitter fa-lg'></i>"
+  url = "https://twitter.com/yourtwittername"
+  weight = 30
+
+
+
+
+
+
+baseURL = "https://shuoyin03.github.io/shuoyin03.github.io"
+title = "不知所云集"
+theme = "hugo-theme-cleanwhite"
+languageCode = "en-us"
+preserveTaxonomyNames = true
+paginate = 7
+hasCJKLanguage = true
+canonifyurls = true
+  
+[outputs]
+home = ["HTML", "RSS", "CSS"]
+page = ["HTML", "CSS"]
+
+[params]
+  # General site metadata, used in header and other places
+  header_image = "img/tag-bg.jpg"
+  SEOTitle = "TenpagesY"
+  description = "Blog for Shuo Yin."
+  keywords = "殷硕, YinShuo, yinshuo, Yinshuo, shuoYin, shuoyin, ShuoYin, 殷硕的网络日志, 殷硕的博客, YinShuo Blog, ShuoYin Blog, 博客, Blog, 个人网站, 互联网"
+  slogan = "反正没人看，多少写一写"
+
+  image_404 = "img/404-bg.jpg"
+  title_404 = "你来到了没有知识的荒原 :("
+  omit_categories = false
+
+  # leancloud storage for page view counter
+  page_view_conter = false 
+  leancloud_app_id = ""
+  leancloud_app_key = ""
+
+  # algolia site search
+  algolia_search = true
+  algolia_appId = ""
+  algolia_indexName = ""
+  algolia_apiKey = ""
+
+  # Sidebar settings
+  sidebar_about_description = "Software Developer in Sportandmusic, Third year computer science student in the University of Manchester"
+  #sidebar_avatar = "img/avatar-zhaohuabing.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
+  sidebar_avatar = "img/sign-post-5655110_640.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+  featured_tags = true 
+  featured_condition_size = 10
+
+  friends = true
+  bookmarks = false
+  about_me = true
+
+  [params.social]
+  rss            = true 
+  email          = "shuoyin03@gmail.com"
+  #facebook      = "full profile url in facebook"
+  #googleplus    = "full profile url in googleplus"
+  #twitter       = "full profile url in twitter"
+  linkedin       = "https://www.linkedin.com/in/yin-shuo-78a154275/"
+  stackoverflow  = ""
+  #instagram     = "full profile url in instagram"
+  github         = "https://github.com/ShuoYin03"
+  wechat         = "img/wechat.jpg"
+  #medium        = "full profile url in medium"
+  #slack         = "full workspace url in slack"
+  #pinterest     = "full profile url in pinterest"
+  #reddit        = "full profile url in reddit"
+  #gitlab        = "full profile url in gitlab"
+  #mastodon      = "full profile url in mastodon"
+  #keybase       = "full profile url in keybase"
+  #xing          = ""
+  #git           = "full profile url for git user"
+
+  [[params.friend_link]]
+  title = "哪有Friends啊哥们"
+  href =  ""
+
+  [[params.bookmark_link]]
+  title =  "Martin Fowler"
+  href =  "https://martinfowler.com"
+  [[params.bookmark_link]]
+  title = "ServiceMesher"
+  href =  "http://www.servicemesher.com"
+  [[params.bookmark_link]]
+  title =  "Pxhere"
+  href = "https://pxhere.com"
+  [[params.bookmark_link]]
+  title = "unsplash"
+  href = "https://unsplash.com"
+  
+  [[params.addtional_menus]]
+  title =  "ARCHIVE"
+  href =  "/archive/"
+  [[params.addtional_menus]]
+  title =  "NOTES"
+  href =  "/notes/"
+  [[params.addtional_menus]]
+  title =  "ABOUT"
+  href =  "/about/"
+
+  [outputFormats.Algolia]
+  baseName = "algolia"
+  isPlainText = true
+  mediaType = "application/json"
+  notAlternative = true
+
+  [params.algolia]
+  vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+  params = ["categories", "tags"] 
+
+  [markup]
+  [markup.tableOfContents]
+    endLevel = 2
+    startLevel = 1
+  [markup.highlight]
+    style = "dracula"
+
+
+
+
+
+## 开源项目
+|项目         |角色        |  网站   | GitHub     |
+| ----------- |----------- |----------- |----------- |
+| Aeraki Mesh | 创建者    | https://aeraki.net  | http://github.com/aeraki-mesh |
+| Istio       | Contributor| https://istio.io    | https://github.com/istio/istio|
+| Envoy       | Contributor| https://www.envoyproxy.io |https://github.com/envoyproxy/envoy|
+| ONAP        | 项目 Leader        | https://www.onap.org||
+| hugo-theme-cleanwhite | 创建者    | https://themes.gohugo.io/themes/hugo-theme-cleanwhite  | https://github.com/zhaohuabing/hugo-theme-cleanwhite |
