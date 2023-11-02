@@ -11,7 +11,6 @@ image:      "https://img.zhaohuabing.com/post-bg-2015.jpg"
 tags:
     - Hackathon
 categories: [ post ]
-published: true
 ---
 
 >刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。
