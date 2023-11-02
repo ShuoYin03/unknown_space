@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on 不知所云集</title>
-    <link>https://shuoyin03.github.io/tags/hugo/</link>
-    <description>Recent content in Hugo on 不知所云集</description>
+    <title>tag2 on 不知所云集</title>
+    <link>https://shuoyin03.github.io/tags/tag2/</link>
+    <description>Recent content in tag2 on 不知所云集</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/tag2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo &#43; Github Page &#43; Github Action博客部署方案</title>
       <link>https://shuoyin03.github.io/2017/11/03/HugoSetUp/</link>

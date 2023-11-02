@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Hugo &#43; Github Page &#43; Github Action博客部署方案" />
+    <meta property="og:title" content="Hugo &#43; Github Page &#43; Github Action博客部署方案" />
+    <meta property="twitter:title" content="Hugo &#43; Github Page &#43; Github Action博客部署方案" />
     
 
     
-    <meta name="description" content="Blog for Shuo Yin.">
-    <meta property="og:description" content="Blog for Shuo Yin." />
-    <meta property="twitter:description" content="Blog for Shuo Yin." />
+    <meta name="description" content="本文介绍使用Hugo作为博客源码，Github Page作为部署方案以及利用Github Action配置CI/CD">
+    <meta property="og:description" content="本文介绍使用Hugo作为博客源码，Github Page作为部署方案以及利用Github Action配置CI/CD" />
+    <meta property="twitter:description" content="本文介绍使用Hugo作为博客源码，Github Page作为部署方案以及利用Github Action配置CI/CD" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>TenpagesY</title>
+    <title>Hugo &#43; Github Page &#43; Github Action博客部署方案 | TenpagesY</title>
 
-    <link rel="canonical" href="/about/">
+    <link rel="canonical" href="/2017/11/03/HugoSetUp/">
 
     
     
@@ -157,14 +157,45 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>不知所云集 </h1>
-                    
-		    <span class="subheading">反正没人看，多少写一写</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/hugo" title="Hugo">
+                            Hugo
+                        </a>
+                        
+                        <a class="tag" href="/tags/tag2" title="tag2">
+                            tag2
+                        </a>
+                        
+                    </div>
+                    <h1>Hugo &#43; Github Page &#43; Github Action博客部署方案</h1>
+                    <h2 class="subheading">Blog Set Up</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                     &#34;不知所云集&#34;
+                             
+                            on 
+                            Thursday, November 2, 2023
+                            
+                            
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
@@ -177,223 +208,106 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container">
-            
-                 
- <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
-    <option value="0" selected> 中文 | Chinese </option>
-    <option value="1"> 英文 | English </option>
-</select>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
                 
-                <div class="zh post-container">
+                <blockquote>
+<p>记忆里自从2021年开始就计划着要弄博客，结果一直想法大于行动，一直拖到了现在才弄好，以后也要改掉拖延的毛病，这里分享一下我创建博客的过程以便大家参考与复制</p>
+</blockquote>
+<p>现在流行的博客构建工具有以下几种：</p>
+
+                
+
+                
+                <hr>
+                <ul class="pager">
                     
-                    <h2 id="关于我">关于我</h2>
-<p>Hi，我是殷硕，目前在曼彻斯特大学计算机系就读，我是一名软件开发爱好者，热衷于研究不同的技术，目标是成为一名优秀的软件工程师。</p>
-<p>目前我在<a href="https://sportandmusic.co.uk/">Sportandmusic</a>公司担任软件工程师的职位，主要方向是使用python来进行自动化的工作。</p>
-<p>在我的闲暇时间，我是一名博客作家、黑胶唱片爱好者、一位独立音乐人。</p>
-<p>欢迎在微信，Github以及领英联系，或者在此博客中留下你的想法。
-|<a href="https://github.com/ShuoYin03/">Github</a>
-|<a href="https://www.linkedin.com/in/yin-shuo-78a154275/">领英</a>
-
-  <img src="/img/wechat.jpg" alt="">
-
-</p>
-<h2 id="项目">项目</h2>
-<table>
-<thead>
-<tr>
-<th>标题</th>
-<th>类型</th>
-<th>链接</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://react-ecom-web.vercel.app/">React电商网站</a></td>
-<td>网站</td>
-<td><a href="https://react-ecom-web.vercel.app/">链接</a></td>
-</tr>
-</tbody>
-</table>
-
-                </div>
-            
-                
-                <div class="en post-container">
-                    <h2 id="about-me">About Me</h2>
-<p>Hi there! my name is <strong><em>Shuo Yin</em></strong>, a software engineer and a student who currently studying computer science in the University of Manchester. I love learning and using different technologies, and I&rsquo;m always on the road of discovring.</p>
-<p>I am working as a part-time software engineer in |<a href="https://sportandmusic.co.uk/">Sportandmusic</a>, which I mainly focus on automation tasks using python and various APIs.</p>
-<p>While I am free, I am a blog writer, a Vinyl lover, a song writer and sometimes a hacker (joining hackathons!!).</p>
-<p>Feel free to connect me at Github and Linkedin, leave your thoughts in his blog or share your ideas by <a href="mailto:shuoyin03@gmail.com">writing me an email</a>.
-|<a href="https://github.com/ShuoYin03/">Github</a>
-|<a href="https://www.linkedin.com/in/yin-shuo-78a154275/">Linkedin</a></p>
-<h2 id="projects">Projects</h2>
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Type</th>
-<th>Link</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://react-ecom-web.vercel.app/">React Ecommerce website</a></td>
-<td>Website</td>
-<td><a href="https://react-ecom-web.vercel.app/">link</a></td>
-</tr>
-</tbody>
-</table>
-
-                </div>
-            
-             
-            
-
-
-
-            
-            </div>
-            
-            
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            
-            
-            
-                    <a href="/tags/hackathon" title="hackathon">
-                        hackathon
-                    </a>
-            
-            
-            
-                    <a href="/tags/hugo" title="hugo">
-                        hugo
-                    </a>
-            
-            
-            
-                    <a href="/tags/tag2" title="tag2">
-                        tag2
-                    </a>
-            
-            
-        </div>
-    </section>
-    
-
-    
-	
-    <section class="visible-md visible-lg">
-        <hr>
-	
-        <div class="short-about">
-            
-            <a href="/about">
-               <img src="/img/sign-post-5655110_640.png" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Software Developer in Sportandmusic, Third year computer science student in the University of Manchester</p>
-            
-           
-           <ul class="list-inline">
-               
-               <li>
-                   <a href="mailto:shuoyin03@gmail.com">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                      </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="/img/wechat.jpg">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/ShuoYin03">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-            
-            
-               
-               
-               
-               
+                    <li class="previous">
+                        <a href="/2017/11/03/Hackathon%E5%8F%82%E8%B5%9B%E5%90%8E%E8%AE%B0/" data-toggle="tooltip" data-placement="top" title="Hackathon参赛后记">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
                 </ul>
+                
+
+                
+
+
+
             </div>
-    </section>
-	
-    
-    
-   
 
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FRIENDS</h5>
-        <ul class="list-inline">
             
-            <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
             
-        </ul>
-    </section>
-    
-    
-</div>
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
 
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/hackathon" title="hackathon">
+                            hackathon
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tag2" title="tag2">
+                            tag2
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
         </div>
     </div>
 </article>
@@ -583,57 +497,6 @@
 </script>
 
 
-
-<script type="text/javascript">
-    
-    var $zh = document.querySelector(".zh");
-    var $en = document.querySelector(".en");
-    var $select = document.querySelector("select");
-
-    
-    function getLang() { return new URLSearchParams(document.location.search).get("lang") }
-
-    function setLang(newLang) {
-        var params = new URLSearchParams(document.location.search)
-        params.set("lang", newLang)
-        document.location.search = params.toString()  
-    }
-
-    
-    function _render() {
-        var lang = getLang()
-        
-        if (lang == "en") {
-            $select.selectedIndex = 1;
-            $en.style.display = "block";
-            $en.classList.add("active");
-            $zh.style.display = "none";
-            $zh.classList.remove("active");
-            
-        } else {
-            $select.selectedIndex = 0;
-            $zh.style.display = "block";
-            $zh.classList.add("active");
-            $en.style.display = "none";
-            $en.classList.remove("active");
-        }
-        
-        generateCatalog(".catalog-body");
-    }
-
-    
-    function onLanChange(index) {
-        if (index == 0) {
-            lang = "zh"
-        } else {
-            lang = "en"
-        }
-        setLang(lang)
-    }
-
-    
-    _render();
-</script>
 
 
 
