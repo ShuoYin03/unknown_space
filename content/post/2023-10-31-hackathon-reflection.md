@@ -6,7 +6,7 @@ description: "刚刚进行了一场时长24小时的hackathon，本章作为此�
 excerpt:    "一塌糊涂"
 date:       2023-10-31T12:00:00
 author:     "不知所云集"
-URL:        "/2017/11/03/Hackathon参赛后记/"
+URL:        "/2023/11/03/Hackathon参赛后记/"
 image:      "https://img.zhaohuabing.com/post-bg-2015.jpg"
 tags:
     - Hackathon

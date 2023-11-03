@@ -111,6 +111,3 @@ canonifyurls = false
     startLevel = 1
   [markup.highlight]
     style = "dracula"
-
-
-
