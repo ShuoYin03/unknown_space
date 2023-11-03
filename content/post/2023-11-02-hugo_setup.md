@@ -8,7 +8,7 @@ image:       ""
 tags:
     - "Hugo"
 categories:  ["post"]
-URL:        "/2017/11/03/HugoSetUp/"
+URL:        "/2023/11/03/HugoSetUp/"
 draft: false
 ---
 

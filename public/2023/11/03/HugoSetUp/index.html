@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="Hugo &#43; Github Page &#43; Github Action博客部署方案" />
-    <meta property="og:title" content="Hugo &#43; Github Page &#43; Github Action博客部署方案" />
-    <meta property="twitter:title" content="Hugo &#43; Github Page &#43; Github Action博客部署方案" />
+    <meta name="title" content="Hugo &#43; Github Pages &#43; Github Actions 博客部署方案" />
+    <meta property="og:title" content="Hugo &#43; Github Pages &#43; Github Actions 博客部署方案" />
+    <meta property="twitter:title" content="Hugo &#43; Github Pages &#43; Github Actions 博客部署方案" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Hugo &#43; Github Page &#43; Github Action博客部署方案 | TenpagesY</title>
+    <title>Hugo &#43; Github Pages &#43; Github Actions 博客部署方案 | TenpagesY</title>
 
-    <link rel="canonical" href="/2017/11/03/HugoSetUp/">
+    <link rel="canonical" href="/2023/11/03/HugoSetUp/">
 
     
     
@@ -176,12 +176,8 @@
                             Hugo
                         </a>
                         
-                        <a class="tag" href="/tags/tag2" title="tag2">
-                            tag2
-                        </a>
-                        
                     </div>
-                    <h1>Hugo &#43; Github Page &#43; Github Action博客部署方案</h1>
+                    <h1>Hugo &#43; Github Pages &#43; Github Actions 博客部署方案</h1>
                     <h2 class="subheading">Blog Set Up</h2>
                     <span class="meta">
                         
@@ -217,9 +213,129 @@
 
                 
                 <blockquote>
-<p>记忆里自从2021年开始就计划着要弄博客，结果一直想法大于行动，一直拖到了现在才弄好，以后也要改掉拖延的毛病，这里分享一下我创建博客的过程以便大家参考与复制</p>
+<p>记忆里自从2021年开始就计划着要弄博客，结果一直想法大于行动，一直拖到了现在才弄好，老拖延症了，这里分享一下我创建博客的过程以便大家参考与复制</p>
 </blockquote>
-<p>现在流行的博客构建工具有以下几种：</p>
+<h2 id="hugo的安装与配置">Hugo的安装与配置</h2>
+<p>要在windows上使用Hugo， 首先要安装<strong>Git</strong>，<strong>Go</strong>，以及<strong>Dart Sass</strong>，虽然不是所有情况下都需要，但是这三种语言和工具是最常见的。这里可以前往对应的官网进行安装，此处就不对安装过多赘述了。</p>
+<p>安装链接：<br>
+<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a><br>
+<a href="https://go.dev/doc/install">Go</a><br>
+<a href="https://gohugo.io/hugo-pipes/transpile-sass-to-css/#dart-sass">Dart Sass</a></p>
+<p>完成安装之后，我们需要在hugo的theme里面选择一个作为主题，我这里使用的是<a href="https://themes.gohugo.io/themes/hugo-theme-cleanwhite/">Clean White</a>主题。选好之后我们使用hugo命令创建新的站点</p>
+<pre tabindex="0"><code>hugo new site
+</code></pre><p>随后进入主目录，将选定的主题clone到theme路径下</p>
+<pre tabindex="0"><code>cd &lt;your_folder_name&gt;
+cd theme
+git clone https://github.com/zhaohuabing/hugo-theme-cleanwhite.git #更改成你选择的主题
+</code></pre><p>在把theme配置好之后，最简单的开始配置的方式是将theme中的样例站点复制到hugo源路径来，这样我们可以通过观察配置文件和站点具体效果的映射来修改相对应的代码。使用以下命令来进行复制。</p>
+<pre tabindex="0"><code>cp -r hugo-theme-cleanwhite/exampleSite/** ../
+</code></pre><p>这时我们可以测试我们的样例站点是否配置成功，使用以下命令来在<code>localhost</code>打开</p>
+<pre tabindex="0"><code>hugo server
+</code></pre><p>运行过后进入<code>http://localhost:1313/</code>即可。要修改博客网页中的元素，我们需要修改hugo.toml文件，这里可以查看选择的theme的文档来学习如何配置，这里附上Clean White的git仓库地址 <a href="https://github.com/zhaohuabing/hugo-theme-cleanwhite">https://github.com/zhaohuabing/hugo-theme-cleanwhite</a>, 修改过后保存文件，在<code>http://localhost:1313/</code>就能看到我们做出的更改。</p>
+<p>hugo的博客文章都存储在content路径下，其中content下的文件夹代表我们的具体分页，打开一个文件夹后我们可以看到该文件夹下面的所有博客文件。每一篇博客开头我们需要有该博客的相关信息，这里拿出一个作为示例（此为Clean White的配置信息，具体可以在不同theme的exampleSite进行查看）。</p>
+<pre tabindex="0"><code>---
+title:       &#34;Hugo + Github Page + Github Action博客部署方案&#34;
+subtitle:    &#34;Blog Set Up&#34;
+description: &#34;本文介绍使用Hugo作为博客源码，Github Page作为部署方案以及利用Github Action配置CI/CD&#34;
+date:        2023-11-03
+author:      &#34;不知所云集&#34;
+image:       &#34;&#34;
+tags:
+    - &#34;Hugo&#34;
+categories:  [&#34;post&#34;]
+URL:        &#34;/2023/11/03/HugoSetUp/&#34;
+draft: true
+---
+</code></pre><p>这里需要注意，如果<code>draft: true</code>存在于配置项的话那么文章是不会被看到的，需要删除这一行文章才能出现在界面上。完成配置之后我们要在下面使用markdown语法编写正文，这里不对markdown做过多赘述。</p>
+<p>如果要创建新的博客文章，运行以下命令</p>
+<pre tabindex="0"><code>hugo new post/your_blog_name.md
+</code></pre><p>这里的<code>post</code>代表content路径下的文件夹名字，<code>/</code>后面则是要创建的文件名。</p>
+<h2 id="github-pages部署">Github Pages部署</h2>
+<p>在完成我们的配置以及文章调整后，我们可以着手部署我们的博客。这里我们将使用Github pages来进行部署。首先先在Github创建一个仓库，仓库名为<code>&lt;username&gt;.github.io</code>，这里要把<code>&lt;username&gt;</code>替换为你的Github用户名，注意仓库的名字必须是这个形式，否则无法生效。</p>
+<p>把该仓库克隆到本地</p>
+<pre tabindex="0"><code>git clone https://github.com/&lt;username&gt;/&lt;username&gt;.github.io.git
+</code></pre><p>现在我们可以对hugo源文件进行打包操作，方式很简单，前往我们Hugo站点的根路径，运行以下命令</p>
+<pre tabindex="0"><code>hugo
+</code></pre><p>我们可以看到有一个./public文件夹被创建，这个文件夹就是我们需要的用于部署的静态页面，将此文件夹复制到我们克隆的Github pages文件夹下。</p>
+<p>复制过后将此文件夹的内容push到Github仓库中,</p>
+<pre tabindex="0"><code>git add --all
+git commit -m &#34;Initial Commit&#34;
+git push
+</code></pre><p>等待自动部署完毕，就可以在浏览器输入<code>https://&lt;username&gt;.github.io</code>来查看博客。</p>
+<p>Congratulations！现在你拥有了一个属于你自己的博客了。</p>
+<blockquote>
+<p>注：这里我在部署的时候出现了CSS不显示的问题，原因是因为前面配置的.toml文件出现了错误，如果你遇到了同样的问题，建议修复流程如下</p>
+<ol>
+<li>检查baseurl是否正确，形式应该为<code>baseURL = &quot;https://&lt;username&gt;.github.io&quot;</code></li>
+<li>在开头部分加入true的那个</li>
+</ol>
+</blockquote>
+<h2 id="使用github-actions配置cicd">使用Github Actions配置CI/CD</h2>
+<p>尽管现在我们已经可以编写并且修改博客，但是现在我们修改的流程十分复杂，每次在更新过后都需要构建hugo，复制public文件夹到Github pages再进行上传。为了专注于写作，我们可以通过配置CI/CD来简化该流程，这里我们选择使用Github Action来配置。</p>
+<p>首先我们需要配置我们的 <code>Personal access token</code> ，这是一种在不需要密码验证的情况下调用API进行程序化操作的方式。这里需要在Github的右侧边栏内点击Setting（点击头像弹出来的侧边栏，注意不是仓库内的Setting），在Setting中点击 <code>Developer Setting</code>。</p>
+<p>
+  <img src="/img/hugo_blog/token1.png" alt="">
+
+</p>
+<p>这里我们选择 <code>Classic Token</code> 就可以了，点击右上角的 <code>Generate new token</code></p>
+<p>
+  <img src="/img/hugo_blog/personal_access_token.png" alt="">
+
+</p>
+<p>Note随便填，在下面的 <code>Select Scopes</code> 中选择 <code>workflow</code></p>
+<p>
+  <img src="/img/hugo_blog/token2.png" alt="">
+
+</p>
+<p>点击Generate Token之后，注意及时复制生成的Token，如果退出了界面但是还没复制那就只能重新生成一个。接下来我们前往Hugo源文件的Github项目下，进入Setting，选择Secrets，在Actions中选择 <code>New repository secret</code>。</p>
+<p>
+  <img src="/img/hugo_blog/token3.png" alt="">
+
+</p>
+<p>在Name中填写PERSONAL_TOKEN(在.yml文件中设置的值)，然后在Secret中填写我们复制的Token，点击<code>Add secret</code>完成Token的生成。</p>
+<p>
+  <img src="/img/hugo_blog/token4.png" alt="">
+
+</p>
+<p>完成Token的生成后，我们要进行Github Actions的配置。先将我们的hugo根目录放到一个github仓库里面，并在仓库中添加<code>.github/workflows</code>路径，在这个路径下创建一个<code>.yml</code>文件，在这里我们需要编写CI/CD的相关信息以及具体流程。我们需要Github来帮我们完成的事项主要有</p>
+<ol>
+<li>在读取到push更改后自动构建hugo</li>
+<li>在构建hugo后自动将public文件夹下的内容上传到Github pages的文件夹</li>
+<li>在Github pages的仓库中push最新的更改从而自动调用Github pages的部署</li>
+</ol>
+<p>这里我的<code>.yml</code>文件如下：</p>
+<pre tabindex="0"><code>name: unknown_space # 替换为你的Hugo源文件仓库名
+
+on:
+  push:
+    branches:
+      - main # 分支名称，这里我的是main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v2
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: &#39;0.119.0&#39; # 替换为你的hugo版本，可以使用hugo version在命令行查看
+          extended: true #是否为extended版本
+
+      - name: Build
+        run: hugo
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }} # 另外还支持 deploy_token 和 github_token
+          external_repository: &lt;username&gt;/&lt;username&gt;.github.io # 修改为你的username
+          publish_dir: ./public
+          publish_branch: main # 目标仓库的分支名称
+</code></pre><p>完成之后我们可以上传进行测试，如果在Actions中看到build通过，等待一会之后查看我们的站点是否应用了更改。如果更改那就大功告成~ 至此我们的配置就结束了。</p>
+<p>未完待续~（会更新如何在浏览器可以被搜索到的教程）</p>
 
                 
 
@@ -228,7 +344,7 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/11/03/Hackathon%E5%8F%82%E8%B5%9B%E5%90%8E%E8%AE%B0/" data-toggle="tooltip" data-placement="top" title="Hackathon参赛后记">&larr;
+                        <a href="/2023/11/03/Hackathon%E5%8F%82%E8%B5%9B%E5%90%8E%E8%AE%B0/" data-toggle="tooltip" data-placement="top" title="Hackathon参赛后记">&larr;
                             Previous Post</a>
                     </li>
                     
@@ -282,12 +398,6 @@
                         
                         <a href="/tags/hugo" title="hugo">
                             hugo
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/tag2" title="tag2">
-                            tag2
                         </a>
                         
                         
