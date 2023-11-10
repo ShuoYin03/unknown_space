@@ -5,8 +5,7 @@ description: "本文介绍使用Hugo作为博客源码，Github Page作为部署
 date:        2023-11-02
 author:      "不知所云集"
 image:       ""
-tags:
-    - "Hugo"
+tags: ["Hugo"]
 categories:  ["post"]
 URL:        "/2023/11/03/HugoSetUp/"
 draft: false

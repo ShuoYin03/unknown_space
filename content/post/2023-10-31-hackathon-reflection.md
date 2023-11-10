@@ -7,10 +7,9 @@ excerpt:    "一塌糊涂"
 date:       2023-10-31T12:00:00
 author:     "不知所云集"
 URL:        "/2023/11/03/Hackathon参赛后记/"
-image:      "https://img.zhaohuabing.com/post-bg-2015.jpg"
 tags:
     - Hackathon
-categories: [ post ]
+categories: ["post"]
 ---
 
 >刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。

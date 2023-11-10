@@ -5,8 +5,7 @@ description: "Introduced the distributed system, trade-offs in big data"
 date:        2023-11-06
 author:      "不知所云集"
 image:       ""
-tags:
-    - "Distributed System"
+tags: ["Distributed System"]
 categories:  ["post"]
 URL:        "/2023/11/06/advanced-distributed-system-big-data/"
 draft: false
