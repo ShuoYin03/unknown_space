@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP on 不知所云集</title>
+    <link>https://shuoyin03.github.io/tags/nlp/</link>
+    <description>Recent content in NLP on 不知所云集</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NLP - Attention and Transformer</title>
+      <link>https://shuoyin03.github.io/2023/11/07/advanced-distributed-system-big-data/</link>
+      <pubDate>Tue, 07 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/11/07/advanced-distributed-system-big-data/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last time we introduce RNN structure and some advanced RNN models, this time we will have a look at the defect in RNN, how do we avoid it and what structure should we implement.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
