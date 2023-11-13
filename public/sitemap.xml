@@ -2,40 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://shuoyin03.github.io/categories/</loc>
-    <lastmod>2023-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/tags/nlp/</loc>
-    <lastmod>2023-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/2023/11/07/advanced-distributed-system-big-data/</loc>
-    <lastmod>2023-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/categories/post/</loc>
-    <lastmod>2023-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/post/</loc>
-    <lastmod>2023-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/tags/</loc>
-    <lastmod>2023-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/</loc>
-    <lastmod>2023-11-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://shuoyin03.github.io/2023/11/06/advanced-distributed-system-big-data/</loc>
     <lastmod>2023-11-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shuoyin03.github.io/tags/algorithm/</loc>
-    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</loc>
-    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/tags/data-structure/</loc>
+    <loc>https://shuoyin03.github.io/categories/</loc>
     <lastmod>2023-11-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shuoyin03.github.io/tags/distributed-system/</loc>
+    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/categories/post/</loc>
+    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/post/</loc>
+    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/tags/</loc>
+    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/</loc>
     <lastmod>2023-11-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shuoyin03.github.io/tags/hugo/</loc>

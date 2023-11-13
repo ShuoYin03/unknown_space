@@ -8,7 +8,7 @@ image:       ""
 tags: ["NLP"]
 categories:  ["post"]
 URL:        "/2023/11/07/advanced-distributed-system-big-data/"
-draft: false
+draft: true
 ---
 
 >Last time we introduce RNN structure and some advanced RNN models, this time we will have a look at the defect in RNN, how do we avoid it and what structure should we implement.

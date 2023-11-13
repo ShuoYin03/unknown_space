@@ -8,7 +8,7 @@ image:       ""
 tags: ["Algorithm", "Data Structure"]
 categories:  ["post"]
 URL:        "/2023/11/06/algorithm-and-data-structure-turing-machine/"
-draft: false
+draft: true
 ---
 
 # Turing Machine
