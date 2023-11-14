@@ -5,8 +5,8 @@ description: "本文探讨有向图，强连接分量的概念以及相关算法
 date:        2023-11-02
 author:      "不知所云集"
 image:       ""
-tags: ["Algorithm", "Data Structure"]
-categories:  ["post"]
+tags:        ["Algorithm", "Data Structure"]
+categories:  ["notes"]
 URL:        "/2023/11/03/graph_theory/"
 draft: true
 ---

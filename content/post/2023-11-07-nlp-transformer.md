@@ -6,7 +6,7 @@ date:        2023-11-07
 author:      "不知所云集"
 image:       ""
 tags: ["NLP"]
-categories:  ["post"]
+categories:  ["notes"]
 URL:        "/2023/11/07/advanced-distributed-system-big-data/"
 draft: true
 ---

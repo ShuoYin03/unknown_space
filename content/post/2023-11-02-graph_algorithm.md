@@ -6,7 +6,7 @@ date:        2023-11-03
 author:      "不知所云集"
 image:       ""
 tags: ["Algorithm", "Data Structure"]
-categories:  ["post"]
+categories:  ["notes"]
 URL:        "/2023/11/03/graph_theory/"
 draft: true
 ---

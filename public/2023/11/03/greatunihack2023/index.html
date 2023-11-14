@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     
-    <meta property="og:site_name" content="不知所云集">
+    <meta property="og:site_name" content="UNKNOWN SPACE">
     <meta property="og:type" content="article">
 
     
@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Hackathon参赛后记" />
-    <meta property="og:title" content="Hackathon参赛后记" />
-    <meta property="twitter:title" content="Hackathon参赛后记" />
+    <meta name="title" content="GreatUniHack2023 - Postscript to the competition" />
+    <meta property="og:title" content="GreatUniHack2023 - Postscript to the competition" />
+    <meta property="twitter:title" content="GreatUniHack2023 - Postscript to the competition" />
     
 
     
-    <meta name="description" content="刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。">
-    <meta property="og:description" content="刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。" />
-    <meta property="twitter:description" content="刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。" />
+    <meta name="description" content="Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future.">
+    <meta property="og:description" content="Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future." />
+    <meta property="twitter:description" content="Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future." />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Hackathon参赛后记 | TenpagesY</title>
+    <title>GreatUniHack2023 - Postscript to the competition | TenpagesY</title>
 
-    <link rel="canonical" href="/2023/11/03/Hackathon%E5%8F%82%E8%B5%9B%E5%90%8E%E8%AE%B0/">
+    <link rel="canonical" href="/2023/11/03/greatunihack2023/">
 
     
     
@@ -88,7 +88,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">不知所云集</a>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
         </div>
 
         
@@ -110,8 +110,6 @@
                     
 		    
                         <li><a href="/archive//">ARCHIVE</a></li>
-                    
-                        <li><a href="/notes//">NOTES</a></li>
                     
                         <li><a href="/about//">ABOUT</a></li>
                     
@@ -177,13 +175,13 @@
                         </a>
                         
                     </div>
-                    <h1>Hackathon参赛后记</h1>
-                    <h2 class="subheading">24小时编程马拉松赛后感想及反思</h2>
+                    <h1>GreatUniHack2023 - Postscript to the competition</h1>
+                    <h2 class="subheading">Thoughts and reflections after the 24-hour hackathon</h2>
                     <span class="meta">
                         
                             Posted by 
                             
-                                不知所云集
+                                UNKNOWN SPACE
                              
                             on 
                             Tuesday, October 31, 2023
@@ -212,19 +210,27 @@
                 post-container">
 
                 
-                <blockquote>
-<p>刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。</p>
+                <!-- >刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。 -->
+<blockquote>
+<p>Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future.</p>
 </blockquote>
 <h2 id="greatunihack-2023">GreatUniHack 2023</h2>
-<p>此次活动提供了多种挑战，以教育，气候，以及可持续发展作为主要三大主题，并且给予了多种技术相关的挑战（运用LLM技术，streamlit框架，mongoDB等等）。参赛选手以4人为单位进行开发，我们选取了教育作为主题，开发一个在线对战游戏，对战方式是运用自己的杂学知识来进行答题从而获得分数，赢取胜利。为了照顾到团队的技术水平以及熟悉的语言，我们使用了python的flask框架和React框架作为前后端，使用mongoDB作为数据库，以及使用WebSocket作为玩家连接的方式。项目的逻辑是在确认玩家成功连接之后，由前端对后端发起读取问题的请求，后端向数据库发起读取并返回结果，在前端计算结果得到获胜的玩家之后，向后端发起提高获胜玩家的天梯分数并减少失败玩家的分数的请求，自此一轮游戏结束。</p>
-<p>由于时间，团队的整体水平以及本人对WebSocket的技术并不熟悉，我们并未成功加入匹配游戏的功能。我们在其他的例如前后端的数据传输，前端的界面结构以及flask的使用上也遇到了诸多问题。总结过后需要提升的为以下几点：</p>
+<p>This event provided a variety of challenges, with education, climate, and sustainable development as the main three themes, and gave a variety of technology-related challenges (using LLM technology, streamlit framework, mongoDB, etc.). The contestants were developed in units of 4 people. We chose education as the theme to develop an online battle game. The battle method is to use your own miscellaneous knowledge to answer questions to gain points and win. In order to take into account the team&rsquo;s technical level and familiar language, we used python&rsquo;s flask framework and React framework as the front-end and back-end, mongoDB as the database, and WebSocket as the way for players to connect. The logic of the project is that after confirming that the player is successfully connected, the front end initiates a request to read the problem to the back end. The back end initiates a read to the database and returns the result. After the front end calculates the result and obtains the winning player, it initiates a request to the back end to improve the win. The player&rsquo;s ladder score and the request to reduce the failed player&rsquo;s score, from which the round of the game ends.</p>
+<!-- 此次活动提供了多种挑战，以教育，气候，以及可持续发展作为主要三大主题，并且给予了多种技术相关的挑战（运用LLM技术，streamlit框架，mongoDB等等）。参赛选手以4人为单位进行开发，我们选取了教育作为主题，开发一个在线对战游戏，对战方式是运用自己的杂学知识来进行答题从而获得分数，赢取胜利。为了照顾到团队的技术水平以及熟悉的语言，我们使用了python的flask框架和React框架作为前后端，使用mongoDB作为数据库，以及使用WebSocket作为玩家连接的方式。项目的逻辑是在确认玩家成功连接之后，由前端对后端发起读取问题的请求，后端向数据库发起读取并返回结果，在前端计算结果得到获胜的玩家之后，向后端发起提高获胜玩家的天梯分数并减少失败玩家的分数的请求，自此一轮游戏结束。 -->
+<p>Due to time, the overall level of the team, and my unfamiliarity with WebSocket technology, we met lots of troubles during adding the function of matching games. We also encountered many problems in other aspects such as front-end and back-end data transmission, front-end interface structure and the use of flask. After summarizing, the following points need to be improved:</p>
+<!-- 由于时间，团队的整体水平以及本人对WebSocket的技术并不熟悉，我们并未成功加入匹配游戏的功能。我们在其他的例如前后端的数据传输，前端的界面结构以及flask的使用上也遇到了诸多问题。总结过后需要提升的为以下几点： -->
 <ol>
-<li>需要对一个网站基本的项目结构更加了解，要熟悉前后端的数据传输，路由的使用以及数据库从创建，连接到建表等问题</li>
-<li>尽量对团队的代码风格进行统一，如果时间不允许，尽量编写注释（很惊讶我们团队四个人都没有写注释的习惯，这对开发造成了不小的困扰）</li>
-<li>明确分工，在进行项目之前明确项目的具体功能，不要抱着走一步看一步的心态，容易导致项目进度失去控制，最后一片混乱的结果</li>
+<li>Need to have a better understanding of the basic project structure of a website, and must be familiar with front-end and back-end data transmission, the use of routing, and issues such as database creation, connection, and table creation.</li>
+<li>Try to unify the team&rsquo;s coding style. If time does not allow, try to write comments (I am surprised that none of the four members of our team have the habit of writing comments, which causes a lot of trouble for development)</li>
+<li>Clarify the division of labor and the specific functions of the project before starting the project. Do not have a step-by-step mentality, which can easily lead to the project progress getting out of control and the final result being chaos.</li>
 </ol>
-<p>附言：</p>
-<p>以此文章纪念站点的第一篇博客</p>
+<!-- 1. 需要对一个网站基本的项目结构更加了解，要熟悉前后端的数据传输，路由的使用以及数据库从创建，连接到建表等问题
+2. 尽量对团队的代码风格进行统一，如果时间不允许，尽量编写注释（很惊讶我们团队四个人都没有写注释的习惯，这对开发造成了不小的困扰）
+3. 明确分工，在进行项目之前明确项目的具体功能，不要抱着走一步看一步的心态，容易导致项目进度失去控制，最后一片混乱的结果 -->
+<p>postscript:</p>
+<!-- 附言： -->
+<p>This article commemorates the site’s first blog</p>
+<!-- 以此文章纪念站点的第一篇博客 -->
 
                 
 
@@ -234,7 +240,7 @@
                     
                     
                     <li class="next">
-                        <a href="/2023/11/03/HugoSetUp/" data-toggle="tooltip" data-placement="top" title="Hugo &#43; Github Pages &#43; Github Actions 博客部署方案">Next
+                        <a href="/2023/11/03/HugoSetUp/" data-toggle="tooltip" data-placement="top" title="Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan">Next
                             Post &rarr;</a>
                     </li>
                     
@@ -385,7 +391,7 @@
            
              </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; 不知所云集 2023
+                    Copyright &copy; UNKNOWN SPACE 2023
                     <br>
                     <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
                     <iframe

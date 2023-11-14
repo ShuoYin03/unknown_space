@@ -1,5 +1,5 @@
 baseURL = "https://shuoyin03.github.io"
-title = "不知所云集"
+title = "UNKNOWN SPACE"
 theme = "hugo-theme-cleanwhite"
 languageCode = "en-us"
 preserveTaxonomyNames = true
@@ -17,8 +17,8 @@ canonifyurls = false
   header_image = "img/tag-bg.jpg"
   SEOTitle = "TenpagesY"
   description = "Blog for Shuo Yin."
-  keywords = "殷硕, YinShuo, yinshuo, Yinshuo, shuoYin, shuoyin, ShuoYin, 殷硕的网络日志, 殷硕的博客, YinShuo Blog, ShuoYin Blog, 博客, Blog, 个人网站, 互联网"
-  slogan = "反正没人看，多少写一写"
+  keywords = "殷硕, YinShuo, yinshuo, Yinshuo, shuoYin, shuoyin, ShuoYin, 殷硕的网络日志, 殷硕的博客, YinShuo Blog, ShuoYin Blog, 博客, Blog, 个人网站, 互联网, UNKNOWN SPACE"
+  slogan = "Welcome to my world"
 
   image_404 = "img/404-bg.jpg"
   title_404 = "你来到了没有知识的荒原 :("
@@ -37,7 +37,6 @@ canonifyurls = false
 
   # Sidebar settings
   sidebar_about_description = "Software Developer in Sportandmusic, Third year computer science student in the University of Manchester"
-  #sidebar_avatar = "img/avatar-zhaohuabing.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
   sidebar_avatar = "img/sign-post-5655110_640.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
 
   featured_tags = true 
@@ -88,9 +87,7 @@ canonifyurls = false
   [[params.addtional_menus]]
   title =  "ARCHIVE"
   href =  "/archive/"
-  [[params.addtional_menus]]
-  title =  "NOTES"
-  href =  "/notes/"
+
   [[params.addtional_menus]]
   title =  "ABOUT"
   href =  "/about/"
@@ -111,3 +108,5 @@ canonifyurls = false
     startLevel = 1
   [markup.highlight]
     style = "dracula"
+  [markup.goldmark.renderer]
+    unsafe=true
