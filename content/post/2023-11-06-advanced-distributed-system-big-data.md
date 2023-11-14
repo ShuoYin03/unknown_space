@@ -3,10 +3,10 @@ title:       "Advanced Distributed System - Big data"
 subtitle:    "Big Data"
 description: "Introduced the distributed system, trade-offs in big data"
 date:        2023-11-06
-author:      "不知所云集"
+author: UNKNOWN SPACE
 image:       ""
 tags:        ["Distributed System"]
-categories:  ["post"]
+categories:  ["notes"]
 URL:         "/2023/11/06/advanced-distributed-system-big-data/"
 draft: false
 ---

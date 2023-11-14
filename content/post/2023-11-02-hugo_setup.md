@@ -3,7 +3,7 @@ title:       "Hugo + Github Pages + Github Actions Blog deployment plan"
 subtitle:    "Blog Set Up"
 description: "This article introduces the use of Hugo as the blog source code, Github Page as the deployment solution and the use of Github Action to configure CI/CD"
 date:        2023-11-02T12:00:00
-author:      "UNKNOWN SPACE"
+author: UNKNOWN SPACE
 # image:       ""
 tags:        ["Hugo"]
 categories:  ["post"]
