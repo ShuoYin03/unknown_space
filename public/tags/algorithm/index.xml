@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithm on UNKNOWN SPACE</title>
+    <link>https://shuoyin03.github.io/tags/algorithm/</link>
+    <description>Recent content in Algorithm on UNKNOWN SPACE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithm and Data Structure - Turing Machine</title>
+      <link>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;In this article, we are going to look at the formal definition of Turing Machine and the therom with it.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

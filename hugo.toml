@@ -110,3 +110,6 @@ canonifyurls = false
     style = "dracula"
   [markup.goldmark.renderer]
     unsafe=true
+  [markup.goldmark.extensions]
+    [markup.goldmark.extensions.math]
+      enable = true

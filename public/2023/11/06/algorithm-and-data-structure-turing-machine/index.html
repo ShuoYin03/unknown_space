@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Algorithm and Data Structure - Turing Machine" />
+    <meta property="og:title" content="Algorithm and Data Structure - Turing Machine" />
+    <meta property="twitter:title" content="Algorithm and Data Structure - Turing Machine" />
     
 
     
-    <meta name="description" content="Blog for Shuo Yin.">
-    <meta property="og:description" content="Blog for Shuo Yin." />
-    <meta property="twitter:description" content="Blog for Shuo Yin." />
+    <meta name="description" content="Introduced Turing Machine, and the theory behind it">
+    <meta property="og:description" content="Introduced Turing Machine, and the theory behind it" />
+    <meta property="twitter:description" content="Introduced Turing Machine, and the theory behind it" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Searches | TenpagesY</title>
+    <title>Algorithm and Data Structure - Turing Machine | TenpagesY</title>
 
-    <link rel="canonical" href="/search/">
+    <link rel="canonical" href="/2023/11/06/algorithm-and-data-structure-turing-machine/">
 
     
     
@@ -159,14 +159,45 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>UNKNOWN SPACE </h1>
-                    
-		    <span class="subheading">Welcome to my world</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/algorithm" title="Algorithm">
+                            Algorithm
+                        </a>
+                        
+                        <a class="tag" href="/tags/data-structure" title="Data Structure">
+                            Data Structure
+                        </a>
+                        
+                    </div>
+                    <h1>Algorithm and Data Structure - Turing Machine</h1>
+                    <h2 class="subheading">The Machine Stops!</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Monday, November 6, 2023
+                            
+                            
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
@@ -175,275 +206,176 @@
 
 
 
-<div class="container">
-    <div class="row">
-        
-        
-   	    <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container
-        ">
-        
+
+<article>
+    <div class="container">
+        <div class="row">
+
             
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-<div id="search-searchbar"></div>
- <div class="post-list" id="search-hits">
- </div>
+                
+                <blockquote>
+<p>In this article, we are going to look at the formal definition of Turing Machine and the therom with it.</p>
+</blockquote>
+<h2 id="1-introduction-of-turing-machine">1. Introduction of turing machine</h2>
+<p>The picture below is a <code>multi-tape</code> turing machine
 
-<script>
-const search = instantsearch({
-  appId: '',
-  indexName: '',
-  apiKey: ''
-});
-
-const hitTemplate = function(hit) {
+  <img src="/img/turing-machine/image.png" alt="">
 
 
-  let date = '';
-  if (hit.date) {
-    date = moment.unix(hit.date).format('MMM D, YYYY');
-  }
-  let url = `${hit.url}#${hit.anchor}`;
-  const title = hit._highlightResult.title.value;
+In a formal definition, a turing machine could be define as a quintuple:</p>
+<p style="text-align:center;">M = [ K, Σ, Q, q0, T ]</p>
+<ol>
+<li>K ≥ 2 (number of tapes)</li>
+<li>Σ is a non-empty, finite set (alphabet)</li>
+<li>Q is a non-empty, finite set (set of states)</li>
+<li>q0 ∈ Q (initial state)</li>
+<li>T is a set of transitions (for K, Σ and Q)</li>
+</ol>
+<p>A <code>symbol</code> is an element of
 
-  let breadcrumbs = '';
-  if (hit._highlightResult.headings) {
-    breadcrumbs = hit._highlightResult.headings.map(match => {
-      return `<span class="post-breadcrumb">${match.value}</span>`
-    }).join(' > ')
-  }
-
-  let content = "" ; 
-  if (hit._highlightResult.content){
-      content = hit._highlightResult.content.value;
-  }
-  else{
-      content = hit.summary;
-  }
+  <img src="/img/turing-machine/image2.png" alt="">
 
 
-  return `
-    <div class="post-item">
-      <span class="post-meta">${date}</span>
-      <h2><a class="post-link" href="${url}">${title}</a></h2>
-      <a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>
-      <div class="post-snippet">${content}</div>
-    </div>
-  `;
-}
+which means <code>blank</code> and <code>start</code> separately.<br>
+We denote the <code>set of finite strings</code> over Σ by Σ∗</p>
+<p>A <code>transition</code> is also a quintuple:</p>
+<p style="text-align:center;">[ p, s¯, q, t¯, d¯ ]</p>
+<ol>
+<li>p ∈ Q and q ∈ Q</li>
+<li>s¯ and t¯ are K-tuples of symbols</li>
+<li>d¯ is a K-tuple whose elements from {left, right, stay}</li>
+</ol>
+<p><strong>An informal explanation is</strong>: If you are in state p, and the current node being scanned is s¯, then set the new state to be q, write the symbol of t¯ on the tape and move as what d¯ says.</p>
+<p>Here are few rules that a Turing Machine must follows:</p>
+<ol>
+<li>The tape never moves to the left of <code>start</code> symbol.</li>
+<li>Tape one is <code>read-only</code> and the last tape (K tape) is <code>write-only</code>.</li>
+<li>the start symbol doesn&rsquo;t involves in the transition</li>
+<li>nothing is over-written with blank</li>
+</ol>
+<p>A <code>Configuration</code> is a set of snap shots of the turing machine which successive ones could form some transitions T, and a <code>run</code> of turing machine could be defined as a sequence of configurations. Formally, a configuration is a K-tuple of String, σ1 &hellip; σk, where each σ represents one element in the form:</p>
+<p style="text-align:center;">start symbol, sk,1, ... , sk,i−1, q, sk,i, ... , sk,n(k)</p>
+This states that the head is currently at position i, where sk,i-1 is not scanned yet, and the current state is q.
+<ol>
+<li>if some transition is possible in a configuration of the run, then this is not the last configuration.</li>
+<li>If the run is finite, then the turing machine is terminating</li>
+<li>A <code>deterministic</code> turing machine M means, there is at most one transition T for each p and s¯. <strong>M ↓ x</strong> means a deterministic turing machine is terminating with input x, and <strong>M ↑ x</strong> is the opposite (non-terminating).</li>
+</ol>
+<p>(To be continues&hellip;)</p>
 
+                
 
-search.addWidget(
-  instantsearch.widgets.searchBox({
-    container: '#search-searchbar',
-    placeholder: 'Search into posts...',
-    poweredBy: true 
-  })
-);
-
-search.addWidget(
-  instantsearch.widgets.hits({
-    container: '#search-hits',
-    templates: {
-      item: hitTemplate
-    }
-  })
-);
-
-search.start();
-</script>
-
-<style>
-.ais-search-box {
-  max-width: 100%;
-  margin-bottom: 15px;
-}
-.post-item {
-  margin-bottom: 30px;
-}
-.post-link .ais-Highlight {
-  color: #111;
-  font-style: normal;
-  text-decoration: underline;
-}
-.post-breadcrumbs {
-  color: #424242;
-  display: block;
-}
-.post-breadcrumb {
-  font-size: 18px;
-  color: #424242;
-}
-.post-breadcrumb .ais-Highlight {
-  font-weight: bold;
-  font-style: normal;
-}
-.post-snippet .ais-Highlight {
-  color: #2a7ae2;
-  font-style: normal;
-  font-weight: bold;
-}
-.post-snippet img {
-  display: none;
-}
-</style>
-
-        
-       	</div>
-        
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            
-            
-            
-                    <a href="/tags/algorithm" title="algorithm">
-                        algorithm
-                    </a>
-            
-            
-            
-                    <a href="/tags/data-structure" title="data-structure">
-                        data-structure
-                    </a>
-            
-            
-            
-                    <a href="/tags/distributed-system" title="distributed-system">
-                        distributed-system
-                    </a>
-            
-            
-            
-                    <a href="/tags/hackathon" title="hackathon">
-                        hackathon
-                    </a>
-            
-            
-            
-                    <a href="/tags/hugo" title="hugo">
-                        hugo
-                    </a>
-            
-            
-        </div>
-    </section>
-    
-
-    
-	
-    <section class="visible-md visible-lg">
-        <hr>
-	
-        <div class="short-about">
-            
-            <a href="/about">
-               <img src="/img/sign-post-5655110_640.png" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Software Developer in Sportandmusic, Third year computer science student in the University of Manchester</p>
-            
-           
-           <ul class="list-inline">
-               
-               <li>
-                   <a href="mailto:shuoyin03@gmail.com">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                      </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="/img/wechat.jpg">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/ShuoYin03">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-            
-            
-               
-               
-               
-               
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2023/11/03/HugoSetUp/" data-toggle="tooltip" data-placement="top" title="Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2023/11/06/advanced-distributed-system-big-data/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Big data">Next
+                            Post &rarr;</a>
+                    </li>
+                    
                 </ul>
+                
+
+                
+
+
+
             </div>
-    </section>
-	
-    
-    
-   
 
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FRIENDS</h5>
-        <ul class="list-inline">
             
-            <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
             
-        </ul>
-    </section>
-    
-    
-</div>
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
 
-	</div>
-</div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data-structure">
+                            data-structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed-system">
+                            distributed-system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hackathon" title="hackathon">
+                            hackathon
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
 
 
 

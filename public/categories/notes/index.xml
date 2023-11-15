@@ -18,5 +18,16 @@
 &lt;/blockquote&gt;</description>
     </item>
     
+    <item>
+      <title>Algorithm and Data Structure - Turing Machine</title>
+      <link>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;In this article, we are going to look at the formal definition of Turing Machine and the therom with it.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
   </channel>
 </rss>
