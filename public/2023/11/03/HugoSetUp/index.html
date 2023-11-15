@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="UNKNOWN SPACE">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://shuoyin03.github.io/img/tag-bg.jpg">
+    <meta property="twitter:image" content="https://shuoyin03.github.io/img/tag-bg.jpg" />
+    
+
+    
+    <meta name="title" content="Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan" />
+    <meta property="og:title" content="Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan" />
+    <meta property="twitter:title" content="Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan" />
+    
+
+    
+    <meta name="description" content="This article introduces the use of Hugo as the blog source code, Github Page as the deployment solution and the use of Github Action to configure CI/CD">
+    <meta property="og:description" content="This article introduces the use of Hugo as the blog source code, Github Page as the deployment solution and the use of Github Action to configure CI/CD" />
+    <meta property="twitter:description" content="This article introduces the use of Hugo as the blog source code, Github Page as the deployment solution and the use of Github Action to configure CI/CD" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan | TenpagesY</title>
+
+    <link rel="canonical" href="/2023/11/03/HugoSetUp/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/post/">post</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive//">ARCHIVE</a></li>
+                    
+                        <li><a href="/about//">ABOUT</a></li>
+                    
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/hugo" title="Hugo">
+                            Hugo
+                        </a>
+                        
+                    </div>
+                    <h1>Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan</h1>
+                    <h2 class="subheading">Blog Set Up</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Thursday, November 2, 2023
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <!-- >记忆里自从2021年开始就计划着要弄博客，结果一直想法大于行动，一直拖到了现在才弄好，老拖延症了，这里分享一下我创建博客的过程以便大家参考与复制 -->
+<blockquote>
+<p>In my memory, I have been planning to start a blog since 2021, but the idea has always been greater than the action. It has been delayed until now. I am an old procrastinator&hellip; I will share my process of creating a blog for your reference and copying.</p>
+</blockquote>
+<!-- ## Hugo的安装与配置 -->
+<h2 id="hugo-installation-and-configuration">Hugo Installation and Configuration</h2>
+<!-- 要在windows上使用Hugo， 首先要安装**Git**，**Go**，以及**Dart Sass**，虽然不是所有情况下都需要，但是这三种语言和工具是最常见的。这里可以前往对应的官网进行安装，此处就不对安装过多赘述了。 -->
+<p>To use Hugo on Windows, you must first install <strong>Git</strong>, <strong>Go</strong>, and <strong>Dart Sass</strong>. Although not required in all cases, these three languages and tools are the most common. Here you can go to the corresponding official website to install it. I won’t go into too much detail about the installation here.</p>
+<!-- 安装链接： -->
+<p>Installation Link:<br>
+<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a><br>
+<a href="https://go.dev/doc/install">Go</a><br>
+<a href="https://gohugo.io/hugo-pipes/transpile-sass-to-css/#dart-sass">Dart Sass</a></p>
+<!-- 完成安装之后，我们需要在hugo的theme里面选择一个作为主题，我这里使用的是[Clean White](https://themes.gohugo.io/themes/hugo-theme-cleanwhite/)主题。选好之后我们使用hugo命令创建新的站点 -->
+<p>After completing the installation, we need to choose a theme from hugo&rsquo;s theme. I am using the <a href="https://themes.gohugo.io/themes/hugo-theme-cleanwhite/">Clean White</a> theme. After selecting, we use the hugo command to create a new site.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site
+</span></span></code></pre></div><!-- 随后进入主目录，将选定的主题clone到theme路径下 -->
+<p>Then enter the home directory and clone the selected theme to the theme path.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> &lt;your_folder_name&gt;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> theme
+</span></span><span style="display:flex;"><span>git clone https://github.com/zhaohuabing/hugo-theme-cleanwhite.git <span style="color:#6272a4"># your theme</span>
+</span></span></code></pre></div><!-- 在把theme配置好之后，最简单的开始配置的方式是将theme中的样例站点复制到hugo源路径来，这样我们可以通过观察配置文件和站点具体效果的映射来修改相对应的代码。使用以下命令来进行复制。 -->
+<p>After configuring the theme, the easiest way to start the configuration is to copy the sample site in the theme to the hugo source path, so that we can modify the corresponding code by observing the mapping between the configuration file and the specific effects of the site. Use the following command to copy.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r hugo-theme-cleanwhite/exampleSite/** ../
+</span></span></code></pre></div><!-- 这时我们可以测试我们的样例站点是否配置成功，使用以下命令来在`localhost`打开 -->
+<p>At this time we can test whether our sample site is configured successfully and use the following command to open it on <code>localhost</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
+</span></span></code></pre></div><!-- 运行过后进入`http://localhost:1313/`即可。要修改博客网页中的元素，我们需要修改hugo.toml文件，这里可以查看选择的theme的文档来学习如何配置，这里附上Clean White的git仓库地址 https://github.com/zhaohuabing/hugo-theme-cleanwhite, 修改过后保存文件，在`http://localhost:1313/`就能看到我们做出的更改。
+
+hugo的博客文章都存储在content路径下，其中content下的文件夹代表我们的具体分页，打开一个文件夹后我们可以看到该文件夹下面的所有博客文件。每一篇博客开头我们需要有该博客的相关信息，这里拿出一个作为示例（此为Clean White的配置信息，具体可以在不同theme的exampleSite进行查看）。 -->
+<p>After running, enter <code>http://localhost:1313/</code>. To modify the elements in the blog web page, we need to modify the hugo.toml file. Here you can view the documentation of the selected theme to learn how to configure it. Here is the Clean White git warehouse address <a href="https://github.com/zhaohuabing/hugo-">https://github.com/zhaohuabing/hugo-</a> theme-cleanwhite, save the file after modification, and you can see the changes we made at <code>http://localhost:1313/</code>.</p>
+<p>Hugo&rsquo;s blog posts are stored under the content path, where the folder under content represents our specific paging. After opening a folder, we can see all the blog files under the folder. At the beginning of each blog, we need to have relevant information about the blog. Here is one as an example (this is the configuration information of Clean White, which can be viewed in the exampleSite of different themes).</p>
+<!-- ---
+title:       "Hugo + Github Page + Github Action博客部署方案"
+subtitle:    "Blog Set Up"
+description: "本文介绍使用Hugo作为博客源码，Github Page作为部署方案以及利用Github Action配置CI/CD"
+date:        2023-11-03
+author:      "不知所云集"
+image:       ""
+tags:
+    - "Hugo"
+categories:  ["post"]
+URL:        "/2023/11/03/HugoSetUp/"
+draft: true
+--- -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title:       <span style="color:#f1fa8c">&#34;Hugo + Github Pages + Github Actions Blog deployment plan&#34;</span>
+</span></span><span style="display:flex;"><span>subtitle:    <span style="color:#f1fa8c">&#34;Blog Set Up&#34;</span>
+</span></span><span style="display:flex;"><span>description: <span style="color:#f1fa8c">&#34;This article introduces the use of Hugo as the blog source code, Github Page as the deployment solution and the use of Github   Action to configure CI/CD&#34;</span>
+</span></span><span style="display:flex;"><span>date:        2023-11-02
+</span></span><span style="display:flex;"><span>author:      <span style="color:#f1fa8c">&#34;UNKNOWN SPACE&#34;</span>
+</span></span><span style="display:flex;"><span>image:       <span style="color:#f1fa8c">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>tags:        <span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#34;Hugo&#34;</span><span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>categories:  <span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#34;post&#34;</span><span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>URL:         <span style="color:#f1fa8c">&#34;/2023/11/03/HugoSetUp/&#34;</span>
+</span></span><span style="display:flex;"><span>draft:       <span style="color:#8be9fd;font-style:italic">false</span>
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><!-- 这里需要注意，如果`draft: true`存在于配置项的话那么文章是不会被看到的，需要删除这一行文章才能出现在界面上。完成配置之后我们要在下面使用markdown语法编写正文，这里不对markdown做过多赘述。
+
+如果要创建新的博客文章，运行以下命令 -->
+<p>It should be noted here that if <code>draft: true</code> exists in the configuration item, the article will not be seen. You need to delete this line before the article can appear on the interface. After completing the configuration, we will use markdown syntax to write the text below. I will not go into details about markdown here.</p>
+<p>If you want to create a new blog post, run the following command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new post/your_blog_name.md
+</span></span></code></pre></div><!-- 这里的`post`代表content路径下的文件夹名字，`/`后面则是要创建的文件名。 -->
+<p>Here <code>post</code> represents the folder name under the content path, and <code>/</code> is followed by the name of the file to be created.</p>
+<!-- ## Github Pages部署 -->
+<h2 id="github-pages-deployment">Github Pages Deployment</h2>
+<!-- 在完成我们的配置以及文章调整后，我们可以着手部署我们的博客。这里我们将使用Github pages来进行部署。首先先在Github创建一个仓库，仓库名为`<username>.github.io`，这里要把`<username>`替换为你的Github用户名，注意仓库的名字必须是这个形式，否则无法生效。
+
+把该仓库克隆到本地 -->
+<p>After completing our configuration and article adjustments, we can start deploying our blog. Here we will use Github pages for deployment. First, create a warehouse on Github. The warehouse name is <code>&lt;username&gt;.github.io</code>. Here you need to replace <code>&lt;username&gt;</code> with your Github username. Note that the name of the warehouse must be in this form, otherwise it will not take effect.</p>
+<p>Clone the repository locally</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/&lt;username&gt;/&lt;username&gt;.github.io.git
+</span></span></code></pre></div><!-- 现在我们可以对hugo源文件进行打包操作，方式很简单，前往我们Hugo站点的根路径，运行以下命令 -->
+<p>Now we can package the hugo source files. The method is very simple. Go to the root path of our Hugo site and run the following command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><!-- 我们可以看到有一个./public文件夹被创建，这个文件夹就是我们需要的用于部署的静态页面，将此文件夹复制到我们克隆的Github pages文件夹下。
+
+复制过后将此文件夹的内容push到Github仓库中 -->
+<p>We can see that a ./public folder has been created. This folder is the static page we need for deployment. Copy this folder to the Github pages folder we cloned.</p>
+<p>After copying, push the contents of this folder to the Github repository.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add --all
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#f1fa8c">&#34;Initial Commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div><!-- 等待自动部署完毕，就可以在浏览器输入`https://<username>.github.io`来查看博客。
+
+Congratulations！现在你拥有了一个属于你自己的博客了。 -->
+<p>After the automatic deployment is completed, you can enter <code>https://&lt;username&gt;.github.io</code> in the browser to view the blog.</p>
+<p>Congratulations! Now you have a blog of your own.</p>
+<!-- >注：这里我在部署的时候出现了CSS不显示的问题，原因是因为前面配置的.toml文件出现了错误，如果你遇到了同样的问题，建议修复流程如下  
+>1. 检查baseurl是否正确，形式应该为`baseURL = "https://<username>.github.io"`
+>2. 在开头部分加入true的那个 -->
+<blockquote>
+<p>Note: Here I encountered the problem of CSS not being displayed during deployment. The reason is that there was an error in the .toml file configured earlier. If you encounter the same problem, the recommended repair process is as follows</p>
+<ol>
+<li>Check whether the baseurl is correct, the form should be <code>baseURL = &quot;https://&lt;username&gt;.github.io&quot;</code></li>
+<li>Add the true one at the beginning</li>
+</ol>
+</blockquote>
+<!-- ## 使用Github Actions配置CI/CD -->
+<h2 id="github-actions-cicd-configurations">Github Actions CI/CD Configurations</h2>
+<!-- 尽管现在我们已经可以编写并且修改博客，但是现在我们修改的流程十分复杂，每次在更新过后都需要构建hugo，复制public文件夹到Github pages再进行上传。为了专注于写作，我们可以通过配置CI/CD来简化该流程，这里我们选择使用Github Action来配置。
+
+首先我们需要配置我们的 `Personal access token` ，这是一种在不需要密码验证的情况下调用API进行程序化操作的方式。这里需要在Github的右侧边栏内点击Setting（点击头像弹出来的侧边栏，注意不是仓库内的Setting），在Setting中点击 `Developer Setting`。 -->
+<p>Although we can now write and modify blogs, our modification process is very complicated now. Every time we update, we need to build hugo, copy the public folder to Github pages, and then upload it. In order to focus on writing, we can simplify the process by configuring CI/CD. Here we choose to use Github Action to configure.</p>
+<p>First we need to configure our <code>Personal access token</code>, which is a way to call the API for programmatic operations without requiring password verification. Here you need to click Setting in the right sidebar of Github (click the sidebar that pops up on the avatar, note that it is not Setting in the warehouse), and click <code>Developer Setting</code> in Setting.</p>
+<p>
+  <img src="/img/hugo_blog/token1.png" alt="">
+
+</p>
+<!-- 这里我们选择 `Classic Token` 就可以了，点击右上角的 `Generate new token` -->
+<p>Here we just select <code>Classic Token</code> and click <code>Generate new token</code> in the upper right corner</p>
+<p>
+  <img src="/img/hugo_blog/personal_access_token.png" alt="">
+
+</p>
+<!-- Note随便填，在下面的 `Select Scopes` 中选择 `workflow` -->
+<p>Fill in whatever you want with Note, select <code>workflow</code> in <code>Select Scopes</code> below</p>
+<p>
+  <img src="/img/hugo_blog/token2.png" alt="">
+
+</p>
+<!-- 点击Generate Token之后，注意及时复制生成的Token，如果退出了界面但是还没复制那就只能重新生成一个。接下来我们前往Hugo源文件的Github项目下，进入Setting，选择Secrets，在Actions中选择 `New repository secret`。 -->
+<p>After clicking Generate Token, pay attention to copy the generated Token in time. If you exit the interface but have not copied it, you can only regenerate one. Next, we go to the Github project of the Hugo source file, enter Settings, select Secrets, and select <code>New repository secret</code> in Actions.</p>
+<p>
+  <img src="/img/hugo_blog/token3.png" alt="">
+
+</p>
+<!-- 在Name中填写PERSONAL_TOKEN(在.yml文件中设置的值)，然后在Secret中填写我们复制的Token，点击`Add secret`完成Token的生成。 -->
+<p>Fill in PERSONAL_TOKEN (the value set in the .yml file) in Name, then fill in the Token we copied in Secret, and click <code>Add secret</code> to complete the Token generation.</p>
+<p>
+  <img src="/img/hugo_blog/token4.png" alt="">
+
+</p>
+<!-- 完成Token的生成后，我们要进行Github Actions的配置。先将我们的hugo根目录放到一个github仓库里面，并在仓库中添加`.github/workflows`路径，在这个路径下创建一个`.yml`文件，在这里我们需要编写CI/CD的相关信息以及具体流程。我们需要Github来帮我们完成的事项主要有
+
+1. 在读取到push更改后自动构建hugo
+2. 在构建hugo后自动将public文件夹下的内容上传到Github pages的文件夹
+3. 在Github pages的仓库中push最新的更改从而自动调用Github pages的部署
+
+这里我的`.yml`文件如下： -->
+<p>After completing the generation of Token, we need to configure Github Actions. First put our hugo root directory into a github warehouse, add the <code>.github/workflows</code> path in the warehouse, and create a <code>.yml</code> file under this path. Here we need to write CI/CD related information and specific procedures. The main things we need Github to help us complete are:</p>
+<ol>
+<li>Automatically build hugo after reading push changes</li>
+<li>After building hugo, automatically upload the contents of the public folder to the Github pages folder.</li>
+<li>Push the latest changes in the Github pages repository to automatically call the deployment of Github pages</li>
+</ol>
+<p>Here my <code>.yml</code> file is as follows:</p>
+<!-- name: unknown_space # 替换为你的Hugo源文件仓库名
+
+on:
+  push:
+    branches:
+      - main # 分支名称，这里我的是main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v2
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.119.0' # 替换为你的hugo版本，可以使用hugo version在命令行查看
+          extended: true #是否为extended版本
+
+      - name: Build
+        run: hugo
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }} # 另外还支持 deploy_token 和 github_token
+          external_repository: <username>/<username>.github.io # 修改为你的username
+          publish_dir: ./public
+          publish_branch: main # 目标仓库的分支名称 -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>name: unknown_space <span style="color:#6272a4"># Replace with the name of your Hugo source file repository</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>on:
+</span></span><span style="display:flex;"><span>  push:
+</span></span><span style="display:flex;"><span>    branches:
+</span></span><span style="display:flex;"><span>      - main <span style="color:#6272a4"># Branch name，here mine is main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>  build-deploy:
+</span></span><span style="display:flex;"><span>    runs-on: ubuntu-latest
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>      - name: Check out <span style="color:#8be9fd;font-style:italic">source</span>
+</span></span><span style="display:flex;"><span>        uses: actions/checkout@v2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - name: Setup Hugo
+</span></span><span style="display:flex;"><span>        uses: peaceiris/actions-hugo@v2
+</span></span><span style="display:flex;"><span>        with:
+</span></span><span style="display:flex;"><span>          hugo-version: <span style="color:#f1fa8c">&#39;0.119.0&#39;</span> <span style="color:#6272a4"># replace to your hugo version，use hugo version to check at command line</span>
+</span></span><span style="display:flex;"><span>          extended: <span style="color:#8be9fd;font-style:italic">true</span> <span style="color:#6272a4"># extended hugo version or not (chosed while installation)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - name: Build
+</span></span><span style="display:flex;"><span>        run: hugo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - name: Deploy
+</span></span><span style="display:flex;"><span>        uses: peaceiris/actions-gh-pages@v3
+</span></span><span style="display:flex;"><span>        with:
+</span></span><span style="display:flex;"><span>          personal_token: <span style="color:#f1fa8c">${</span>{ secrets.PERSONAL_TOKEN <span style="color:#f1fa8c">}</span><span style="color:#ff79c6">}</span> <span style="color:#6272a4"># deploy token and github token are also supported</span>
+</span></span><span style="display:flex;"><span>          external_repository: &lt;username&gt;/&lt;username&gt;.github.io <span style="color:#6272a4"># change to your username</span>
+</span></span><span style="display:flex;"><span>          publish_dir: ./public
+</span></span><span style="display:flex;"><span>          publish_branch: main <span style="color:#6272a4"># target branch name</span>
+</span></span></code></pre></div><!-- 完成之后我们可以上传进行测试，如果在Actions中看到build通过，等待一会之后查看我们的站点是否应用了更改。如果更改那就大功告成~ 至此我们的配置就结束了。
+
+未完待续~（会更新如何在浏览器可以被搜索到的教程） -->
+<p>After completion, we can upload it for testing. If we see that the build passed in Actions, wait for a while and see if the changes have been applied to our site. If you change it, you&rsquo;re done~ At this point, our configuration is over.</p>
+<p>To be continued~ (The tutorial on how to be searchable in the browser will be updated)</p>
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2023/11/03/greatunihack2023/" data-toggle="tooltip" data-placement="top" title="GreatUniHack2023 - Postscript to the competition">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2023/11/06/advanced-distributed-system-big-data/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Big data">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed-system">
+                            distributed-system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hackathon" title="hackathon">
+                            hackathon
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:shuoyin03@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ShuoYin03">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; UNKNOWN SPACE 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
