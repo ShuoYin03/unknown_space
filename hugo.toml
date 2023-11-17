@@ -31,7 +31,6 @@ enableInlineShortcodes = true
   leancloud_app_id = "9spQYPAdW2ZvD7F1V3UylWen-MdYXbMMI"
   leancloud_app_key = "9qhKCyOdnaK1FhYrpB73zKis"
 
-
   # algolia site search
   algolia_search = true
   algolia_appId = ""
