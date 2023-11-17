@@ -12,7 +12,7 @@ draft: true
 ---
 
 <!--more-->
-## 1. 有向图相关概念 | Concepts of Directed Graph
+## 有向图相关概念 | Concepts of Directed Graph
 
 一个有向图可以被定义为一个二元组G = (V, E), 其中V代表了有限的，非空的点的集合，而E则代表点和点之间边的集合。如果在u，v之间存在一条边 e = (u, v) ∈ E，那么u与v相邻，同时与该边e相邻。  
 <!-- A directed graph could be define as a tuple G = (V, E), which V symbolize a  -->

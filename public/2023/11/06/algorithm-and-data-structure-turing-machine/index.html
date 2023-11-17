@@ -328,7 +328,7 @@ $(function() {
 });
 </script>
 
-                                <br><br><span class="meta">688 Words, Read 4 minutes</span>
+                                <br><br><span class="meta">933 Words, Read 5 minutes</span>
                             
                             
                             
@@ -357,13 +357,14 @@ $(function() {
                 <blockquote>
 <p>In this article, we are going to look at the formal definition of Turing Machine and the therom with it.</p>
 </blockquote>
-<h2 id="1-introduction-of-turing-machine">1. Introduction of turing machine</h2>
+<h2 id="introduction-of-turing-machine">Introduction of turing machine</h2>
 <p>The picture below is a <code>multi-tape</code> turing machine
 
   <img src="/img/turing-machine/image.png" alt="">
 
-
-In a formal definition, a turing machine could be define as a quintuple:</p>
+</p>
+<h3 id="definition">Definition</h3>
+<p>In a formal definition, a turing machine could be define as a quintuple:</p>
 <p style="text-align:center;">M = [ K, Σ, Q, q0, T ]</p>
 <ol>
 <li>K ≥ 2 (number of tapes)</li>
@@ -372,6 +373,7 @@ In a formal definition, a turing machine could be define as a quintuple:</p>
 <li>q0 ∈ Q (initial state)</li>
 <li>T is a set of transitions (for K, Σ and Q)</li>
 </ol>
+<h3 id="symbol">Symbol</h3>
 <p>A <code>symbol</code> is an element of
 
   <img src="/img/turing-machine/image2.png" alt="">
@@ -379,6 +381,7 @@ In a formal definition, a turing machine could be define as a quintuple:</p>
 
 which means <code>blank</code> and <code>start</code> separately.<br>
 We denote the <code>set of finite strings</code> over Σ by Σ∗</p>
+<h3 id="transition">Transition</h3>
 <p>A <code>transition</code> is also a quintuple:</p>
 <p style="text-align:center;">[ p, s¯, q, t¯, d¯ ]</p>
 <ol>
@@ -397,6 +400,7 @@ We denote the <code>set of finite strings</code> over Σ by Σ∗</p>
 <li>the start symbol doesn&rsquo;t involves in the transition</li>
 <li>nothing is over-written with blank</li>
 </ol>
+<h3 id="configuration">Configuration</h3>
 <p>A <code>Configuration</code> is a set of snap shots of the turing machine which successive ones could form some transitions T, and a <code>run</code> of turing machine could be defined as a sequence of configurations. Formally, a configuration is a K-tuple of String, σ1 &hellip; σk, where each σ represents one element in the form:</p>
 <p style="text-align:center;">start symbol, sk,1, ... , sk,i−1, q, sk,i, ... , sk,n(k)</p>
 This states that the head is currently at position i, where sk,i-1 is not scanned yet, and the current state is q.
@@ -411,6 +415,7 @@ This states that the head is currently at position i, where sk,i-1 is not scanne
 </blockquote>
 <p style="text-align:center;">fM(x) = if M ↓ x then y else undefined</p>
 <p>In this case M <code>computes</code> the function fM. A partial function f : Σ∗ → Σ∗ is <code>computable</code> if it is computed by some (deterministic) Turing machine.</p>
+<h3 id="encoding">Encoding</h3>
 <p>A turing machine could be encoding into digits (prime power encoding). If we encode a turing machine M with code m, then we could input <strong>m;x</strong>(input x to a encoded turing machine m) to other turing machines.</p>
 <p>Definition:</p>
 <blockquote>
@@ -427,7 +432,31 @@ A language is <code>recursively enumerable</code> (simplified as r.e.) if there 
 A language L over alphabet Σ is <code>co-recursively enumerable</code> (simplified as co-r.e.) if Σ∗ \ L is r.e.<br>
 A language is <code>recursive</code> if and only if it is both r.e. and co-r.e.</p>
 </blockquote>
-<p>(To be continues&hellip;)</p>
+<h2 id="decision-problem--decidable-problem">Decision Problem &amp; Decidable Problem</h2>
+<p>A <code>decision problem</code> is some problem which has a yes or no answer in some language, and a <code>recursive problem</code> is some problem which test whether a decision problem is <code>decidable</code> (possible to give an answer).</p>
+<p>We represent decision problems in this form:
+
+  <img src="/img/turing-machine/image3.png" alt="">
+
+
+An example of this kind of problem could be: To decide whether a number is a prime number.</p>
+<p>And an example of recursion problem is (Halting problem):
+
+  <img src="/img/turing-machine/image4.png" alt="">
+
+
+This is an undicidable problem. Here&rsquo;s the prove (First appear in 1936):</p>
+<p>Suppose we have a turing machine H which, for every deterministic turing machine M with an x as its input, H returns yes if M ↓ x and no if M ↑ x. In another words, we have a turing machine which could solves the halting problem! Here we define another turing machine H*, it has a structure like this picture:
+
+  <img src="/img/turing-machine/image5.png" alt="">
+
+</p>
+<p>It takes an input to H. If H returns yes, then H* goes to a loop never ends. And if no, H* halts. Now, if H* take the code h* (which is itself) as the input, we will have two results.</p>
+<ol>
+<li>If H returns a yes (H halts on h*), H* goes to the loop never ends, H* never halts.</li>
+<li>If H returns a no (H doesn&rsquo;t halt on h*), H* halts.</li>
+</ol>
+<p>These two results are two paradox which proves that, the H we defined will never exist, so the Halting problem is a undecidable problem!</p>
 
 
                 
@@ -577,6 +606,15 @@ A language is <code>recursive</code> if and only if it is both r.e. and co-r.e.<
             
             
            
+                   <li>
+                       <a href='/2023/11/06/algorithm-and-data-structure-turing-machine/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
              </ul>
 		<p class="copyright text-muted">
                     Copyright &copy; UNKNOWN SPACE 2023

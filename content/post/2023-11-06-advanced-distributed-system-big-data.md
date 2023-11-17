@@ -14,7 +14,7 @@ draft: false
 >In a shared nothing infrastructure, data storage, update, access and processing takes place across a collection of networked machines. To enhance the performance, processing needs to be take place in parallel, which we have to distribute data, and that's partition. This article will gives an rough idea of partition techniques and details needs to be consider.
 
 <!--more-->
-## 1. Partition
+## Partition
 ![](/img/distributed-bigdata/pic.png)
 By definition, partition involves deciding how to assign data from a sources to distributed nodes.Take the above image as an example, we could do partition in these ways:  
 
@@ -55,14 +55,14 @@ Partitioning by key means choosing a suitable key
     | Not subject to skew               | Id, Name, Town, Size |
 
 
-## 2. Repartitioning
+## Repartitioning
 
-### 1. Skew and Hot Spots
+### Skew and Hot Spots
 `Skew` is when partitioning is uneven. For example, a partitioning on the first letter of Country in the University table.  
 A `hot spot` arises when the load is unevenly balanced. For example, many more people may look up some
 universities than others.
 
-### 2. Method  
+### Method  
 Repartitioning involves moving the data from one partition to another.  
 **Example:**  Partition by Id, use a hash function **Hash(x) = Id(x) mod #nodes**
 ![](/img/distributed-bigdata/pic1.png)
@@ -83,7 +83,7 @@ Two steps need to be taken to find a partition for value v:
 In this case the `fraction moved` is: **1 / #nodes + 1**  
 In the previous example `fraction moved` is 1/4
 
-## 3. Secondary Indexes
+## Secondary Indexes
 
 The `Ranging` and `Hashing` methods are better performed when key is widely used. NoSQL are always designed to support applications use `Id` or `names` as primary key. However, it's better for us to have multiple access routes to avoid `scanning`. In this case we use `secondary index` - the index on an attribute that has not been used for partitioning.  
 
@@ -95,7 +95,7 @@ Example: In this table, the data is partitioned by name. Does the hash index on 
 | Which Uni have > 40,000 students | No                         | Range index on size         |
 | Which Uni are in Manchester      | No                         | Hash or range index on town |
 
-### 1. Local Secondary Index
+### Local Secondary Index
 A key question is that where should we store these secondary index? Here are few options to do it:  
 
 1. Store the secondary index on the same node as the data it is indexing.
@@ -110,7 +110,7 @@ A key question is that where should we store these secondary index? Here are few
     | ---- | ---- |
     | Index lookups no longer need to go to all nodes (note some index lookups will have no hits) | Updates to a document on a node now also lead to index updates (and thus potentially to distributed transactions) |
 
-## 4. Partitioning for Evaluation
+## Partitioning for Evaluation
 
 After we talked about how to do partitioning, we should discuss about when. In one case, data need partitioning while requests are being evaluated.
 

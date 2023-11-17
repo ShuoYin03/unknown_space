@@ -324,7 +324,7 @@ $(function() {
 });
 </script>
 
-                                <br><br><span class="meta">761 Words, Read 4 minutes</span>
+                                <br><br><span class="meta">754 Words, Read 4 minutes</span>
                             
                             
                             
@@ -353,7 +353,7 @@ $(function() {
                 <blockquote>
 <p>In a shared nothing infrastructure, data storage, update, access and processing takes place across a collection of networked machines. To enhance the performance, processing needs to be take place in parallel, which we have to distribute data, and that&rsquo;s partition. This article will gives an rough idea of partition techniques and details needs to be consider.</p>
 </blockquote>
-<h2 id="1-partition">1. Partition</h2>
+<h2 id="partition">Partition</h2>
 <p>
   <img src="/img/distributed-bigdata/pic.png" alt="">
 
@@ -475,12 +475,12 @@ Partitioning by key means choosing a suitable key</p>
 </table>
 </li>
 </ol>
-<h2 id="2-repartitioning">2. Repartitioning</h2>
-<h3 id="1-skew-and-hot-spots">1. Skew and Hot Spots</h3>
+<h2 id="repartitioning">Repartitioning</h2>
+<h3 id="skew-and-hot-spots">Skew and Hot Spots</h3>
 <p><code>Skew</code> is when partitioning is uneven. For example, a partitioning on the first letter of Country in the University table.<br>
 A <code>hot spot</code> arises when the load is unevenly balanced. For example, many more people may look up some
 universities than others.</p>
-<h3 id="2-method">2. Method</h3>
+<h3 id="method">Method</h3>
 <p>Repartitioning involves moving the data from one partition to another.<br>
 <strong>Example:</strong>  Partition by Id, use a hash function <strong>Hash(x) = Id(x) mod #nodes</strong>
 
@@ -504,7 +504,7 @@ In this case of uniform distribution and mode-based partitioning, the number of 
 </ol>
 <p>In this case the <code>fraction moved</code> is: <strong>1 / #nodes + 1</strong><br>
 In the previous example <code>fraction moved</code> is 1/4</p>
-<h2 id="3-secondary-indexes">3. Secondary Indexes</h2>
+<h2 id="secondary-indexes">Secondary Indexes</h2>
 <p>The <code>Ranging</code> and <code>Hashing</code> methods are better performed when key is widely used. NoSQL are always designed to support applications use <code>Id</code> or <code>names</code> as primary key. However, it&rsquo;s better for us to have multiple access routes to avoid <code>scanning</code>. In this case we use <code>secondary index</code> - the index on an attribute that has not been used for partitioning.</p>
 <p>Example: In this table, the data is partitioned by name. Does the hash index on the partition helps?
 
@@ -537,7 +537,7 @@ In the previous example <code>fraction moved</code> is 1/4</p>
 </tr>
 </tbody>
 </table>
-<h3 id="1-local-secondary-index">1. Local Secondary Index</h3>
+<h3 id="local-secondary-index">Local Secondary Index</h3>
 <p>A key question is that where should we store these secondary index? Here are few options to do it:</p>
 <ol>
 <li>
@@ -583,7 +583,7 @@ In the previous example <code>fraction moved</code> is 1/4</p>
 </table>
 </li>
 </ol>
-<h2 id="4-partitioning-for-evaluation">4. Partitioning for Evaluation</h2>
+<h2 id="partitioning-for-evaluation">Partitioning for Evaluation</h2>
 <p>After we talked about how to do partitioning, we should discuss about when. In one case, data need partitioning while requests are being evaluated.</p>
 <p><strong>To Be Continues&hellip;</strong></p>
 
@@ -723,6 +723,15 @@ In the previous example <code>fraction moved</code> is 1/4</p>
             
             
            
+                   <li>
+                       <a href='/2023/11/06/advanced-distributed-system-big-data/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
              </ul>
 		<p class="copyright text-muted">
                     Copyright &copy; UNKNOWN SPACE 2023

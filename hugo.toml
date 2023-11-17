@@ -49,7 +49,7 @@ enableInlineShortcodes = true
   about_me = true
 
   [params.social]
-  rss            = false
+  rss            = true
   email          = "shuoyin03@gmail.com"
   #facebook      = "full profile url in facebook"
   #googleplus    = "full profile url in googleplus"
