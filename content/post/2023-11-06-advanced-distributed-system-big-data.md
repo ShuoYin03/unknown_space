@@ -114,4 +114,4 @@ A key question is that where should we store these secondary index? Here are few
 
 After we talked about how to do partitioning, we should discuss about when. In one case, data need partitioning while requests are being evaluated.
 
-**Continues...**
+**To Be Continues...**

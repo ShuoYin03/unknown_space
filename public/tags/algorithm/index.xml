@@ -13,9 +13,10 @@
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
       
       <guid>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;In this article, we are going to look at the formal definition of Turing Machine and the therom with it.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <description>In this article, we are going to look at the formal definition of Turing Machine and the therom with it.
+1. Introduction of turing machine The picture below is a multi-tape turing machine In a formal definition, a turing machine could be define as a quintuple:
+M = [ K, Σ, Q, q0, T ]
+K ≥ 2 (number of tapes) Σ is a non-empty, finite set (alphabet) Q is a non-empty, finite set (set of states) q0 ∈ Q (initial state) T is a set of transitions (for K, Σ and Q) A symbol is an element of which means blank and start separately.</description>
     </item>
     
   </channel>
