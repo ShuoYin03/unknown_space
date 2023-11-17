@@ -6,6 +6,8 @@ preserveTaxonomyNames = true
 paginate = 7
 hasCJKLanguage = true
 canonifyurls = false
+enableRobotsTXT = true
+enableInlineShortcodes = true
   
 [outputs]
   home = ["HTML", "RSS", "Algolia"]

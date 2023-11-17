@@ -78,4 +78,5 @@ A language is `recursively enumerable` (simplified as r.e.) if there is a determ
 A language L over alphabet Σ is `co-recursively enumerable` (simplified as co-r.e.) if Σ∗ \ L is r.e.  
 A language is `recursive` if and only if it is both r.e. and co-r.e.
 
+
 (To be continues...)
