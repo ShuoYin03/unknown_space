@@ -28,8 +28,8 @@ enableInlineShortcodes = true
 
   # leancloud storage for page view counter
   page_view_conter = true
-  leancloud_app_id = "9spQYPAdW2ZvD7F1V3UylWen-MdYXbMMI"
-  leancloud_app_key = "9qhKCyOdnaK1FhYrpB73zKis"
+  leancloud_app_id = ""
+  leancloud_app_key = ""
 
   # algolia site search
   algolia_search = true
