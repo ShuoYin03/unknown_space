@@ -6,7 +6,16 @@
     <description>Recent content in Data Structure on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithm and Data Structure - Time, Space and Determinism</title>
+      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</link>
+      <pubDate>Mon, 27 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</guid>
+      <description>1. Introduction to Time and Space Definitions Consider there is a turing machine M with alphabet Σ, and g is a function N → N, we say M runs in time g and runs in space g with at most g(|x|) steps and g(|x|) squares with a finite x many Strings. If there is a language L over some alphabet, we say L runs in Time(g) and Space(g) such that there is a deterministic turing machine M recognizing L runs in time and space g.</description>
+    </item>
+    
     <item>
       <title>Algorithm and Data Structure - Turing Machine</title>
       <link>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</link>

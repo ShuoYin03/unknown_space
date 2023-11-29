@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="GreatUniHack2023 - Postscript to the competition" />
-    <meta property="og:title" content="GreatUniHack2023 - Postscript to the competition" />
-    <meta property="twitter:title" content="GreatUniHack2023 - Postscript to the competition" />
+    <meta name="title" content="Algorithm and Data Structure - Time, Space and Determinism" />
+    <meta property="og:title" content="Algorithm and Data Structure - Time, Space and Determinism" />
+    <meta property="twitter:title" content="Algorithm and Data Structure - Time, Space and Determinism" />
     
 
     
-    <meta name="description" content="Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future.">
-    <meta property="og:description" content="Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future." />
-    <meta property="twitter:description" content="Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future." />
+    <meta name="description" content="Introduction to the theorem of time and space complexity in turing machine">
+    <meta property="og:description" content="Introduction to the theorem of time and space complexity in turing machine" />
+    <meta property="twitter:description" content="Introduction to the theorem of time and space complexity in turing machine" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>GreatUniHack2023 - Postscript to the competition | TenpagesY</title>
+    <title>Algorithm and Data Structure - Time, Space and Determinism | TenpagesY</title>
 
-    <link rel="canonical" href="/2023/11/03/greatunihack2023/">
+    <link rel="canonical" href="/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/">
 
     
     
@@ -158,6 +158,27 @@
 </script>
 
 
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
 
 
 
@@ -176,24 +197,28 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/hackathon" title="Hackathon">
-                            Hackathon
+                        <a class="tag" href="/tags/algorithm" title="Algorithm">
+                            Algorithm
+                        </a>
+                        
+                        <a class="tag" href="/tags/data-structure" title="Data Structure">
+                            Data Structure
                         </a>
                         
                     </div>
-                    <h1>GreatUniHack2023 - Postscript to the competition</h1>
-                    <h2 class="subheading">Thoughts and reflections after the 24-hour hackathon</h2>
+                    <h1>Algorithm and Data Structure - Time, Space and Determinism</h1>
+                    <h2 class="subheading">Time and Space</h2>
                     <span class="meta">
                         
                             Posted by 
                             
-                                UNKNOWN SPACE
+                                UNKNOWN Space&#34;&#34;
                              
                             on 
-                            Tuesday, October 31, 2023
+                            Monday, November 27, 2023
                             
                                 
-                                <br><span class="meta">424 Words, Read 1 minutes</span>
+                                <br><span class="meta">1015 Words, Read 5 minutes</span>
                             
                              
                             
@@ -219,27 +244,93 @@
                 post-container">
 
                 
-                <!-- >刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。 -->
+                <h2 id="1-introduction-to-time-and-space">1. Introduction to Time and Space</h2>
+<h3 id="definitions">Definitions</h3>
+<p>Consider there is a turing machine M with alphabet Σ, and g is a function <strong>N → N</strong>, we say M <strong>runs in time g</strong> and <strong>runs in space g</strong> with at most <strong>g(|x|) steps</strong> and <strong>g(|x|) squares</strong> with a finite x many Strings. If there is a language L over some alphabet, we say L runs in <code>Time(g)</code> and <code>Space(g)</code> such that there is a deterministic turing machine M recognizing L runs in time and space g. In another words, this is the definition of time and space complexity in a turing machine view.</p>
+<h3 id="linear-speed-up-theorem">Linear &lsquo;Speed-up&rsquo; theorem</h3>
+<p>There is a theorem about complexties: Let f be a function <strong>f: N → N</strong>, and c &gt; 0, we could get</p>
+<p>$$Time(f(n)) ⊆ Time(c · f(n) + n)$$
+$$Space(f(n)) ⊆ Space(c · f(n))$$</p>
+<p>In an exmaple, we don&rsquo;t have to write <strong>Time(5x² + 4x + 3)</strong>, instead, we could write <strong>Time(n²)</strong>.</p>
+<h3 id="categories-of-time-and-space">Categories of Time and Space</h3>
+<p>Consider a G which includes a set of functions N → N:
+$$Time(G) = \bigcup_{g ∈ G} Time(g)$$
+$$Space(G) = \bigcup_{g ∈ G} Space(g)$$</p>
+<p>We could have some handy functions:</p>
+<p>
+  <img src="/img/time-space/image.png" alt="Alt text">
+
+</p>
+<p>In this graph, P is denoted as E0, which means some <code>Polynomial</code> equations. And E here means <code>Exponential</code> equation denoted as E1 to Ek, where Ek is a generalised form.</p>
+<p>By combining the idea of G and those handy functions, we could define some Time and Space categories:</p>
+<p>
+  <img src="/img/time-space/image2.png" alt="Alt text">
+
+</p>
 <blockquote>
-<p>Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future.</p>
+<p>Note: The reason why we don&rsquo;t have Time(log n) is because a Turing Machine which can only operate in time log n can&rsquo;t even read the input. So we don&rsquo;t care about this case.</p>
 </blockquote>
-<h2 id="greatunihack-2023">GreatUniHack 2023</h2>
-<p>This event provided a variety of challenges, with education, climate, and sustainable development as the main three themes, and gave a variety of technology-related challenges (using LLM technology, streamlit framework, mongoDB, etc.). The contestants were developed in units of 4 people. We chose education as the theme to develop an online battle game. The battle method is to use your own miscellaneous knowledge to answer questions to gain points and win. In order to take into account the team&rsquo;s technical level and familiar language, we used python&rsquo;s flask framework and React framework as the front-end and back-end, mongoDB as the database, and WebSocket as the way for players to connect. The logic of the project is that after confirming that the player is successfully connected, the front end initiates a request to read the problem to the back end. The back end initiates a read to the database and returns the result. After the front end calculates the result and obtains the winning player, it initiates a request to the back end to improve the win. The player&rsquo;s ladder score and the request to reduce the failed player&rsquo;s score, from which the round of the game ends.</p>
-<!-- 此次活动提供了多种挑战，以教育，气候，以及可持续发展作为主要三大主题，并且给予了多种技术相关的挑战（运用LLM技术，streamlit框架，mongoDB等等）。参赛选手以4人为单位进行开发，我们选取了教育作为主题，开发一个在线对战游戏，对战方式是运用自己的杂学知识来进行答题从而获得分数，赢取胜利。为了照顾到团队的技术水平以及熟悉的语言，我们使用了python的flask框架和React框架作为前后端，使用mongoDB作为数据库，以及使用WebSocket作为玩家连接的方式。项目的逻辑是在确认玩家成功连接之后，由前端对后端发起读取问题的请求，后端向数据库发起读取并返回结果，在前端计算结果得到获胜的玩家之后，向后端发起提高获胜玩家的天梯分数并减少失败玩家的分数的请求，自此一轮游戏结束。 -->
-<p>Due to time, the overall level of the team, and my unfamiliarity with WebSocket technology, we met lots of troubles during adding the function of matching games. We also encountered many problems in other aspects such as front-end and back-end data transmission, front-end interface structure and the use of flask. After summarizing, the following points need to be improved:</p>
-<!-- 由于时间，团队的整体水平以及本人对WebSocket的技术并不熟悉，我们并未成功加入匹配游戏的功能。我们在其他的例如前后端的数据传输，前端的界面结构以及flask的使用上也遇到了诸多问题。总结过后需要提升的为以下几点： -->
-<ol>
-<li>Need to have a better understanding of the basic project structure of a website, and must be familiar with front-end and back-end data transmission, the use of routing, and issues such as database creation, connection, and table creation.</li>
-<li>Try to unify the team&rsquo;s coding style. If time does not allow, try to write comments (I am surprised that none of the four members of our team have the habit of writing comments, which causes a lot of trouble for development)</li>
-<li>Clarify the division of labor and the specific functions of the project before starting the project. Do not have a step-by-step mentality, which can easily lead to the project progress getting out of control and the final result being chaos.</li>
-</ol>
-<!-- 1. 需要对一个网站基本的项目结构更加了解，要熟悉前后端的数据传输，路由的使用以及数据库从创建，连接到建表等问题
-2. 尽量对团队的代码风格进行统一，如果时间不允许，尽量编写注释（很惊讶我们团队四个人都没有写注释的习惯，这对开发造成了不小的困扰）
-3. 明确分工，在进行项目之前明确项目的具体功能，不要抱着走一步看一步的心态，容易导致项目进度失去控制，最后一片混乱的结果 -->
-<p>postscript:</p>
-<!-- 附言： -->
-<p>This article commemorates the site’s first blog</p>
-<!-- 以此文章纪念站点的第一篇博客 -->
+<h3 id="more-definitions">More Definitions</h3>
+<p>If L is a language over some alphabet and g is a function N → N, we say that L is in <code>NTime(g)</code> and <code>NSpace(g)</code> if there is a turing machine M recognizing L such that M runs in time g. So in this case, the difference between NTime(g) and Time(g) is only the turing machine is <code>deterministic</code> or not.</p>
+<p>Let&rsquo;s look at an example:</p>
+<p>
+  <img src="/img/time-space/image3.png" alt="Alt text">
+
+</p>
+<p>This is a reachability problem, which focus on <code>directed graph</code>, here lets look at a pseudo-code solving this problem.</p>
+<p>
+  <img src="/img/time-space/image4.png" alt="Alt text">
+
+</p>
+<p>The three input parameters <code>G, u, and v</code> means the directed graph, start node and the end node. This algorithm use a parameter c to manage the count of viewed nodes. In the while loop, the algorithm <strong>randomly choose</strong> a node w&rsquo;, which is either <strong>same as w or there is an edge between w and w&rsquo;</strong>. If there is no more such nodes or w is equal to v, the while loop breaks, and we test if c is less than n to identify which case is happening from above.</p>
+<p>It is clear that this algorithm is <code>non-deterministic</code> (For every states, there might be more than one possible next states). And because we only have to maintain a count number c, which takes <strong>log n space in bits</strong>, so this problem could be solve in <code>NLogSpace</code>.</p>
+<h2 id="2-inclusions">2. Inclusions</h2>
+<p>Here we discuss the inclusion(relationship) between complexities.</p>
+<p>For all the complexities we&rsquo;ve learned so far, we could concludes some inclusions:</p>
+<p>$$Time(G) ⊆ NTime(G)\quad\quad Space(G) ⊆ NSpace(G)$$
+$$Time(G) ⊆ Space(G)\quad\quad NTime(G) ⊆ NSpace(G)$$</p>
+<p>And also, if the <strong>set of functions G ⊆ another set of functions H</strong>, then $Time(G) ⊆ Time(H)$, and similarity for <code>NTime</code>, <code>Space</code> and <code>NSpace</code>.</p>
+<h3 id="configuration-graph">Configuration Graph</h3>
+<p>Consider a turing machine M = $\langle K, Σ, Q, q0,T \rangle$, suppose for every tapes in the turing machine, the maximum amount of space used is s(n). In this case, the maximum amount of configurations to be considered is:</p>
+<p>$$|Q| · |Σ|^{K·s(n)} · (s(n) + 1)^K ∈ 2^{O(s(n))}$$</p>
+<p>We called this set of configurations as V. Now try think in the perspective of a directed graph, we could <strong>transform the set V into a directed graph</strong> $G = (V, E)$, where in this graph $(c, d) ∈ E$ means any transitions from c to d(states change inside a turing machine).</p>
+<p>We could identify a <code>start configuration</code> $c_0$ (with input x) and a <code>success configuration</code> $c_*$. If M accepts x, it means there is a path from start node $c_0$ to $c_*$.</p>
+<h3 id="derivation-1">Derivation 1</h3>
+<p>Let&rsquo;s look at a theorem:<br>
+$NSpace(g) ⊆ Time(2^{O(g)})$</p>
+<p>Let a language L be in $NSpace(g)$, we need to prove that it is also in $Time(2^{O(g)})$.</p>
+<p>Suppose there&rsquo;s a input n, we build a configuration graph based on this input. Because of $|G| &lt; 2^{O(g(n))}$, and we could search a path in G from starting node to success node in a linear G time, the theorem is proved.</p>
+<h4 id="corollary">Corollary</h4>
+<p>From the above derivation, we could conclude that</p>
+<p>$$NLogSpace ⊆ PTime, NPSpace ⊆ ExpTime$$
+$$NExpSpace ⊆ 2-ExpTime, etc.$$</p>
+<h3 id="derivation-2">Derivation 2</h3>
+<p>Another theorem here:<br>
+$NTime(g) ⊆ Space(g)$</p>
+<p>Let a language L in $NTime(g)$, we need to prove that it is also in $Space(g)$.</p>
+<p>Consider a <code>non-deterministic</code> turing machine M runs in Time(g), then M could make at most $g(n)$ non-deterministic choices, for each choice we could represent by $k_{g(n)}$, and for entire list of choices, the representation is $k_1 &hellip; k_{g(n)}$.</p>
+<p>In this case, imagine there is a <code>deterministic</code> turing machine $M^*$ which runs in Space(g) just like M above, but on the basis of M, add an extra new tape to record all non-deterministic choices, expressed as a string $k_1 &hellip; k_{g(n)}$. Now, the turing machine could easily iterate all possible configurations without using extra space, and so the theorem is proved.</p>
+<h4 id="corollary-1">Corollary</h4>
+<p>From the above derivation, we could conclude that</p>
+<p>$$LogSpace ⊆ NLogSpace ⊆ PTime ⊆ NPTime ⊆$$
+$$PSpace ⊆ NPSpace ⊆ ExpTime ⊆ NExpTime ⊆$$
+$$ExpSpace ⊆ NExpSpace ⊆ 2-ExpTime&hellip;$$</p>
+<h2 id="3-a-separation-result">3. A Separation Result</h2>
+<p>In the last blog introducing turing machine, we discussed about the Halting problem (<a href="https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/">review here</a>), which we get the result that halting problem is an <code>undecidable problem</code>. Now, let&rsquo;s have a look at the <strong>f-bounded Halting problem</strong>:</p>
+<p>
+  <img src="/img/time-space/image5.png" alt="Alt text">
+
+</p>
+<p>Suppose $HALTING_f$ is recognized by a Turing machine $H_f$, guaranteed to terminate in $Time(f(\lfloor n/2 \rfloor))$, by using the proving method in last blog, we could get a conclusion:</p>
+<p>$$HALTING_f \notin Time(f(\lfloor n/2 \rfloor))$$</p>
+<p>
+  <figure>
+    <img src="/img/time-space/image6.png" alt="Alt text">
+    <center><figcaption>Building a contraction with the imagined turing machine</figcaption></center>
+  </figure>
+
+</p>
+
 
                 
 
@@ -247,11 +338,11 @@
                 <hr>
                 <ul class="pager">
                     
-                    
-                    <li class="next">
-                        <a href="/2023/11/03/HugoSetUp/" data-toggle="tooltip" data-placement="top" title="Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan">Next
-                            Post &rarr;</a>
+                    <li class="previous">
+                        <a href="/post/hugo/2023-11-18-hugo-google-search/" data-toggle="tooltip" data-placement="top" title="How to let Google search your website?">&larr;
+                            Previous Post</a>
                     </li>
+                    
                     
                 </ul>
                 
@@ -295,8 +386,14 @@
                         
                         
                         
-                        <a href="/tags/hackathon" title="Hackathon">
-                            Hackathon
+                        <a href="/tags/algorithm" title="Algorithm">
+                            Algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="Data Structure">
+                            Data Structure
                         </a>
                         
                         
@@ -378,7 +475,7 @@
             
            
                    <li>
-                       <a href='/2023/11/03/greatunihack2023/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
