@@ -17,9 +17,9 @@ enableInlineShortcodes = true
 
 [params]
   header_image = "img/tag-bg.jpg"
-  SEOTitle = "TenpagesY"
+  SEOTitle = "ShuoYin"
   description = "Blog for Shuo Yin."
-  keywords = "殷硕, YinShuo, yinshuo, Yinshuo, shuoYin, shuoyin, ShuoYin, 殷硕的网络日志, 殷硕的博客, YinShuo Blog, ShuoYin Blog, 博客, Blog, 个人网站, 互联网, UNKNOWN SPACE"
+  keywords = "UNKNOWN SPACE, unknown space, Unknown Space, shuoyin, ShuoYin"
   slogan = "Welcome to my world"
 
   image_404 = "img/404-bg.jpg"
