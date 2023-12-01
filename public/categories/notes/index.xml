@@ -6,7 +6,26 @@
     <description>Recent content in notes on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithm and Data Structure - Propositional logic</title>
+      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</guid>
+      <description>Propositional Logic Satisfiability Definitions We call $P = \lbrace p_1, p_2, &amp;hellip; \rbrace $ as propositional letters. Every element in $P$ is a formula. If $\psi_1$ and $\psi_2$ are formulas, then the following equations are formulas, too. $$(¬\psi_1), (\psi_1 ∨ \psi_2), (\psi_1 ∧ \psi_2), (\psi_1 → \psi_2)$$
+An assignment is a function $\theta: P → \lbrace T, F\rbrace$, for example: In a simple way, an assignment is like a machine running a logic equation and excute a result.</description>
+    </item>
+    
+    <item>
+      <title>Algorithm and Data Structure - Time, Space and Determinism</title>
+      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</link>
+      <pubDate>Mon, 27 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</guid>
+      <description>1. Introduction to Time and Space Definitions Consider there is a turing machine M with alphabet Σ, and g is a function N → N, we say M runs in time g and runs in space g with at most g(|x|) steps and g(|x|) squares with a finite x many Strings. If there is a language L over some alphabet, we say L runs in Time(g) and Space(g) such that there is a deterministic turing machine M recognizing L runs in time and space g.</description>
+    </item>
+    
     <item>
       <title>Advanced Distributed System - Big data</title>
       <link>https://shuoyin03.github.io/2023/11/06/advanced-distributed-system-big-data/</link>

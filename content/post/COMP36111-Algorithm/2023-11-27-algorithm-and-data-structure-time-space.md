@@ -6,7 +6,7 @@ date:        2023-11-27
 author: UNKNOWN Space""
 image:       ""
 tags:        ["Algorithm", "Data Structure"]
-categories:  ["Post"]
+categories:  ["notes"]
 math: true
 ---
 

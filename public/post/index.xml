@@ -6,7 +6,17 @@
     <description>Recent content in Posts on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithm and Data Structure - Propositional logic</title>
+      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</guid>
+      <description>Propositional Logic Satisfiability Definitions We call $P = \lbrace p_1, p_2, &amp;hellip; \rbrace $ as propositional letters. Every element in $P$ is a formula. If $\psi_1$ and $\psi_2$ are formulas, then the following equations are formulas, too. $$(¬\psi_1), (\psi_1 ∨ \psi_2), (\psi_1 ∧ \psi_2), (\psi_1 → \psi_2)$$
+An assignment is a function $\theta: P → \lbrace T, F\rbrace$, for example: In a simple way, an assignment is like a machine running a logic equation and excute a result.</description>
+    </item>
+    
     <item>
       <title>Algorithm and Data Structure - Time, Space and Determinism</title>
       <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</link>
