@@ -41,7 +41,7 @@ The **Davis-Putnam (-Logemann-Loveland)** algorithm could solve the `SAT` proble
 ![Alt text](/img/propositional-logic/image6.png)
 As we want to test satisfiability, we need to know the **truth** of each single clauses in the set $\Gamma$. The resolve function could simplify $\Gamma$ by **assuming a clause is true**, bring this true clause to the whole set, eliminate all true clauses (a clause is true if our assumed clause is in) and delete any $\overline\ell\$. You might be confused now, but let's move on to main body part of this algorithm and it might solve your confusion. First, we check if $\Gamma$ is **empty or contains an empty clause** to return true or false base on the case, then for any `unit clause`(single literal) in $\Gamma$, call resolve() to do simplification. There are few conditions here: If resolve() returns an empty $\Gamma$, we return a Yes because **all clauses are true and eliminated by resolve()**, but if the returned $\Gamma$ is not empty and it contains an empty clause, we return a No because **all $\overline\ell\$ are eliminated in that empty clause** which results in a false. If it is not the above two situations, it means that we still have a literal that has not appeared before, so now we call it recursively the DPLL() two times, each time the input would be the **union of $\Gamma$ and the first literal in the first clause (positive and negative)**, this literal will be the unit clause in the recursion, and so on we could do furthur elimination and finally get the result. 
 
-### Propositional SAT Problem
+<!-- ### Propositional SAT Problem
 
 Consider the following problem, is it in `NPTime`?
 ![Alt text](/img/propositional-logic/image2.png)
@@ -49,4 +49,4 @@ We could prove it by using this `non-deterministic` algorithm:
 ![Alt text](/img/propositional-logic/image3.png)
 ## Two Special Cases of SAT
 
-## QBF
+## QBF -->

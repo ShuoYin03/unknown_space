@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Algorithm and Data Structure - Propositional logic" />
-    <meta property="og:title" content="Algorithm and Data Structure - Propositional logic" />
-    <meta property="twitter:title" content="Algorithm and Data Structure - Propositional logic" />
+    <meta name="title" content="Advanced Distributed System - Performance Modelling" />
+    <meta property="og:title" content="Advanced Distributed System - Performance Modelling" />
+    <meta property="twitter:title" content="Advanced Distributed System - Performance Modelling" />
     
 
     
-    <meta name="description" content="Introduce propositional logic">
-    <meta property="og:description" content="Introduce propositional logic" />
-    <meta property="twitter:description" content="Introduce propositional logic" />
+    <meta name="description" content="Introduce how to model the performance of distributed application">
+    <meta property="og:description" content="Introduce how to model the performance of distributed application" />
+    <meta property="twitter:description" content="Introduce how to model the performance of distributed application" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Algorithm and Data Structure - Propositional logic | ShuoYin</title>
+    <title>Advanced Distributed System - Performance Modelling | ShuoYin</title>
 
-    <link rel="canonical" href="/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/">
+    <link rel="canonical" href="/2023/11/06/advanced-distributed-system-performance-modelling/">
 
     
     
@@ -197,17 +197,13 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/algorithm" title="Algorithm">
-                            Algorithm
-                        </a>
-                        
-                        <a class="tag" href="/tags/data-structure" title="Data Structure">
-                            Data Structure
+                        <a class="tag" href="/tags/distributed-system" title="Distributed System">
+                            Distributed System
                         </a>
                         
                     </div>
-                    <h1>Algorithm and Data Structure - Propositional logic</h1>
-                    <h2 class="subheading">Try to be logical...</h2>
+                    <h1>Advanced Distributed System - Performance Modelling</h1>
+                    <h2 class="subheading">Performance Modelling</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -215,10 +211,10 @@
                                 UNKNOWN SPACE
                              
                             on 
-                            Wednesday, November 29, 2023
+                            Tuesday, December 12, 2023
                             
                                 
-                                <br><span class="meta">450 Words, Read 3 minutes</span>
+                                <br><span class="meta">337 Words, Read 2 minutes</span>
                             
                              
                             
@@ -244,50 +240,43 @@
                 post-container">
 
                 
-                <h2 id="propositional-logic-satisfiability">Propositional Logic Satisfiability</h2>
-<h3 id="definitions">Definitions</h3>
-<p>We call $P = \lbrace p_1, p_2, &hellip; \rbrace $ as <code>propositional letters</code>. Every element in $P$ is a <code>formula</code>. If $\psi_1$ and $\psi_2$ are formulas, then the following equations are formulas, too.
-$$(¬\psi_1), (\psi_1 ∨ \psi_2), (\psi_1 ∧ \psi_2), (\psi_1 → \psi_2)$$</p>
-<p>An <code>assignment</code> is a function $\theta: P → \lbrace T, F\rbrace$, for example:
-
-  <img src="/img/propositional-logic/image.png" alt="Alt text">
-
-
-In a simple way, an assignment is like a machine running a logic equation and excute a result. A formula $\psi$ is <code>satisfiable</code> if there is a formula $\theta$ such that $\theta(\psi)=T$.</p>
-<p>A <code>literal</code> is an expression $p$ or $\neg p$, where $p$ is a propositional letter.
-A <code>clause</code> is a combination of <code>literals</code>, for example:
-$$p1 ∨ ¬p2 ∨ p3$$
-$$¬p1 ∨ ¬p4 ∨ ¬p7 ∨ p8$$
-$$¬p14$$
-$$p1$$
-$$⊥$$
-We could also denote the opposite of a literal $\ell$ by $\overline\ell$.</p>
-<p>We use $\gamma$ to represent a <strong>clause</strong> and $\Gamma$ to represent a <strong>set of clauses</strong>. A set of clauses is <code>satisfiable</code> if there is an assignment equals to $T$ for all $\gamma ∈ \Gamma$ (All clauses needs to be true!!).</p>
-<h3 id="sat--k-sat-problem">SAT &amp; k-SAT Problem</h3>
-<p>Here we can define two problems: <code>SAT</code> and <code>k-SAT</code>
-
-  <img src="/img/propositional-logic/image4.png" alt="Alt text">
-
-
-
-  <img src="/img/propositional-logic/image5.png" alt="Alt text">
-
-</p>
-<p>The <strong>Davis-Putnam (-Logemann-Loveland)</strong> algorithm could solve the <code>SAT</code> problem:
-
-  <img src="/img/propositional-logic/image6.png" alt="Alt text">
-
-
-As we want to test satisfiability, we need to know the <strong>truth</strong> of each single clauses in the set $\Gamma$. The resolve function could simplify $\Gamma$ by <strong>assuming a clause is true</strong>, bring this true clause to the whole set, eliminate all true clauses (a clause is true if our assumed clause is in) and delete any $\overline\ell$. You might be confused now, but let&rsquo;s move on to main body part of this algorithm and it might solve your confusion. First, we check if $\Gamma$ is <strong>empty or contains an empty clause</strong> to return true or false base on the case, then for any <code>unit clause</code>(single literal) in $\Gamma$, call resolve() to do simplification. There are few conditions here: If resolve() returns an empty $\Gamma$, we return a Yes because <strong>all clauses are true and eliminated by resolve()</strong>, but if the returned $\Gamma$ is not empty and it contains an empty clause, we return a No because <strong>all $\overline\ell$ are eliminated in that empty clause</strong> which results in a false. If it is not the above two situations, it means that we still have a literal that has not appeared before, so now we call it recursively the DPLL() two times, each time the input would be the <strong>union of $\Gamma$ and the first literal in the first clause (positive and negative)</strong>, this literal will be the unit clause in the recursion, and so on we could do furthur elimination and finally get the result.</p>
-<!-- ### Propositional SAT Problem
-
-Consider the following problem, is it in `NPTime`?
-![Alt text](/img/propositional-logic/image2.png)
-We could prove it by using this `non-deterministic` algorithm:
-![Alt text](/img/propositional-logic/image3.png)
-## Two Special Cases of SAT
-
-## QBF -->
+                <blockquote>
+<p>It is always good to test the performance of distributed applications to ensure it meets the target, and today we&rsquo;ll learn what is a model and how to build a model to achieve this.</p>
+</blockquote>
+<h2 id="what-is-a-model">What is a model</h2>
+<p>A <code>model</code> is a representation of a system that could be used to track the key characteristics and analyze the behaviour of a system.</p>
+<p>There are two approches two build a model:</p>
+<ol>
+<li>Analytical Model</li>
+<li>Simulation</li>
+</ol>
+<h2 id="analytical-model">Analytical Model</h2>
+<p>Here are some examples for analytical model:</p>
+<ol>
+<li>
+<p>Minimum Possible HTTP Transaction Time<br>
+$$t = RTT + t_{request} + t_{siteprocessing} + t_{reply}$$
+In this equation, we have t for time and RTT for round-trip-time, $t_{request}$ is request size divided by bandwidth, $t_{siteprocessing}$ is the time for processing and $t_{reply}$ is reply size / bandwidth.</p>
+</li>
+<li>
+<p>Parallel Computation<br>
+$$t_p=t_s*(1-x+x/p)$$
+The above equation is called the <code>Amdahl’s Law</code>, which calculates the total running time $t_p$. It defines a program running in time $t_s$ with only 1 CPU, try run this program with p CPUs, the inherently sequential part $1-x$, and the rest of them are the parts could be run parallel. The idea of this law is, the whole system is retricted to the inherently sequential part when we are doing optimization.</p>
+</li>
+</ol>
+<h3 id="querying-theory">Querying Theory</h3>
+<p>The Querying theory is a much more complicated problem considering the service counters to which customers arrive and join a waiting line (queue), few parameters that could influence the results are: arrvial rate, number of servers, processing time, etc.</p>
+<p>The <code>liitle's law</code> is a useful result for it. Look at the equation $$Avg\_no\_of\_customers\_in = arrival\_rate × service\_time$$
+In a <code>steady state</code>, the above equation holds, which means in the queue, there won&rsquo;t be stacked requests.</p>
+<h2 id="simulation">Simulation</h2>
+<p>Simulation is useful after a large number of samples tested, we simulate what samples and check the result.</p>
+<p>We could use <code>Monte-Carlo</code> to implement simulation which contains two steps:</p>
+<ol>
+<li>Generate random input</li>
+<li>Simulate what follows and check the result</li>
+</ol>
+<h3 id="discrite-event-simulation">Discrite Event Simulation</h3>
+<p>In a discrite event simulation, we randomly generate events with some notion of time.</p>
 
                 
 
@@ -296,15 +285,10 @@ We could prove it by using this `non-deterministic` algorithm:
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/" data-toggle="tooltip" data-placement="top" title="Algorithm and Data Structure - Time, Space and Determinism">&larr;
+                        <a href="/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/" data-toggle="tooltip" data-placement="top" title="Algorithm and Data Structure - Propositional logic">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2023/11/06/advanced-distributed-system-performance-modelling/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Performance Modelling">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
@@ -348,14 +332,8 @@ We could prove it by using this `non-deterministic` algorithm:
                         
                         
                         
-                        <a href="/tags/algorithm" title="Algorithm">
-                            Algorithm
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/data-structure" title="Data Structure">
-                            Data Structure
+                        <a href="/tags/distributed-system" title="Distributed System">
+                            Distributed System
                         </a>
                         
                         
@@ -437,7 +415,7 @@ We could prove it by using this `non-deterministic` algorithm:
             
            
                    <li>
-                       <a href='/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2023/11/06/advanced-distributed-system-performance-modelling/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

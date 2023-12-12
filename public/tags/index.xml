@@ -6,7 +6,16 @@
     <description>Recent content in Tags on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Distributed System</title>
+      <link>https://shuoyin03.github.io/tags/distributed-system/</link>
+      <pubDate>Tue, 12 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/tags/distributed-system/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Algorithm</title>
       <link>https://shuoyin03.github.io/tags/algorithm/</link>
@@ -31,15 +40,6 @@
       <pubDate>Sun, 26 Nov 2023 00:00:00 +0000</pubDate>
       
       <guid>https://shuoyin03.github.io/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Distributed System</title>
-      <link>https://shuoyin03.github.io/tags/distributed-system/</link>
-      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://shuoyin03.github.io/tags/distributed-system/</guid>
       <description></description>
     </item>
     
