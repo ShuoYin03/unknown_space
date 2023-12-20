@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Natural Language Processing - Text Pre-processing" />
+    <meta property="og:title" content="Natural Language Processing - Text Pre-processing" />
+    <meta property="twitter:title" content="Natural Language Processing - Text Pre-processing" />
     
 
     
-    <meta name="description" content="Blog for Shuo Yin.">
-    <meta property="og:description" content="Blog for Shuo Yin." />
-    <meta property="twitter:description" content="Blog for Shuo Yin." />
+    <meta name="description" content="Introduce tokenisation and Normalisation">
+    <meta property="og:description" content="Introduce tokenisation and Normalisation" />
+    <meta property="twitter:description" content="Introduce tokenisation and Normalisation" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Categories | ShuoYin</title>
+    <title>Natural Language Processing - Text Pre-processing | ShuoYin</title>
 
-    <link rel="canonical" href="/categories/">
+    <link rel="canonical" href="/post/comp33511-nlp/2023-12-19-nlp-text-preprocessing-representation/">
 
     
     
@@ -158,22 +158,72 @@
 </script>
 
 
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
 
 
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>UNKNOWN SPACE </h1>
-                    
-		    <span class="subheading">Welcome to my world</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                    </div>
+                    <h1>Natural Language Processing - Text Pre-processing</h1>
+                    <h2 class="subheading">First step of NLP</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Wednesday, December 20, 2023
+                            
+                                
+                                <br><span class="meta">804 Words, Read 2 minutes</span>
+                            
+                             
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
 </header>
 
 
@@ -182,19 +232,145 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <blockquote>
+<p>In this article, we are going to look at general steps of text pre-processing.</p>
+</blockquote>
+<h1 id="text-pre-processing">Text Pre-processing</h1>
+<h2 id="tokenisation">Tokenisation</h2>
+<h3 id="word-based-tokenisation">Word-Based Tokenisation</h3>
+<p><code>Tokenisation</code> is the first step of text pre-processing, it is to split a bunch of text into a list of <code>tokens</code>. As an example, we could split <strong>“a cat on a pat”</strong> to <strong>[“a”, “cat”, “on”, “a”, “pet”]</strong>. For the most basic Tokenisation method, we do <code>white space-delimited sequence</code>, like the above example. However, not all languages use white space, like Chinese (我喜欢西兰花), and we also have to consider punctuation signs, if we want to split “white space-delimited sequence”, we don’t want the result to be <strong>[&ldquo;white&rdquo;, &ldquo;space-delimited&rdquo;, &ldquo;sequence&rdquo;]</strong>, which breaks the origin meaning of the words.</p>
+<p>There are few others conditions we have to consider:</p>
+<ol>
+<li>White Space<br>
+<strong>San Francisco</strong> &amp; <strong>in spate of</strong>, these words should be in one token because only two or three words together could perform the correct meaning.</li>
+<li>Abbreviated forms<br>
+<strong>what&rsquo;re</strong>, <strong>I&rsquo;m</strong> is what + are, I + am<br>
+<strong>King&rsquo;s coming</strong> is King + is + coming</li>
+<li>Possessives<br>
+<strong>King&rsquo;s speech</strong>, this is completed different with King&rsquo;s comming, becase <code>'s</code> has completely different meaning in two combinations</li>
+</ol>
+<p>In order to consider all above situations, tokenisation is performed with the following steps:</p>
+<ol>
+<li>Initial segmentation (mostly on white-space)</li>
+<li>Handling abbreviations and apostrophes</li>
+<li>Handling hyphenations</li>
+<li>Dealing with (other) special expressions<br>
+– emails, URLs, emoticons, numbers, …</li>
+</ol>
+<p>Note that there are no firm rules for tokenisation, it has to be <strong>consistent</strong> with the rest of an NLP system. Moreover, it is necessary to avoid <strong>over-segmentation</strong>.</p>
+<h3 id="byte-pair-encoding">Byte-Pair Encoding</h3>
+<p>To decrease the influence of <code>OOV</code> words, we have another method of tokenisation - <code>Byte-Pair Encoding</code>. It consist of two parts, <code>token learner</code> &amp; <code>token segmenter</code>.</p>
+<h4 id="token-learner">Token Learner</h4>
+<p>In token learner, split the words into individual characters to form a vocabulary
+$$\{A, B, C, D, a, b, c, d, &hellip;\}$$</p>
+<p>and repeat the following steps:</p>
+<ol>
+<li>Choose any two symbols that are <strong>most frequently adjacent</strong></li>
+<li><strong>Merge</strong> them together and add to the vocabulary</li>
+<li><strong>Replace every adjacent characters</strong> merged previously into the merged form in the corpus</li>
+</ol>
+<h4 id="token-segmenter">Token Segmenter</h4>
+<p>After we get the merged vocabulary, on the new data, perform same merges, and then we could get the tokenisation down by now.</p>
+<p>This method could greatly reduce the number of unseened tokens.</p>
+<h2 id="normalization">Normalization</h2>
+<p><code>Normalization</code> is the second step, we map tokens into normalized forms like below:</p>
+<ul>
+<li>{walks, walked, walk, walking} → walk</li>
+<li>{B.B.C., BBC} → BBC</li>
+<li>{multi-national, multinational} → multinational</li>
+<li>{Duesseldorf, Düsseldorf, Dusseldorf} → Dusseldorf</li>
+</ul>
+<p>We have two main approches for normalization: <code>Lemmatisation</code> &amp; <code>Stemming</code>.</p>
+<h3 id="lemmatisation">Lemmatisation</h3>
+<p>The key idea of lemmatisation is the reduction to <code>dictionary headword</code>, here are few examples:</p>
+<ul>
+<li>{am, are, is} → be</li>
+<li>{horse, horses, horse’s, horses’} → horse</li>
+<li>{life, lives} → life</li>
+</ul>
+<p>We have to eliminate all tense or plural form or any other forms which cause a transform to the original words. To do this, we could have two methods:</p>
+<ol>
+<li><strong>Dictionary look-up</strong><br>
+The problem of this method is that, the efficiency might be slow because every word need a look-up in dictionary, and we couldn&rsquo;t take <code>OOV</code> (Out of Vocabulary) words into account.</li>
+<li><strong>Morphological Analysis</strong><br>
+<code>Morphemes</code> are sub-words which includes <code>stem</code> and <code>affixes</code> (prefix &amp; suffix)
+
+  <img src="/img/nlp-text-preprocess/image.png" alt="Alt text">
+
+</li>
+</ol>
+<p>We can do <code>morphological analysis</code> after we identity what is a stem and what are affixes in a word. However, this method has some disadvantages that can&rsquo;t be ignored. First, for some verbs we might still need a dictionary because they have some special <code>inflections</code>, such as &ldquo;build&rdquo; will be inflected into &ldquo;built&rdquo;. And second, <code>derivational morphology</code> (The formation of a word from stem and affixes) is a messy, consider the picture below:
+
+  <img src="/img/nlp-text-preprocess/image2.png" alt="Alt text">
+
+</p>
+<p>The change of states is computationally expensive.</p>
+<h3 id="stemming">Stemming</h3>
+<p><code>Stemming</code> is much more straight forward compare to <code>Morphological Analysis Lemmatisation</code>, as it &ldquo;chops&rdquo; the end of words immediately.</p>
+<ul>
+<li>changing → chang</li>
+<li>changed → chang</li>
+<li>change → chang
+As you can see from the example above, we will inevitably encounter <code>over-stemming</code> (sometimes <code>under-stemming</code>) and generate forms that are &rsquo;not words'.</li>
+</ul>
+<p>Nowadays, we have many stemmers developed, one of them is called <code>Porter Stemmer</code>, which meanly focus on suffix stripping, here are its rough processing steps:</p>
+<ol>
+<li>Get rid of plurals and <strong>-ed</strong> or <strong>-ing</strong> suffixes</li>
+<li>Turn terminal <strong>y</strong> to <strong>i</strong> when there is another vowel in the stem</li>
+<li>Map double suffixes to single ones</li>
+<li>Deal with suffixes, <strong>-full</strong>, <strong>-ness</strong> etc.</li>
+<li>Take off <strong>-ant</strong>, <strong>-ence</strong>, etc.</li>
+<li>Tidy up (remove –e and double letters)</li>
+</ol>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2023/12/15/distributed-system-fault-tolerance/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Fault Tolerance">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
                 
 
 
 
-
             </div>
+
+            
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
             
             <div class="
                 col-lg-8 col-lg-offset-2
@@ -210,38 +386,8 @@
                         
                         
                         
-                        <a href="/tags/algorithm" title="algorithm">
-                        algorithm
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/data-structure" title="data-structure">
-                        data-structure
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/distributed-system" title="distributed-system">
-                        distributed-system
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/hackathon" title="hackathon">
-                        hackathon
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/hugo" title="hugo">
-                        hugo
-                        </a>
-                        
-                        
-                        
                         <a href="/tags/nlp" title="nlp">
-                        nlp
+                            nlp
                         </a>
                         
                         
@@ -250,16 +396,6 @@
                 
 
                 
-                
-                <section>
-                    <hr>
-                    <h5>FRIENDS</h5>
-                    <ul class="list-inline">
-                        
-                        <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
-                        
-                    </ul>
-                </section>
                 
             </div>
         </div>
@@ -333,7 +469,7 @@
             
            
                    <li>
-                       <a href='/categories/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/post/comp33511-nlp/2023-12-19-nlp-text-preprocessing-representation/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

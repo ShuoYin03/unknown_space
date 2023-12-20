@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Advanced Distributed System - Performance Modelling" />
-    <meta property="og:title" content="Advanced Distributed System - Performance Modelling" />
-    <meta property="twitter:title" content="Advanced Distributed System - Performance Modelling" />
+    <meta name="title" content="nlp" />
+    <meta property="og:title" content="nlp" />
+    <meta property="twitter:title" content="nlp" />
     
 
     
-    <meta name="description" content="Introduce how to model the performance of distributed application">
-    <meta property="og:description" content="Introduce how to model the performance of distributed application" />
-    <meta property="twitter:description" content="Introduce how to model the performance of distributed application" />
+    <meta name="description" content="Blog for Shuo Yin.">
+    <meta property="og:description" content="Blog for Shuo Yin." />
+    <meta property="twitter:description" content="Blog for Shuo Yin." />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Advanced Distributed System - Performance Modelling | ShuoYin</title>
+    <title>nlp | ShuoYin</title>
 
-    <link rel="canonical" href="/2023/11/06/advanced-distributed-system-performance-modelling/">
+    <link rel="canonical" href="/tags/nlp/">
 
     
     
@@ -158,195 +158,228 @@
 </script>
 
 
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [["$", "$"]],
-    },
-    displayMath: [
-      ["$$", "$$"],
-      ["\[\[", "\]\]"],
-    ],
-    svg: {
-      fontCache: "global",
-    },
-  };
-</script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-></script>
 
 
-
-
-
-<style type="text/css">
-    header.intro-header {
-        background-image: url('/img/tag-bg.jpg')
-    }
-</style>
-
-<header class="intro-header" >
-
+<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/distributed-system" title="Distributed System">
-                            Distributed System
-                        </a>
-                        
-                    </div>
-                    <h1>Advanced Distributed System - Performance Modelling</h1>
-                    <h2 class="subheading">Performance Modelling</h2>
-                    <span class="meta">
-                        
-                            Posted by 
-                            
-                                UNKNOWN SPACE
-                             
-                            on 
-                            Tuesday, December 12, 2023
-                            
-                                
-                                <br><span class="meta">337 Words, Read 2 minutes</span>
-                            
-                             
-                            
-                            
-                    </span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>UNKNOWN SPACE </h1>
+                    
+		    <span class="subheading">Welcome to my world</span>
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 </header>
 
 
 
-
-<article>
-    <div class="container">
-        <div class="row">
-
+  
+<div data-pagefind-ignore="all" class="container">
+    <div class="row">
+        
+        
+   	    <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+<div data-pagefind-ignore="all">
 
-                
-                <blockquote>
-<p>It is always good to test the performance of distributed applications to ensure it meets the target, and today we&rsquo;ll learn what is a model and how to build a model to achieve this.</p>
-</blockquote>
-<h2 id="what-is-a-model">What is a model</h2>
-<p>A <code>model</code> is a representation of a system that could be used to track the key characteristics and analyze the behaviour of a system.</p>
-<p>There are two approches two build a model:</p>
-<ol>
-<li>Analytical Model</li>
-<li>Simulation</li>
-</ol>
-<h2 id="analytical-model">Analytical Model</h2>
-<p>Here are some examples for analytical model:</p>
-<ol>
-<li>
-<p>Minimum Possible HTTP Transaction Time<br>
-$$t = RTT + t_{request} + t_{siteprocessing} + t_{reply}$$
-In this equation, we have t for time and RTT for round-trip-time, $t_{request}$ is request size divided by bandwidth, $t_{siteprocessing}$ is the time for processing and $t_{reply}$ is reply size / bandwidth.</p>
-</li>
-<li>
-<p>Parallel Computation<br>
-$$t_p=t_s*(1-x+x/p)$$
-The above equation is called the <code>Amdahl’s Law</code>, which calculates the total running time $t_p$. It defines a program running in time $t_s$ with only 1 CPU, try run this program with p CPUs, the inherently sequential part $1-x$, and the rest of them are the parts could be run parallel. The idea of this law is, the whole system is retricted to the inherently sequential part when we are doing optimization.</p>
-</li>
-</ol>
-<h3 id="querying-theory">Querying Theory</h3>
-<p>The Querying theory is a much more complicated problem considering the service counters to which customers arrive and join a waiting line (queue), few parameters that could influence the results are: arrvial rate, number of servers, processing time, etc.</p>
-<p>The <code>liitle's law</code> is a useful result for it. Look at the equation $$Avg\_no\_of\_customers\_in = arrival\_rate × service\_time$$
-In a <code>steady state</code>, the above equation holds, which means in the queue, there won&rsquo;t be stacked requests.</p>
-<h2 id="simulation">Simulation</h2>
-<p>Simulation is useful after a large number of samples tested, we simulate what samples and check the result.</p>
-<p>We could use <code>Monte-Carlo</code> to implement simulation which contains two steps:</p>
-<ol>
-<li>Generate random input</li>
-<li>Simulate what follows and check the result</li>
-</ol>
-<h3 id="discrite-event-simulation">Discrite Event Simulation</h3>
-<p>In a discrite event simulation, we randomly generate events with some notion of time.</p>
-
-                
-
-                
-                <hr>
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/" data-toggle="tooltip" data-placement="top" title="Algorithm and Data Structure - Propositional logic">&larr;
-                            Previous Post</a>
-                    </li>
-                    
-                    
-                </ul>
-                
-
-                
-
-
-
-            </div>
-
-            
-            
-            
-            <div class="
-                col-lg-2 col-lg-offset-0
-                visible-lg-block
-                sidebar-container
-                catalog-container">
-                <div class="side-catalog">
-                    <hr class="hidden-sm hidden-xs">
-                    <h5>
-                        <a class="catalog-toggle" href="#">CATALOG</a>
-                    </h5>
-                    <ul class="catalog-body"></ul>
-                </div>
-            </div>
-            
-
-            
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                
-                
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        <a href="/tags/distributed-system" title="Distributed System">
-                            Distributed System
-                        </a>
-                        
-                        
-                    </div>
-                </section>
-                
-
-                
-                
-            </div>
+<div class="post-preview">
+    <a href="https://shuoyin03.github.io/post/comp33511-nlp/2023-12-19-nlp-text-preprocessing-representation/">
+        <h2 class="post-title">
+            Natural Language Processing - Text Pre-processing
+        </h2>
+	
+        <h3 class="post-subtitle">
+            First step of NLP
+        </h3>
+	
+        <div class="post-content-preview">
+	
+            Introduce tokenisation and Normalisation
+        
         </div>
-    </div>
-</article>
+    </a>
+    <p class="post-meta">
+    
+        Posted by UNKNOWN SPACE on Wednesday, December 20, 2023
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+</div>
+
+            
+
+
+
+       	</div>
+        
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+            
+                    <a href="/tags/algorithm" title="algorithm">
+                        algorithm
+                    </a>
+            
+            
+            
+                    <a href="/tags/data-structure" title="data-structure">
+                        data-structure
+                    </a>
+            
+            
+            
+                    <a href="/tags/distributed-system" title="distributed-system">
+                        distributed-system
+                    </a>
+            
+            
+            
+                    <a href="/tags/hackathon" title="hackathon">
+                        hackathon
+                    </a>
+            
+            
+            
+                    <a href="/tags/hugo" title="hugo">
+                        hugo
+                    </a>
+            
+            
+            
+                    <a href="/tags/nlp" title="nlp">
+                        nlp
+                    </a>
+            
+            
+        </div>
+    </section>
+    
+
+    
+	
+    <section class="visible-md visible-lg">
+        <hr>
+	
+        <div class="short-about">
+            
+            <a href="/about">
+               <img src="/img/sign-post-5655110_640.png" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Software Developer in Sportandmusic, Third year computer science student in the University of Manchester</p>
+            
+           
+           <ul class="list-inline">
+               
+               <li>
+                   <a href="mailto:shuoyin03@gmail.com">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                      </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="/img/wechat.jpg">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/ShuoYin03">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+            
+            
+               
+               
+               
+               
+                </ul>
+            </div>
+    </section>
+	
+    
+    
+   
+
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+            
+            <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
+            
+        </ul>
+    </section>
+    
+    
+</div>
+
+	</div>
+</div>
+
 
 
 
@@ -415,7 +448,7 @@ In a <code>steady state</code>, the above equation holds, which means in the que
             
            
                    <li>
-                       <a href='/2023/11/06/advanced-distributed-system-performance-modelling/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/tags/nlp/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

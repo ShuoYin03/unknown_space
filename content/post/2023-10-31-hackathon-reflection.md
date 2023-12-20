@@ -3,7 +3,7 @@ title:      "GreatUniHack2023 - Postscript to the competition"
 subtitle:   "Thoughts and reflections after the 24-hour hackathon"
 description: "Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future."
 date:       2023-10-31T12:00:00
-author:     UNKNOWN SPACE
+author: UNKNOWN SPACE
 URL:        "/2023/11/03/greatunihack2023/"
 tags:       ["Hackathon"]
 categories: ["post"]

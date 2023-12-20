@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Advanced Distributed System - Big data" />
-    <meta property="og:title" content="Advanced Distributed System - Big data" />
-    <meta property="twitter:title" content="Advanced Distributed System - Big data" />
+    <meta name="title" content="Advanced Distributed System - Performance Modelling" />
+    <meta property="og:title" content="Advanced Distributed System - Performance Modelling" />
+    <meta property="twitter:title" content="Advanced Distributed System - Performance Modelling" />
     
 
     
-    <meta name="description" content="Introduced the distributed system, trade-offs in big data">
-    <meta property="og:description" content="Introduced the distributed system, trade-offs in big data" />
-    <meta property="twitter:description" content="Introduced the distributed system, trade-offs in big data" />
+    <meta name="description" content="Introduce how to model the performance of distributed application">
+    <meta property="og:description" content="Introduce how to model the performance of distributed application" />
+    <meta property="twitter:description" content="Introduce how to model the performance of distributed application" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Advanced Distributed System - Big data | ShuoYin</title>
+    <title>Advanced Distributed System - Performance Modelling | ShuoYin</title>
 
-    <link rel="canonical" href="/2023/11/06/advanced-distributed-system-big-data/">
+    <link rel="canonical" href="/2023/12/13/distributed-system-performance-modelling/">
 
     
     
@@ -158,6 +158,27 @@
 </script>
 
 
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
 
 
 
@@ -181,8 +202,8 @@
                         </a>
                         
                     </div>
-                    <h1>Advanced Distributed System - Big data</h1>
-                    <h2 class="subheading">Big Data</h2>
+                    <h1>Advanced Distributed System - Performance Modelling</h1>
+                    <h2 class="subheading">Performance Modelling</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -190,10 +211,10 @@
                                 UNKNOWN SPACE
                              
                             on 
-                            Monday, November 6, 2023
+                            Tuesday, December 12, 2023
                             
                                 
-                                <br><span class="meta">754 Words, Read 4 minutes</span>
+                                <br><span class="meta">451 Words, Read 3 minutes</span>
                             
                              
                             
@@ -220,241 +241,54 @@
 
                 
                 <blockquote>
-<p>In a shared nothing infrastructure, data storage, update, access and processing takes place across a collection of networked machines. To enhance the performance, processing needs to be take place in parallel, which we have to distribute data, and that&rsquo;s partition. This article will gives an rough idea of partition techniques and details needs to be consider.</p>
+<p>It is always good to test the performance of distributed applications to ensure it meets the target, and today we&rsquo;ll learn what is a model and how to build a model to achieve this.</p>
 </blockquote>
-<h2 id="partition">Partition</h2>
-<p>
-  <img src="/img/distributed-bigdata/pic.png" alt="">
-
-
-By definition, partition involves deciding how to assign data from a sources to distributed nodes.Take the above image as an example, we could do partition in these ways:</p>
+<h2 id="what-is-a-model">What is a model</h2>
+<p>A <code>model</code> is a representation of a system that could be used to track the key characteristics and analyze the behaviour of a system.
+Such performance targets could be:</p>
+<ol>
+<li>Response time</li>
+<li>Throughput (work per unit of time)</li>
+<li>Resource Utilisation (think of a cloud provider)</li>
+<li>Energy Consumption</li>
+<li>Relates to CPU frequency, application profile</li>
+<li>Minimize cost (when using cloud resources)</li>
+<li>Minimize number of failures (fault tolerance)</li>
+<li>Trade Computation with Communication</li>
+</ol>
+<p>There are two approches two build a model:</p>
+<ol>
+<li>Analytical Model</li>
+<li>Simulation</li>
+</ol>
+<h2 id="analytical-model">Analytical Model</h2>
+<p>Here are some examples for analytical model:</p>
 <ol>
 <li>
-<p><strong>Random or Round Robin:</strong><br>
-Data is assigned as it is inserted across different nodes.</p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Uniform initial distribution</td>
-<td>Querying involves accessing all notes</td>
-</tr>
-<tr>
-<td>Easy to rebalance on update</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>Minimum Possible HTTP Transaction Time<br>
+$$t = RTT + t_{request} + t_{siteprocessing} + t_{reply}$$
+In this equation, we have t for time and RTT for round-trip-time, $t_{request}$ is request size divided by bandwidth, $t_{siteprocessing}$ is the time for processing and $t_{reply}$ is reply size / bandwidth.</p>
 </li>
 <li>
-<p><strong>Range based Partition:</strong><br>
-Partitioning often assumes some form of key-value datamodel. Then partitioning relates to the key
-Key range: each partition is associated with a range of values for the key (e.g. alphabetical or numerical).</p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Focused range queries on key</td>
-<td>Risk of hot spots for popular keys</td>
-</tr>
-<tr>
-<td>Focused direct access on key</td>
-<td>Uniform distribution not intrinsic</td>
-</tr>
-<tr>
-<td></td>
-<td>Rebalancing can be expensive</td>
-</tr>
-<tr>
-<td></td>
-<td>Only helps for key-based requests</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>Hash based Partition:</strong><br>
-Partition based on the hash of the keys.<br>
-Assume we have Hash(String) -&gt; Integer, if there is n parition, partition(key) = return(Hash(key) mod n)</p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Uniform distribution with certain keys</td>
-<td>Risk of hot spots for popular keys</td>
-</tr>
-<tr>
-<td>Focused direct access on key</td>
-<td>No support for range queries</td>
-</tr>
-<tr>
-<td></td>
-<td>Rebalancing can be expensive</td>
-</tr>
-<tr>
-<td></td>
-<td>Only helps for the requests that have the key</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>Meaning based Partition:</strong><br>
-Partitioning by key means choosing a suitable key</p>
-<table>
-<thead>
-<tr>
-<th>Desirable</th>
-<th>Examples</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Useful for range access requests</td>
-<td>Size</td>
-</tr>
-<tr>
-<td>Useful for direct access requests</td>
-<td>Name, Town</td>
-</tr>
-<tr>
-<td>Diverse values</td>
-<td>Id, Name, Town, Size</td>
-</tr>
-<tr>
-<td>Not subject to skew</td>
-<td>Id, Name, Town, Size</td>
-</tr>
-</tbody>
-</table>
+<p>Parallel Computation<br>
+$$t_p=t_s*(1-x+x/p)$$
+The above equation is called the <code>Amdahl’s Law</code>, which calculates the total running time $t_p$. It defines a program running in time $t_s$ with only 1 CPU, try run this program with p CPUs, the <code>inherently sequential part</code> is $1-x$, and the rest of them are the parts could be run parallel. The idea of this law is, the whole system is retricted to the inherently sequential part when we are doing optimization. By considering the derivation of this equation, we could calculate <code>speedup</code> by the following equation: $$Speedup = 1/(1-x)$$
+For example, if we have a distributed application with 10% inherently sequential part and the rest 90% could be run in parallel, then we have a speedup of $1/(1-0.9) = 10$</p>
 </li>
 </ol>
-<h2 id="repartitioning">Repartitioning</h2>
-<h3 id="skew-and-hot-spots">Skew and Hot Spots</h3>
-<p><code>Skew</code> is when partitioning is uneven. For example, a partitioning on the first letter of Country in the University table.<br>
-A <code>hot spot</code> arises when the load is unevenly balanced. For example, many more people may look up some
-universities than others.</p>
-<h3 id="method">Method</h3>
-<p>Repartitioning involves moving the data from one partition to another.<br>
-<strong>Example:</strong>  Partition by Id, use a hash function <strong>Hash(x) = Id(x) mod #nodes</strong>
-
-  <img src="/img/distributed-bigdata/pic1.png" alt="">
-
-
-How many tuples need to change node?<br>
-In this case of uniform distribution and mode-based partitioning, the number of data need to be repartitioning is:<br>
-<strong>To-Distribute = 1 - 1 / #final-nodes</strong></p>
-<p>In this example, the number of data need to be distribute is:<br>
-<strong>1 - 1/3 = 0.666</strong>, which is <strong>0.666 * 6 = 4</strong></p>
-<p>In order to reduce the cost of repartitioning, it is possible to have more partitions than nodes. Then repartitioning for a new node involves moving selected partitions to the new node.
-
-  <img src="/img/distributed-bigdata/pic5.png" alt="">
-
-</p>
-<p>Two steps need to be taken to find a partition for value v:</p>
+<h3 id="querying-theory">Querying Theory</h3>
+<p>The Querying theory is a much more complicated problem considering the service counters to which customers arrive and join a waiting line (queue), few parameters that could influence the results are: arrvial rate, number of servers, processing time, etc.</p>
+<p>The <code>liitle's law</code> is a useful result for it. Look at the equation $$Avg\_no\_of\_customers\_in = arrival\_rate × service\_time$$
+In a <code>steady state</code>, the above equation holds, which means in the queue, there won&rsquo;t be stacked requests.</p>
+<h2 id="simulation">Simulation</h2>
+<p>Simulation is useful after a large number of samples tested, we simulate what samples and check the result.</p>
+<p>We could use <code>Monte-Carlo</code> to implement simulation which contains two steps:</p>
 <ol>
-<li>Hash v to a partition number</li>
-<li>Use a lookup table to identify the node of this partition</li>
+<li>Generate random input</li>
+<li>Simulate what follows and check the result</li>
 </ol>
-<p>In this case the <code>fraction moved</code> is: <strong>1 / #nodes + 1</strong><br>
-In the previous example <code>fraction moved</code> is 1/4</p>
-<h2 id="secondary-indexes">Secondary Indexes</h2>
-<p>The <code>Ranging</code> and <code>Hashing</code> methods are better performed when key is widely used. NoSQL are always designed to support applications use <code>Id</code> or <code>names</code> as primary key. However, it&rsquo;s better for us to have multiple access routes to avoid <code>scanning</code>. In this case we use <code>secondary index</code> - the index on an attribute that has not been used for partitioning.</p>
-<p>Example: In this table, the data is partitioned by name. Does the hash index on the partition helps?
-
-  <img src="/img/distributed-bigdata/pic2.png" alt="">
-
-</p>
-<table>
-<thead>
-<tr>
-<th>Query</th>
-<th>Does partition index help?</th>
-<th>Useful Additional Index</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>How many students attend UCL?</td>
-<td>Yes</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>Which Uni have &gt; 40,000 students</td>
-<td>No</td>
-<td>Range index on size</td>
-</tr>
-<tr>
-<td>Which Uni are in Manchester</td>
-<td>No</td>
-<td>Hash or range index on town</td>
-</tr>
-</tbody>
-</table>
-<h3 id="local-secondary-index">Local Secondary Index</h3>
-<p>A key question is that where should we store these secondary index? Here are few options to do it:</p>
-<ol>
-<li>
-<p>Store the secondary index on the same node as the data it is indexing.
-
-  <img src="/img/distributed-bigdata/pic3.png" alt="">
-
-</p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Updating a document leads to local index changes (so no distributed transactions)</td>
-<td>A lookup needs to go to every transaction, leading to many index lookups</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Store the secondary index partitioned by term: a single distributed index.
-
-  <img src="/img/distributed-bigdata/pic4.png" alt="">
-
-</p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Index lookups no longer need to go to all nodes (note some index lookups will have no hits)</td>
-<td>Updates to a document on a node now also lead to index updates (and thus potentially to distributed transactions)</td>
-</tr>
-</tbody>
-</table>
-</li>
-</ol>
-<h2 id="partitioning-for-evaluation">Partitioning for Evaluation</h2>
-<p>After we talked about how to do partitioning, we should discuss about when. In one case, data need partitioning while requests are being evaluated.</p>
-<p><strong>To Be Continues&hellip;</strong></p>
+<h3 id="discrite-event-simulation">Discrite Event Simulation</h3>
+<p>In a discrite event simulation, we randomly generate events with some notion of time, and record all results with each events. It is common to use this kind of simulation in such computer games.</p>
 
                 
 
@@ -463,13 +297,13 @@ In the previous example <code>fraction moved</code> is 1/4</p>
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2023/11/06/algorithm-and-data-structure-turing-machine/" data-toggle="tooltip" data-placement="top" title="Algorithm and Data Structure - Turing Machine">&larr;
+                        <a href="/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/" data-toggle="tooltip" data-placement="top" title="Algorithm and Data Structure - Propositional logic">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/hugo/2023-11-18-hugo-google-search/" data-toggle="tooltip" data-placement="top" title="How to let Google search your website?">Next
+                        <a href="/2023/12/15/distributed-system-fault-tolerance/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Fault Tolerance">Next
                             Post &rarr;</a>
                     </li>
                     
@@ -598,7 +432,7 @@ In the previous example <code>fraction moved</code> is 1/4</p>
             
            
                    <li>
-                       <a href='/2023/11/06/advanced-distributed-system-big-data/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2023/12/13/distributed-system-performance-modelling/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

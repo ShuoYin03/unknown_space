@@ -6,13 +6,35 @@
     <description>Recent content on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Natural Language Processing - Text Pre-processing</title>
+      <link>https://shuoyin03.github.io/post/comp33511-nlp/2023-12-19-nlp-text-preprocessing-representation/</link>
+      <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/post/comp33511-nlp/2023-12-19-nlp-text-preprocessing-representation/</guid>
+      <description>In this article, we are going to look at general steps of text pre-processing. Text Pre-processing Tokenisation Word-Based Tokenisation Tokenisation is the first step of text pre-processing, it is to split a bunch of text into a list of tokens. As an example, we could split “a cat on a pat” to [“a”, “cat”, “on</description>
+    </item>
+    
+    <item>
+      <title>Advanced Distributed System - Fault Tolerance</title>
+      <link>https://shuoyin03.github.io/2023/12/15/distributed-system-fault-tolerance/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/12/15/distributed-system-fault-tolerance/</guid>
+      <description>In a distributed application, we always have to consider the impact of faults and solutions of how we can solve it while balancing the cost, response time and other performances.
+Type of Failures First of all, let’s have a look at what type of faults do have.
+Omission failures
+The server fails to respond/receive to incoming requests and fail to send messages Timing failures
+The server fails to respond within a certain time Response failures</description>
+    </item>
+    
     <item>
       <title>Advanced Distributed System - Performance Modelling</title>
-      <link>https://shuoyin03.github.io/2023/11/06/advanced-distributed-system-performance-modelling/</link>
+      <link>https://shuoyin03.github.io/2023/12/13/distributed-system-performance-modelling/</link>
       <pubDate>Tue, 12 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://shuoyin03.github.io/2023/11/06/advanced-distributed-system-performance-modelling/</guid>
+      <guid>https://shuoyin03.github.io/2023/12/13/distributed-system-performance-modelling/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;It is always good to test the performance of distributed applications to ensure it meets the target, and today we&amp;rsquo;ll learn what is a model and how to build a model to achieve this.&lt;/p&gt;
 &lt;/blockquote&gt;</description>
@@ -50,10 +72,10 @@ Crawling Google is using crawl programs which is called Googlebot to crawl new w
     
     <item>
       <title>Advanced Distributed System - Big data</title>
-      <link>https://shuoyin03.github.io/2023/11/06/advanced-distributed-system-big-data/</link>
+      <link>https://shuoyin03.github.io/2023/11/06/distributed-system-big-data/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://shuoyin03.github.io/2023/11/06/advanced-distributed-system-big-data/</guid>
+      <guid>https://shuoyin03.github.io/2023/11/06/distributed-system-big-data/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;In a shared nothing infrastructure, data storage, update, access and processing takes place across a collection of networked machines. To enhance the performance, processing needs to be take place in parallel, which we have to distribute data, and that&amp;rsquo;s partition. This article will gives an rough idea of partition techniques and details needs to be consider.&lt;/p&gt;
 &lt;/blockquote&gt;</description>

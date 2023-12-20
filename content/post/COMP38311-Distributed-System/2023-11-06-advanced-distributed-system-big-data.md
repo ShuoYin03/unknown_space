@@ -7,7 +7,7 @@ author: UNKNOWN SPACE
 image: ""
 tags: ["Distributed System"]
 categories: ["notes"]
-URL: "/2023/11/06/advanced-distributed-system-big-data/"
+URL: "/2023/11/06/distributed-system-big-data/"
 draft: false
 ---
 
