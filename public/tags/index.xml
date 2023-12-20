@@ -61,5 +61,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>tag1</title>
+      <link>https://shuoyin03.github.io/tags/tag1/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/tags/tag1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tag2</title>
+      <link>https://shuoyin03.github.io/tags/tag2/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/tags/tag2/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

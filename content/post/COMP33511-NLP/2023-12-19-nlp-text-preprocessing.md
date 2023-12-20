@@ -7,6 +7,7 @@ author: "UNKNOWN SPACE"
 image: ""
 tags: ["nlp"]
 categories: ["notes"]
+URL: "/2023/12/20/nlp-representation/"
 math: true
 ---
 
