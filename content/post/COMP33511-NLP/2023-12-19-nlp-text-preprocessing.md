@@ -2,18 +2,16 @@
 title: "Natural Language Processing - Text Pre-processing"
 subtitle: "First step of NLP"
 description: "Introduce tokenisation and Normalisation"
-date: 2023-12-20
+date: 2023-12-19
 author: "UNKNOWN SPACE"
 image: ""
 tags: ["nlp"]
 categories: ["notes"]
-URL: "/2023/12/20/nlp-representation/"
+URL: "/2023/12/19/nlp-text-preprocessing/"
 math: true
 ---
 
 > In this article, we are going to look at general steps of text pre-processing.
-
-# Text Pre-processing
 
 ## Tokenisation
 

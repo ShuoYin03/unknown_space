@@ -6,14 +6,14 @@
     <description>Recent content on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Natural Language Processing - Text Pre-processing</title>
-      <link>https://shuoyin03.github.io/2023/12/20/nlp-representation/</link>
-      <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+      <link>https://shuoyin03.github.io/2023/12/19/nlp-text-preprocessing/</link>
+      <pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://shuoyin03.github.io/2023/12/20/nlp-representation/</guid>
-      <description>In this article, we are going to look at general steps of text pre-processing. Text Pre-processing Tokenisation Word-Based Tokenisation Tokenisation is the first step of text pre-processing, it is to split a bunch of text into a list of tokens. As an example, we could split “a cat on a pat” to [“a”, “cat”, “on</description>
+      <guid>https://shuoyin03.github.io/2023/12/19/nlp-text-preprocessing/</guid>
+      <description>In this article, we are going to look at general steps of text pre-processing. Tokenisation Word-Based Tokenisation Tokenisation is the first step of text pre-processing, it is to split a bunch of text into a list of tokens. As an example, we could split “a cat on a pat” to [“a”, “cat”, “on”,</description>
     </item>
     
     <item>
@@ -115,15 +115,6 @@ K ≥ 2 (number of tapes) Σ is a non-empty, finite set (alphabet) Q is a non-em
 &lt;blockquote&gt;
 &lt;p&gt;Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future.&lt;/p&gt;
 &lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>An Example Post</title>
-      <link>https://shuoyin03.github.io/post/comp33511-nlp/2023-12-20-nlp-representation/</link>
-      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://shuoyin03.github.io/post/comp33511-nlp/2023-12-20-nlp-representation/</guid>
-      <description></description>
     </item>
     
     <item>

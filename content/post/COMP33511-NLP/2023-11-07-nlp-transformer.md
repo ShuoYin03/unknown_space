@@ -1,13 +1,13 @@
 ---
-title:       "NLP - Attention and Transformer"
+title: "Natural Language Processing - Attention and Transformer"
 subtitle:    "Introduction to Attention RNN and Transformer neural network"
 description: "Introduction to Attention RNN and Transformer neural network"
-date:        2023-11-07
-author:      "不知所云集"
-image:       ""
+date: 2023-11-07
+author: "UNKNOWN SPACE"
+image: ""
 tags: ["NLP"]
-categories:  ["notes"]
-URL:        "/2023/11/07/advanced-distributed-system-big-data/"
+categories: ["notes"]
+URL: "/2023/11/07/nlp-transformer/"
 draft: true
 ---
 
