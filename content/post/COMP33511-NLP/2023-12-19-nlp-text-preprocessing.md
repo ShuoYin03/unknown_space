@@ -13,10 +13,10 @@ math: true
 
 > In this article, we are going to look at general steps of text pre-processing.
 
-## Tokenisation
+## Tokenization
 
-### Word-Based Tokenisation
-`Tokenisation` is the first step of text pre-processing, it is to split a bunch of text into a list of `tokens`. As an example, we could split **“a cat on a pat”** to **[“a”, “cat”, “on”, “a”, “pet”]**. For the most basic Tokenisation method, we do `white space-delimited sequence`, like the above example. However, not all languages use white space, like Chinese (我喜欢西兰花), and we also have to consider punctuation signs, if we want to split “white space-delimited sequence”, we don’t want the result to be **["white", "space-delimited", "sequence"]**, which breaks the origin meaning of the words.
+### Word-Based Tokenization
+`Tokenization` is the first step of text pre-processing, it is to split a bunch of text into a list of `tokens`. As an example, we could split **“a cat on a pat”** to **[“a”, “cat”, “on”, “a”, “pet”]**. For the most basic Tokenization method, we do `white space-delimited sequence`, like the above example. However, not all languages use white space, like Chinese (我喜欢西兰花), and we also have to consider punctuation signs, if we want to split “white space-delimited sequence”, we don’t want the result to be **["white", "space-delimited", "sequence"]**, which breaks the origin meaning of the words.
 
 There are few others conditions we have to consider:
 1. White Space  
@@ -25,19 +25,19 @@ There are few others conditions we have to consider:
 **what're**, **I'm** is what + are, I + am  
 **King's coming** is King + is + coming
 3. Possessives  
-**King's speech**, this is completed different with King's comming, becase `'s` has completely different meaning in two combinations
+**King's speech**, this is completed different with King's coming, because `'s` has completely different meaning in two combinations
 
-In order to consider all above situations, tokenisation is performed with the following steps:
+In order to consider all above situations, tokenization is performed with the following steps:
 1. Initial segmentation (mostly on white-space)
 2. Handling abbreviations and apostrophes
 3. Handling hyphenations
 4. Dealing with (other) special expressions  
 – emails, URLs, emoticons, numbers, … 
 
-Note that there are no firm rules for tokenisation, it has to be **consistent** with the rest of an NLP system. Moreover, it is necessary to avoid **over-segmentation**.
+Note that there are no firm rules for tokenization, it has to be **consistent** with the rest of an NLP system. Moreover, it is necessary to avoid **over-segmentation**.
 
 ### Byte-Pair Encoding
-To decrease the influence of `OOV` words, we have another method of tokenisation - `Byte-Pair Encoding`. It consist of two parts, `token learner` & `token segmenter`.
+To decrease the influence of `OOV` words, we have another method of tokenization - `Byte-Pair Encoding`. It consist of two parts, `token learner` & `token segmenter`.
 
 #### Token Learner
 In token learner, split the words into individual characters to form a vocabulary
@@ -49,9 +49,9 @@ $$\\{A, B, C, D, a, b, c, d, ...\\}$$
 2. **Merge** them together and add to the vocabulary
 3. **Replace every adjacent characters** merged previously into the merged form in the corpus
 #### Token Segmenter
-After we get the merged vocabulary, on the new data, perform same merges, and then we could get the tokenisation down by now.
+After we get the merged vocabulary, on the new data, perform same merges, and then we could get the tokenization down by now.
 
-This method could greatly reduce the number of unseened tokens.
+This method could greatly reduce the number of unseen tokens.
 ## Normalization
 
 `Normalization` is the second step, we map tokens into normalized forms like below:  
@@ -60,7 +60,7 @@ This method could greatly reduce the number of unseened tokens.
 - {multi-national, multinational} → multinational  
 - {Duesseldorf, Düsseldorf, Dusseldorf} → Dusseldorf  
 
-We have two main approches for normalization: `Lemmatisation` & `Stemming`.
+We have two main approaches for normalization: `Lemmatisation` & `Stemming`.
 ### Lemmatisation
 The key idea of lemmatisation is the reduction to `dictionary headword`, here are few examples:
 - {am, are, is} → be
