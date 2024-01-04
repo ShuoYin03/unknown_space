@@ -6,7 +6,18 @@
     <description>Recent content in nlp on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Natural Language Processing - POS Tagging</title>
+      <link>https://shuoyin03.github.io/2024/01/04/nlp-pos-tagging/</link>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/04/nlp-pos-tagging/</guid>
+      <description>In this article we will have a look at POS tagging, what is it? How do we apply it to NLP tasks?
+POS POS - &amp;ldquo;Part of Speech&amp;rdquo;, represent a linguistic category, defined the syntactic or morphological behavior of words. “Traditional” categories contains 8 tags, they are:
+verb None Adverb Adjective Interjection Pronoun Preposition Conjunction The previous 5 categories are called the open word classes, which means that these types always have a large amount of vocabularies and new words could be added into these categories.</description>
+    </item>
+    
     <item>
       <title>Natural Language Processing - Text Representation</title>
       <link>https://shuoyin03.github.io/2023/12/21/nlp-text-representation/</link>

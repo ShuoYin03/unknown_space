@@ -3,7 +3,7 @@ title:       "Algorithm and Data Structure - Time, Space and Determinism"
 subtitle:    "Time and Space"
 description: "Introduction to the theorem of time and space complexity in turing machine"
 date:        2023-11-27
-author: UNKNOWN Space""
+author: UNKNOWN SPACE
 image:       ""
 tags:        ["Algorithm", "Data Structure"]
 categories:  ["notes"]

@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Natural Language Processing - Text Representation" />
-    <meta property="og:title" content="Natural Language Processing - Text Representation" />
-    <meta property="twitter:title" content="Natural Language Processing - Text Representation" />
+    <meta name="title" content="Natural Language Processing - POS Tagging" />
+    <meta property="og:title" content="Natural Language Processing - POS Tagging" />
+    <meta property="twitter:title" content="Natural Language Processing - POS Tagging" />
     
 
     
-    <meta name="description" content="Introduce how to represent texts in data forms for further nlp processes">
-    <meta property="og:description" content="Introduce how to represent texts in data forms for further nlp processes" />
-    <meta property="twitter:description" content="Introduce how to represent texts in data forms for further nlp processes" />
+    <meta name="description" content="Introduced the POS tagging, what is it? How do we apply it to NLP tasks?">
+    <meta property="og:description" content="Introduced the POS tagging, what is it? How do we apply it to NLP tasks?" />
+    <meta property="twitter:description" content="Introduced the POS tagging, what is it? How do we apply it to NLP tasks?" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Natural Language Processing - Text Representation | ShuoYin</title>
+    <title>Natural Language Processing - POS Tagging | ShuoYin</title>
 
-    <link rel="canonical" href="/2023/12/21/nlp-text-representation/">
+    <link rel="canonical" href="/2024/01/04/nlp-pos-tagging/">
 
     
     
@@ -202,8 +202,8 @@
                         </a>
                         
                     </div>
-                    <h1>Natural Language Processing - Text Representation</h1>
-                    <h2 class="subheading">Data Representations</h2>
+                    <h1>Natural Language Processing - POS Tagging</h1>
+                    <h2 class="subheading">POS tagging</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -211,10 +211,10 @@
                                 UNKNOWN SPACE
                              
                             on 
-                            Thursday, December 21, 2023
+                            Thursday, January 4, 2024
                             
                                 
-                                <br><span class="meta">1239 Words, Read 6 minutes</span>
+                                <br><span class="meta">964 Words, Read 5 minutes</span>
                             
                              
                             
@@ -241,94 +241,98 @@
 
                 
                 <blockquote>
-<p>In this article we will have a look at how to represent texts in data forms for further nlp processes.</p>
+<p>In this article we will have a look at POS tagging, what is it? How do we apply it to NLP tasks?</p>
 </blockquote>
-<h2 id="bow-representation">BoW Representation</h2>
-<p><code>BoW</code> - <strong>&ldquo;Bag of words&rdquo;</strong>, should be the simplest model, which reduce each document into a bag of words.
-
-  <img src="/img/nlp-text-representation/image.png" alt="Alt text">
-
-
-<code>BoW</code> is an efficient method which nowadays lots of NLP system is using it. However, there are some question we should think of while using it, such as:</p>
-<ol>
-<li>Are all the words <strong>equally important</strong>?</li>
-<li>What about (important) <strong>combinations</strong> of words?</li>
-<li>What about <strong>negations</strong>?</li>
-<li>Is the meaning lost without <strong>order</strong>?</li>
-</ol>
-<p>In this case, we should find some methods to solve all these problems. Let&rsquo;s look at some theories first.</p>
-<h2 id="zipfs-law">Zipf&rsquo;s Law</h2>
-<p>All words in our text has frequency, some words are very frequent, such as <strong>&ldquo;the&rdquo;, &ldquo;a&rdquo;, &ldquo;as&rdquo;</strong>, etc. And some other words is not very frequent, like <strong>&ldquo;bazinga&rdquo;</strong>. There are about 50% terms appears once only, therefore we have <code>Zipf's Law</code> announced by <code>George Zipf</code>, which states that: <strong>frequency of any word in a given collection is inversely proportional to its rank in the frequency table</strong>.</p>
+<h2 id="pos">POS</h2>
+<p><code>POS</code> - &ldquo;Part of Speech&rdquo;, represent a <strong>linguistic category</strong>, defined the syntactic or morphological behavior of words. “Traditional” categories contains 8 tags, they are:</p>
+<ul>
+<li>verb</li>
+<li>None</li>
+<li>Adverb</li>
+<li>Adjective</li>
+<li>Interjection</li>
+<li>Pronoun</li>
+<li>Preposition</li>
+<li>Conjunction</li>
+</ul>
+<p>The previous 5 categories are called the <code>open word classes</code>, which means that these types always have a large amount of vocabularies and new words could be added into these categories. And the last 3 categories are called <code>closed word classes</code>, they doesn&rsquo;t acquire new words to add in because most of them are used for <strong>building the text structure and connecting words or sentences</strong>, which has a limit number of vocabularies.</p>
+<p>Another two notions of the word categories are <code>content words</code> and <code>functional words</code>. <code>Content words</code> define those words which take the responsibilities of demonstrating the meaning of a sentence, such as noun, verbs and adjectives, and most of them will vary in different form based on the tense alternation. <code>Functional words</code> define those words serving to express the grammatical relationships in text within a sentence, they usually doesn&rsquo;t have much lexical meaning.</p>
+<h2 id="pos-tagging">POS Tagging</h2>
+<p>After introduce <code>POS</code>, we could have a look wht is <code>POS tagging</code>, how to do it in steps and why it helps in nlp applications? So <code>POS tagging</code> means assigning POS to each words in the corpus. The example is shown below:</p>
 <p>
-  <img src="/img/nlp-text-representation/image2.png" alt="Alt text">
+  <img src="/img/nlp-pos-tagging/image.png" alt="Alt text">
 
 </p>
-<p><code>Luhn’s hypothesis</code>, is a theory based on <code>Zipf's Law</code>, defining <code>upper cut-off</code> and <code>lower cut-off</code>, states that the range of words between these two <strong>cut-offs</strong> are the words help figuring the exact meaning of texts.</p>
-<h3 id="removing-stop-words">Removing Stop words</h3>
-<p>Based on the Zipf’s law, we could define <code>stop words</code>, which are the highly occurring words with <strong>less distinguishing power</strong> for representing documents. In this case, we could filter them for a cleaner data and faster process speed. However, not all nlp application will benefit from removing stop words, and for different purposes, we should use different list of stop words.</p>
-<h2 id="vector-representation">Vector Representation</h2>
-<p>The <code>vector representation</code> is a way of implementing the BoW model. We have two method of defining the vector representation. The first one is by <code>incident</code>(0 or 1), which define a vocabulary V consist all words left after all pre-processing procedures, and each document is represented by a V dimensional vector with occurred words in 1 and others in 0.</p>
-<p>$$ d = [w_1, w_2, … , w_{|v|} ] $$</p>
-<p>The second method is by matrix, which is shown in the following picture.
+<p>Why <code>POS tagging</code> is it useful? It is because of that, the same words in the corpus could have different POS tags depending on the context, which resolve <code>lexical ambiguities</code>. Here&rsquo;s an example:</p>
+<p>I <strong>can</strong> come tomorrow (Auxiliary)<br>
+I open the <strong>can</strong> (Noun) <br>
+We <strong>can</strong> beans in our factory (Verb)</p>
+<h2 id="pos-tag-prediction">POS Tag Prediction</h2>
+<p>There are two cues for doing the prediction of a tag, the <code>internal cues</code> (within the word) are <code>morphology</code> (on particular affixes), for example, <code>-ous</code> is often for adjectives and <code>-ed</code> is often for verbs. And the <code>external cues</code> are the contexts  of the word. For example, in the sentence <strong>&ldquo;I will read a book&rdquo;</strong>, the tag for <strong>&ldquo;book&rdquo;</strong> could be predict by <strong>&ldquo;a&rdquo;</strong>, because <strong>&ldquo;a&rdquo;</strong>, as a <code>DT</code>  (Determiner) often follows a noun.</p>
+<h2 id="pos-taggers">POS Taggers</h2>
+<p>There are different type of POS tagger being developed, here are three types of them:</p>
+<ul>
+<li>Rule-based taggers</li>
+<li>Stochastic taggers</li>
+<li>Transformation taggers</li>
+</ul>
+<h3 id="rule-based-taggers">Rule-based taggers</h3>
+<p>The <code>rule-based</code> taggers always start with a <code>dictionary</code> stores every possible tags for each words in the corpus, and during the tagging process, it <strong>selectively removes tags</strong> based on rules and finally leaving the correct tag.</p>
+<h3 id="stochastic-taggers">Stochastic taggers</h3>
+<p>The key idea of <code>stochastic taggers</code> is to find, what is the best sequence of tags corresponds to this sequence of words? To answer this question, <code>stochastic taggers</code> considers all possible sequence of tags and choose the most probable one. In math language, we want to find the following equation:
+$$\hat{t}_1^n = \underset{t_1^n}{\mathrm{argmax}} \ P(t_1^n\ |\ w_1^n)$$</p>
+<blockquote>
+<p>argmax means the maximum value over all items<br>
+Hat（^） means “our estimate of the best one”</p>
+</blockquote>
+<p>According to <code>Bayes rule</code>, the equation could be transform and simplify.</p>
+<p>$$\hat{t}_1^n = \underset{t_1^n}{\mathrm{argmax}} \ P(t_1^n\ |\ w_1^n) = \underset{t_1^n}{\mathrm{argmax}} \ \frac{P(w_1^n\ |\ t_1^n)P(t_1^n)}{P(w_1^n)}$$</p>
+<p>As $P(w_1^n)$ is the probability of the given sequence of words appear in the corpus, it doesn&rsquo;t affect the result because we focus on the effect of different POS tags and this is a const for any sequence of tags. Therefore we are able to remove it, and the equation becomes:</p>
+<p>$$\hat{t}_1^n = \underset{t_1^n}{\mathrm{argmax}} \ P(w_1^n\ |\ t_1^n)P(t_1^n)$$</p>
+<p>Now, the equation contains two parts - $P(w_1^n\ |\ t_1^n)$ and $P(t_1^n)$, the first part is the <code>likelihood</code>, where given the sequence of tags and we could see the sequence of words. The second part is <code>prior</code>, which is the probability of the sequence of tag. For the <code>likelihood</code>, if we assume every words are <strong>independent</strong> to each other, it can be approximately equal to:</p>
+<p>$$P(t_1^n) \approx \prod_{i=1}^{n} P(w_i | t_i)$$</p>
+<p>And for the <code>prior</code>, transformation could be made by using <code>chain rule</code>, the varied form is as below:</p>
+<p>$$P(w_1^n | t_1^n) \approx \prod_{i=1}^{n} P(t_i | t_{i-1})$$</p>
+<p>Combining every steps we take above, the final equation could be:</p>
+<p>$$\hat{t_1^n}= \underset{t_1^n}{\mathrm{argmax}} P(t_1^n\ |\ w_1^n) \approx \underset{t_1^n}{\mathrm{argmax}} \prod_{i=1}^{n} P(w_i\ |\ t_i)P(t_i\ |\ t_{i-1})$$</p>
+<p>Now, the question become how do we get the value for both likelihood and prior? We could use the <code>count-based estimation</code> introduced in the last blog to solve this problem. The equations are:</p>
+<p>Likelihood:
+$$P(w_i\ |\ t_i) = \frac{C(t_i, w_i)}{C(t_i)}$$</p>
+<p>Prior:
+$$P(t_i\ |\ t_{i-1}) = \frac{C(t_{i-1}, t_i)}{C(t_{i-1})}$$</p>
+<h3 id="transformation-taggers">Transformation taggers</h3>
+<p>The Transformation tagger is based on <code>TBL</code>(Transformation-Based Learning), it contains three stages. In the <code>start</code> stage, it give a simple solution to the problem, and in <code>iteration</code> stage, it apply transformations(including rules automatically induced from training data) to get the best result. Finally <code>TBL</code> reaches <code>stop</code> stage when no more improvements could be made.</p>
+<p><code>Brill POS tagger</code> is an implementation of <code>transformation taggers</code>, below is a picture showing the steps of <code>Brill POS tagger</code>, we&rsquo;ll introduce all it steps.
 
-  <img src="/img/nlp-text-representation/image3.png" alt="Alt text">
+  <img src="/img/nlp-pos-tagging/image2.png" alt="Alt text">
 
 </p>
-<h3 id="weight">Weight</h3>
-<p>In order to let our representation more accurate, it is better to consider <code>weight</code>. The most easiest way is <strong>counting the occurrence number of each words</strong>. However, consider <code>Zipf’s law</code> again, the words occurs many times doesn’t mean it is more important. Thus, we have <code>tf.idf</code> weighting.</p>
-<h4 id="tfidf-weighting">TF.IDF Weighting</h4>
-<p>Before we introduce <code>tf.idf</code>, we should know what is <code>document frequency</code> and <code>inverse document frequency</code>. <code>Document frequency</code> is the number of documents that contains term <strong>t</strong>, in other words, It is a measure of <strong>“informativeness”</strong> of <strong>t</strong>. And we could calculate the <code>idf</code>(inverse document frequency) by using the following equation.</p>
-<p>$$ idf_t = log_{10} (N/df_t) $$</p>
-<p>In the equation, <strong>N</strong> is the total number of documents. If the result is high, then it means the term appears in few documents, and vise versa.</p>
-<p>The <code>tf.idf</code> weighting is calculated by multiplying term frequency weight and inverse document frequency weight, the equation is as below:
-$$tf.idf_{t, d} = (1+ log_{10}tf_{t,d} )× log_{10} (N/df_t)$$</p>
-<p>It will increase with the number of <strong>occurrences within a document</strong> and the <strong>rarity</strong> of the term. By replacing the weight in a matrix vector representation, we got a more accurate result.</p>
-<h2 id="language-models">Language Models</h2>
-<p>From now on let&rsquo;s have a look at some language models.</p>
-<h3 id="n-gram-language-models">N-gram Language Models</h3>
-<p>Think about a situation when we dealing with words like <strong>“The United States”</strong>, building representation with each word separately doesn’t show the correct meaning, in this case, we could build a n-gram model to solve this kind of problem. Below is a picture showing the effects of different n number.
+<h4 id="initial-tagging">Initial Tagging</h4>
+<p>In the initial tagging, we tag all the words with its most likely tag, which are extracted from a tagged corpus. However there will be errors which need to fix it by transformations.</p>
+<h4 id="transformations">Transformations</h4>
+<p>In this stage, the tagger learn multiple rules, which could be separate into two types: <code>non-lexicalized</code> and <code>lexicalized</code>. The difference between these two types is that, <code>non-lexicalized</code> are external cues, and vice versa.
 
-  <img src="/img/nlp-text-representation/image4.png" alt="Alt text">
+  <figure>
+    <img src="/img/nlp-pos-tagging/image4.png" alt="Alt text">
+    <center><figcaption>non-lexicalized</figcaption></center>
+  </figure>
+
+
+
+  <figure>
+    <img src="/img/nlp-pos-tagging/image3.png" alt="Alt text">
+    <center><figcaption>lexicalized</figcaption></center>
+  </figure>
 
 </p>
-<h3 id="probabilistic-language-models">Probabilistic Language Models</h3>
-<p>Consider a sentence, “I saw a rabbit _______ yesterday”, what do you think is a better word to fill in the blank? It is true that “running” is more likely to be here rather than “flying”. By following this idea, we could use probabilistic language model to measures the probability of natural language utterances, giving higher scores to those that are more common, more grammatical, more “natural”.</p>
-<h4 id="unigram-language-models">Unigram Language Models</h4>
-<p>The first method we could use to add probabilistic in model is <code>unigram language models</code>. In any sequences of words $S = w_1, w_2, &hellip;, w_n$, the probability could be calculate as (assume all words appeared independently and identically distributed, although it is wrong, but it words well in some nlp applications):</p>
-<p>$$p(S) = p(w_1) * p(w_2) * &hellip; * p(w_n) = \prod_{i} p(w_{i})$$</p>
-<p>Now, the question is, how to we know all the probabilistic? Here we could use <code>corpus frequencies</code> - count how many times the words appear in a real-world dataset, and normalize by using the total number of words in the corpus, below is the equation:</p>
-<p>$$ p(w) = \frac{|w|}{\sum_{t} |t|} $$</p>
-<p>Additionally, we have to consider <code>OOV</code>(Out of Vocabulary) words, we can&rsquo;t just let $p(OOV) = 0$ because thus we can never use our model on unseen words. Therefore we could add a <code>add-one smoothing</code>, the changed equation is as below:</p>
-<p>$$ P(w) = \frac{|w| + 1}{\sum_{w&rsquo; \in D} (|w&rsquo;| + 1)} $$</p>
-<p>However, there&rsquo;s still a disadvantage of the current language model we use(not only unigram, but also bigram, trigram&hellip;) - it completely loss order information, and the following situation might exist:</p>
-<p>$$p(\text{&ldquo;the the the the </s>&rdquo;}) &gt; p(\text{&ldquo;the cat in the hat </s>&rdquo;})$$</p>
-<p>It is completely unreasonable! In this case, we could apply <code>chain rule</code>.</p>
-<h4 id="chain-rule">Chain Rule</h4>
-<p>By using <code>chain rule</code>, the probability could be calculated as below:</p>
-<p>$$p(w_1, w_2, w_3, &hellip;, w_L) = p(w_1) p(w_2 | w_1) p(w_3 | w_1, w_2) &hellip; p(w_L | w_1, w_2, \ldots, w_{L-1})$$</p>
-<p>Or, in a simple form:</p>
-<p>$$\prod_{k=1}^{L} p(w_k | w_1, w_2, \ldots, w_{k-1})$$</p>
-<h4 id="markov-assumption">Markov Assumption</h4>
-<p>The question now is, it is quite complicated to calculate by using all previous probabilities. Thus, <code>Markov assumption</code> could be implemented to simplify this case, as we only need to consider the previous words into account. An example could be $p(hat\ |\ the\ cat\ in\ the) ≈ p(hat\ |\ the) $. Afterwards, the equation for unigram language model is:
-$$p(w_{1:L}) = \prod_{k=1}^{L} p(w_k\ |\ w_{k-N+1:k-1}) = \prod_{k=1}^{L} p(w_k)$$
-N represents the n of n-gram model, we only care about N-1 previous words, so for unigram we still use the probability of single words, but the equation of bigram model is:
-$$p(w_{1:L}) = \prod_{k=1}^{L} p(w_k\ |\ w_{k-N+1:k-1}) = \prod_{k=1}^{L} p(w_k\ |\ w_{k-1})$$</p>
-<h4 id="count-based-estimation">Count-based Estimation</h4>
-<p>Before we mentioned the <code>corpus frequencies</code> could be use to calculate the single-word probabilities, but how do we calculate when more than one word is being processed? Here we have <code>count-based estimation</code>.</p>
-<p>$$p(w_k\ |\ w_{k−1}) = \frac{count (w_{k−1}w_k)}{\sum_{w}{count(w_{k-1}w)}} = \frac{count (w_{k−1}w_k)}{count(w_{k-1})} = \frac{C(w_{k-1:k})}{C(w_{k-1})}$$</p>
-<p>The $count (w_{k−1}w_k)$ means the total number of the combination of word $w_{k-1}$ and $w_k$ appearing together, and we normalize it by dividing the total number of $w_{k-1}$ and any other words appearing together. To generalize it to n-gram, we change it to the following equation:
-$$\frac{C(w_{k-N+1:k})}{C(w_{k-N+1:k-1})}$$</p>
-<h4 id="an-example">An Example</h4>
-<p>Combining all the knowledge above, let&rsquo;s have a look at an example:
+<h4 id="tagging">Tagging</h4>
+<p>Once all the rules are learned, we apply them to the corpus to get the final result.</p>
+<h2 id="pos-evaluation">POS Evaluation</h2>
+<p>We could use <code>accuracy</code> to measure for POS tagging, typically, the <code>accuracy</code> could reach 96% to 99%. Or, we could use <code>error rate</code> on particular tags or words, we could create a <code>confusion matrix</code> to demonstrate.
 
-  <img src="/img/nlp-text-representation/image7.png" alt="Alt text">
+  <img src="/img/nlp-pos-tagging/image6.png" alt="Alt text">
 
-
-
-  <img src="/img/nlp-text-representation/image6.png" alt="Alt text">
-
-
-The first graph demonstrate the counts of each bigram appearances, and the second one is the total number of each words in the corpus. If we want to know $p(to\ spend)$, we could first read the count of &ldquo;to spend&rdquo; in the table, which is 211, then divided by 2417, the occurrence number of &ldquo;to&rdquo;, and the result is 0.087.</p>
+</p>
 
 
                 
@@ -338,15 +342,10 @@ The first graph demonstrate the counts of each bigram appearances, and the secon
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2023/12/19/nlp-text-preprocessing/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - Text Pre-processing">&larr;
+                        <a href="/2023/12/21/nlp-text-representation/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - Text Representation">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2024/01/04/nlp-pos-tagging/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - POS Tagging">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
@@ -473,7 +472,7 @@ The first graph demonstrate the counts of each bigram appearances, and the secon
             
            
                    <li>
-                       <a href='/2023/12/21/nlp-text-representation/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2024/01/04/nlp-pos-tagging/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
