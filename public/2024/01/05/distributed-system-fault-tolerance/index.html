@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Natural Language Processing - Text Pre-processing" />
-    <meta property="og:title" content="Natural Language Processing - Text Pre-processing" />
-    <meta property="twitter:title" content="Natural Language Processing - Text Pre-processing" />
+    <meta name="title" content="Advanced Distributed System - Fault Tolerance" />
+    <meta property="og:title" content="Advanced Distributed System - Fault Tolerance" />
+    <meta property="twitter:title" content="Advanced Distributed System - Fault Tolerance" />
     
 
     
-    <meta name="description" content="Introduce tokenisation and Normalisation">
-    <meta property="og:description" content="Introduce tokenisation and Normalisation" />
-    <meta property="twitter:description" content="Introduce tokenisation and Normalisation" />
+    <meta name="description" content="Introduce how to take faults into our consideration">
+    <meta property="og:description" content="Introduce how to take faults into our consideration" />
+    <meta property="twitter:description" content="Introduce how to take faults into our consideration" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Natural Language Processing - Text Pre-processing | ShuoYin</title>
+    <title>Advanced Distributed System - Fault Tolerance | ShuoYin</title>
 
-    <link rel="canonical" href="/2023/12/19/nlp-text-preprocessing/">
+    <link rel="canonical" href="/2024/01/05/distributed-system-fault-tolerance/">
 
     
     
@@ -197,13 +197,13 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/nlp" title="nlp">
-                            nlp
+                        <a class="tag" href="/tags/distributed-system" title="Distributed System">
+                            Distributed System
                         </a>
                         
                     </div>
-                    <h1>Natural Language Processing - Text Pre-processing</h1>
-                    <h2 class="subheading">First step of NLP</h2>
+                    <h1>Advanced Distributed System - Fault Tolerance</h1>
+                    <h2 class="subheading">Fault Tolerance</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -211,10 +211,10 @@
                                 UNKNOWN SPACE
                              
                             on 
-                            Tuesday, December 19, 2023
+                            Friday, January 5, 2024
                             
                                 
-                                <br><span class="meta">802 Words, Read 2 minutes</span>
+                                <br><span class="meta">759 Words, Read 4 minutes</span>
                             
                              
                             
@@ -241,94 +241,58 @@
 
                 
                 <blockquote>
-<p>In this article, we are going to look at general steps of text pre-processing.</p>
+<p>In a distributed application, we always have to consider the impact of faults and solutions of how we can solve it while balancing the cost, response time and other performances.</p>
 </blockquote>
-<h2 id="tokenization">Tokenization</h2>
-<h3 id="word-based-tokenization">Word-Based Tokenization</h3>
-<p><code>Tokenization</code> is the first step of text pre-processing, it is to split a bunch of text into a list of <code>tokens</code>. As an example, we could split <strong>“a cat on a pat”</strong> to <strong>[“a”, “cat”, “on”, “a”, “pet”]</strong>. For the most basic Tokenization method, we do <code>white space-delimited sequence</code>, like the above example. However, not all languages use white space, like Chinese (我喜欢西兰花), and we also have to consider punctuation signs, if we want to split “white space-delimited sequence”, we don’t want the result to be <strong>[&ldquo;white&rdquo;, &ldquo;space-delimited&rdquo;, &ldquo;sequence&rdquo;]</strong>, which breaks the origin meaning of the words.</p>
-<p>There are few others conditions we have to consider:</p>
+<h2 id="type-of-failures">Type of Failures</h2>
+<p>First of all, let’s have a look at what type of faults do have.</p>
 <ol>
-<li>White Space<br>
-<strong>San Francisco</strong> &amp; <strong>in spate of</strong>, these words should be in one token because only two or three words together could perform the correct meaning.</li>
-<li>Abbreviated forms<br>
-<strong>what&rsquo;re</strong>, <strong>I&rsquo;m</strong> is what + are, I + am<br>
-<strong>King&rsquo;s coming</strong> is King + is + coming</li>
-<li>Possessives<br>
-<strong>King&rsquo;s speech</strong>, this is completed different with King&rsquo;s coming, because <code>'s</code> has completely different meaning in two combinations</li>
+<li>Omission failures<br>
+The server fails to <strong>respond/receive</strong> to incoming requests and fail to <strong>send</strong> messages</li>
+<li>Timing failures<br>
+The server fails to respond within a certain time</li>
+<li>Response failures<br>
+The server might response incorrect</li>
+<li>Arbitrary (byzantine) failures<br>
+A component produces output it should have never produced (may not be detected as incorrect): <strong>arbitrary response at arbitrary times</strong></li>
+<li>Crash<br>
+Server <strong>halts</strong>!</li>
 </ol>
-<p>In order to consider all above situations, tokenization is performed with the following steps:</p>
-<ol>
-<li>Initial segmentation (mostly on white-space)</li>
-<li>Handling abbreviations and apostrophes</li>
-<li>Handling hyphenations</li>
-<li>Dealing with (other) special expressions<br>
-– emails, URLs, emoticons, numbers, …</li>
-</ol>
-<p>Note that there are no firm rules for tokenization, it has to be <strong>consistent</strong> with the rest of an NLP system. Moreover, it is necessary to avoid <strong>over-segmentation</strong>.</p>
-<h3 id="byte-pair-encoding">Byte-Pair Encoding</h3>
-<p>To decrease the influence of <code>OOV</code> words, we have another method of tokenization - <code>Byte-Pair Encoding</code>. It consist of two parts, <code>token learner</code> &amp; <code>token segmenter</code>.</p>
-<h4 id="token-learner">Token Learner</h4>
-<p>In token learner, split the words into individual characters to form a vocabulary
-$$\{A, B, C, D, a, b, c, d, &hellip;\}$$</p>
-<p>and repeat the following steps:</p>
-<ol>
-<li>Choose any two symbols that are <strong>most frequently adjacent</strong></li>
-<li><strong>Merge</strong> them together and add to the vocabulary</li>
-<li><strong>Replace every adjacent characters</strong> merged previously into the merged form in the corpus</li>
-</ol>
-<h4 id="token-segmenter">Token Segmenter</h4>
-<p>After we get the merged vocabulary, on the new data, perform same merges, and then we could get the tokenization down by now.</p>
-<p>This method could greatly reduce the number of unseen tokens.</p>
-<h2 id="normalization">Normalization</h2>
-<p><code>Normalization</code> is the second step, we map tokens into normalized forms like below:</p>
-<ul>
-<li>{walks, walked, walk, walking} → walk</li>
-<li>{B.B.C., BBC} → BBC</li>
-<li>{multi-national, multinational} → multinational</li>
-<li>{Duesseldorf, Düsseldorf, Dusseldorf} → Dusseldorf</li>
-</ul>
-<p>We have two main approaches for normalization: <code>Lemmatisation</code> &amp; <code>Stemming</code>.</p>
-<h3 id="lemmatisation">Lemmatisation</h3>
-<p>The key idea of lemmatisation is the reduction to <code>dictionary headword</code>, here are few examples:</p>
-<ul>
-<li>{am, are, is} → be</li>
-<li>{horse, horses, horse’s, horses’} → horse</li>
-<li>{life, lives} → life</li>
-</ul>
-<p>We have to eliminate all tense or plural form or any other forms which cause a transform to the original words. To do this, we could have two methods:</p>
-<ol>
-<li><strong>Dictionary look-up</strong><br>
-The problem of this method is that, the efficiency might be slow because every word need a look-up in dictionary, and we couldn&rsquo;t take <code>OOV</code> (Out of Vocabulary) words into account.</li>
-<li><strong>Morphological Analysis</strong><br>
-<code>Morphemes</code> are sub-words which includes <code>stem</code> and <code>affixes</code> (prefix &amp; suffix)
-
-  <img src="/img/nlp-text-preprocess/image.png" alt="Alt text">
-
-</li>
-</ol>
-<p>We can do <code>morphological analysis</code> after we identity what is a stem and what are affixes in a word. However, this method has some disadvantages that can&rsquo;t be ignored. First, for some verbs we might still need a dictionary because they have some special <code>inflections</code>, such as &ldquo;build&rdquo; will be inflected into &ldquo;built&rdquo;. And second, <code>derivational morphology</code> (The formation of a word from stem and affixes) is a messy, consider the picture below:
-
-  <img src="/img/nlp-text-preprocess/image2.png" alt="Alt text">
+<h2 id="fault-tolerance">Fault-Tolerance</h2>
+<p>Usually, we use redundancy to do failure masking, in this article, I will introduce 3 types of redundancy of how and when to use each one.</p>
+<p>First, consider the <code>two-generals' problem</code>, where we have two armies, each led by a general, are preparing to attack a village. The armies are outside the village, each on its own hill. The generals can communicate <strong>only by sending messengers</strong> passing through the valley. As the way they communicate might fail, we have to add the following redundancy to ensure the attack is ontime.</p>
+<h3 id="physical-redundancy">Physical Redundancy</h3>
+<p>As the name &ldquo;Physical&rdquo; says, we have to add physical devices to allow some failures on some devices. In the <code>two-generals' problem</code>, there&rsquo;s a restriction in the problem that there&rsquo;s only two armies so we could implement physical redundancy, however if we want to make sure the attack, we could add more attacking armies to allow some sending messengers failed to send messages.</p>
+<h3 id="time-redundancy">Time Redundancy</h3>
+<p>We could let armies send messengers multiple times to allow some of them fails, and in other situation, time redundancy means to repeat actions multiple times. But for this type of redundancy, we have to consider the costs of excuting each actions.</p>
+<h3 id="information-redundancy">Information Redundancy</h3>
+<p>Another method of tolerating this error is to send extra messengers to other armies to increase success rate, in other type of problems, we send extra bits instead.</p>
+<h3 id="triple-modular-redundancy">Triple Modular Redundancy</h3>
+<p>
+  <img src="/img/distributed-fault/image.png" alt="Alt text">
 
 </p>
-<p>The change of states is computationally expensive.</p>
-<h3 id="stemming">Stemming</h3>
-<p><code>Stemming</code> is much more straight forward compare to <code>Morphological Analysis Lemmatisation</code>, as it &ldquo;chops&rdquo; the end of words immediately.</p>
+<p>The above picture is a redundancy model, and an example of <code>physical redundancy</code>. It contains three components executing the same functions, all of them run in the same time and getting their own outputs. Afterwards, there is a <code>voting</code> mechanism, which compares and select the result with most components producing. This means even if one of component <strong>producing a wrong result or having a fault</strong>, the rest of the system could still work perfectly.</p>
+<h4 id="single-point-of-failure">Single point of failure</h4>
+<p><code>Single point of failure</code> means a failure could cause the fault of the whole system. Consider the graph below, the central point&rsquo;s fault would make the whole system lose connection.
+
+  <img src="/img/distributed-fault/image2.png" alt="Alt text">
+
+
+The triple modular redundancy is a model avoid this kind of failure, we have to avoid it in the real system design.</p>
+<h2 id="replications-and-performance">Replications and Performance</h2>
+<p>While considering adding redundancies to the system, how to manage the effect of redundancies to the performance become a important problem. As adding information redundancy, we will have more data replications, this results in <strong>increased communication costs</strong> between processes and the medium on which the data is stored. An useful method of saving costs is to place copies of data in the proximity of processes, the time to access data decreases in this case, and it is also good for achieving <code>scalability</code>.</p>
+<p>Another problem brought by maintaining replicas is the <code>consistency</code> problem. If one of the replica is being modified, the rest of the replicas will required to be modified, too. Moreover, during the update, other processes couldn&rsquo;t access the data, which waste a large amount of time (However some system do need it). We could also loosen the consistency constraints - not all copies need to always be same everywhere. These two ideas bring us two <code>consistency protocols</code>:</p>
+<h3 id="strict-consistency">Strict consistency</h3>
+<p>Any read to a shared data item x returns the value stored by the most recent write operation on x. In a distributed system, this requires us to have an accurate <code>global time</code>s.</p>
+<h3 id="eventual-consistency">Eventual consistency</h3>
+<p>Given a sufficiently long period of time over which no changes are sent, all updates are expected to propagate, and eventually all replicas will be consistent.</p>
+<h2 id="availability">Availability</h2>
+<p>The availability is a value measures the probability a replicated service is able to use. A equation could be:</p>
 <ul>
-<li>changing → chang</li>
-<li>changed → chang</li>
-<li>change → chang
-As you can see from the example above, we will inevitably encounter <code>over-stemming</code> (sometimes <code>under-stemming</code>) and generate forms that are &rsquo;not words'.</li>
+<li>1 - p(all replicas have failed)</li>
+<li>p(all replicas have failed) = p(replica 1 failed) * p(replica 2 failed) * &hellip; * p(replica n failed)</li>
+<li>p(replica n failed) = $\frac{t}{f+t}$ (t is the mean time to repair a failure, f is the mean time between failures)</li>
 </ul>
-<p>Nowadays, we have many stemmers developed, one of them is called <code>Porter Stemmer</code>, which meanly focus on suffix stripping, here are its rough processing steps:</p>
-<ol>
-<li>Get rid of plurals and <strong>-ed</strong> or <strong>-ing</strong> suffixes</li>
-<li>Turn terminal <strong>y</strong> to <strong>i</strong> when there is another vowel in the stem</li>
-<li>Map double suffixes to single ones</li>
-<li>Deal with suffixes, <strong>-full</strong>, <strong>-ness</strong> etc.</li>
-<li>Take off <strong>-ant</strong>, <strong>-ence</strong>, etc.</li>
-<li>Tidy up (remove –e and double letters)</li>
-</ol>
 
 
                 
@@ -338,15 +302,10 @@ As you can see from the example above, we will inevitably encounter <code>over-s
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2023/12/13/distributed-system-performance-modelling/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Performance Modelling">&larr;
+                        <a href="/2024/01/04/nlp-chunking/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - Chunking">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2023/12/21/nlp-text-representation/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - Text Representation">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
@@ -390,8 +349,8 @@ As you can see from the example above, we will inevitably encounter <code>over-s
                         
                         
                         
-                        <a href="/tags/nlp" title="nlp">
-                            nlp
+                        <a href="/tags/distributed-system" title="Distributed System">
+                            Distributed System
                         </a>
                         
                         
@@ -473,7 +432,7 @@ As you can see from the example above, we will inevitably encounter <code>over-s
             
            
                    <li>
-                       <a href='/2023/12/19/nlp-text-preprocessing/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2024/01/05/distributed-system-fault-tolerance/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

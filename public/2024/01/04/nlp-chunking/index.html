@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Advanced Distributed System - Fault Tolerance" />
-    <meta property="og:title" content="Advanced Distributed System - Fault Tolerance" />
-    <meta property="twitter:title" content="Advanced Distributed System - Fault Tolerance" />
+    <meta name="title" content="Natural Language Processing - Chunking" />
+    <meta property="og:title" content="Natural Language Processing - Chunking" />
+    <meta property="twitter:title" content="Natural Language Processing - Chunking" />
     
 
     
-    <meta name="description" content="Introduce how to take faults into our consideration">
-    <meta property="og:description" content="Introduce how to take faults into our consideration" />
-    <meta property="twitter:description" content="Introduce how to take faults into our consideration" />
+    <meta name="description" content="How do we focus on group of words instead of individuals?">
+    <meta property="og:description" content="How do we focus on group of words instead of individuals?" />
+    <meta property="twitter:description" content="How do we focus on group of words instead of individuals?" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Advanced Distributed System - Fault Tolerance | ShuoYin</title>
+    <title>Natural Language Processing - Chunking | ShuoYin</title>
 
-    <link rel="canonical" href="/2023/12/15/distributed-system-fault-tolerance/">
+    <link rel="canonical" href="/2024/01/04/nlp-chunking/">
 
     
     
@@ -158,6 +158,27 @@
 </script>
 
 
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
 
 
 
@@ -176,13 +197,13 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/distributed-system" title="Distributed System">
-                            Distributed System
+                        <a class="tag" href="/tags/nlp" title="nlp">
+                            nlp
                         </a>
                         
                     </div>
-                    <h1>Advanced Distributed System - Fault Tolerance</h1>
-                    <h2 class="subheading">Fault Tolerance</h2>
+                    <h1>Natural Language Processing - Chunking</h1>
+                    <h2 class="subheading">Chunk Chunk Chunk</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -190,10 +211,10 @@
                                 UNKNOWN SPACE
                              
                             on 
-                            Friday, December 15, 2023
+                            Thursday, January 4, 2024
                             
                                 
-                                <br><span class="meta">339 Words, Read 2 minutes</span>
+                                <br><span class="meta">1 Words, Read 1 minutes</span>
                             
                              
                             
@@ -219,37 +240,7 @@
                 post-container">
 
                 
-                <blockquote>
-<p>In a distributed application, we always have to consider the impact of faults and solutions of how we can solve it while balancing the cost, response time and other performances.</p>
-</blockquote>
-<h2 id="type-of-failures">Type of Failures</h2>
-<p>First of all, let’s have a look at what type of faults do have.</p>
-<ol>
-<li>Omission failures<br>
-The server fails to <strong>respond/receive</strong> to incoming requests and fail to <strong>send</strong> messages</li>
-<li>Timing failures<br>
-The server fails to respond within a certain time</li>
-<li>Response failures<br>
-The server might response incorrect</li>
-<li>Arbitrary (byzantine) failures<br>
-A component produces output it should have never produced (may not be detected as incorrect): <strong>arbitrary response at arbitrary times</strong></li>
-<li>Crash<br>
-Server <strong>halts</strong>!</li>
-</ol>
-<h2 id="fault-tolerance">Fault-Tolerance</h2>
-<p>Usually, we use redundancy to do failure masking, in this article, I will introduce 3 types of redundancy of how and when to use each one.</p>
-<p>First, consider the <code>two-generals' problem</code>, where we have two armies, each led by a general, are preparing to attack a village. The armies are outside the village, each on its own hill. The generals can communicate <strong>only by sending messengers</strong> passing through the valley. As the way they communicate might fail, we have to add the following redundancy to ensure the attack is ontime.</p>
-<h3 id="physical-redundancy">Physical Redundancy</h3>
-<p>As the name &ldquo;Physical&rdquo; says, we have to add physical devices to allow some failures on some devices. In the <code>two-generals' problem</code>, there&rsquo;s a restriction in the problem that there&rsquo;s only two armies so we could implement physical redundancy, however if we want to make sure the attack, we could add more attacking armies to allow some sending messengers failed to send messages.</p>
-<h3 id="time-redundancy">Time redundancy</h3>
-<p>We could let armies send messengers multiple times to allow some of them fails, and in other situation, time redundancy means to repeat actions multiple times. But for this type of redundancy, we have to consider the costs of excuting each actions.</p>
-<h3 id="information-redundancy">Information redundancy</h3>
-<p>Another method of tolerating this error is to send extra messengers to other armies to increase success rate, in other type of problems, we send extra bits instead.</p>
-<h3 id="triple-modular-redundancy">Triple Modular Redundancy</h3>
-<p>
-  <img src="/img/distributed-fault/image.png" alt="Alt text">
-
-</p>
+                <h2 id="chunking">Chunking</h2>
 
 
                 
@@ -259,13 +250,13 @@ Server <strong>halts</strong>!</li>
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2023/12/13/distributed-system-performance-modelling/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Performance Modelling">&larr;
+                        <a href="/2024/01/04/nlp-pos-tagging/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - POS Tagging">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2023/12/19/nlp-text-preprocessing/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - Text Pre-processing">Next
+                        <a href="/2024/01/05/distributed-system-fault-tolerance/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Fault Tolerance">Next
                             Post &rarr;</a>
                     </li>
                     
@@ -311,8 +302,8 @@ Server <strong>halts</strong>!</li>
                         
                         
                         
-                        <a href="/tags/distributed-system" title="Distributed System">
-                            Distributed System
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
                         </a>
                         
                         
@@ -394,7 +385,7 @@ Server <strong>halts</strong>!</li>
             
            
                    <li>
-                       <a href='/2023/12/15/distributed-system-fault-tolerance/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2024/01/04/nlp-chunking/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

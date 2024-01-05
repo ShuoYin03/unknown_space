@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Natural Language Processing - Chunking on UNKNOWN SPACE</title>
+    <link>https://shuoyin03.github.io/2024/01/04/nlp-chunking/</link>
+    <description>Recent content in Natural Language Processing - Chunking on UNKNOWN SPACE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/2024/01/04/nlp-chunking/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

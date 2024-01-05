@@ -6,7 +6,29 @@
     <description>Recent content on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced Distributed System - Fault Tolerance</title>
+      <link>https://shuoyin03.github.io/2024/01/05/distributed-system-fault-tolerance/</link>
+      <pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/05/distributed-system-fault-tolerance/</guid>
+      <description>In a distributed application, we always have to consider the impact of faults and solutions of how we can solve it while balancing the cost, response time and other performances.
+Type of Failures First of all, let’s have a look at what type of faults do have.
+Omission failures
+The server fails to respond/receive to incoming requests and fail to send messages Timing failures
+The server fails to respond within a certain time Response failures</description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing - Chunking</title>
+      <link>https://shuoyin03.github.io/2024/01/04/nlp-chunking/</link>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/04/nlp-chunking/</guid>
+      <description>Chunking </description>
+    </item>
+    
     <item>
       <title>Natural Language Processing - POS Tagging</title>
       <link>https://shuoyin03.github.io/2024/01/04/nlp-pos-tagging/</link>
@@ -16,6 +38,15 @@
       <description>In this article we will have a look at POS tagging, what is it? How do we apply it to NLP tasks?
 POS POS - &amp;ldquo;Part of Speech&amp;rdquo;, represent a linguistic category, defined the syntactic or morphological behavior of words. “Traditional” categories contains 8 tags, they are:
 verb None Adverb Adjective Interjection Pronoun Preposition Conjunction The previous 5 categories are called the open word classes, which means that these types always have a large amount of vocabularies and new words could be added into these categories.</description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing - Word Senses</title>
+      <link>https://shuoyin03.github.io/2024/01/04/nlp-word-senses/</link>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/04/nlp-word-senses/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -35,19 +66,6 @@ BoW Representation BoW - &amp;ldquo;Bag of words&amp;rdquo;, should be the simpl
       
       <guid>https://shuoyin03.github.io/2023/12/19/nlp-text-preprocessing/</guid>
       <description>In this article, we are going to look at general steps of text pre-processing. Tokenization Word-Based Tokenization Tokenization is the first step of text pre-processing, it is to split a bunch of text into a list of tokens. As an example, we could split “a cat on a pat” to [“a”, “cat”, “on”,</description>
-    </item>
-    
-    <item>
-      <title>Advanced Distributed System - Fault Tolerance</title>
-      <link>https://shuoyin03.github.io/2023/12/15/distributed-system-fault-tolerance/</link>
-      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://shuoyin03.github.io/2023/12/15/distributed-system-fault-tolerance/</guid>
-      <description>In a distributed application, we always have to consider the impact of faults and solutions of how we can solve it while balancing the cost, response time and other performances.
-Type of Failures First of all, let’s have a look at what type of faults do have.
-Omission failures
-The server fails to respond/receive to incoming requests and fail to send messages Timing failures
-The server fails to respond within a certain time Response failures</description>
     </item>
     
     <item>
