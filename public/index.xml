@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UNKNOWN SPACE</title>
+    <link>https://shuoyin03.github.io/</link>
+    <description>Recent content on UNKNOWN SPACE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced Distributed System - Fault Tolerance</title>
+      <link>https://shuoyin03.github.io/2024/01/05/distributed-system-fault-tolerance/</link>
+      <pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/05/distributed-system-fault-tolerance/</guid>
+      <description>In a distributed application, we always have to consider the impact of faults and solutions of how we can solve it while balancing the cost, response time and other performances.
+Type of Failures First of all, let’s have a look at what type of faults do have.
+Omission failures
+The server fails to respond/receive to incoming requests and fail to send messages Timing failures
+The server fails to respond within a certain time Response failures</description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing - POS Tagging</title>
+      <link>https://shuoyin03.github.io/2024/01/04/nlp-pos-tagging/</link>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/04/nlp-pos-tagging/</guid>
+      <description>In this article we will have a look at POS tagging, what is it? How do we apply it to NLP tasks?
+POS POS - &amp;ldquo;Part of Speech&amp;rdquo;, represent a linguistic category, defined the syntactic or morphological behavior of words. “Traditional” categories contains 8 tags, they are:
+verb None Adverb Adjective Interjection Pronoun Preposition Conjunction The previous 5 categories are called the open word classes, which means that these types always have a large amount of vocabularies and new words could be added into these categories.</description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing - Text Representation</title>
+      <link>https://shuoyin03.github.io/2023/12/21/nlp-text-representation/</link>
+      <pubDate>Thu, 21 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/12/21/nlp-text-representation/</guid>
+      <description>In this article we will have a look at how to represent texts in data forms for further nlp processes.
+BoW Representation BoW - &amp;ldquo;Bag of words&amp;rdquo;, should be the simplest model, which reduce each document into a bag of words. BoW is an efficient method which nowadays lots of NLP system is using it. However, there are some question we should think of while using it, such as:</description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing - Text Pre-processing</title>
+      <link>https://shuoyin03.github.io/2023/12/19/nlp-text-preprocessing/</link>
+      <pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/12/19/nlp-text-preprocessing/</guid>
+      <description>In this article, we are going to look at general steps of text pre-processing. Tokenization Word-Based Tokenization Tokenization is the first step of text pre-processing, it is to split a bunch of text into a list of tokens. As an example, we could split “a cat on a pat” to [“a”, “cat”, “on”,</description>
+    </item>
+    
+    <item>
+      <title>Advanced Distributed System - Performance Modelling</title>
+      <link>https://shuoyin03.github.io/2023/12/13/distributed-system-performance-modelling/</link>
+      <pubDate>Tue, 12 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/12/13/distributed-system-performance-modelling/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;It is always good to test the performance of distributed applications to ensure it meets the target, and today we&amp;rsquo;ll learn what is a model and how to build a model to achieve this.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Algorithm and Data Structure - Propositional logic</title>
+      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</guid>
+      <description>Propositional Logic Satisfiability Definitions We call $P = \lbrace p_1, p_2, &amp;hellip; \rbrace $ as propositional letters. Every element in $P$ is a formula. If $\psi_1$ and $\psi_2$ are formulas, then the following equations are formulas, too. $$(¬\psi_1), (\psi_1 ∨ \psi_2), (\psi_1 ∧ \psi_2), (\psi_1 → \psi_2)$$
+An assignment is a function $\theta: P → \lbrace T, F\rbrace$, for example: In a simple way, an assignment is like a machine running a logic equation and excute a result.</description>
+    </item>
+    
+    <item>
+      <title>Algorithm and Data Structure - Time, Space and Determinism</title>
+      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</link>
+      <pubDate>Mon, 27 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</guid>
+      <description>1. Introduction to Time and Space Definitions Consider there is a turing machine M with alphabet Σ, and g is a function N → N, we say M runs in time g and runs in space g with at most g(|x|) steps and g(|x|) squares with a finite x many Strings. If there is a language L over some alphabet, we say L runs in Time(g) and Space(g) such that there is a deterministic turing machine M recognizing L runs in time and space g.</description>
+    </item>
+    
+    <item>
+      <title>How to let Google search your website?</title>
+      <link>https://shuoyin03.github.io/post/hugo/2023-11-18-hugo-google-search/</link>
+      <pubDate>Sun, 26 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/post/hugo/2023-11-18-hugo-google-search/</guid>
+      <description>After create the blog, of course we want to show it to others and let people search it. Today we will look at how we could put our website on google.
+Basic introduction to Google Search Engine Before we start, it is necessary for us to have a basic understanding about google search engine.
+Crawling Google is using crawl programs which is called Googlebot to crawl new websites and updates on the internet, The bot regularly searches and store new sites into a huge database.</description>
+    </item>
+    
+    <item>
+      <title>Advanced Distributed System - Big data</title>
+      <link>https://shuoyin03.github.io/2023/11/06/distributed-system-big-data/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/11/06/distributed-system-big-data/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;In a shared nothing infrastructure, data storage, update, access and processing takes place across a collection of networked machines. To enhance the performance, processing needs to be take place in parallel, which we have to distribute data, and that&amp;rsquo;s partition. This article will gives an rough idea of partition techniques and details needs to be consider.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Algorithm and Data Structure - Turing Machine</title>
+      <link>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</guid>
+      <description>In this article, we are going to look at the formal definition of Turing Machine and the therom with it.
+Introduction of turing machine The picture below is a multi-tape turing machine Definition In a formal definition, a turing machine could be define as a quintuple:
+M = [ K, Σ, Q, q0, T ]
+K ≥ 2 (number of tapes) Σ is a non-empty, finite set (alphabet) Q is a non-empty, finite set (set of states) q0 ∈ Q (initial state) T is a set of transitions (for K, Σ and Q) Symbol A symbol is an element of which means blank and start separately.</description>
+    </item>
+    
+    <item>
+      <title>Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan</title>
+      <link>https://shuoyin03.github.io/2023/11/03/HugoSetUp/</link>
+      <pubDate>Thu, 02 Nov 2023 12:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/11/03/HugoSetUp/</guid>
+      <description>&lt;!-- &gt;记忆里自从2021年开始就计划着要弄博客，结果一直想法大于行动，一直拖到了现在才弄好，老拖延症了，这里分享一下我创建博客的过程以便大家参考与复制 --&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In my memory, I have been planning to start a blog since 2021, but the idea has always been greater than the action. It has been delayed until now. I am an old procrastinator&amp;hellip; I will share my process of creating a blog for your reference and copying.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>GreatUniHack2023 - Postscript to the competition</title>
+      <link>https://shuoyin03.github.io/2023/11/03/greatunihack2023/</link>
+      <pubDate>Tue, 31 Oct 2023 12:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2023/11/03/greatunihack2023/</guid>
+      <description>&lt;!-- &gt;刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。 --&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://shuoyin03.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/about/</guid>
+      <description>About Me Hi there! my name is Shuo Yin, a software engineer and a student who currently studying computer science in the University of Manchester. I love learning and using different technologies, and I&amp;rsquo;m always on the road of discovring.
+I am working as a part-time software engineer in |Sportandmusic, which I mainly focus on automation tasks using python and various APIs.
+While I am free, I am a blog writer, a Vinyl lover, a song writer and sometimes a hacker (joining hackathons!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://shuoyin03.github.io/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://shuoyin03.github.io/search/placeholder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/search/placeholder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Posts Archive</title>
+      <link>https://shuoyin03.github.io/archive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/archive/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
