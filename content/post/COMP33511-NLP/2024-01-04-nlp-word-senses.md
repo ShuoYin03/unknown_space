@@ -9,5 +9,6 @@ tags: ["nlp"]
 categories: ["notes"]
 URL: "/2024/01/04/nlp-word-senses/"
 math: true
+draft: true
 ---
 

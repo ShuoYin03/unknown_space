@@ -9,6 +9,7 @@ tags: ["nlp"]
 categories: ["notes"]
 URL: "/2024/01/04/nlp-chunking/"
 math: true
+draft: true
 ---
 
 ## Chunking
