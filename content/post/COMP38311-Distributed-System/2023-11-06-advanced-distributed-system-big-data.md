@@ -26,7 +26,7 @@ Data is assigned as it is inserted across different nodes.
     | Easy to rebalance on update  |
 
 2. **Range based Partition:**  
-Partitioning often assumes some form of key-value datamodel. Then partitioning relates to the key
+Partitioning often assumes some form of key-value data model. Then partitioning relates to the key
 Key range: each partition is associated with a range of values for the key (e.g. alphabetical or numerical).
     |             Pros             |                Cons                |
     | ---------------------------- | ---------------------------------- |
@@ -80,8 +80,8 @@ Two steps need to be taken to find a partition for value v:
 1. Hash v to a partition number
 2. Use a lookup table to identify the node of this partition  
 
-In this case the `fraction moved` is: **1 / #nodes + 1**  
-In the previous example `fraction moved` is 1/4
+In this case the fraction of data need to be moved is: **1 / #nodes + 1**  
+In the previous example the fraction is 1/4
 
 ## Secondary Indexes
 
@@ -112,6 +112,11 @@ A key question is that where should we store these secondary index? Here are few
 
 ## Partitioning for Evaluation
 
-After we talked about how to do partitioning, we should discuss about when. In one case, data need partitioning while requests are being evaluated.
+After we talked about how to do partitioning, we should discuss about when data need partitioning. As an example, **Uni-Sizes** is hash partitioned on 'Name', **Uni-Places** is hash partitioned on 'Town', and we want these two partition to join on 'Name'.
 
-**To Be Continues...**
+![Alt text](/img/distributed-bigdata/pic6.png)
+
+We need to repartition **Uni-Places** as it is not partition on 'Name', and the steps are:
+1. Partition Uni-Places on Name to give P1’, P2’.
+2. Join(P1:Uni-Sizes, P1’: Uni-Places) on Node 1
+3. Join(P2:Uni-Sizes, P2’: Uni-Places) on Node 2

@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="Advanced Distributed System - Fault Tolerance" />
-    <meta property="og:title" content="Advanced Distributed System - Fault Tolerance" />
-    <meta property="twitter:title" content="Advanced Distributed System - Fault Tolerance" />
+    <meta name="title" content="Advanced Distributed System - Resource Management" />
+    <meta property="og:title" content="Advanced Distributed System - Resource Management" />
+    <meta property="twitter:title" content="Advanced Distributed System - Resource Management" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Advanced Distributed System - Fault Tolerance | ShuoYin</title>
+    <title>Advanced Distributed System - Resource Management | ShuoYin</title>
 
-    <link rel="canonical" href="/2024/01/05/distributed-system-fault-tolerance/">
+    <link rel="canonical" href="/2024/01/06/distributed-system-resource-management/">
 
     
     
@@ -202,8 +202,8 @@
                         </a>
                         
                     </div>
-                    <h1>Advanced Distributed System - Fault Tolerance</h1>
-                    <h2 class="subheading">Fault Tolerance</h2>
+                    <h1>Advanced Distributed System - Resource Management</h1>
+                    <h2 class="subheading">Resource Management</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -211,10 +211,10 @@
                                 UNKNOWN SPACE
                              
                             on 
-                            Friday, January 5, 2024
+                            Saturday, January 6, 2024
                             
                                 
-                                <br><span class="meta">759 Words, Read 4 minutes</span>
+                                <br><span class="meta">376 Words, Read 2 minutes</span>
                             
                              
                             
@@ -240,59 +240,36 @@
                 post-container">
 
                 
-                <blockquote>
-<p>In a distributed application, we always have to consider the impact of faults and solutions of how we can solve it while balancing the cost, response time and other performances.</p>
-</blockquote>
-<h2 id="type-of-failures">Type of Failures</h2>
-<p>First of all, let’s have a look at what type of faults do have.</p>
-<ol>
-<li>Omission failures<br>
-The server fails to <strong>respond/receive</strong> to incoming requests and fail to <strong>send</strong> messages</li>
-<li>Timing failures<br>
-The server fails to respond within a certain time</li>
-<li>Response failures<br>
-The server might response incorrect</li>
-<li>Arbitrary (byzantine) failures<br>
-A component produces output it should have never produced (may not be detected as incorrect): <strong>arbitrary response at arbitrary times</strong></li>
-<li>Crash<br>
-Server <strong>halts</strong>!</li>
-</ol>
-<h2 id="fault-tolerance">Fault-Tolerance</h2>
-<p>Usually, we use redundancy to do failure masking, in this article, I will introduce 3 types of redundancy of how and when to use each one.</p>
-<p>First, consider the <code>two-generals' problem</code>, where we have two armies, each led by a general, are preparing to attack a village. The armies are outside the village, each on its own hill. The generals can communicate <strong>only by sending messengers</strong> passing through the valley. As the way they communicate might fail, we have to add the following redundancy to ensure the attack is ontime.</p>
-<h3 id="physical-redundancy">Physical Redundancy</h3>
-<p>As the name &ldquo;Physical&rdquo; says, we have to add physical devices to allow some failures on some devices. In the <code>two-generals' problem</code>, there&rsquo;s a restriction in the problem that there&rsquo;s only two armies so we could implement physical redundancy, however if we want to make sure the attack, we could add more attacking armies to allow some sending messengers failed to send messages.</p>
-<h3 id="time-redundancy">Time Redundancy</h3>
-<p>We could let armies send messengers multiple times to allow some of them fails, and in other situation, time redundancy means to repeat actions multiple times. But for this type of redundancy, we have to consider the costs of excuting each actions.</p>
-<h3 id="information-redundancy">Information Redundancy</h3>
-<p>Another method of tolerating this error is to send extra messengers to other armies to increase success rate, in other type of problems, we send extra bits instead.</p>
-<h3 id="triple-modular-redundancy">Triple Modular Redundancy</h3>
-<p>
-  <img src="/img/distributed-fault/image.png" alt="Alt text">
-
-</p>
-<p>The above picture is a redundancy model, and an example of <code>physical redundancy</code>. It contains three components executing the same functions, all of them run in the same time and getting their own outputs. Afterwards, there is a <code>voting</code> mechanism, which compares and select the result with most components producing. This means even if one of component <strong>producing a wrong result or having a fault</strong>, the rest of the system could still work perfectly.</p>
-<h4 id="single-point-of-failure">Single point of failure</h4>
-<p><code>Single point of failure</code> means a failure could cause the fault of the whole system. Consider the graph below, the central point&rsquo;s fault would make the whole system lose connection.
-
-  <img src="/img/distributed-fault/image2.png" alt="Alt text">
-
-
-The triple modular redundancy is a model avoid this kind of failure, we have to avoid it in the real system design.</p>
-<h2 id="replications-and-performance">Replications and Performance</h2>
-<p>While considering adding redundancies to the system, how to manage the effect of redundancies to the performance become a important problem. As adding information redundancy, we will have more data replications, this results in <strong>increased communication costs</strong> between processes and the medium on which the data is stored. An useful method of saving costs is to place copies of data in the proximity of processes, the time to access data decreases in this case, and it is also good for achieving <code>scalability</code>.</p>
-<p>Another problem brought by maintaining replicas is the <code>consistency</code> problem. If one of the replica is being modified, the rest of the replicas will required to be modified, too. Moreover, during the update, other processes couldn&rsquo;t access the data, which waste a large amount of time (However some system do need it). We could also loosen the consistency constraints - not all copies need to always be same everywhere. These two ideas bring us two <code>consistency protocols</code>:</p>
-<h3 id="strict-consistency">Strict consistency</h3>
-<p>Any read to a shared data item x returns the value stored by the most recent write operation on x. In a distributed system, this requires us to have an accurate <code>global time</code>s.</p>
-<h3 id="eventual-consistency">Eventual consistency</h3>
-<p>Given a sufficiently long period of time over which no changes are sent, all updates are expected to propagate, and eventually all replicas will be consistent.</p>
-<h2 id="availability">Availability</h2>
-<p>The availability is a value measures the probability a replicated service is able to use. A equation could be:</p>
+                <h2 id="what-are-resources">What are resources?</h2>
+<p>All stuffs needed for maintaining the run of a system are called <code>resources</code>, such as <code>hardware</code>(CPU, storage, network links), <code>software</code>(web services), and datasets. Applications need to share the resources, and we need to consider how to optimize their use with respect to resources available and resources requested by different applications.</p>
+<p>One example demonstrating a trade-off between <strong>time, price and storage resource</strong> is that, we could make a software <code>parallelisable</code> and run it with different expensive processors, but it uses lots of storage because large amount of data are processing at the same time. Or, run the software <code>sequentially</code> on a cheaper processor with less storage used because smaller amount of data is active at the same time.</p>
+<h2 id="grid-computing">Grid Computing</h2>
+<p>One of the definition of <code>grid computing</code> is: Resource sharing and coordinated problem solving in dynamic virtual organizations. The grid computing coordinates the resources not subjected to centralized control, it use <strong>standard, open, general-purpose protocols and interfaces</strong>
+to deliver service. Some functions of grid computing are:</p>
 <ul>
-<li>1 - p(all replicas have failed)</li>
-<li>p(all replicas have failed) = p(replica 1 failed) * p(replica 2 failed) * &hellip; * p(replica n failed)</li>
-<li>p(replica n failed) = $\frac{t}{f+t}$ (t is the mean time to repair a failure, f is the mean time between failures)</li>
+<li>Resource discovery and information collection and publishing</li>
+<li>Data Management on and between resources</li>
+<li>Process Management on and between resources</li>
+<li>Common Security Mechanisms</li>
+<li>Process and Session Recording/Accounting</li>
 </ul>
+<h2 id="cloud-computing">Cloud Computing</h2>
+<p>The idea of <code>cloud computing</code> is, by providing resources as a service to users who don&rsquo;t have their own resources. This is called <code>on-demand resource provisioning</code>. It relies on virtualization of resources that create virtual machines as opposed to physical machines.</p>
+<p>There are some cloud computing service models:</p>
+<ol>
+<li>Software as a Service (SaaS):<br>
+Provides software as services. E.g. <strong>Microsoft 365, Dropbox</strong></li>
+<li>Platform as a Service (PaaS):<br>
+Provides environment of programming functionalities. E.g. <strong>Google Compute Engine</strong></li>
+<li>Infrastructure as a Service (IaaS):<br>
+Provides <code>pay-as-you-go</code> access to storage, networking resourses and others. E.g. <strong>Hadoop + Mapreduce</strong></li>
+</ol>
+<p>And in cloud computing, there are two roles - the <code>cloud provider</code> and <code>cloud consumer</code>, where a <code>cloud provider</code>&rsquo;s objective is to provide services to user and earn profits, and a cloud consumer wants to buy resources and apply them to solve tasks. On the perspective of a <code>cloud provider</code>, there are some aspects need to consider in a question - how to allocate VM(Virtual Machine) to PM(Physical Machine)?</p>
+<ol>
+<li>How to map services level agreement with users</li>
+<li>How to maximise resource allocation</li>
+<li>How to minimise energy cost</li>
+</ol>
 
 
                 
@@ -302,15 +279,10 @@ The triple modular redundancy is a model avoid this kind of failure, we have to 
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2024/01/04/nlp-pos-tagging/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - POS Tagging">&larr;
+                        <a href="/2024/01/05/distributed-system-fault-tolerance/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Fault Tolerance">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2024/01/06/distributed-system-resource-management/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Resource Management">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
@@ -437,7 +409,7 @@ The triple modular redundancy is a model avoid this kind of failure, we have to 
             
            
                    <li>
-                       <a href='/2024/01/05/distributed-system-fault-tolerance/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2024/01/06/distributed-system-resource-management/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
