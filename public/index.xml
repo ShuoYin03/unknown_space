@@ -6,7 +6,17 @@
     <description>Recent content on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced Distributed System - Batch Data and MapReduce</title>
+      <link>https://shuoyin03.github.io/2024/01/09/distributed-system-big-data/</link>
+      <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/09/distributed-system-big-data/</guid>
+      <description>Batch processing - a word describing tasks that can run without user interactions, or can be scheduled to run as resources permit. Batch data sets might be huge and need parallel processing. MapReduce is a programming model designed for batch processing, including two steps: &amp;lsquo;map&amp;rsquo; and &amp;lsquo;reduce&amp;rsquo;.
+MapReduce - &amp;lsquo;Map&amp;rsquo; and &amp;lsquo;Reduce&amp;rsquo; Some concepts Job is the unit of work to be performed, it could consist of several map and reduce tasks.</description>
+    </item>
+    
     <item>
       <title>Advanced Distributed System - Resource Management</title>
       <link>https://shuoyin03.github.io/2024/01/06/distributed-system-resource-management/</link>
