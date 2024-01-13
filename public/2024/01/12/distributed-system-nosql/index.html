@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Advanced Distributed System - Batch Data and MapReduce" />
-    <meta property="og:title" content="Advanced Distributed System - Batch Data and MapReduce" />
-    <meta property="twitter:title" content="Advanced Distributed System - Batch Data and MapReduce" />
+    <meta name="title" content="Advanced Distributed System - NoSQL" />
+    <meta property="og:title" content="Advanced Distributed System - NoSQL" />
+    <meta property="twitter:title" content="Advanced Distributed System - NoSQL" />
     
 
     
-    <meta name="description" content="Introducing Batching processing, MapReduce and Hadoop">
-    <meta property="og:description" content="Introducing Batching processing, MapReduce and Hadoop" />
-    <meta property="twitter:description" content="Introducing Batching processing, MapReduce and Hadoop" />
+    <meta name="description" content="Introduce NoSQL">
+    <meta property="og:description" content="Introduce NoSQL" />
+    <meta property="twitter:description" content="Introduce NoSQL" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Advanced Distributed System - Batch Data and MapReduce | ShuoYin</title>
+    <title>Advanced Distributed System - NoSQL | ShuoYin</title>
 
-    <link rel="canonical" href="/2024/01/09/distributed-system-big-data/">
+    <link rel="canonical" href="/2024/01/12/distributed-system-nosql/">
 
     
     
@@ -181,8 +181,8 @@
                         </a>
                         
                     </div>
-                    <h1>Advanced Distributed System - Batch Data and MapReduce</h1>
-                    <h2 class="subheading">MapReduce Programming</h2>
+                    <h1>Advanced Distributed System - NoSQL</h1>
+                    <h2 class="subheading">NoSQL</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -190,10 +190,10 @@
                                 UNKNOWN SPACE
                              
                             on 
-                            Tuesday, January 9, 2024
+                            Friday, January 12, 2024
                             
                                 
-                                <br><span class="meta">894 Words, Read 5 minutes</span>
+                                <br><span class="meta">1252 Words, Read 6 minutes</span>
                             
                              
                             
@@ -220,156 +220,141 @@
 
                 
                 <blockquote>
-<p>Batch processing - a word describing tasks that can run without user interactions, or can be scheduled to run as resources permit. Batch data sets might be huge and need parallel processing. MapReduce is a programming model designed for batch processing, including two steps: &lsquo;map&rsquo; and &lsquo;reduce&rsquo;.</p>
+<p>Unlike SQL focus on data integrity and strict transactional semantics, NoSQL focus on all applications need elastic scaling and simple operations, which operating data in isolation, some characteristics of NoSQL are: expose a simple call-level interface or protocol, offer less strict transactional guarantees, replicate and distribute data over servers&hellip; Let&rsquo;s have a look at NoSQL in this blog.</p>
 </blockquote>
-<h2 id="mapreduce---map-and-reduce">MapReduce - &lsquo;Map&rsquo; and &lsquo;Reduce&rsquo;</h2>
-<h3 id="some-concepts">Some concepts</h3>
+<h2 id="types-of-nosql">Types of NoSQL</h2>
+<p>We could define NoSQL into three types: <code>Key-Value</code>, <code>Document</code>, and <code>Wide Column</code>.</p>
+<h3 id="key-value">Key-Value</h3>
+<p>Access or update a value given a key, the database doesn’t necessarily provide much functionality for the value (e.g., queries).
+The APIs it provides are:</p>
 <ul>
-<li><code>Job</code> is the unit of work to be performed, it could consist of several <code>map</code> and <code>reduce</code> tasks.</li>
-<li><code>Split</code> is a part of the input.</li>
-<li><code>Task</code> are map or reduce functions created and run for each split or partition.</li>
-<li><code>Task tracker</code> tracks the progress of each of the map or reduce tasks on a node and keeps the job tracker informed of progress.</li>
-<li><code>Job tracker</code> coordinates the different tasks comprising a job.</li>
-</ul>
-<h3 id="map">Map</h3>
-<p>A <code>map</code> function is to generate a key-value pair (key 2, value 2), given a key &lsquo;key 1&rsquo; and a value &lsquo;value 1&rsquo;.</p>
-<pre tabindex="0"><code>map(key1, value1) -&gt; [(key2,value2)]
+<li>Put(key, value)</li>
+<li>Get(key)</li>
+<li>Delete(key)
 
-## Pseudo-code
-map(documentId key1, document value1) {
-    for each word w in value1 do
-        emit(word w, 1)
-}
-</code></pre><p>A <code>map</code> task is created for each split, and if possible, the <code>map</code> function will be run on the node where the input data is stored. Here are steps to take for a map task:</p>
-<ol>
-<li>The map task runs on the split, generating key-value pairs.</li>
-<li>The output of the map is partitioned into groups, for sending to reduce tasks, typically by hashing.</li>
-<li>The partitions are sorted by key.</li>
-<li>Output is written (to the local filesystem).</li>
-<li>The job tracker is informed by the task tracker when a task has completed.</li>
-</ol>
-<p>
-  <img src="/img/distributed-mapreduce/image2.png" alt="Alt text">
-
-</p>
-<h3 id="reduce">Reduce</h3>
-<p>A <code>reduce</code> function is to return a new collection of key-value pairs, given a &lsquo;key 2&rsquo; output by &lsquo;map&rsquo;, and a collection of all values &lsquo;value 2&rsquo; with that key.</p>
-<pre tabindex="0"><code>reduce(key2, [value2]) -&gt; [(key3, value3)]
-
-## Pseudo-code
-reduce(word key2, list of count value2) {
-    sum = 0
-    for each count in value2 do
-        sum = sum + count;
-        emit(word key2, sum)
-} 
-</code></pre><p>Here are steps for a reduce task:</p>
-<ol>
-<li>Relevant map partitions are copied to the associated reduce nodes.</li>
-<li>Data from different maps is merged to produce the inputs for individual reduce operations.</li>
-<li>The reduce task is run.</li>
-<li>Outputs are written to the distributed filesystem.
-
-  <img src="/img/distributed-mapreduce/image3.png" alt="Alt text">
+  <img src="/img/distributed-nosql/image.png" alt="Alt text">
 
 </li>
-</ol>
-<h3 id="an-example">An Example</h3>
-<p>
-  <img src="/img/distributed-mapreduce/image.png" alt="Alt text">
+</ul>
+<h3 id="document">Document</h3>
+<p>Access or update a document using a key, the database will provide functionality for accessing the value (e.g., queries)
+The APIs it provides are:</p>
+<ul>
+<li>Put(key, document)</li>
+<li>Get(key)</li>
+<li>Find(key, filter)</li>
+<li>Delete(key)
 
+  <img src="/img/distributed-nosql/image-1.png" alt="Alt text">
 
-The above picture demonstrate a <strong>word-count</strong> program contains <code>map</code> and <code>reduce</code> operations, where we can see that the <code>map</code> operation <strong>split</strong> the document into list of words and record its appearance, and <code>reduce</code> combine all same words and accumulate their occurrences.</p>
-<h2 id="basket-analysis">Basket Analysis</h2>
-<p>Basket analysis is another web-scale, data intensive application about users shopping on the internet.
-It records the value of each basket of products from customer&rsquo;s purchases. A simple analysis could be average the total prices of a customer&rsquo;s all purchases records.</p>
-<p>
-  <img src="/img/distributed-mapreduce/image4.png" alt="Alt text">
+</li>
+</ul>
+<h3 id="wide-column">Wide Column</h3>
+<p>Access or update a collection of column families associated with a key (e.g., CustomerId links to contact details, sales details, marketing details)
+The APIs it provides are:</p>
+<ul>
+<li>Put(key, {column family})</li>
+<li>Get(key)</li>
+<li>Delete(key)</li>
+<li>Find(key, filter)</li>
+<li>Update(key, expression)
+
+  <img src="/img/distributed-nosql/image-2.png" alt="Alt text">
+
+</li>
+</ul>
+<h2 id="data-partitioning">Data Partitioning</h2>
+<p>In SQL, data partitioning could be vertical or horizontal to put rows or columns together. However in NoSQL, all data associated with a key are stored in a single node, so data is horizontally partitioned, and this process has another name called <code>sharding</code>.</p>
+<h2 id="replication">Replication</h2>
+<p>As NoSQL databases seek to <code>scale elastically</code>, more nodes are expected to use, and thus, node failures are also expected to exists commonly in NoSQL. In order to accommodate them, we use <code>replication</code> to give a high availability.
+
+  <figure>
+    <img src="/img/distributed-nosql/image4.png" alt="Alt text">
+    <center><figcaption>An example of replication, copy data from node to nodes</figcaption></center>
+  </figure>
 
 </p>
-<p>The graph above is a record of customers and their interactions, we will now write the pseudo-code for both <code>map</code> and <code>reduce</code> operations.</p>
-<pre tabindex="0"><code>## Map
+<p>However, <code>replication</code> bring us some problems. In traditional transactions, people try to maintain the following <code>ACID</code> properties:</p>
+<ul>
+<li><code>Atomicity</code>: Either every action in a transaction is completed or none of them are.</li>
+<li><code>Consistency</code>: A transaction does not violate constraints.</li>
+<li><code>Isolation</code>: Two different transactions accessing a database can assume they are the sole user of the database.</li>
+<li><code>Durability</code>: A successful transaction commit will have written the result to <strong>nonvolatile storage</strong>, such as a hard drive.</li>
+</ul>
+<p>The <code>replication</code> is violating the <code>consistency</code> of data. Let&rsquo;s have a look at an example of <code>inconsistency</code>.
 
-map(key, value) {
-    for each (customerID CID, basketValue v) in value do
-        emit(customerID CID, basketValue v)
-}
-</code></pre><pre tabindex="0"><code>## Reduce
+  <img src="/img/distributed-nosql/image5.png" alt="Alt text">
 
-reduce(customerID key, list of basketValue value) {
-    sum = 0
-    count = length(value)
-    for each v in value do
-        sum = sum + v;
-    emit(customerID key, sum/count)
-}
-</code></pre><h2 id="mapreduce-design-pattern">MapReduce Design Pattern</h2>
-<p>There are some patterns while we are using MapReduce for better solving some common tasks, here we will introduce <code>Summarization Patterns(Numerical Summarization)</code>, <code>Inverted Index Pattern</code>, <code>Filtering Pattern</code> and <code>Join Pattern</code>.</p>
-<h3 id="summarization-patterns">Summarization Patterns</h3>
-<p>In this pattern, we want to send less data from mappers to reducers while providing what the reducer needs. An example is <code>numerical summarization</code>.
-Where we interest in giving data like [(&ldquo;the&rdquo;, 2), (&ldquo;two&rdquo;, 2)] instead of [(&ldquo;the&rdquo;, 1), (&ldquo;a&rdquo;, 1), (&ldquo;the&rdquo;, 1), (&ldquo;a&rdquo;, 1)]. Some aggregates could be used
-are min, max or sum. Below is the pseudo-code for <code>map</code> and <code>reduce</code>.</p>
-<pre tabindex="0"><code>map(documentId key1, document value1){
-    localCache = Hashmap(String -&gt; Integer)
-    for each word w in value1 do
-        if (localCache.containsKey(word))
-            count = localCache.get(word);
-            localCache.put(word,(count + 1));
-        else
-            localCache.put(word,1)
-        endif
-    endfor
-    for each (word,count) in localCache do
-        emit(word w, count)
-    end-for
-}
-</code></pre><pre tabindex="0"><code>reduce(customerID key, list of basketValue value) {
-    running_count = 0
-    running_sum = 0
-    for each (count, sum) in value do {
-        running_count = running_count + count;
-        summing_sum = running_sum + sum;
-    }
-    emit(customerID key, (running_sum/running_count))
-}
-</code></pre><h3 id="inverted-index-pattern">Inverted Index Pattern</h3>
-<p>• An <code>inverted index pattern</code> invert the relationship between document and contents. Generally, the data is represented as:</p>
-<pre tabindex="0"><code>Name: d1
-Contents: hello there world
-</code></pre><p>But in <code>inverted index pattern</code>, we want it to be:</p>
-<pre tabindex="0"><code>hello → d1
-there → d1
-world → d1
-</code></pre><p>The pseudo-code for <code>map</code> function in this pattern is:</p>
-<pre tabindex="0"><code>Map(key, value):
-    fetch identifier of input d
-    for each v in tokenise(value)
-        emit(v, d)
-</code></pre><h3 id="filtering-pattern">Filtering Pattern</h3>
-<p>As the name describes, the <code>filtering pattern</code> will filtering some data from the data set. Some rules of filtering could be <strong>producing representative examples</strong>,
-<strong>choosing the best k examples</strong> or <strong>removing duplicated data</strong>.</p>
-<p>Pseudo-code:</p>
-<pre tabindex="0"><code>Map(key, value):
-    for each v in value
-        if (inDictionary(v))
-            emit(v, 1)
-</code></pre><h3 id="join-pattern">Join Pattern</h3>
-<p>MapReduce can partition the data from the tables to be joined on their join columns, we need two mappers to read from different inputs, then the infrastructure
-does most of the join.
-Pseudo-code:</p>
-<pre tabindex="0"><code>MapA(key, A):
-    for each row in A
-        emit(A.u, “A” + row)
+</p>
+<p>In this picture, two users are interacting with the database at the same time, where both users initiated a request to get x value from the database. However, both user initiated another request to increase x by one, and the problem is, while the user at the bottom updating the x value to 2, <strong>the database has already got the value send from the first user</strong>, which means, the database lost the update request from user at the bottom. (Should be 3 in the database but only got 2).</p>
+<h3 id="two-phase-locking">Two-Phase Locking</h3>
+<p>One method could be used to solve the above problem is <code>two-phase locking</code> (2PL). In this method we use the idea of <code>lock</code> to limit the interactions between users and database. There are three key rules below:</p>
+<ul>
+<li>If a transaction wants to read an object, it must first obtain a <code>shared lock</code> on the object.</li>
+<li>If a transaction wants to write an object, it must first obtain an <code>exclusive lock</code> on an object. If it can’t, it must wait.</li>
+<li>A transaction with a <code>read lock</code> can upgrade that lock to an <code>exclusive lock</code> (if no-one else has a <code>shared lock</code>)</li>
+</ul>
+<p>The <code>two-phase</code> locking have some features:</p>
+<ol>
+<li>Transactions needs to wait to get its desired lock if the lock is assigned to other transaction.</li>
+<li>Transactions obtain the lock during transaction, and release the lock after commit or abort.</li>
+<li>Readers do not block readers and writer do not block writers, but they block each other.</li>
+<li>Deadlock might happen, two transactions waiting each other to release locks.</li>
+</ol>
+<p>Although it has some disadvantages, we could use <code>distributed transactions</code> to provide ACID type guarantees. One method of distributed transaction is <code>two-phase commit</code>.</p>
+<h3 id="two-phase-commit">Two-Phase Commit</h3>
+<p>The first phase is that, all participants complete the processes of either read or write, and while finish, they are in a stage ready to commit to the database, if any of the participants didn&rsquo;t ready to commit, abort the commit request. Then in phase two, we commit all the changes.</p>
+<p>
+  <img src="/img/distributed-nosql/image6.png" alt="Alt text">
 
-MapB(key, B):
-    for each row in B
-        emit(B.v, “B” + row)
+</p>
+<p>The features of <code>two-phase commit</code> are:</p>
+<ol>
+<li>During the preparation phase, every participant must write all the transaction’s data to nonvolatile store before responding ok.</li>
+<li>When a participant returns ok, it must hold locks until the coordinator asks it to commit or abort.</li>
+<li>When the coordinator has received an ok response to all prepare messages, it must write the decision to commit to nonvolatile store, giving rise to a commit point.</li>
+<li>After the commit point, the coordinator must keep trying to send commits to participants until they have all provided an ok response.</li>
+</ol>
+<p>Although two-phase commit provides strong guarantees, but a failure could bring huge effects to all transactions as it might block arbitrary periods. Here are few problems might exist and their possible solutions.
 
-Reduce(key, List of rows R):
-    for each a in R with prefix “A”
-        for each b in R with prefix “B”
-            emit(a, b)
-</code></pre>
+  <img src="/img/distributed-nosql/image7.png" alt="Alt text">
+
+</p>
+<h2 id="replication-leader--follower">Replication: Leader &amp; Follower</h2>
+<p>The replication without update is easy, however we do need the updates applied to all replicas. The <code>Leader &amp; Follower</code> structure is a common approach to support updates. Within all replicas of our database, one of them is promoted to <code>leader</code> and rest of them are <code>followers</code>, where the <code>leader</code> should receives update requests and forward them to followers. And followers should receive read requests from users and update requests from <code>leader</code> only.</p>
+<p>
+  <img src="/img/distributed-nosql/image8.png" alt="Alt text">
+
+</p>
+<p>The step of adding a new follower is as below:</p>
+<ol>
+<li>Take a snapshot of leader</li>
+<li>Copy snapshot to the new follower</li>
+<li>New follower requests replication log from time of snapshot from leader</li>
+<li>Apply replication log</li>
+</ol>
+<p>If a <code>leader</code> fails within the running process, we could promote another leader from all <code>followers</code>, and inform clients and other followers about the new leader, this process is called <code>failover</code>. And if a <code>follower</code> fails, we could still redirect the requests, and when it comes back, we should identify when it last processed a replication log from the leader, and, request and apply the replication log from that time from the leader, then it will work as normal.</p>
+<h2 id="synchronous-and-asynchronous-replication">Synchronous and Asynchronous Replication</h2>
+<p>We could actually split the replication into three types: <code>synchronous replication</code>, <code>asynchronous replication</code> and <code>semi-synchronous replication</code>.</p>
+<ul>
+<li>Synchronous replication: The leader returns when all replicas updated. This type of replication is consistent, but it blocks if any followers fail.</li>
+<li>Asynchronous replication: The leader returns before knowing if replicas has been updated. This method has no delay for writes being propagated, but the cons are obvious, it might leeds to inconsistency if leader fails</li>
+<li>Semi-Synchronous replication: The leader returns when it knows one replica updated. It will not lost data if there’s a single node failure, but we need more complicated protocol if nominated follower is down.</li>
+</ul>
+<h2 id="replication-logs">Replication logs</h2>
+<p>There are few types of replication logs:</p>
+<ul>
+<li>Statement-based: send the (e.g. SQL) query or operation from the leader to the followers.</li>
+<li>Write-ahead log based: send the physical representation of the modified disk blocks, as used for recovery.</li>
+<li>Logical log based: send the changes at the level of the data model, e.g., add, delete, modify tuple</li>
+</ul>
+<h2 id="combining-replication-and-partitioning">Combining Replication and Partitioning</h2>
+<p>When we are handling data in a shopping cart, we need both <code>scalability</code> and <code>availability</code> which could be satisfied by partitioning and replication, where we first partition data by key, and then replicating the partitions. In <code>Dynamo</code> NoSQL database:</p>
+<ul>
+<li>Each write is sent to several replicas, and succeeds when a threshold number succeed.</li>
+<li>Each read is obtained from several replicas, and the client determines what value should be used (e.g., by application logic or a heuristic such as most recent).</li>
+</ul>
+
 
                 
 
@@ -378,15 +363,10 @@ Reduce(key, List of rows R):
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2024/01/06/distributed-system-resource-management/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Resource Management">&larr;
+                        <a href="/2024/01/09/distributed-system-big-data/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Batch Data and MapReduce">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2024/01/12/distributed-system-nosql/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - NoSQL">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
@@ -513,7 +493,7 @@ Reduce(key, List of rows R):
             
            
                    <li>
-                       <a href='/2024/01/09/distributed-system-big-data/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2024/01/12/distributed-system-nosql/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

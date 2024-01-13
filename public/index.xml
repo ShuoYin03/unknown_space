@@ -6,7 +6,17 @@
     <description>Recent content on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced Distributed System - NoSQL</title>
+      <link>https://shuoyin03.github.io/2024/01/12/distributed-system-nosql/</link>
+      <pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/12/distributed-system-nosql/</guid>
+      <description>Unlike SQL focus on data integrity and strict transactional semantics, NoSQL focus on all applications need elastic scaling and simple operations, which operating data in isolation, some characteristics of NoSQL are: expose a simple call-level interface or protocol, offer less strict transactional guarantees, replicate and distribute data over servers&amp;hellip; Let&amp;rsquo;s have a look at NoSQL in this blog.
+Types of NoSQL We could define NoSQL into three types: Key-Value, Document, and Wide Column.</description>
+    </item>
+    
     <item>
       <title>Advanced Distributed System - Batch Data and MapReduce</title>
       <link>https://shuoyin03.github.io/2024/01/09/distributed-system-big-data/</link>
