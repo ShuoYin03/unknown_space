@@ -6,7 +6,17 @@
     <description>Recent content in Algorithm on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode journal - Beginning</title>
+      <link>https://shuoyin03.github.io/2024/01/16/leetcode-beginning/</link>
+      <pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/16/leetcode-beginning/</guid>
+      <description>Yesterday I have just complete the online assessment of booking.com, which I still feel a little bit frustrated - I could make lots of mistakes and stuck in such easy &amp;ldquo;algorithm&amp;rdquo; questions. During this process I could find lots of problems in my mindset, including but not limited to:
+Lack of the ability analyzing the corner cases, make changes to algorithm based on the corner cases Lack of awareness of algorithms.</description>
+    </item>
+    
     <item>
       <title>Algorithm and Data Structure - Propositional logic</title>
       <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</link>
