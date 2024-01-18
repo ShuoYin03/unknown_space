@@ -6,7 +6,16 @@
     <description>Recent content in nlp on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Natural Language Processing - Deep Learning I</title>
+      <link>https://shuoyin03.github.io/2024/01/16/nlp-deep-learning1/</link>
+      <pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/16/nlp-deep-learning1/</guid>
+      <description>Basic Neural Network Structure Single neuron, the most basic components of neural networks, consist of multiple inputs $[x_1, x_2, &amp;hellip;, x_d]$ and an output $y$. The above picture demonstrated, each input $x$ is multiply by a weight $w$, their sum is added with a bias and then activated by a activation function. The training process, is to find the best y value from updating the weight in each training epoch.</description>
+    </item>
+    
     <item>
       <title>Natural Language Processing - POS Tagging</title>
       <link>https://shuoyin03.github.io/2024/01/04/nlp-pos-tagging/</link>

@@ -5,7 +5,7 @@ description: "Introduction to Attention RNN and Transformer neural network"
 date: 2023-11-07
 author: "UNKNOWN SPACE"
 image: ""
-tags: ["NLP"]
+tags: ["nlp"]
 categories: ["notes"]
 URL: "/2023/11/07/nlp-transformer/"
 draft: true
@@ -29,3 +29,10 @@ Transformer is a structure contains two parts: `encoder` and `decoder`, with the
 ![](/img/transformer/transformer.png)
 encoder - auto encoding structure
 decoder - suto regressive structure
+
+### Encoder
+
+#### Positional Encoding
+![Alt text](/img/transformer/image.png)
+
+### Decoder
