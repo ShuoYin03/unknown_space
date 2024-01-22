@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Hackathon" />
-    <meta property="og:title" content="Hackathon" />
-    <meta property="twitter:title" content="Hackathon" />
+    <meta name="title" content="Natural Language Processing - Information Extraction" />
+    <meta property="og:title" content="Natural Language Processing - Information Extraction" />
+    <meta property="twitter:title" content="Natural Language Processing - Information Extraction" />
     
 
     
-    <meta name="description" content="Blog for Shuo Yin.">
-    <meta property="og:description" content="Blog for Shuo Yin." />
-    <meta property="twitter:description" content="Blog for Shuo Yin." />
+    <meta name="description" content="Introduce ">
+    <meta property="og:description" content="Introduce " />
+    <meta property="twitter:description" content="Introduce " />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Hackathon | ShuoYin</title>
+    <title>Natural Language Processing - Information Extraction | ShuoYin</title>
 
-    <link rel="canonical" href="/tags/hackathon/">
+    <link rel="canonical" href="/2024/01/18/nlp-information-extraction/">
 
     
     
@@ -158,234 +158,172 @@
 </script>
 
 
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
 
 
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>UNKNOWN SPACE </h1>
-                    
-		    <span class="subheading">Welcome to my world</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                    </div>
+                    <h1>Natural Language Processing - Information Extraction</h1>
+                    <h2 class="subheading">Identify entities and relations from texts</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Saturday, January 20, 2024
+                            
+                                
+                                <br><span class="meta">185 Words, Read 1 minutes</span>
+                            
+                             
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
 </header>
 
 
 
-  
-<div data-pagefind-ignore="all" class="container">
-    <div class="row">
-        
-        
-   	    <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container
-        ">
-            
-<div data-pagefind-ignore="all">
 
-<div class="post-preview">
-    <a href="https://shuoyin03.github.io/2023/11/03/greatunihack2023/">
-        <h2 class="post-title">
-            GreatUniHack2023 - Postscript to the competition
-        </h2>
-	
-        <h3 class="post-subtitle">
-            Thoughts and reflections after the 24-hour hackathon
-        </h3>
-	
-        <div class="post-content-preview">
-	
-            Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future.
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by UNKNOWN SPACE on Tuesday, October 31, 2023
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-</div>
+<article>
+    <div class="container">
+        <div class="row">
 
             
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="what-is-information-extraction">What is information Extraction?</h2>
+<h2 id="entities">Entities</h2>
+<h3 id="named-entity-recognition-ner">Named Entity Recognition (NER)</h3>
+<p>Many types of named entities</p>
+<h4 id="dictionary-based-look-up-approach">Dictionary-Based: Look-Up Approach</h4>
+<p>In dictionary-based approach, system will only recognize those words appears in the dictionary, it is simple and fast. However, the more common things are, it can&rsquo;t enumerate all names within the texts and can&rsquo;t resolve ambiguity. Moreover, the maintenance of lists is also a problem.</p>
+<h4 id="rule-based-approach">Rule-Based Approach</h4>
+<p>The <code>rule-based</code> approach uses some context clues to identify entities. For example, if we put the pattern [PERSON] earns [MONEY] in a sentence like &ldquo;Tom earns 100000 pounds a year&rdquo;, then we could know that <strong>Tom</strong> is a [PERSON] and <strong>100000</strong> is indicating [MONEY]. One disadvantage of this method is that, for the words like &ldquo;David Walton&rdquo; and &ldquo;Goldman Sachs&rdquo;, the system always can&rsquo;t distinguish them. But if we put them together in some form like &ldquo;David Walton of Goldman Sachs&rdquo;, we could have some rules like [PERSON] of [ORGANIZATION] to classify them.</p>
+<h4 id="machine-learning-approach">Machine Learning Approach</h4>
+<p>In the machine learning approach, we treat named entities as a sequence of tokens, where we let the system</p>
+<h2 id="relations">Relations</h2>
+<h4 id="rule-based-approach-1">Rule-Based Approach</h4>
+<h4 id="machine-learning-approach-1">Machine Learning Approach</h4>
 
 
+                
 
-       	</div>
-        
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            
-            
-            
-                    <a href="/tags/algorithm" title="algorithm">
-                        algorithm
-                    </a>
-            
-            
-            
-                    <a href="/tags/data-structure" title="data-structure">
-                        data-structure
-                    </a>
-            
-            
-            
-                    <a href="/tags/distributed-system" title="distributed-system">
-                        distributed-system
-                    </a>
-            
-            
-            
-                    <a href="/tags/hackathon" title="hackathon">
-                        hackathon
-                    </a>
-            
-            
-            
-                    <a href="/tags/hugo" title="hugo">
-                        hugo
-                    </a>
-            
-            
-            
-                    <a href="/tags/leetcode" title="leetcode">
-                        leetcode
-                    </a>
-            
-            
-            
-                    <a href="/tags/nlp" title="nlp">
-                        nlp
-                    </a>
-            
-            
-        </div>
-    </section>
-    
-
-    
-	
-    <section class="visible-md visible-lg">
-        <hr>
-	
-        <div class="short-about">
-            
-            <a href="/about">
-               <img src="/img/sign-post-5655110_640.png" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Software Developer in Sportandmusic, Third year computer science student in the University of Manchester</p>
-            
-           
-           <ul class="list-inline">
-               
-               <li>
-                   <a href="mailto:shuoyin03@gmail.com">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                      </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="/img/wechat.jpg">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/ShuoYin03">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-            
-            
-               
-               
-               
-               
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/01/18/nlp-speech-processing/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - Speech Processing">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
                 </ul>
+                
+
+                
+
+
+
             </div>
-    </section>
-	
-    
-    
-   
 
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FRIENDS</h5>
-        <ul class="list-inline">
             
-            <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
             
-        </ul>
-    </section>
-    
-    
-</div>
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
 
-	</div>
-</div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
 
 
 
@@ -454,7 +392,7 @@
             
            
                    <li>
-                       <a href='/tags/hackathon/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2024/01/18/nlp-information-extraction/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

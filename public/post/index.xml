@@ -6,7 +6,27 @@
     <description>Recent content in Posts on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Natural Language Processing - Information Extraction</title>
+      <link>https://shuoyin03.github.io/2024/01/18/nlp-information-extraction/</link>
+      <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/18/nlp-information-extraction/</guid>
+      <description>What is information Extraction? Entities Named Entity Recognition (NER) Many types of named entities
+Dictionary-Based: Look-Up Approach In dictionary-based approach, system will only recognize those words appears in the dictionary, it is simple and fast. However, the more common things are, it can&amp;rsquo;t enumerate all names within the texts and can&amp;rsquo;t resolve ambiguity. Moreover, the maintenance of lists is also a problem.
+Rule-Based Approach The rule-based approach uses some context clues to identify entities.</description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing - Speech Processing</title>
+      <link>https://shuoyin03.github.io/2024/01/18/nlp-speech-processing/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/18/nlp-speech-processing/</guid>
+      <description>Why is Speech Recognition so Hard We could analyze this problem in two perspectives: From a linguistic perspective, there are many questions to be asked - How many speakers are there? Are they speaking continuously or isolated? Are there any environment noise? How are the channel conditions? Speaker tuned for a particular speaker, or speaker independent? Every question could act on a great impact on the performance. And from a machine learning perspective, if we define speech recognition as a classification problem, it contains very high dimensional output space.</description>
+    </item>
+    
     <item>
       <title>Leetcode journal - Beginning</title>
       <link>https://shuoyin03.github.io/2024/01/16/leetcode-beginning/</link>
@@ -172,18 +192,6 @@ K ≥ 2 (number of tapes) Σ is a non-empty, finite set (alphabet) Q is a non-em
       <description>&lt;!-- &gt;记忆里自从2021年开始就计划着要弄博客，结果一直想法大于行动，一直拖到了现在才弄好，老拖延症了，这里分享一下我创建博客的过程以便大家参考与复制 --&gt;
 &lt;blockquote&gt;
 &lt;p&gt;In my memory, I have been planning to start a blog since 2021, but the idea has always been greater than the action. It has been delayed until now. I am an old procrastinator&amp;hellip; I will share my process of creating a blog for your reference and copying.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>GreatUniHack2023 - Postscript to the competition</title>
-      <link>https://shuoyin03.github.io/2023/11/03/greatunihack2023/</link>
-      <pubDate>Tue, 31 Oct 2023 12:00:00 +0000</pubDate>
-      
-      <guid>https://shuoyin03.github.io/2023/11/03/greatunihack2023/</guid>
-      <description>&lt;!-- &gt;刚刚进行了一场时长24小时的hackathon，本章作为此次参加hackathon的感受，以及发现的不足和以后需要提高的技能。 --&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Just conducted a 24-hour hackathon. This chapter is about my feelings about participating in the hackathon, as well as the shortcomings discovered and the skills that need to be improved in the future.&lt;/p&gt;
 &lt;/blockquote&gt;</description>
     </item>
     

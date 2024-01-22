@@ -6,7 +6,27 @@
     <description>Recent content in notes on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Natural Language Processing - Information Extraction</title>
+      <link>https://shuoyin03.github.io/2024/01/18/nlp-information-extraction/</link>
+      <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/18/nlp-information-extraction/</guid>
+      <description>What is information Extraction? Entities Named Entity Recognition (NER) Many types of named entities
+Dictionary-Based: Look-Up Approach In dictionary-based approach, system will only recognize those words appears in the dictionary, it is simple and fast. However, the more common things are, it can&amp;rsquo;t enumerate all names within the texts and can&amp;rsquo;t resolve ambiguity. Moreover, the maintenance of lists is also a problem.
+Rule-Based Approach The rule-based approach uses some context clues to identify entities.</description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing - Speech Processing</title>
+      <link>https://shuoyin03.github.io/2024/01/18/nlp-speech-processing/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/18/nlp-speech-processing/</guid>
+      <description>Why is Speech Recognition so Hard We could analyze this problem in two perspectives: From a linguistic perspective, there are many questions to be asked - How many speakers are there? Are they speaking continuously or isolated? Are there any environment noise? How are the channel conditions? Speaker tuned for a particular speaker, or speaker independent? Every question could act on a great impact on the performance. And from a machine learning perspective, if we define speech recognition as a classification problem, it contains very high dimensional output space.</description>
+    </item>
+    
     <item>
       <title>Leetcode journal - Beginning</title>
       <link>https://shuoyin03.github.io/2024/01/16/leetcode-beginning/</link>
