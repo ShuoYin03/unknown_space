@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Natural Language Processing - Information Extraction" />
-    <meta property="og:title" content="Natural Language Processing - Information Extraction" />
-    <meta property="twitter:title" content="Natural Language Processing - Information Extraction" />
+    <meta name="title" content="An Example Post" />
+    <meta property="og:title" content="An Example Post" />
+    <meta property="twitter:title" content="An Example Post" />
     
 
     
-    <meta name="description" content="Introduce ">
-    <meta property="og:description" content="Introduce " />
-    <meta property="twitter:description" content="Introduce " />
+    <meta name="description" content="Blog for Shuo Yin.">
+    <meta property="og:description" content="Blog for Shuo Yin." />
+    <meta property="twitter:description" content="Blog for Shuo Yin." />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Natural Language Processing - Information Extraction | ShuoYin</title>
+    <title>An Example Post | ShuoYin</title>
 
-    <link rel="canonical" href="/2024/01/18/nlp-information-extraction/">
+    <link rel="canonical" href="/post/comp36111-algorithm/2024-01-23-string/">
 
     
     
@@ -110,6 +110,10 @@
                             <a href="/categories/post/">post</a>
                         </li>
                         
+                        <li>
+                            <a href="/categories/tech/">tech</a>
+                        </li>
+                        
                     
                     
 		    
@@ -158,27 +162,6 @@
 </script>
 
 
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [["$", "$"]],
-    },
-    displayMath: [
-      ["$$", "$$"],
-      ["\[\[", "\]\]"],
-    ],
-    svg: {
-      fontCache: "global",
-    },
-  };
-</script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-></script>
-
 
 
 
@@ -197,24 +180,28 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/nlp" title="nlp">
-                            nlp
+                        <a class="tag" href="/tags/tag1" title="tag1">
+                            tag1
+                        </a>
+                        
+                        <a class="tag" href="/tags/tag2" title="tag2">
+                            tag2
                         </a>
                         
                     </div>
-                    <h1>Natural Language Processing - Information Extraction</h1>
-                    <h2 class="subheading">Identify entities and relations from texts</h2>
+                    <h1>An Example Post</h1>
+                    <h2 class="subheading"></h2>
                     <span class="meta">
                         
                             Posted by 
                             
-                                UNKNOWN SPACE
+                                     &#34;&#34;
                              
                             on 
-                            Saturday, January 20, 2024
+                            Monday, June 4, 2018
                             
                                 
-                                <br><span class="meta">185 Words, Read 1 minutes</span>
+                                <br><span class="meta">92 Words, Read 1 minutes</span>
                             
                              
                             
@@ -240,19 +227,25 @@
                 post-container">
 
                 
-                <h2 id="what-is-information-extraction">What is information Extraction?</h2>
-<h2 id="entities">Entities</h2>
-<h3 id="named-entity-recognition-ner">Named Entity Recognition (NER)</h3>
-<p>Many types of named entities</p>
-<h4 id="dictionary-based-look-up-approach">Dictionary-Based: Look-Up Approach</h4>
-<p>In dictionary-based approach, system will only recognize those words appears in the dictionary, it is simple and fast. However, the more common things are, it can&rsquo;t enumerate all names within the texts and can&rsquo;t resolve ambiguity. Moreover, the maintenance of lists is also a problem.</p>
-<h4 id="rule-based-approach">Rule-Based Approach</h4>
-<p>The <code>rule-based</code> approach uses some context clues to identify entities. For example, if we put the pattern [PERSON] earns [MONEY] in a sentence like &ldquo;Tom earns 100000 pounds a year&rdquo;, then we could know that <strong>Tom</strong> is a [PERSON] and <strong>100000</strong> is indicating [MONEY]. One disadvantage of this method is that, for the words like &ldquo;David Walton&rdquo; and &ldquo;Goldman Sachs&rdquo;, the system always can&rsquo;t distinguish them. But if we put them together in some form like &ldquo;David Walton of Goldman Sachs&rdquo;, we could have some rules like [PERSON] of [ORGANIZATION] to classify them.</p>
-<h4 id="machine-learning-approach">Machine Learning Approach</h4>
-<p>In the machine learning approach, we treat named entities as a sequence of tokens, where we let the system</p>
-<h2 id="relations">Relations</h2>
-<h4 id="rule-based-approach-1">Rule-Based Approach</h4>
-<h4 id="machine-learning-approach-1">Machine Learning Approach</h4>
+                <p>还需要学习的：
+walk</p>
+<p>算法
+RP算法
+rp(T, P, q, b):
+m = len(P)
+t = T[0] * b^(m-1) + &hellip; + T[m-1]*b^0 (mod q)
+p = P[0] * b^(m-1) + &hellip; + P[m-1]*b^0 (mod q)
+i = 0
+while i &lt; len(T) - m:
+if t == p:
+j = 0
+while T[j] == P[j]:
+j ++
+return i if j == m
+t = (t- T[i]*b^(m-1)) * b + T[i + m] mod q
+i ++
+return false</p>
+<p>KMP算法</p>
 
 
                 
@@ -261,11 +254,11 @@
                 <hr>
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2024/01/18/nlp-speech-processing/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - Speech Processing">&larr;
-                            Previous Post</a>
-                    </li>
                     
+                    <li class="next">
+                        <a href="/2023/11/03/HugoSetUp/" data-toggle="tooltip" data-placement="top" title="Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan">Next
+                            Post &rarr;</a>
+                    </li>
                     
                 </ul>
                 
@@ -309,8 +302,14 @@
                         
                         
                         
-                        <a href="/tags/nlp" title="nlp">
-                            nlp
+                        <a href="/tags/tag1" title="tag1">
+                            tag1
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tag2" title="tag2">
+                            tag2
                         </a>
                         
                         
@@ -392,7 +391,7 @@
             
            
                    <li>
-                       <a href='/2024/01/18/nlp-information-extraction/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/post/comp36111-algorithm/2024-01-23-string/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

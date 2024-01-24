@@ -10,3 +10,30 @@ categories:  ["notes"]
 URL:        "/2023/11/03/graph_theory/"
 draft: true
 ---
+
+构建auxiliary directed graph的方法：
+
+算法：
+Ford-Fulkerson algorithm
+begin flowMax(V,E,s,t,c):
+    set f(e) = 0 for all e in E
+    while reachable:
+        find a path e1 ... em from s to t
+        for all edges:
+            if e belongs E increment f(ei)
+            else decrement f(ei^-1)
+    return f
+
+Busacker-Gowen algorithm
+Change a little bit on Ford-Fulkerson:
+begin flowMaxCost(V,E,s,t,c):
+    set f(e) = 0 for all e in E
+    while reachable:
+        find the shortest path e1 ... em form s to t
+        for all edges:
+            if e belongs E increment f(ei)
+            else decrement f(ei^-1)
+    return f
+
+
+

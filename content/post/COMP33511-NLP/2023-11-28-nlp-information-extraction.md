@@ -9,6 +9,7 @@ tags: ["nlp"]
 categories: ["notes"]
 URL: "/2024/01/18/nlp-information-extraction/"
 math: true
+draft: true
 ---
 
 ## What is information Extraction?

@@ -2,31 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://shuoyin03.github.io/categories/</loc>
-    <lastmod>2024-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/2024/01/18/nlp-information-extraction/</loc>
-    <lastmod>2024-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/tags/nlp/</loc>
-    <lastmod>2024-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/categories/notes/</loc>
-    <lastmod>2024-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/post/</loc>
-    <lastmod>2024-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/tags/</loc>
-    <lastmod>2024-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/</loc>
-    <lastmod>2024-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://shuoyin03.github.io/2024/01/18/nlp-speech-processing/</loc>
-    <lastmod>2024-01-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://shuoyin03.github.io/tags/algorithm/</loc>
+    <lastmod>2024-01-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/categories/</loc>
     <lastmod>2024-01-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shuoyin03.github.io/tags/data-structure/</loc>
@@ -39,6 +18,21 @@
     <lastmod>2024-01-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shuoyin03.github.io/2024/01/16/nlp-deep-learning1/</loc>
+    <lastmod>2024-01-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/tags/nlp/</loc>
+    <lastmod>2024-01-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/categories/notes/</loc>
+    <lastmod>2024-01-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/post/</loc>
+    <lastmod>2024-01-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/tags/</loc>
+    <lastmod>2024-01-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/</loc>
     <lastmod>2024-01-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shuoyin03.github.io/2024/01/12/distributed-system-nosql/</loc>
@@ -91,6 +85,18 @@
   </url><url>
     <loc>https://shuoyin03.github.io/2023/11/03/HugoSetUp/</loc>
     <lastmod>2023-11-02T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/post/comp36111-algorithm/2024-01-23-string/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/tags/tag1/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/tags/tag2/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shuoyin03.github.io/categories/tech/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shuoyin03.github.io/about/</loc>
   </url><url>

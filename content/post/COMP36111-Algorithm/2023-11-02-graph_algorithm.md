@@ -25,6 +25,60 @@ draft: true
 |{w ∈ V : (w, v) ∈ E}|
 
 
+涉及到的算法：
+Topological sort:
+    1. Build the graph
+    2. set the stack, the sequence of searching
+    3. while stack is not empty:
+        pop nodes from stack, add and sort the result, maintain indeg, if any indeg is 0, push in stack, if i == n, return result
+    4. else return false
+
+DFS:
+    if not root:
+        return none
+    res = []
+    def dfs(root):
+        mark root
+        for next node of root
+            if node is unmarked:
+                dfs(node)
+    return res
+
+Kosaraju:
+    S = empty stack
+    K1(G)
+    SCC = empty array
+    H is reverse graph
+    KC2(H, S)
+    return SCC
+
+    def k1:
+        while G have unmarked vertices
+            pick a unmarked vertice x
+                dfs1(G, x)
+    
+    def dfs1:
+        mark x as marked
+        for every G.edges(x):
+            if node unmarked:
+                dfs(1)
+        push x on stack
+
+    def k2:
+        while stack is not empty
+            node = stack.pop()
+            if node is unmarked:
+                ans = dfs2(node)
+                scc.push(ans)
+
+    def dfs2:
+        ans = []
+        push node in ans
+        for edges in H.edges(node):
+            if new node is unmarked:
+                dfs2(new node)
+
+
 
 
 

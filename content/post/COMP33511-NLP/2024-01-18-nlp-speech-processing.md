@@ -9,6 +9,7 @@ tags: ["nlp"]
 categories: ["notes"]
 URL: "/2024/01/18/nlp-speech-processing/"
 math: true
+draft: true
 ---
 
 ## Why is Speech Recognition so Hard
