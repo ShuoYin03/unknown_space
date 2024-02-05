@@ -6,7 +6,17 @@
     <description>Recent content in notes on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cognitive Robotics - Introduction</title>
+      <link>https://shuoyin03.github.io/2024/02/05/cognitive-robotics-introduction/</link>
+      <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/02/05/cognitive-robotics-introduction/</guid>
+      <description>What are Robots? A robot, is a machine capable of carrying out a complex series of actions automatically, especially one programmable by a computer. Also, it could be described as an autonomous system which exists in the physical world, can sense its environment, and can act on it to achieve some goals. There are many types of robots that we define today. For example, they are:
+Humanoid Android Biomimetic Industrial (manipulation, navigation) Medical Assistive Humanoid Robots A humanoid robot has an anthropomorphic body plan and actuators with human-like senses for human-robot interaction.</description>
+    </item>
+    
     <item>
       <title>Cyber Security - Basics</title>
       <link>https://shuoyin03.github.io/2024/01/31/cyber-security-basics/</link>
