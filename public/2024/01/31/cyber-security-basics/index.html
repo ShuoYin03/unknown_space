@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="An Example Post" />
-    <meta property="og:title" content="An Example Post" />
-    <meta property="twitter:title" content="An Example Post" />
+    <meta name="title" content="Cyber Security - Basics" />
+    <meta property="og:title" content="Cyber Security - Basics" />
+    <meta property="twitter:title" content="Cyber Security - Basics" />
     
 
     
-    <meta name="description" content="Blog for Shuo Yin.">
-    <meta property="og:description" content="Blog for Shuo Yin." />
-    <meta property="twitter:description" content="Blog for Shuo Yin." />
+    <meta name="description" content="Introduced the what threats do we have in the our world, security properties and models">
+    <meta property="og:description" content="Introduced the what threats do we have in the our world, security properties and models" />
+    <meta property="twitter:description" content="Introduced the what threats do we have in the our world, security properties and models" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>An Example Post | ShuoYin</title>
+    <title>Cyber Security - Basics | ShuoYin</title>
 
-    <link rel="canonical" href="/post/comp36111-algorithm/2024-01-23-string/">
+    <link rel="canonical" href="/2024/01/31/cyber-security-basics/">
 
     
     
@@ -180,28 +180,24 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/tag1" title="tag1">
-                            tag1
-                        </a>
-                        
-                        <a class="tag" href="/tags/tag2" title="tag2">
-                            tag2
+                        <a class="tag" href="/tags/cyber-security" title="Cyber Security">
+                            Cyber Security
                         </a>
                         
                     </div>
-                    <h1>An Example Post</h1>
-                    <h2 class="subheading"></h2>
+                    <h1>Cyber Security - Basics</h1>
+                    <h2 class="subheading">Security Basics</h2>
                     <span class="meta">
                         
                             Posted by 
                             
-                                     &#34;&#34;
+                                UNKNOWN SPACE
                              
                             on 
-                            Monday, June 4, 2018
+                            Wednesday, January 31, 2024
                             
                                 
-                                <br><span class="meta">92 Words, Read 1 minutes</span>
+                                <br><span class="meta">955 Words, Read 5 minutes</span>
                             
                              
                             
@@ -227,25 +223,105 @@
                 post-container">
 
                 
-                <p>还需要学习的：
-walk</p>
-<p>算法
-RP算法
-rp(T, P, q, b):
-m = len(P)
-t = T[0] * b^(m-1) + &hellip; + T[m-1]*b^0 (mod q)
-p = P[0] * b^(m-1) + &hellip; + P[m-1]*b^0 (mod q)
-i = 0
-while i &lt; len(T) - m:
-if t == p:
-j = 0
-while T[j] == P[j]:
-j ++
-return i if j == m
-t = (t- T[i]*b^(m-1)) * b + T[i + m] mod q
-i ++
-return false</p>
-<p>KMP算法</p>
+                <p>Currently in our world, there are a huge amount of attacks occurring everyday, bringing unpredictable loss to individuals, organizations or even governments. Such attacks could be: Malware, Ransomware, Adware, Hacking, Spoofing, Phishing, Pharming, DDoS&hellip; It is important that we care about security in the development of anything. In definition, there are three aspects in security, which are <code>confidentiality</code>, <code>Integrity</code> and <code>Availability</code>.</p>
+<h2 id="cia-triad">CIA Triad</h2>
+<ol>
+<li>
+<p>Confidentiality<br>
+The <code>confidentiality</code> contains two definitions, <code>data confidentiality</code> and <code>privacy</code>. The <code>data confidentiality</code> is to ensure data not to be used by unauthorized people, or leaked to other people. The <code>privacy</code> is to ensure individuals has the complete control to the data&rsquo;s collection and storage, and they could decide who to leak their data.</p>
+</li>
+<li>
+<p>Integrity<br>
+The <code>integrity</code> contains <code>entity integrity</code>, <code>content integrity</code>, and <code>origin integrity</code>. <code>Entity integrity</code> ensures that entities in the data indeed possess the claimed identity. The <code>content integrity</code> ensures the data is unchanged during transmission, as well as detecting the replayed transmissions. And the <code>origin integrity</code> ensures the data source is claimed before.</p>
+</li>
+<li>
+<p>Availability<br>
+As the name saids, the <code>availability</code> ensures the data is available to authorized users.</p>
+</li>
+</ol>
+<p>Above are the contents of <code>CIA</code>, however, some people think we need more definitions to describe security for a comprehensive description, therefore we have:</p>
+<ol start="4">
+<li>
+<p>Freshness<br>
+It ensures data is not a re-transmission from the old ones.</p>
+</li>
+<li>
+<p>Non-repudiation<br>
+It ensures that users can&rsquo;t deny the operations they did in the past. For example, they can not deny they didn&rsquo;t conduct a transaction.</p>
+</li>
+<li>
+<p>Fairness<br>
+It ensures everyone receive nothing or receive the same information that is useful.</p>
+</li>
+</ol>
+<p>Similar to software development, cyber security has its own <code>life-cycle</code>, to ensure we are doing the right things on security.</p>
+<h2 id="security-life-cycle">Security Life-Cycle</h2>
+<p>The <code>security Life-Cycle</code> consist three main parts:</p>
+<ol>
+<li>
+<p>We have to define what kind of protect should we achieve, what kinds of threats should we focus on (<code>threat analysis</code>) and what are the specified security policy? .</p>
+</li>
+<li>
+<p>The second step is to design, and implement the method we are going to take to achieve the security goal.</p>
+</li>
+<li>
+<p>By doing some valuation, we access how well does our method achieves the goal to assure the security effects.</p>
+</li>
+</ol>
+<p>Below we will talk about it one by one to go into some details. First of all, let&rsquo;s have a look at what is <code>threat analysis</code>.</p>
+<h2 id="threat-analysis">Threat Analysis</h2>
+<p>The <code>threat analysis</code> is to identify three things: <code>assets</code>, <code>threats</code> and <code>vulnerabilities</code>. We are going to ask some questions and answer them to get the result. The questions are:</p>
+<ol>
+<li>What are the assets to protect?</li>
+<li>What is the value of each asset (to see if it is worth protecting)?</li>
+<li>What are the threats?</li>
+<li>Where are they from or how are they mounted?</li>
+<li>Where are the vulnerabilities? What are the likelihood of their exploitation?</li>
+<li>Who are the adversaries, and what are their resources?</li>
+</ol>
+<p>Remember, not all of the threats worth to be protect, there might be a cost vs benefit trade-off that need to be consider. There is a method to help us doing <code>threat analysis</code>, which is <code>attack tree analysis</code>.</p>
+<h3 id="attack-tree-analysis">Attack Tree Analysis</h3>
+<p>The <code>attack tree</code>, or <code>threat tree</code>, is a conceptual tree diagram demonstrating the possible attacking methods.
+
+  <img src="/img/cyber-security-basics/image.png" alt="Alt text">
+
+</p>
+<p>As we can see from the above example, the <code>root node</code> symbolize the attack goal, and it is also the thing we want to prevent. The child nodes are conditions or methods to achieve the attack goal, where we might have a value indicated for each nodes. There are many kinds of values, like likelihood that an attacker will mount the attack, or possibilities of succeeding the attack. All the edges are either &lsquo;OR&rsquo; or &lsquo;AND&rsquo; demonstrating the relationship between nodes, where &lsquo;OR&rsquo; means to use an alternative attack methods, and &lsquo;AND&rsquo; means there are multiple steps required to launch the attack.</p>
+<p>Once the <code>attack tree</code> is completed, it is better for us to evaluate from any paths on the diagram make decisions on trade-offs.</p>
+<h2 id="design--implementation">Design &amp; Implementation</h2>
+<p>There are lots of measures we could take to achieve protection goals.</p>
+<ol>
+<li>
+<p>Security Measures<br>
+The <code>security measures</code> are used to <strong>mitigate the observed risks</strong>, by using technique measures, procedure measures, recovery measures, etc.</p>
+</li>
+<li>
+<p>Preventive Measures<br>
+<code>Preventive measures</code> are methods preventing attacks, for example, we could close vulnerabilities by doing penetration testing and ethical hacking. Or we could make the attacks harder to success by adding access control, firewalls, encryption, digital signatures, etc. And, some tricks might be useful, like adding some Honeypots.</p>
+</li>
+<li>
+<p>Detective Measures
+<code>Detective measures</code> are methods we take during or after the attacks, like during logging or auditing, or during intrusion detected system.</p>
+</li>
+</ol>
+<p>The above three measures are measures we take to immediately stops the attacks, and below are some other things we care.</p>
+<ol>
+<li>
+<p>Response and Recovery<br>
+With <code>response and recovery</code>, if the attacks succeeded, we need to take some methods to recover the system, for example, we could use a back-up, or adding more redundancies for the system.</p>
+</li>
+<li>
+<p>Ignore<br>
+In some cases we could just ignore the attacks, do nothing to it.</p>
+</li>
+</ol>
+<p>Notes that, in this stage, as we have the design of specific security measures, we have to consider about the cost-benefit analysis to identify which measures are worth to take and which are not.</p>
+<h2 id="security-assurance">Security Assurance</h2>
+<p>This is the final stage in a security life-cycle, where we need some standard set up and try to access how well our measures could protect the assets.</p>
+<p>Overall, the deployment of security also has its corresponding cycle. Like software, it is easier and less expensive to consider the security implications into the development process at the beginning than to consider security issues at the end.</p>
+<h2 id="security-models">Security Models</h2>
+<p>In the following blog, we will discuss about security models, where we will use a model to represent components of security better.</p>
+<p>(To be Continue&hellip;)</p>
 
 
                 
@@ -254,11 +330,11 @@ return false</p>
                 <hr>
                 <ul class="pager">
                     
-                    
-                    <li class="next">
-                        <a href="/2023/11/03/HugoSetUp/" data-toggle="tooltip" data-placement="top" title="Hugo &#43; Github Pages &#43; Github Actions Blog deployment plan">Next
-                            Post &rarr;</a>
+                    <li class="previous">
+                        <a href="/2024/01/16/leetcode-beginning/" data-toggle="tooltip" data-placement="top" title="Leetcode journal - Beginning">&larr;
+                            Previous Post</a>
                     </li>
+                    
                     
                 </ul>
                 
@@ -302,14 +378,8 @@ return false</p>
                         
                         
                         
-                        <a href="/tags/tag1" title="tag1">
-                            tag1
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/tag2" title="tag2">
-                            tag2
+                        <a href="/tags/cyber-security" title="Cyber Security">
+                            Cyber Security
                         </a>
                         
                         
@@ -391,7 +461,7 @@ return false</p>
             
            
                    <li>
-                       <a href='/post/comp36111-algorithm/2024-01-23-string/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2024/01/31/cyber-security-basics/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

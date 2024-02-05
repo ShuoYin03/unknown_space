@@ -6,7 +6,18 @@
     <description>Recent content in Posts on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cyber Security - Basics</title>
+      <link>https://shuoyin03.github.io/2024/01/31/cyber-security-basics/</link>
+      <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/31/cyber-security-basics/</guid>
+      <description>Currently in our world, there are a huge amount of attacks occurring everyday, bringing unpredictable loss to individuals, organizations or even governments. Such attacks could be: Malware, Ransomware, Adware, Hacking, Spoofing, Phishing, Pharming, DDoS&amp;hellip; It is important that we care about security in the development of anything. In definition, there are three aspects in security, which are confidentiality, Integrity and Availability.
+CIA Triad Confidentiality
+The confidentiality contains two definitions, data confidentiality and privacy.</description>
+    </item>
+    
     <item>
       <title>Leetcode journal - Beginning</title>
       <link>https://shuoyin03.github.io/2024/01/16/leetcode-beginning/</link>
@@ -177,11 +188,11 @@ K ≥ 2 (number of tapes) Σ is a non-empty, finite set (alphabet) Q is a non-em
     
     <item>
       <title>An Example Post</title>
-      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2024-01-23-string/</link>
+      <link>https://shuoyin03.github.io/post/comp34212-cognitiverobots/2024-02-05-introduction/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2024-01-23-string/</guid>
-      <description>还需要学习的： walk 算法 RP算法 rp(T, P, q, b): m = len(P) t = T[0] * b^(m-1) + &amp;hellip; + T[m-1]*b^0 (mod q) p = P[0] * b^(m-1) + &amp;hellip; + P[m-1]*b^0 (mod q) i = 0 while i &amp;lt; len(T) - m: if t == p: j = 0 while T[j] == P[j]: j ++ return i if j ==</description>
+      <guid>https://shuoyin03.github.io/post/comp34212-cognitiverobots/2024-02-05-introduction/</guid>
+      <description></description>
     </item>
     
   </channel>

@@ -6,7 +6,18 @@
     <description>Recent content in notes on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cyber Security - Basics</title>
+      <link>https://shuoyin03.github.io/2024/01/31/cyber-security-basics/</link>
+      <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/01/31/cyber-security-basics/</guid>
+      <description>Currently in our world, there are a huge amount of attacks occurring everyday, bringing unpredictable loss to individuals, organizations or even governments. Such attacks could be: Malware, Ransomware, Adware, Hacking, Spoofing, Phishing, Pharming, DDoS&amp;hellip; It is important that we care about security in the development of anything. In definition, there are three aspects in security, which are confidentiality, Integrity and Availability.
+CIA Triad Confidentiality
+The confidentiality contains two definitions, data confidentiality and privacy.</description>
+    </item>
+    
     <item>
       <title>Leetcode journal - Beginning</title>
       <link>https://shuoyin03.github.io/2024/01/16/leetcode-beginning/</link>
