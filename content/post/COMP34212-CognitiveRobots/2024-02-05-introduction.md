@@ -38,7 +38,7 @@ As the name describes, `industrial robots` are used in factories for manufacturi
 ## What is Cognition?
 
 `Cognition` is the process by which an `autonomous system` perceives its environment, learns from experience, anticipates the outcome of events, acts to pursue goals, and adapts to changing circumstances. The `cognition` could be defined as many stages, the following image could describe cognition by a cycle of `anticipation`:
-![alt text](image.png)
+![alt text](/img/robots/introduction/image-2.png)
 
 If we want to develop some cognitive robotics robots, we have to make some sense of abstraction, for example, an abstraction of movement, because we can not abstract everything. Here we have `Marr's Levels of Abstraction`, proposed by `David Marr`, is a framework for understanding how information processing systems, particularly in the context of vision and perception, operate at different levels of abstraction. There are three levels of abstraction, which are:
 1. Computational / theory  
@@ -47,7 +47,7 @@ This is the highest level of Marr's framework, where we focuses on define the pr
 This level mainly focuses on the specific methods and strategies for solving the problem, it also defines how the information processes in the system.
 3. Implementation
 This is the most concrete level in Marr's framework, it deals with physical realization of the system, including hardware, neural mechanisms, or any other physical substrate.
-![alt text](image-1.png)
+![alt text](/img/robots/introduction/image-1.png)
 
 ## What is cognitive robotics?
 
