@@ -8,7 +8,6 @@ image: ""
 tags: ["Cyber Security"]
 categories: ["notes"]
 URL: "/2024/01/31/cyber-security-basics/"
-draft: false
 ---
 
 Currently in our world, there are a huge amount of attacks occurring everyday, bringing unpredictable loss to individuals, organizations or even governments. Such attacks could be: Malware, Ransomware, Adware, Hacking, Spoofing, Phishing, Pharming, DDoS... It is important that we care about security in the development of anything. In definition, there are three aspects in security, which are `confidentiality`, `Integrity` and `Availability`.
@@ -64,7 +63,7 @@ Remember, not all of the threats worth to be protect, there might be a cost vs b
 ### Attack Tree Analysis
 
 The `attack tree`, or `threat tree`, is a conceptual tree diagram demonstrating the possible attacking methods. 
-![Alt text](/img/cyber-security-basics/image.png)
+![Alt text](/img/cyber-security/basics/image.png)
 
 As we can see from the above example, the `root node` symbolize the attack goal, and it is also the thing we want to prevent. The child nodes are conditions or methods to achieve the attack goal, where we might have a value indicated for each nodes. There are many kinds of values, like likelihood that an attacker will mount the attack, or possibilities of succeeding the attack. All the edges are either 'OR' or 'AND' demonstrating the relationship between nodes, where 'OR' means to use an alternative attack methods, and 'AND' means there are multiple steps required to launch the attack.
 
@@ -101,6 +100,24 @@ Overall, the deployment of security also has its corresponding cycle. Like softw
 
 ## Security Models
 
-In the following blog, we will discuss about security models, where we will use a model to represent components of security better. 
+In the following blog, we will discuss about different security models, where we will use a model to represent components of security better.
 
-(To be Continue...)
+### Distributed System Security Model
+![alt text](/img/cyber-security/basics/image-1.png)
+This model consist of two roles: clients and servers. These two roles communicate with a network connection. The security issues within this model is that, the channel should be secured. We have to prevent perpetrators on the network to read, copy, alter, or inject messages as they travel across the network and gateways, or to save copies of messages and to replay them at a later time. We should also ask some questions within this model:
+1. Could the server be certain about the identity of the principal behind the invocation?
+2. Could the client be certain about the invocation response message?
+3. Are the messages from the intended server?
+4. Has the messages been altered during transit?
+
+### Communication Security Model
+![alt text](/img/cyber-security/basics/image-2.png)
+This model is aim to protect data over the channel, where we have two communication hosts, sending messages to each other through some encryption & decryption methods. Security questions in this model could be about authenticity (prove the origin of a message + its integrity) and confidentiality.
+
+### Networked System Security Model
+![alt text](/img/cyber-security/basics/image-3.png)
+Here the focus is on protecting data and services on a network against **external attacks or unauthorized usage**. An complex variable to this model is the **use of mobile devices**, which will make the `boundary`(the boundary of network) hard to define, because mobile devices could connect and disconnect to the network anytime and anywhere, therefore, we need multi-level security measures for protecting both internal and external devices.
+
+### E-commerce Security Model
+![alt text](/img/cyber-security/basics/image-4.png)
+For this security model we have three roles, `customer`, `merchant` and `TTP`(a trusted third party). Unlike other model which focuses on external attackers, within this model, our 'enemy' is now `misbehaving insider` - it might be **employees, partners, or any other internal participants**. An important concept for this model is that `Non-repudiation service`, which all parties involved in the transaction cannot deny their actions.

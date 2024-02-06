@@ -193,7 +193,7 @@
                             Wednesday, January 31, 2024
                             
                                 
-                                <br><span class="meta">955 Words, Read 5 minutes</span>
+                                <br><span class="meta">1259 Words, Read 6 minutes</span>
                             
                              
                             
@@ -279,7 +279,7 @@ It ensures everyone receive nothing or receive the same information that is usef
 <h3 id="attack-tree-analysis">Attack Tree Analysis</h3>
 <p>The <code>attack tree</code>, or <code>threat tree</code>, is a conceptual tree diagram demonstrating the possible attacking methods.
 
-  <img src="/img/cyber-security-basics/image.png" alt="Alt text">
+  <img src="/img/cyber-security/basics/image.png" alt="Alt text">
 
 </p>
 <p>As we can see from the above example, the <code>root node</code> symbolize the attack goal, and it is also the thing we want to prevent. The child nodes are conditions or methods to achieve the attack goal, where we might have a value indicated for each nodes. There are many kinds of values, like likelihood that an attacker will mount the attack, or possibilities of succeeding the attack. All the edges are either &lsquo;OR&rsquo; or &lsquo;AND&rsquo; demonstrating the relationship between nodes, where &lsquo;OR&rsquo; means to use an alternative attack methods, and &lsquo;AND&rsquo; means there are multiple steps required to launch the attack.</p>
@@ -316,8 +316,37 @@ In some cases we could just ignore the attacks, do nothing to it.</p>
 <p>This is the final stage in a security life-cycle, where we need some standard set up and try to access how well our measures could protect the assets.</p>
 <p>Overall, the deployment of security also has its corresponding cycle. Like software, it is easier and less expensive to consider the security implications into the development process at the beginning than to consider security issues at the end.</p>
 <h2 id="security-models">Security Models</h2>
-<p>In the following blog, we will discuss about security models, where we will use a model to represent components of security better.</p>
-<p>(To be Continue&hellip;)</p>
+<p>In the following blog, we will discuss about different security models, where we will use a model to represent components of security better.</p>
+<h3 id="distributed-system-security-model">Distributed System Security Model</h3>
+<p>
+  <img src="/img/cyber-security/basics/image-1.png" alt="alt text">
+
+
+This model consist of two roles: clients and servers. These two roles communicate with a network connection. The security issues within this model is that, the channel should be secured. We have to prevent perpetrators on the network to read, copy, alter, or inject messages as they travel across the network and gateways, or to save copies of messages and to replay them at a later time. We should also ask some questions within this model:</p>
+<ol>
+<li>Could the server be certain about the identity of the principal behind the invocation?</li>
+<li>Could the client be certain about the invocation response message?</li>
+<li>Are the messages from the intended server?</li>
+<li>Has the messages been altered during transit?</li>
+</ol>
+<h3 id="communication-security-model">Communication Security Model</h3>
+<p>
+  <img src="/img/cyber-security/basics/image-2.png" alt="alt text">
+
+
+This model is aim to protect data over the channel, where we have two communication hosts, sending messages to each other through some encryption &amp; decryption methods. Security questions in this model could be about authenticity (prove the origin of a message + its integrity) and confidentiality.</p>
+<h3 id="networked-system-security-model">Networked System Security Model</h3>
+<p>
+  <img src="/img/cyber-security/basics/image-3.png" alt="alt text">
+
+
+Here the focus is on protecting data and services on a network against <strong>external attacks or unauthorized usage</strong>. An complex variable to this model is the <strong>use of mobile devices</strong>, which will make the <code>boundary</code>(the boundary of network) hard to define, because mobile devices could connect and disconnect to the network anytime and anywhere, therefore, we need multi-level security measures for protecting both internal and external devices.</p>
+<h3 id="e-commerce-security-model">E-commerce Security Model</h3>
+<p>
+  <img src="/img/cyber-security/basics/image-4.png" alt="alt text">
+
+
+For this security model we have three roles, <code>customer</code>, <code>merchant</code> and <code>TTP</code>(a trusted third party). Unlike other model which focuses on external attackers, within this model, our &rsquo;enemy&rsquo; is now <code>misbehaving insider</code> - it might be <strong>employees, partners, or any other internal participants</strong>. An important concept for this model is that <code>Non-repudiation service</code>, which all parties involved in the transaction cannot deny their actions.</p>
 
 
                 
