@@ -6,7 +6,18 @@
     <description>Recent content in Posts on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cognitive Robotics - Sensors and Actuators</title>
+      <link>https://shuoyin03.github.io/2024/02/05/cognitive-robotics-sensors-and-actuators/</link>
+      <pubDate>Wed, 14 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/02/05/cognitive-robotics-sensors-and-actuators/</guid>
+      <description>A robot is mainly consist of 4 components, which is:
+Physical Body Sensors Effectors and actuators Controller Here we will mainly talk about effectors, actuators and sensors.
+Actuators, Effectors and Actions Effectors are any device that can make an effect on the environment, for example, the arms on human body or robot body. And Actuators are devices which enables effectors to execute movements. For example, muscles and electric motors. Note that one effector must have one actuator to support it.</description>
+    </item>
+    
     <item>
       <title>Cyber Security - Cryptography</title>
       <link>https://shuoyin03.github.io/2024/01/31/cyber-security-cryptography/</link>
