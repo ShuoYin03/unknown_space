@@ -41,7 +41,7 @@ A `map` task is created for each split, and if possible, the `map` function will
 4. Output is written (to the local filesystem).
 5. The job tracker is informed by the task tracker when a task has completed.
 
-![Alt text](/img/distributed-mapreduce/image2.png)
+![Alt text](/img/distributed/distributed-mapreduce/image2.png)
 ### Reduce
 A `reduce` function is to return a new collection of key-value pairs, given a 'key 2' output by 'map', and a collection of all values 'value 2' with that key.
 ```
@@ -60,16 +60,16 @@ Here are steps for a reduce task:
 2. Data from different maps is merged to produce the inputs for individual reduce operations.
 3. The reduce task is run.
 4. Outputs are written to the distributed filesystem.
-![Alt text](/img/distributed-mapreduce/image3.png)
+![Alt text](/img/distributed/distributed-mapreduce/image3.png)
 ### An Example
-![Alt text](/img/distributed-mapreduce/image.png)
+![Alt text](/img/distributed/distributed-mapreduce/image.png)
 The above picture demonstrate a **word-count** program contains `map` and `reduce` operations, where we can see that the `map` operation **split** the document into list of words and record its appearance, and `reduce` combine all same words and accumulate their occurrences.
 
 ## Basket Analysis
 Basket analysis is another web-scale, data intensive application about users shopping on the internet. 
 It records the value of each basket of products from customer's purchases. A simple analysis could be average the total prices of a customer's all purchases records.
 
-![Alt text](/img/distributed-mapreduce/image4.png)
+![Alt text](/img/distributed/distributed-mapreduce/image4.png)
 
 The graph above is a record of customers and their interactions, we will now write the pseudo-code for both `map` and `reduce` operations.
 

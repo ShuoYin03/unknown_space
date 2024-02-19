@@ -232,7 +232,7 @@ The APIs it provides are:</p>
 <li>Get(key)</li>
 <li>Delete(key)
 
-  <img src="/img/distributed-nosql/image.png" alt="Alt text">
+  <img src="/img/distributed/distributed-nosql/image.png" alt="Alt text">
 
 </li>
 </ul>
@@ -245,7 +245,7 @@ The APIs it provides are:</p>
 <li>Find(key, filter)</li>
 <li>Delete(key)
 
-  <img src="/img/distributed-nosql/image-1.png" alt="Alt text">
+  <img src="/img/distributed/distributed-nosql/image-1.png" alt="Alt text">
 
 </li>
 </ul>
@@ -259,7 +259,7 @@ The APIs it provides are:</p>
 <li>Find(key, filter)</li>
 <li>Update(key, expression)
 
-  <img src="/img/distributed-nosql/image-2.png" alt="Alt text">
+  <img src="/img/distributed/distributed-nosql/image-2.png" alt="Alt text">
 
 </li>
 </ul>
@@ -269,7 +269,7 @@ The APIs it provides are:</p>
 <p>As NoSQL databases seek to <code>scale elastically</code>, more nodes are expected to use, and thus, node failures are also expected to exists commonly in NoSQL. In order to accommodate them, we use <code>replication</code> to give a high availability.
 
   <figure>
-    <img src="/img/distributed-nosql/image4.png" alt="Alt text">
+    <img src="/img/distributed/distributed-nosql/image4.png" alt="Alt text">
     <center><figcaption>An example of replication, copy data from node to nodes</figcaption></center>
   </figure>
 
@@ -283,7 +283,7 @@ The APIs it provides are:</p>
 </ul>
 <p>The <code>replication</code> is violating the <code>consistency</code> of data. Let&rsquo;s have a look at an example of <code>inconsistency</code>.
 
-  <img src="/img/distributed-nosql/image5.png" alt="Alt text">
+  <img src="/img/distributed/distributed-nosql/image5.png" alt="Alt text">
 
 </p>
 <p>In this picture, two users are interacting with the database at the same time, where both users initiated a request to get x value from the database. However, both user initiated another request to increase x by one, and the problem is, while the user at the bottom updating the x value to 2, <strong>the database has already got the value send from the first user</strong>, which means, the database lost the update request from user at the bottom. (Should be 3 in the database but only got 2).</p>
@@ -305,7 +305,7 @@ The APIs it provides are:</p>
 <h3 id="two-phase-commit">Two-Phase Commit</h3>
 <p>The first phase is that, all participants complete the processes of either read or write, and while finish, they are in a stage ready to commit to the database, if any of the participants didn&rsquo;t ready to commit, abort the commit request. Then in phase two, we commit all the changes.</p>
 <p>
-  <img src="/img/distributed-nosql/image6.png" alt="Alt text">
+  <img src="/img/distributed/distributed-nosql/image6.png" alt="Alt text">
 
 </p>
 <p>The features of <code>two-phase commit</code> are:</p>
@@ -317,13 +317,13 @@ The APIs it provides are:</p>
 </ol>
 <p>Although two-phase commit provides strong guarantees, but a failure could bring huge effects to all transactions as it might block arbitrary periods. Here are few problems might exist and their possible solutions.
 
-  <img src="/img/distributed-nosql/image7.png" alt="Alt text">
+  <img src="/img/distributed/distributed-nosql/image7.png" alt="Alt text">
 
 </p>
 <h2 id="replication-leader--follower">Replication: Leader &amp; Follower</h2>
 <p>The replication without update is easy, however we do need the updates applied to all replicas. The <code>Leader &amp; Follower</code> structure is a common approach to support updates. Within all replicas of our database, one of them is promoted to <code>leader</code> and rest of them are <code>followers</code>, where the <code>leader</code> should receives update requests and forward them to followers. And followers should receive read requests from users and update requests from <code>leader</code> only.</p>
 <p>
-  <img src="/img/distributed-nosql/image8.png" alt="Alt text">
+  <img src="/img/distributed/distributed-nosql/image8.png" alt="Alt text">
 
 </p>
 <p>The step of adding a new follower is as below:</p>

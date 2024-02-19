@@ -15,7 +15,7 @@ draft: false
 
 <!--more-->
 ## Partition
-![](/img/distributed-bigdata/pic.png)
+![](/img/distributed/distributed-bigdata/pic.png)
 By definition, partition involves deciding how to assign data from a sources to distributed nodes.Take the above image as an example, we could do partition in these ways:  
 
 1. **Random or Round Robin:**  
@@ -65,7 +65,7 @@ universities than others.
 ### Method  
 Repartitioning involves moving the data from one partition to another.  
 **Example:**  Partition by Id, use a hash function **Hash(x) = Id(x) mod #nodes**
-![](/img/distributed-bigdata/pic1.png)
+![](/img/distributed/distributed-bigdata/pic1.png)
 How many tuples need to change node?  
 In this case of uniform distribution and mode-based partitioning, the number of data need to be repartitioning is:  
 **To-Distribute = 1 - 1 / #final-nodes**  
@@ -74,7 +74,7 @@ In this example, the number of data need to be distribute is:
 **1 - 1/3 = 0.666**, which is **0.666 * 6 = 4**
 
 In order to reduce the cost of repartitioning, it is possible to have more partitions than nodes. Then repartitioning for a new node involves moving selected partitions to the new node.
-![](/img/distributed-bigdata/pic5.png)
+![](/img/distributed/distributed-bigdata/pic5.png)
 
 Two steps need to be taken to find a partition for value v:
 1. Hash v to a partition number
@@ -88,7 +88,7 @@ In the previous example the fraction is 1/4
 The `Ranging` and `Hashing` methods are better performed when key is widely used. NoSQL are always designed to support applications use `Id` or `names` as primary key. However, it's better for us to have multiple access routes to avoid `scanning`. In this case we use `secondary index` - the index on an attribute that has not been used for partitioning.  
 
 Example: In this table, the data is partitioned by name. Does the hash index on the partition helps?
-![](/img/distributed-bigdata/pic2.png)
+![](/img/distributed/distributed-bigdata/pic2.png)
 |               Query              | Does partition index help? |   Useful Additional Index   |
 | -------------------------------- | -------------------------- | --------------------------- |
 | How many students attend UCL?    | Yes                        | N/A                         |
@@ -99,13 +99,13 @@ Example: In this table, the data is partitioned by name. Does the hash index on 
 A key question is that where should we store these secondary index? Here are few options to do it:  
 
 1. Store the secondary index on the same node as the data it is indexing.
-![](/img/distributed-bigdata/pic3.png)
+![](/img/distributed/distributed-bigdata/pic3.png)
     | Pros | Cons |
     | ---- | ---- |
     | Updating a document leads to local index changes (so no distributed transactions) | A lookup needs to go to every transaction, leading to many index lookups |
 
 2. Store the secondary index partitioned by term: a single distributed index.
-![](/img/distributed-bigdata/pic4.png)
+![](/img/distributed/distributed-bigdata/pic4.png)
     | Pros | Cons |
     | ---- | ---- |
     | Index lookups no longer need to go to all nodes (note some index lookups will have no hits) | Updates to a document on a node now also lead to index updates (and thus potentially to distributed transactions) |
@@ -114,7 +114,7 @@ A key question is that where should we store these secondary index? Here are few
 
 After we talked about how to do partitioning, we should discuss about when data need partitioning. As an example, **Uni-Sizes** is hash partitioned on 'Name', **Uni-Places** is hash partitioned on 'Town', and we want these two partition to join on 'Name'.
 
-![Alt text](/img/distributed-bigdata/pic6.png)
+![Alt text](/img/distributed/distributed-bigdata/pic6.png)
 
 We need to repartition **Uni-Places** as it is not partition on 'Name', and the steps are:
 1. Partition Uni-Places on Name to give P1’, P2’.

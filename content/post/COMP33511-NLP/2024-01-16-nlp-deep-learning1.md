@@ -13,7 +13,7 @@ math: true
 
 ## Basic Neural Network Structure 
 `Single neuron`, the most basic components of neural networks, consist of multiple inputs $[x_1, x_2, ..., x_d]$ and an output $y$.
-![Alt text](/img/nlp-deep-1/image.png)
+![Alt text](/img/nlp/nlp-deep-1/image.png)
 The above picture demonstrated, each input $x$ is multiply by a weight $w$, their sum is added with a bias and then activated by a `activation function`. The training process, is to find the best y value from updating the weight in each training epoch. 
 
 ### Activation function
@@ -22,42 +22,42 @@ The meaning of activation function is to give the data non-linear features to al
 1. Sigmoid function  
 The `sigmoid function` could returns the data in a range of 0 and 1, the math function and graph is like below:
 $$ϕ(v) = \frac{1}{1 + \exp(-v)}$$
-![Alt text](/img/nlp-deep-1/image2.png)
+![Alt text](/img/nlp/nlp-deep-1/image2.png)
 
 2. Tanh function  
 The `tanh function` could returns the data in a range of -1 and 1.
 $$ϕ(v) = \tanh(v) = \frac{\exp(2v) - 1}{\exp(2v) + 1} ∈ (-1, +1)$$
-![Alt text](/img/nlp-deep-1/image3.png)
+![Alt text](/img/nlp/nlp-deep-1/image3.png)
 
 3. Relu function  
 The `relu function` keep the data above 0 normal, and set to 0 to all the data below 0.
 $$ϕ(v) = \begin{cases} v, & \text{if v ≥ 0} \\\\ 0, & \text{if v < 0} \end{cases}$$
-![Alt text](/img/nlp-deep-1/image4.png)
+![Alt text](/img/nlp/nlp-deep-1/image4.png)
 
 4. Parametric Relu  
 The `parametric relu function` vary the `relu function` - set data below 0 as $av$, with a = 0.01 in [Leaky Relu](https://paperswithcode.com/method/leaky-relu).
 $$ϕ(v) = \begin{cases} v & \text{if } v \geq 0 \\\\ av & \text{if } v < 0 \end{cases}$$
-![Alt text](/img/nlp-deep-1/image5.png)
+![Alt text](/img/nlp/nlp-deep-1/image5.png)
 
 5. ELU  
 The `ELU function` another variants of `relu function`
 $$ϕ(v) = \begin{cases} v & \text{if } v \geq 0 \\\\ a(e^v - 1) & \text{if } v < 0 \end{cases}$$
-![Alt text](/img/nlp-deep-1/image6.png)
+![Alt text](/img/nlp/nlp-deep-1/image6.png)
 
 ### Single Layer Perceptron
 A single layer perceptron (SLP) has one input layer and one output layer. Each layer is consist of `single neurons`.
-![Alt text](/img/nlp-deep-1/image7.png)
+![Alt text](/img/nlp/nlp-deep-1/image7.png)
 
 ### Multilayer Perceptron
 A `Multilayer Perceptron`(MLP), also called a `feedforward neural network`(FNN), consist of at least a input layer, a hidden layer and an output layer, which each neuron in each layers connected to all neurons in other adjacent layers.
-![Alt text](/img/nlp-deep-1/image8.png)
+![Alt text](/img/nlp/nlp-deep-1/image8.png)
 The below picture is a `feedforward` network architecture, here we will introduce it step by step:
-![Alt text](/img/nlp-deep-1/image9.png)
+![Alt text](/img/nlp/nlp-deep-1/image9.png)
 Each word input is first processed by an embedding layer, we denote the result of this step as F, after multiply it by one hot vector, we could input it into the network. The concatenated form of all word input is a vector $x = [x_1, x_2, x_3...]$, and we take it to the next formula shown in the picture calculating $h_1$. The next layer uses the output of the previous layer and the product of the weight matrix of the current layer and the input vector(every next layers is calculated like this). And after this we could use a logistic regression function to transform $h_k$ into the predicted output.
 
 ## RNN
 `RNN` is a type of neural network collecting the last output as the input for next layer, the picture below demonstrate the basic structure of a `RNN` network.
-![Alt text](/img/nlp-deep-1/image10.png)
+![Alt text](/img/nlp/nlp-deep-1/image10.png)
 As we can see from the picture, the information transmitting in different layers is $h_t$, which consist of three components $x_t$, $h_{t-1}$ and $W$, for example, $h_1 = f(x_1, h_0, W)$(Note that $h_0$ could either be trained or set to a fixed value). $X$ allows multiple means of input, such as output of a feature extractor, word vectors, or directly trained from another neural network. $W$ is the weight, our goal is to get the best weight for generating the best result. The function $f$ could be `SLP`, `MLP` that we have already looked at, or we could use `LSTM`, `GRU` that we will introduce later. Based on the method we take to calculate $h_t$, there extended some types of RNN: `Vanilla RNN`, `LSTM RNN`, `GRU RNN`...
 ### Vanilla RNN
 `Vanilla RNN`, the most basic RNN, calculating $h_t$ by using a standard neuron operation. The equation is as below:
@@ -95,14 +95,14 @@ $$h_k = (1-u_k) · h_{k-1} + u_k · c_k$$
 $u_k$ represents the `update gate`. It selects for both previous representation vector and current content vector about which numbers to use. The equation for `update gate` is:
 $$u_k = σ(W^u_xx_k + W^u_hh_{k-1} + b^u)$$
 ## RNN Application: Seq2seq Model
-![Alt text](/img/nlp-deep-1/image11.png)
+![Alt text](/img/nlp/nlp-deep-1/image11.png)
 The above picture is an example of a seq2seq model, we could see that it contains two separate parts: `encoder` and `decoder`. They have different responsibilities in this model. First of all, the `encoder` works as normal RNN, recursively process each input word vectors and calculating each $h_k$ by using `vanilla` or `LSTM` or `GRU` RNN. Then for the last representation vector of `encoder` $h_3$, make it as the first representation of decoder $\tilde{h}_0$, combining it with `<start>` as the first content vector. After a list of calculation, we got $\tilde{h}_1$, now we could use a logistic regression function $\tilde{Y}_k$ to transmit our vector into a Chinese word, where in the example, **"这"**. This Chinese word will be used as the next input word vector, and keep running until the ends.
 
 ## Advanced RNN Architectures
 Except `LSTM` and `GRU` RNN, we still have another two advanced RNN architectures, with their structure changed instead of calculations. They are `bi-directional RNN` and `multi-layer RNN`.
 ### Bi-directional RNN
 The motivation for `bi-directional RNN` is to take care of both left and right context, as the representation vectors could be influence by both left and right representation vectors. In this case, we use two RNNs with original and reversed input respectively. The picture below demonstrate a structure of `bi-directional RNN`:
-![Alt text](/img/nlp-deep-1/image12.png)
+![Alt text](/img/nlp/nlp-deep-1/image12.png)
 ### Multi-layer RNN
 The motivation for multi-layer RNN is to compute more complex representation vectors and improve model performance. To achieve this, we could stack multiple layers of RNN, normally 2 - 4 layers.
-![Alt text](/img/nlp-deep-1/image13.png)
+![Alt text](/img/nlp/nlp-deep-1/image13.png)

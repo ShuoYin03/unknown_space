@@ -243,7 +243,7 @@
                 <h2 id="basic-neural-network-structure">Basic Neural Network Structure</h2>
 <p><code>Single neuron</code>, the most basic components of neural networks, consist of multiple inputs $[x_1, x_2, &hellip;, x_d]$ and an output $y$.
 
-  <img src="/img/nlp-deep-1/image.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image.png" alt="Alt text">
 
 
 The above picture demonstrated, each input $x$ is multiply by a weight $w$, their sum is added with a bias and then activated by a <code>activation function</code>. The training process, is to find the best y value from updating the weight in each training epoch.</p>
@@ -255,7 +255,7 @@ The above picture demonstrated, each input $x$ is multiply by a weight $w$, thei
 The <code>sigmoid function</code> could returns the data in a range of 0 and 1, the math function and graph is like below:
 $$ϕ(v) = \frac{1}{1 + \exp(-v)}$$
 
-  <img src="/img/nlp-deep-1/image2.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image2.png" alt="Alt text">
 
 </p>
 </li>
@@ -264,7 +264,7 @@ $$ϕ(v) = \frac{1}{1 + \exp(-v)}$$
 The <code>tanh function</code> could returns the data in a range of -1 and 1.
 $$ϕ(v) = \tanh(v) = \frac{\exp(2v) - 1}{\exp(2v) + 1} ∈ (-1, +1)$$
 
-  <img src="/img/nlp-deep-1/image3.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image3.png" alt="Alt text">
 
 </p>
 </li>
@@ -273,7 +273,7 @@ $$ϕ(v) = \tanh(v) = \frac{\exp(2v) - 1}{\exp(2v) + 1} ∈ (-1, +1)$$
 The <code>relu function</code> keep the data above 0 normal, and set to 0 to all the data below 0.
 $$ϕ(v) = \begin{cases} v, &amp; \text{if v ≥ 0} \\ 0, &amp; \text{if v &lt; 0} \end{cases}$$
 
-  <img src="/img/nlp-deep-1/image4.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image4.png" alt="Alt text">
 
 </p>
 </li>
@@ -282,7 +282,7 @@ $$ϕ(v) = \begin{cases} v, &amp; \text{if v ≥ 0} \\ 0, &amp; \text{if v &lt; 0
 The <code>parametric relu function</code> vary the <code>relu function</code> - set data below 0 as $av$, with a = 0.01 in <a href="https://paperswithcode.com/method/leaky-relu">Leaky Relu</a>.
 $$ϕ(v) = \begin{cases} v &amp; \text{if } v \geq 0 \\ av &amp; \text{if } v &lt; 0 \end{cases}$$
 
-  <img src="/img/nlp-deep-1/image5.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image5.png" alt="Alt text">
 
 </p>
 </li>
@@ -291,7 +291,7 @@ $$ϕ(v) = \begin{cases} v &amp; \text{if } v \geq 0 \\ av &amp; \text{if } v &lt
 The <code>ELU function</code> another variants of <code>relu function</code>
 $$ϕ(v) = \begin{cases} v &amp; \text{if } v \geq 0 \\ a(e^v - 1) &amp; \text{if } v &lt; 0 \end{cases}$$
 
-  <img src="/img/nlp-deep-1/image6.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image6.png" alt="Alt text">
 
 </p>
 </li>
@@ -299,25 +299,25 @@ $$ϕ(v) = \begin{cases} v &amp; \text{if } v \geq 0 \\ a(e^v - 1) &amp; \text{if
 <h3 id="single-layer-perceptron">Single Layer Perceptron</h3>
 <p>A single layer perceptron (SLP) has one input layer and one output layer. Each layer is consist of <code>single neurons</code>.
 
-  <img src="/img/nlp-deep-1/image7.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image7.png" alt="Alt text">
 
 </p>
 <h3 id="multilayer-perceptron">Multilayer Perceptron</h3>
 <p>A <code>Multilayer Perceptron</code>(MLP), also called a <code>feedforward neural network</code>(FNN), consist of at least a input layer, a hidden layer and an output layer, which each neuron in each layers connected to all neurons in other adjacent layers.
 
-  <img src="/img/nlp-deep-1/image8.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image8.png" alt="Alt text">
 
 
 The below picture is a <code>feedforward</code> network architecture, here we will introduce it step by step:
 
-  <img src="/img/nlp-deep-1/image9.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image9.png" alt="Alt text">
 
 
 Each word input is first processed by an embedding layer, we denote the result of this step as F, after multiply it by one hot vector, we could input it into the network. The concatenated form of all word input is a vector $x = [x_1, x_2, x_3&hellip;]$, and we take it to the next formula shown in the picture calculating $h_1$. The next layer uses the output of the previous layer and the product of the weight matrix of the current layer and the input vector(every next layers is calculated like this). And after this we could use a logistic regression function to transform $h_k$ into the predicted output.</p>
 <h2 id="rnn">RNN</h2>
 <p><code>RNN</code> is a type of neural network collecting the last output as the input for next layer, the picture below demonstrate the basic structure of a <code>RNN</code> network.
 
-  <img src="/img/nlp-deep-1/image10.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image10.png" alt="Alt text">
 
 
 As we can see from the picture, the information transmitting in different layers is $h_t$, which consist of three components $x_t$, $h_{t-1}$ and $W$, for example, $h_1 = f(x_1, h_0, W)$(Note that $h_0$ could either be trained or set to a fixed value). $X$ allows multiple means of input, such as output of a feature extractor, word vectors, or directly trained from another neural network. $W$ is the weight, our goal is to get the best weight for generating the best result. The function $f$ could be <code>SLP</code>, <code>MLP</code> that we have already looked at, or we could use <code>LSTM</code>, <code>GRU</code> that we will introduce later. Based on the method we take to calculate $h_t$, there extended some types of RNN: <code>Vanilla RNN</code>, <code>LSTM RNN</code>, <code>GRU RNN</code>&hellip;</p>
@@ -356,7 +356,7 @@ $u_k$ represents the <code>update gate</code>. It selects for both previous repr
 $$u_k = σ(W^u_xx_k + W^u_hh_{k-1} + b^u)$$</p>
 <h2 id="rnn-application-seq2seq-model">RNN Application: Seq2seq Model</h2>
 <p>
-  <img src="/img/nlp-deep-1/image11.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image11.png" alt="Alt text">
 
 
 The above picture is an example of a seq2seq model, we could see that it contains two separate parts: <code>encoder</code> and <code>decoder</code>. They have different responsibilities in this model. First of all, the <code>encoder</code> works as normal RNN, recursively process each input word vectors and calculating each $h_k$ by using <code>vanilla</code> or <code>LSTM</code> or <code>GRU</code> RNN. Then for the last representation vector of <code>encoder</code> $h_3$, make it as the first representation of decoder $\tilde{h}_0$, combining it with <code>&lt;start&gt;</code> as the first content vector. After a list of calculation, we got $\tilde{h}_1$, now we could use a logistic regression function $\tilde{Y}_k$ to transmit our vector into a Chinese word, where in the example, <strong>&ldquo;这&rdquo;</strong>. This Chinese word will be used as the next input word vector, and keep running until the ends.</p>
@@ -365,13 +365,13 @@ The above picture is an example of a seq2seq model, we could see that it contain
 <h3 id="bi-directional-rnn">Bi-directional RNN</h3>
 <p>The motivation for <code>bi-directional RNN</code> is to take care of both left and right context, as the representation vectors could be influence by both left and right representation vectors. In this case, we use two RNNs with original and reversed input respectively. The picture below demonstrate a structure of <code>bi-directional RNN</code>:
 
-  <img src="/img/nlp-deep-1/image12.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image12.png" alt="Alt text">
 
 </p>
 <h3 id="multi-layer-rnn">Multi-layer RNN</h3>
 <p>The motivation for multi-layer RNN is to compute more complex representation vectors and improve model performance. To achieve this, we could stack multiple layers of RNN, normally 2 - 4 layers.
 
-  <img src="/img/nlp-deep-1/image13.png" alt="Alt text">
+  <img src="/img/nlp/nlp-deep-1/image13.png" alt="Alt text">
 
 </p>
 

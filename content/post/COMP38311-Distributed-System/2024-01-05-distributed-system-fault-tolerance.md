@@ -41,14 +41,14 @@ We could let armies send messengers multiple times to allow some of them fails, 
 Another method of tolerating this error is to send extra messengers to other armies to increase success rate, in other type of problems, we send extra bits instead.
 
 ### Triple Modular Redundancy
-![Alt text](/img/distributed-fault/image.png)
+![Alt text](/img/distributed/distributed-fault/image.png)
 
 The above picture is a redundancy model, and an example of `physical redundancy`. It contains three components executing the same functions, all of them run in the same time and getting their own outputs. Afterwards, there is a `voting` mechanism, which compares and select the result with most components producing. This means even if one of component **producing a wrong result or having a fault**, the rest of the system could still work perfectly. 
 
 #### Single point of failure
 
 `Single point of failure` means a failure could cause the fault of the whole system. Consider the graph below, the central point's fault would make the whole system lose connection.
-![Alt text](/img/distributed-fault/image2.png)
+![Alt text](/img/distributed/distributed-fault/image2.png)
 The triple modular redundancy is a model avoid this kind of failure, we have to avoid it in the real system design.
 
 ## Replications and Performance

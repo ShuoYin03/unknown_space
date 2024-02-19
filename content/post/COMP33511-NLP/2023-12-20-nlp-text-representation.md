@@ -15,7 +15,7 @@ math: true
 
 ## BoW Representation
 `BoW` - **"Bag of words"**, should be the simplest model, which reduce each document into a bag of words.
-![Alt text](/img/nlp-text-representation/image.png)
+![Alt text](/img/nlp/nlp-text-representation/image.png)
 `BoW` is an efficient method which nowadays lots of NLP system is using it. However, there are some question we should think of while using it, such as:
 1. Are all the words **equally important**?
 2. What about (important) **combinations** of words?
@@ -27,7 +27,7 @@ In this case, we should find some methods to solve all these problems. Let's loo
 ## Zipf's Law
 All words in our text has frequency, some words are very frequent, such as **"the", "a", "as"**, etc. And some other words is not very frequent, like **"bazinga"**. There are about 50% terms appears once only, therefore we have `Zipf's Law` announced by `George Zipf`, which states that: **frequency of any word in a given collection is inversely proportional to its rank in the frequency table**.
 
-![Alt text](/img/nlp-text-representation/image2.png)
+![Alt text](/img/nlp/nlp-text-representation/image2.png)
 
 `Luhn’s hypothesis`, is a theory based on `Zipf's Law`, defining `upper cut-off` and `lower cut-off`, states that the range of words between these two **cut-offs** are the words help figuring the exact meaning of texts.
 
@@ -40,7 +40,7 @@ The `vector representation` is a way of implementing the BoW model. We have two 
 $$ d = \[w_1, w_2, … , w_{|v|} \] $$
 
 The second method is by matrix, which is shown in the following picture.
-![Alt text](/img/nlp-text-representation/image3.png)
+![Alt text](/img/nlp/nlp-text-representation/image3.png)
 
 ### Weight
 In order to let our representation more accurate, it is better to consider `weight`. The most easiest way is **counting the occurrence number of each words**. However, consider `Zipf’s law` again, the words occurs many times doesn’t mean it is more important. Thus, we have `tf.idf` weighting.
@@ -62,7 +62,7 @@ From now on let's have a look at some language models.
 
 ### N-gram Language Models
 Think about a situation when we dealing with words like **“The United States”**, building representation with each word separately doesn’t show the correct meaning, in this case, we could build a n-gram model to solve this kind of problem. Below is a picture showing the effects of different n number.
-![Alt text](/img/nlp-text-representation/image4.png)
+![Alt text](/img/nlp/nlp-text-representation/image4.png)
 
 ### Probabilistic Language Models
 Consider a sentence, “I saw a rabbit _______ yesterday”, what do you think is a better word to fill in the blank? It is true that “running” is more likely to be here rather than “flying”. By following this idea, we could use probabilistic language model to measures the probability of natural language utterances, giving higher scores to those that are more common, more grammatical, more “natural”.
@@ -112,7 +112,7 @@ $$\frac{C(w_{k-N+1:k})}{C(w_{k-N+1:k-1})}$$
 
 #### An Example
 Combining all the knowledge above, let's have a look at an example:
-![Alt text](/img/nlp-text-representation/image7.png)
-![Alt text](/img/nlp-text-representation/image6.png)
+![Alt text](/img/nlp/nlp-text-representation/image7.png)
+![Alt text](/img/nlp/nlp-text-representation/image6.png)
 The first graph demonstrate the counts of each bigram appearances, and the second one is the total number of each words in the corpus. If we want to know $p(to\\ spend)$, we could first read the count of "to spend" in the table, which is 211, then divided by 2417, the occurrence number of "to", and the result is 0.087.
 

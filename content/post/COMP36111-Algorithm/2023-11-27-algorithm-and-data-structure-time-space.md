@@ -30,13 +30,13 @@ $$Space(G) = \bigcup_{g ∈ G} Space(g)$$
 
 We could have some handy functions:  
 
-![Alt text](/img/time-space/image.png)
+![Alt text](/img/algorithm/time-space/image.png)
 
 In this graph, P is denoted as E0, which means some `Polynomial` equations. And E here means `Exponential` equation denoted as E1 to Ek, where Ek is a generalised form.
 
 By combining the idea of G and those handy functions, we could define some Time and Space categories:
 
-![Alt text](/img/time-space/image2.png)
+![Alt text](/img/algorithm/time-space/image2.png)
 
 >Note: The reason why we don't have Time(log n) is because a Turing Machine which can only operate in time log n can't even read the input. So we don't care about this case.
 
@@ -45,11 +45,11 @@ If L is a language over some alphabet and g is a function N → N, we say that L
 
 Let's look at an example:
 
-![Alt text](/img/time-space/image3.png)
+![Alt text](/img/algorithm/time-space/image3.png)
 
 This is a reachability problem, which focus on `directed graph`, here lets look at a pseudo-code solving this problem.
 
-![Alt text](/img/time-space/image4.png)
+![Alt text](/img/algorithm/time-space/image4.png)
 
 The three input parameters `G, u, and v` means the directed graph, start node and the end node. This algorithm use a parameter c to manage the count of viewed nodes. In the while loop, the algorithm **randomly choose** a node w', which is either **same as w or there is an edge between w and w'**. If there is no more such nodes or w is equal to v, the while loop breaks, and we test if c is less than n to identify which case is happening from above.
 
@@ -112,11 +112,11 @@ $$ExpSpace ⊆ NExpSpace ⊆ 2-ExpTime...$$
 
 In the last blog introducing turing machine, we discussed about the Halting problem ([review here](https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/)), which we get the result that halting problem is an `undecidable problem`. Now, let's have a look at the **f-bounded Halting problem**:
 
-![Alt text](/img/time-space/image5.png)
+![Alt text](/img/algorithm/time-space/image5.png)
 
 Suppose $HALTING_f$ is recognized by a Turing machine $H_f$, guaranteed to terminate in $Time(f(\lfloor n/2 \rfloor))$, by using the proving method in last blog, we could get a conclusion:
 
 $$HALTING_f \notin Time(f(\lfloor n/2 \rfloor))$$
 
-![Alt text](/img/time-space/image6.png "Building a contraction with the imagined turing machine")
+![Alt text](/img/algorithm/time-space/image6.png "Building a contraction with the imagined turing machine")
 

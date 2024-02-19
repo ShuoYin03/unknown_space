@@ -16,7 +16,7 @@ draft: false
 
 ## Introduction of turing machine
 The picture below is a `multi-tape` turing machine
-![](/img/turing-machine/image.png)
+![](/img/algorithm/turing-machine/image.png)
 ### Definition
 In a formal definition, a turing machine could be define as a quintuple:  
 
@@ -29,7 +29,7 @@ In a formal definition, a turing machine could be define as a quintuple:
 4. T is a set of transitions (for K, Σ and Q)
 ### Symbol
 A `symbol` is an element of 
-![](/img/turing-machine/image2.png)
+![](/img/algorithm/turing-machine/image2.png)
 which means `blank` and `start` separately.  
 We denote the `set of finite strings` over Σ by Σ∗
 ### Transition
@@ -85,15 +85,15 @@ A language is `recursive` if and only if it is both r.e. and co-r.e.
 A `decision problem` is some problem which has a yes or no answer in some language, and a `recursive problem` is some problem which test whether a decision problem is `decidable` (possible to give an answer).
 
 We represent decision problems in this form:
-![](/img/turing-machine/image3.png)
+![](/img/algorithm/turing-machine/image3.png)
 An example of this kind of problem could be: To decide whether a number is a prime number.  
 
 And an example of recursion problem is (Halting problem):
-![](/img/turing-machine/image4.png)
+![](/img/algorithm/turing-machine/image4.png)
 This is an undicidable problem. Here's the prove (First appear in 1936):
 
 Suppose we have a turing machine H which, for every deterministic turing machine M with an x as its input, H returns yes if M ↓ x and no if M ↑ x. In another words, we have a turing machine which could solves the halting problem! Here we define another turing machine H*, it has a structure like this picture:
-![](/img/turing-machine/image5.png)
+![](/img/algorithm/turing-machine/image5.png)
 
 It takes an input to H. If H returns yes, then H* goes to a loop never ends. And if no, H* halts. Now, if H* take the code h* (which is itself) as the input, we will have two results.
 

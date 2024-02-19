@@ -72,10 +72,10 @@ We have to eliminate all tense or plural form or any other forms which cause a t
 The problem of this method is that, the efficiency might be slow because every word need a look-up in dictionary, and we couldn't take `OOV` (Out of Vocabulary) words into account.
 2. **Morphological Analysis**  
 `Morphemes` are sub-words which includes `stem` and `affixes` (prefix & suffix)
-![Alt text](/img/nlp-text-preprocess/image.png)
+![Alt text](/img/nlp/nlp-text-preprocess/image.png)
 
 We can do `morphological analysis` after we identity what is a stem and what are affixes in a word. However, this method has some disadvantages that can't be ignored. First, for some verbs we might still need a dictionary because they have some special `inflections`, such as "build" will be inflected into "built". And second, `derivational morphology` (The formation of a word from stem and affixes) is a messy, consider the picture below:
-![Alt text](/img/nlp-text-preprocess/image2.png)
+![Alt text](/img/nlp/nlp-text-preprocess/image2.png)
 
 The change of states is computationally expensive.
 

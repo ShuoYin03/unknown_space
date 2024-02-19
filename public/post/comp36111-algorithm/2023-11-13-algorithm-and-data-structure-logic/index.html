@@ -250,7 +250,7 @@
 $$(¬\psi_1), (\psi_1 ∨ \psi_2), (\psi_1 ∧ \psi_2), (\psi_1 → \psi_2)$$</p>
 <p>An <code>assignment</code> is a function $\theta: P → \lbrace T, F\rbrace$, for example:
 
-  <img src="/img/propositional-logic/image.png" alt="Alt text">
+  <img src="/img/algorithm/propositional-logic/image.png" alt="Alt text">
 
 
 In a simple way, an assignment is like a machine running a logic equation and excute a result. A formula $\psi$ is <code>satisfiable</code> if there is a formula $\theta$ such that $\theta(\psi)=T$.</p>
@@ -266,16 +266,16 @@ We could also denote the opposite of a literal $\ell$ by $\overline\ell$.</p>
 <h3 id="sat--k-sat-problem">SAT &amp; k-SAT Problem</h3>
 <p>Here we can define two problems: <code>SAT</code> and <code>k-SAT</code>
 
-  <img src="/img/propositional-logic/image4.png" alt="Alt text">
+  <img src="/img/algorithm/propositional-logic/image4.png" alt="Alt text">
 
 
 
-  <img src="/img/propositional-logic/image5.png" alt="Alt text">
+  <img src="/img/algorithm/propositional-logic/image5.png" alt="Alt text">
 
 </p>
 <p>The <strong>Davis-Putnam (-Logemann-Loveland)</strong> algorithm could solve the <code>SAT</code> problem:
 
-  <img src="/img/propositional-logic/image6.png" alt="Alt text">
+  <img src="/img/algorithm/propositional-logic/image6.png" alt="Alt text">
 
 
 As we want to test satisfiability, we need to know the <strong>truth</strong> of each single clauses in the set $\Gamma$. The resolve function could simplify $\Gamma$ by <strong>assuming a clause is true</strong>, bring this true clause to the whole set, eliminate all true clauses (a clause is true if our assumed clause is in) and delete any $\overline\ell$. You might be confused now, but let&rsquo;s move on to main body part of this algorithm and it might solve your confusion. First, we check if $\Gamma$ is <strong>empty or contains an empty clause</strong> to return true or false base on the case, then for any <code>unit clause</code>(single literal) in $\Gamma$, call resolve() to do simplification. There are few conditions here: If resolve() returns an empty $\Gamma$, we return a Yes because <strong>all clauses are true and eliminated by resolve()</strong>, but if the returned $\Gamma$ is not empty and it contains an empty clause, we return a No because <strong>all $\overline\ell$ are eliminated in that empty clause</strong> which results in a false. If it is not the above two situations, it means that we still have a literal that has not appeared before, so now we call it recursively the DPLL() two times, each time the input would be the <strong>union of $\Gamma$ and the first literal in the first clause (positive and negative)</strong>, this literal will be the unit clause in the recursion, and so on we could do furthur elimination and finally get the result.</p>

@@ -6,7 +6,7 @@ date: 2024-02-14
 author: "UNKNOWN SPACE"
 image: ""
 tags: ["Cognitive Robotics"]
-URL: "/2024/02/05/cognitive-robotics-sensors-and-actuators/"
+URL: "/2024/02/14/cognitive-robotics-sensors-and-actuators/"
 categories:  ["notes"]
 ---
 

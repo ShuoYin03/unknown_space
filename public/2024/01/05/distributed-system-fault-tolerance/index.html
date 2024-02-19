@@ -268,14 +268,14 @@ Server <strong>halts</strong>!</li>
 <p>Another method of tolerating this error is to send extra messengers to other armies to increase success rate, in other type of problems, we send extra bits instead.</p>
 <h3 id="triple-modular-redundancy">Triple Modular Redundancy</h3>
 <p>
-  <img src="/img/distributed-fault/image.png" alt="Alt text">
+  <img src="/img/distributed/distributed-fault/image.png" alt="Alt text">
 
 </p>
 <p>The above picture is a redundancy model, and an example of <code>physical redundancy</code>. It contains three components executing the same functions, all of them run in the same time and getting their own outputs. Afterwards, there is a <code>voting</code> mechanism, which compares and select the result with most components producing. This means even if one of component <strong>producing a wrong result or having a fault</strong>, the rest of the system could still work perfectly.</p>
 <h4 id="single-point-of-failure">Single point of failure</h4>
 <p><code>Single point of failure</code> means a failure could cause the fault of the whole system. Consider the graph below, the central point&rsquo;s fault would make the whole system lose connection.
 
-  <img src="/img/distributed-fault/image2.png" alt="Alt text">
+  <img src="/img/distributed/distributed-fault/image2.png" alt="Alt text">
 
 
 The triple modular redundancy is a model avoid this kind of failure, we have to avoid it in the real system design.</p>

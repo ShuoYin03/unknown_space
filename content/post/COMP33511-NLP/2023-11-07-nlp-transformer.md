@@ -26,13 +26,13 @@ Transformer is a structure contains two parts: `encoder` and `decoder`, with the
 2. fully-connected feedforward neural networks
 3. add&Norm operation
 4. positional encoding
-![](/img/transformer/transformer.png)
+![](/img/nlp/transformer/transformer.png)
 encoder - auto encoding structure
 decoder - suto regressive structure
 
 ### Encoder
 
 #### Positional Encoding
-![Alt text](/img/transformer/image.png)
+![Alt text](/img/nlp/transformer/image.png)
 
 ### Decoder

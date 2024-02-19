@@ -250,7 +250,7 @@
 <h2 id="introduction-of-turing-machine">Introduction of turing machine</h2>
 <p>The picture below is a <code>multi-tape</code> turing machine
 
-  <img src="/img/turing-machine/image.png" alt="">
+  <img src="/img/algorithm/turing-machine/image.png" alt="">
 
 </p>
 <h3 id="definition">Definition</h3>
@@ -266,7 +266,7 @@
 <h3 id="symbol">Symbol</h3>
 <p>A <code>symbol</code> is an element of
 
-  <img src="/img/turing-machine/image2.png" alt="">
+  <img src="/img/algorithm/turing-machine/image2.png" alt="">
 
 
 which means <code>blank</code> and <code>start</code> separately.<br>
@@ -326,19 +326,19 @@ A language is <code>recursive</code> if and only if it is both r.e. and co-r.e.<
 <p>A <code>decision problem</code> is some problem which has a yes or no answer in some language, and a <code>recursive problem</code> is some problem which test whether a decision problem is <code>decidable</code> (possible to give an answer).</p>
 <p>We represent decision problems in this form:
 
-  <img src="/img/turing-machine/image3.png" alt="">
+  <img src="/img/algorithm/turing-machine/image3.png" alt="">
 
 
 An example of this kind of problem could be: To decide whether a number is a prime number.</p>
 <p>And an example of recursion problem is (Halting problem):
 
-  <img src="/img/turing-machine/image4.png" alt="">
+  <img src="/img/algorithm/turing-machine/image4.png" alt="">
 
 
 This is an undicidable problem. Here&rsquo;s the prove (First appear in 1936):</p>
 <p>Suppose we have a turing machine H which, for every deterministic turing machine M with an x as its input, H returns yes if M ↓ x and no if M ↑ x. In another words, we have a turing machine which could solves the halting problem! Here we define another turing machine H*, it has a structure like this picture:
 
-  <img src="/img/turing-machine/image5.png" alt="">
+  <img src="/img/algorithm/turing-machine/image5.png" alt="">
 
 </p>
 <p>It takes an input to H. If H returns yes, then H* goes to a loop never ends. And if no, H* halts. Now, if H* take the code h* (which is itself) as the input, we will have two results.</p>

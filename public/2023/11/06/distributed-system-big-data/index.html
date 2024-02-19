@@ -224,7 +224,7 @@
 </blockquote>
 <h2 id="partition">Partition</h2>
 <p>
-  <img src="/img/distributed-bigdata/pic.png" alt="">
+  <img src="/img/distributed/distributed-bigdata/pic.png" alt="">
 
 
 By definition, partition involves deciding how to assign data from a sources to distributed nodes.Take the above image as an example, we could do partition in these ways:</p>
@@ -353,7 +353,7 @@ universities than others.</p>
 <p>Repartitioning involves moving the data from one partition to another.<br>
 <strong>Example:</strong>  Partition by Id, use a hash function <strong>Hash(x) = Id(x) mod #nodes</strong>
 
-  <img src="/img/distributed-bigdata/pic1.png" alt="">
+  <img src="/img/distributed/distributed-bigdata/pic1.png" alt="">
 
 
 How many tuples need to change node?<br>
@@ -363,7 +363,7 @@ In this case of uniform distribution and mode-based partitioning, the number of 
 <strong>1 - 1/3 = 0.666</strong>, which is <strong>0.666 * 6 = 4</strong></p>
 <p>In order to reduce the cost of repartitioning, it is possible to have more partitions than nodes. Then repartitioning for a new node involves moving selected partitions to the new node.
 
-  <img src="/img/distributed-bigdata/pic5.png" alt="">
+  <img src="/img/distributed/distributed-bigdata/pic5.png" alt="">
 
 </p>
 <p>Two steps need to be taken to find a partition for value v:</p>
@@ -377,7 +377,7 @@ In the previous example the fraction is 1/4</p>
 <p>The <code>Ranging</code> and <code>Hashing</code> methods are better performed when key is widely used. NoSQL are always designed to support applications use <code>Id</code> or <code>names</code> as primary key. However, it&rsquo;s better for us to have multiple access routes to avoid <code>scanning</code>. In this case we use <code>secondary index</code> - the index on an attribute that has not been used for partitioning.</p>
 <p>Example: In this table, the data is partitioned by name. Does the hash index on the partition helps?
 
-  <img src="/img/distributed-bigdata/pic2.png" alt="">
+  <img src="/img/distributed/distributed-bigdata/pic2.png" alt="">
 
 </p>
 <table>
@@ -412,7 +412,7 @@ In the previous example the fraction is 1/4</p>
 <li>
 <p>Store the secondary index on the same node as the data it is indexing.
 
-  <img src="/img/distributed-bigdata/pic3.png" alt="">
+  <img src="/img/distributed/distributed-bigdata/pic3.png" alt="">
 
 </p>
 <table>
@@ -433,7 +433,7 @@ In the previous example the fraction is 1/4</p>
 <li>
 <p>Store the secondary index partitioned by term: a single distributed index.
 
-  <img src="/img/distributed-bigdata/pic4.png" alt="">
+  <img src="/img/distributed/distributed-bigdata/pic4.png" alt="">
 
 </p>
 <table>
@@ -455,7 +455,7 @@ In the previous example the fraction is 1/4</p>
 <h2 id="partitioning-for-evaluation">Partitioning for Evaluation</h2>
 <p>After we talked about how to do partitioning, we should discuss about when data need partitioning. As an example, <strong>Uni-Sizes</strong> is hash partitioned on &lsquo;Name&rsquo;, <strong>Uni-Places</strong> is hash partitioned on &lsquo;Town&rsquo;, and we want these two partition to join on &lsquo;Name&rsquo;.</p>
 <p>
-  <img src="/img/distributed-bigdata/pic6.png" alt="Alt text">
+  <img src="/img/distributed/distributed-bigdata/pic6.png" alt="Alt text">
 
 </p>
 <p>We need to repartition <strong>Uni-Places</strong> as it is not partition on &lsquo;Name&rsquo;, and the steps are:</p>

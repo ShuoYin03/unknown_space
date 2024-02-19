@@ -249,7 +249,7 @@ map(documentId key1, document value1) {
 <li>The job tracker is informed by the task tracker when a task has completed.</li>
 </ol>
 <p>
-  <img src="/img/distributed-mapreduce/image2.png" alt="Alt text">
+  <img src="/img/distributed/distributed-mapreduce/image2.png" alt="Alt text">
 
 </p>
 <h3 id="reduce">Reduce</h3>
@@ -270,13 +270,13 @@ reduce(word key2, list of count value2) {
 <li>The reduce task is run.</li>
 <li>Outputs are written to the distributed filesystem.
 
-  <img src="/img/distributed-mapreduce/image3.png" alt="Alt text">
+  <img src="/img/distributed/distributed-mapreduce/image3.png" alt="Alt text">
 
 </li>
 </ol>
 <h3 id="an-example">An Example</h3>
 <p>
-  <img src="/img/distributed-mapreduce/image.png" alt="Alt text">
+  <img src="/img/distributed/distributed-mapreduce/image.png" alt="Alt text">
 
 
 The above picture demonstrate a <strong>word-count</strong> program contains <code>map</code> and <code>reduce</code> operations, where we can see that the <code>map</code> operation <strong>split</strong> the document into list of words and record its appearance, and <code>reduce</code> combine all same words and accumulate their occurrences.</p>
@@ -284,7 +284,7 @@ The above picture demonstrate a <strong>word-count</strong> program contains <co
 <p>Basket analysis is another web-scale, data intensive application about users shopping on the internet.
 It records the value of each basket of products from customer&rsquo;s purchases. A simple analysis could be average the total prices of a customer&rsquo;s all purchases records.</p>
 <p>
-  <img src="/img/distributed-mapreduce/image4.png" alt="Alt text">
+  <img src="/img/distributed/distributed-mapreduce/image4.png" alt="Alt text">
 
 </p>
 <p>The graph above is a record of customers and their interactions, we will now write the pseudo-code for both <code>map</code> and <code>reduce</code> operations.</p>

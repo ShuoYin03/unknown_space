@@ -22,7 +22,7 @@ The APIs it provides are:
 - Put(key, value)
 - Get(key)
 - Delete(key)
-![Alt text](/img/distributed-nosql/image.png)
+![Alt text](/img/distributed/distributed-nosql/image.png)
 ### Document
 Access or update a document using a key, the database will provide functionality for accessing the value (e.g., queries)
 The APIs it provides are:
@@ -30,7 +30,7 @@ The APIs it provides are:
 - Get(key)
 - Find(key, filter)
 - Delete(key)
-![Alt text](/img/distributed-nosql/image-1.png)
+![Alt text](/img/distributed/distributed-nosql/image-1.png)
 ### Wide Column
 Access or update a collection of column families associated with a key (e.g., CustomerId links to contact details, sales details, marketing details)
 The APIs it provides are:
@@ -39,14 +39,14 @@ The APIs it provides are:
 - Delete(key)
 - Find(key, filter)
 - Update(key, expression)
-![Alt text](/img/distributed-nosql/image-2.png)
+![Alt text](/img/distributed/distributed-nosql/image-2.png)
 
 ## Data Partitioning
 In SQL, data partitioning could be vertical or horizontal to put rows or columns together. However in NoSQL, all data associated with a key are stored in a single node, so data is horizontally partitioned, and this process has another name called `sharding`.
 
 ## Replication
 As NoSQL databases seek to `scale elastically`, more nodes are expected to use, and thus, node failures are also expected to exists commonly in NoSQL. In order to accommodate them, we use `replication` to give a high availability.
-![Alt text](/img/distributed-nosql/image4.png "An example of replication, copy data from node to nodes")
+![Alt text](/img/distributed/distributed-nosql/image4.png "An example of replication, copy data from node to nodes")
 
 However, `replication` bring us some problems. In traditional transactions, people try to maintain the following `ACID` properties:
 - `Atomicity`: Either every action in a transaction is completed or none of them are.
@@ -55,7 +55,7 @@ However, `replication` bring us some problems. In traditional transactions, peop
 - `Durability`: A successful transaction commit will have written the result to **nonvolatile storage**, such as a hard drive.
 
 The `replication` is violating the `consistency` of data. Let's have a look at an example of `inconsistency`.
-![Alt text](/img/distributed-nosql/image5.png)
+![Alt text](/img/distributed/distributed-nosql/image5.png)
 
 In this picture, two users are interacting with the database at the same time, where both users initiated a request to get x value from the database. However, both user initiated another request to increase x by one, and the problem is, while the user at the bottom updating the x value to 2, **the database has already got the value send from the first user**, which means, the database lost the update request from user at the bottom. (Should be 3 in the database but only got 2).
 
@@ -77,7 +77,7 @@ Although it has some disadvantages, we could use `distributed transactions` to p
 ### Two-Phase Commit
 The first phase is that, all participants complete the processes of either read or write, and while finish, they are in a stage ready to commit to the database, if any of the participants didn't ready to commit, abort the commit request. Then in phase two, we commit all the changes.
 
-![Alt text](/img/distributed-nosql/image6.png)
+![Alt text](/img/distributed/distributed-nosql/image6.png)
 
 The features of `two-phase commit` are:
 1. During the preparation phase, every participant must write all the transaction’s data to nonvolatile store before responding ok.
@@ -86,13 +86,13 @@ The features of `two-phase commit` are:
 4. After the commit point, the coordinator must keep trying to send commits to participants until they have all provided an ok response.
 
 Although two-phase commit provides strong guarantees, but a failure could bring huge effects to all transactions as it might block arbitrary periods. Here are few problems might exist and their possible solutions.
-![Alt text](/img/distributed-nosql/image7.png)
+![Alt text](/img/distributed/distributed-nosql/image7.png)
 
 ## Replication: Leader & Follower
 
 The replication without update is easy, however we do need the updates applied to all replicas. The `Leader & Follower` structure is a common approach to support updates. Within all replicas of our database, one of them is promoted to `leader` and rest of them are `followers`, where the `leader` should receives update requests and forward them to followers. And followers should receive read requests from users and update requests from `leader` only.
 
-![Alt text](/img/distributed-nosql/image8.png)
+![Alt text](/img/distributed/distributed-nosql/image8.png)
 
 The step of adding a new follower is as below:
 1. Take a snapshot of leader
