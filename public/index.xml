@@ -6,7 +6,28 @@
     <description>Recent content on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Natural Language Understanding - Introduction &amp; Embedding &amp; Model</title>
+      <link>https://shuoyin03.github.io/2024/02/26/nlu-introduction/</link>
+      <pubDate>Mon, 26 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/02/26/nlu-introduction/</guid>
+      <description>What is NLU? In the previous blogs I mainly focused on NLP, which refers to processing unstructured data(texts) into structured data by tokenization, lemmatisation, stemming, etc. NLU will more focus on making sure the initial meaning of language and let the machine recognize it while understanding the changes within texts.
+Such applications of NLU could be make the answers of chatbot more natural like human reaction, it could make machines more intelligent.</description>
+    </item>
+    
+    <item>
+      <title>Cognitive Robotics - Navigation</title>
+      <link>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-sensors-navigation/</link>
+      <pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-sensors-navigation/</guid>
+      <description>In this blog, we will discuss about the navigation - how will the robots go the destination we want them to go?
+Navigation Navigation, which in definition it means moving the entire robot from one location to another, this question could also refers to some destination planning. The difference between navigation and manipulation is that, manipulation refers to the problems moving body part to manipulate the environment.
+Locomotion Locomotion are the methods to achieve navigation, there are three types of locomotion:</description>
+    </item>
+    
     <item>
       <title>Cognitive Robotics - Sensors and Actuators</title>
       <link>https://shuoyin03.github.io/2024/02/14/cognitive-robotics-sensors-and-actuators/</link>

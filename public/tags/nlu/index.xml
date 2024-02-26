@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLU on UNKNOWN SPACE</title>
+    <link>https://shuoyin03.github.io/tags/nlu/</link>
+    <description>Recent content in NLU on UNKNOWN SPACE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/nlu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Natural Language Understanding - Introduction &amp; Embedding &amp; Model</title>
+      <link>https://shuoyin03.github.io/2024/02/26/nlu-introduction/</link>
+      <pubDate>Mon, 26 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/02/26/nlu-introduction/</guid>
+      <description>What is NLU? In the previous blogs I mainly focused on NLP, which refers to processing unstructured data(texts) into structured data by tokenization, lemmatisation, stemming, etc. NLU will more focus on making sure the initial meaning of language and let the machine recognize it while understanding the changes within texts.
+Such applications of NLU could be make the answers of chatbot more natural like human reaction, it could make machines more intelligent.</description>
+    </item>
+    
+  </channel>
+</rss>

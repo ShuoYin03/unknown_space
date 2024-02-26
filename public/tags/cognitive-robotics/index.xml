@@ -6,7 +6,18 @@
     <description>Recent content in Cognitive Robotics on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/cognitive-robotics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/cognitive-robotics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cognitive Robotics - Navigation</title>
+      <link>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-sensors-navigation/</link>
+      <pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-sensors-navigation/</guid>
+      <description>In this blog, we will discuss about the navigation - how will the robots go the destination we want them to go?
+Navigation Navigation, which in definition it means moving the entire robot from one location to another, this question could also refers to some destination planning. The difference between navigation and manipulation is that, manipulation refers to the problems moving body part to manipulate the environment.
+Locomotion Locomotion are the methods to achieve navigation, there are three types of locomotion:</description>
+    </item>
+    
     <item>
       <title>Cognitive Robotics - Sensors and Actuators</title>
       <link>https://shuoyin03.github.io/2024/02/14/cognitive-robotics-sensors-and-actuators/</link>
