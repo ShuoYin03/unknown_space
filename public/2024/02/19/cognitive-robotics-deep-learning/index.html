@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Natural Language Understanding - Introduction &amp; Embedding &amp; Model" />
-    <meta property="og:title" content="Natural Language Understanding - Introduction &amp; Embedding &amp; Model" />
-    <meta property="twitter:title" content="Natural Language Understanding - Introduction &amp; Embedding &amp; Model" />
+    <meta name="title" content="Cognitive Robotics - Deep Learning in Robotics" />
+    <meta property="og:title" content="Cognitive Robotics - Deep Learning in Robotics" />
+    <meta property="twitter:title" content="Cognitive Robotics - Deep Learning in Robotics" />
     
 
     
-    <meta name="description" content="Introduction to natural language understanding">
-    <meta property="og:description" content="Introduction to natural language understanding" />
-    <meta property="twitter:description" content="Introduction to natural language understanding" />
+    <meta name="description" content="Introduction to deep learning in robotics">
+    <meta property="og:description" content="Introduction to deep learning in robotics" />
+    <meta property="twitter:description" content="Introduction to deep learning in robotics" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Natural Language Understanding - Introduction &amp; Embedding &amp; Model | ShuoYin</title>
+    <title>Cognitive Robotics - Deep Learning in Robotics | ShuoYin</title>
 
-    <link rel="canonical" href="/2024/02/26/nlu-introduction/">
+    <link rel="canonical" href="/2024/02/19/cognitive-robotics-deep-learning/">
 
     
     
@@ -197,13 +197,13 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/nlu" title="NLU">
-                            NLU
+                        <a class="tag" href="/tags/cognitive-robotics" title="Cognitive Robotics">
+                            Cognitive Robotics
                         </a>
                         
                     </div>
-                    <h1>Natural Language Understanding - Introduction &amp; Embedding &amp; Model</h1>
-                    <h2 class="subheading">New Chapter in NLP!</h2>
+                    <h1>Cognitive Robotics - Deep Learning in Robotics</h1>
+                    <h2 class="subheading">Study and study</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -211,10 +211,10 @@
                                 UNKNOWN SPACE
                              
                             on 
-                            Monday, February 26, 2024
+                            Tuesday, February 27, 2024
                             
                                 
-                                <br><span class="meta">602 Words, Read 3 minutes</span>
+                                <br><span class="meta">417 Words, Read 2 minutes</span>
                             
                              
                             
@@ -240,39 +240,43 @@
                 post-container">
 
                 
-                <h2 id="what-is-nlu">What is NLU?</h2>
-<p>In the previous blogs I mainly focused on NLP, which refers to processing unstructured data(texts) into structured data by tokenization, lemmatisation, stemming, etc. NLU will more focus on making sure the initial meaning of language and let the machine recognize it while understanding the changes within texts.</p>
-<p>Such applications of NLU could be make the answers of chatbot more natural like human reaction,  it could make machines more intelligent.</p>
-<p>NLU tasks could be generalized into 4 types:</p>
-<ol>
-<li>Sequence classification</li>
-<li>Pairwise sequence classification</li>
-<li>Sequence labelling</li>
-<li>Span based operations</li>
-</ol>
-<h2 id="word-representation">Word Representation</h2>
-<p>Here we will introduce a new type of word embedding method, other embedding methods like this could be viewed from this link: <a href="https://shuoyin03.github.io/2023/12/21/nlp-text-representation/">Natural Language Processing - Text Representation</a>.</p>
-<p><code>PMI</code>(Pointwise Mutual Information) measures how often a target word $w$ and a context word $c$ co-occur, compared with when they occur independently. The math representation is like this:</p>
-<p>$$PMI(w, c) = \log_2 \frac{P(w, c)}{P(w)P(c)}$$</p>
-<p><code>PPMI</code>(Positive Pointwise Mutual Information), which is drawn from the <code>PMI</code>, <strong>replaces all negative values with 0</strong> of the PMI result. It is more often used than <code>PMI</code>, one of the reason is that it performs better with sparse data. <code>PMI</code> has a negative value when calculating the probability of co-occurrence, while <code>PPMI</code> solves this problem by setting all values less than or equal to zero to zero, making the results easier to interpret. In addition, <code>PPMI</code> is able to highlight high frequency co-occurrence pairs while ignoring low frequency co-occurrence to better capture the correlation between words. The math expression is like this:</p>
-<p>$$PPMI(w, c) = max(\log_2 \frac{P(w, c)}{P(w)P(c)}, 0)$$</p>
-<p>Here is an example of <code>PPMI</code>:</p>
-<p>
-  <img src="/img/nlu/intro/image.png" alt="alt text">
+                <p>This blog is a supplement of deep learning topic as we already explain the fundamental knowledge in this blog: <a href="/2024/01/16/nlp-deep-learning1/">Natural Language Processing - Deep Learning I</a>, where we will mainly focuses on <code>CNN</code>.</p>
+<h2 id="why-deep-learning">Why Deep Learning?</h2>
+<p>The reason why we apply deep learning techniques are quite obvious, which is to ues it handle thee robots&rsquo; vision. The advantage of neural network is learning and building up features to represent the input data, which help us remove the complex and limit feature selection process. However, normal neural networks couldn&rsquo;t satisfy the needs. For example, if we use the classic dataset like <code>MNIST</code>, we would have only 784 input weights(28 x 28). However, if we scale up to choose images which has a size of 200 x 200 x 3, then we would have a total of 120,000 weights! Thus, we need more powerful neural networks.</p>
+<h2 id="cnn-convolution-neural-network">CNN (Convolution Neural Network)</h2>
+<p><code>CNN</code> is inspired by human vision because human vision is made up of many layers. There are two important mechanisms that we need to use in CNN, one of them is <code>feature selection</code>, and the other one is <code>pooling</code>.</p>
+<h3 id="pooling">Pooling</h3>
+<p>Pooling is a technique used for reduce spatial resolution of feature maps, and it will decrease the number of parameter and calculations. In pooling, we will separate the image into non-overlapping regions, and in each region, we collect every values and perform the set operations to the collected values.</p>
+<p>Other than reduce spatial resolutions, another advantage that pooling has is reducing the effects of shifts and distortions brings to the output. This is because pooling saves the partial features and drop unnecessary features to keep the data more stable and average.</p>
+<p>The image below demonstrate the most common pooling method - <code>Max polling</code>, where we take the max value of each region and form the new image.
+
+  <img src="/img/robots/deep/image.png" alt="alt text">
 
 </p>
-<p>Let&rsquo;s calculate $PPMI(information, data)$ for the above example. First of all, we need to know the value for $P(w, c)$, $P(w)$ and $P(c)$. The equation for $P(w, c)$ is here:</p>
-<p>$$P_{ij} = \frac{f_{ij}}{\sum_{i=1}^{W} \sum_{j=1}^{C} f_{ij}}$$</p>
-<p>where we use the number of two words occurrences divided by the overall words. In this case, the result is $3982/11716 = 0.3399$. Then, for $P(w)$ and $P(c)$, we just need to use the occurrences of each word to divided by the overall word count. In this case, $P(w) = 7703/11716 = 0.6575$, and $P(c) = 5673/11716 = 0.4842$.</p>
-<p>Hence, the $PPMI(w, c)$ is then:</p>
-<p>$$PPMI(information,data) = max(log2(0.3399/(0.6575*0.4842)), 0) = 0.0944$$</p>
-<h2 id="dense-vectors">Dense Vectors</h2>
-<p>An introduction to <code>word2vec</code>(<code>Skip-gram</code> &amp; <code>CBOW</code>) and <code>GloVe</code> has been made in this link <a href="https://shuoyin03.github.io/2024/01/04/nlp-word-senses/">Natural Language Processing - Word Senses</a>. In this blog we will have a look at <code>fastText</code>.</p>
-<h3 id="fasttext">FastText</h3>
-<p><code>FastText</code> is a text processing technique capable of handling unknown words by utilizing subword notation, a set of elements made up of the various N-grams that make up a word. For example, for the word &ldquo;eating&rdquo;, it can be broken down into n-grams such as &lt;ea, eat, ati, tin, ing, ng&gt;. fastText works by learning the skip-gram model for each n-gram and representing the word as the sum of the embeddings of the individual N-grams that make up it. So even for a word like &ldquo;eataly,&rdquo; the embedding vector is still able to capture the meaning of &ldquo;eat.&rdquo;</p>
-<h2 id="sparse-vs-dense-vector">Sparse VS. Dense Vector</h2>
-<p>In a sparse vector, each dimension (element) corresponds to either: a document in a large corpus (in a term-document matrix, e.g., in TF-IDF) a word in the vocabulary (in a term-term matrix, e.g., in PPMI). Sparse vectors can have a large number of dimensions (e.g. 10K+) with most values equals to 0, while dense vectors have around hundreds (e.g., 100-500) Models (trained to predict words) are required to learn far fewer weights</p>
-<p>By having embeddings,  we could achieve more goals like: detecting word similarities, identifying most related words, clustering and visualization, etc.</p>
+<h3 id="feature-map">Feature Map</h3>
+<p>Feature maps are feature representation generated by convolution layers in <code>CNN</code>. <code>Convolution</code> is a technique used for extract features, and the operation is quite similar with pooling. In convolution, we all separate the original image into regions, but in this time we need to calculate each pixel in the region, where we multiply them by the value we have in <code>kernel</code>. An image of kernel is here:
+
+  <img src="/img/robots/deep/image2.png" alt="alt text">
+
+</p>
+<p>And a convolution process is like the picture below:
+
+  <img src="/img/robots/deep/image1.png" alt="alt text">
+
+</p>
+<h3 id="cnn-topologies">CNN Topologies</h3>
+<p>A basic CNN structure is in this sequence:</p>
+<ul>
+<li>Input → convolution → fully connected → softmax</li>
+</ul>
+<p>With convolution-pooling module, the sequence become</p>
+<ul>
+<li>Input → ( convolution→pooling ) → fully connected → softmax
+
+  <img src="/img/robots/deep/image3.png" alt="alt text">
+
+</li>
+</ul>
 
 
                 
@@ -282,15 +286,10 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2024/02/19/cognitive-robotics-sensors-navigation/" data-toggle="tooltip" data-placement="top" title="Cognitive Robotics - Navigation">&larr;
+                        <a href="/2024/02/26/nlu-introduction/" data-toggle="tooltip" data-placement="top" title="Natural Language Understanding - Introduction &amp; Embedding &amp; Model">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2024/02/19/cognitive-robotics-deep-learning/" data-toggle="tooltip" data-placement="top" title="Cognitive Robotics - Deep Learning in Robotics">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
@@ -334,8 +333,8 @@
                         
                         
                         
-                        <a href="/tags/nlu" title="NLU">
-                            NLU
+                        <a href="/tags/cognitive-robotics" title="Cognitive Robotics">
+                            Cognitive Robotics
                         </a>
                         
                         
@@ -417,7 +416,7 @@
             
            
                    <li>
-                       <a href='/2024/02/26/nlu-introduction/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2024/02/19/cognitive-robotics-deep-learning/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

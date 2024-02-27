@@ -6,7 +6,17 @@
     <description>Recent content in Cognitive Robotics on UNKNOWN SPACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/cognitive-robotics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/cognitive-robotics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cognitive Robotics - Deep Learning in Robotics</title>
+      <link>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-deep-learning/</link>
+      <pubDate>Tue, 27 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-deep-learning/</guid>
+      <description>This blog is a supplement of deep learning topic as we already explain the fundamental knowledge in this blog: Natural Language Processing - Deep Learning I, where we will mainly focuses on CNN.
+Why Deep Learning? The reason why we apply deep learning techniques are quite obvious, which is to ues it handle thee robots&amp;rsquo; vision. The advantage of neural network is learning and building up features to represent the input data, which help us remove the complex and limit feature selection process.</description>
+    </item>
+    
     <item>
       <title>Cognitive Robotics - Navigation</title>
       <link>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-sensors-navigation/</link>
