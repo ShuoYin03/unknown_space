@@ -6,7 +6,7 @@ date: 2024-02-27
 author: "UNKNOWN SPACE"
 image: ""
 tags: ["Cognitive Robotics"]
-URL: "/2024/02/19/cognitive-robotics-deep-learning/"
+URL: "/2024/02/27/cognitive-robotics-deep-learning/"
 categories:  ["notes"]
 math: True
 ---

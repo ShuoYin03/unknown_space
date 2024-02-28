@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Cognitive Robotics - Deep Learning in Robotics" />
-    <meta property="og:title" content="Cognitive Robotics - Deep Learning in Robotics" />
-    <meta property="twitter:title" content="Cognitive Robotics - Deep Learning in Robotics" />
+    <meta name="title" content="Cognitive Robotics - Robot Software" />
+    <meta property="og:title" content="Cognitive Robotics - Robot Software" />
+    <meta property="twitter:title" content="Cognitive Robotics - Robot Software" />
     
 
     
-    <meta name="description" content="Introduction to deep learning in robotics">
-    <meta property="og:description" content="Introduction to deep learning in robotics" />
-    <meta property="twitter:description" content="Introduction to deep learning in robotics" />
+    <meta name="description" content="Introduction to programming of robots">
+    <meta property="og:description" content="Introduction to programming of robots" />
+    <meta property="twitter:description" content="Introduction to programming of robots" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Cognitive Robotics - Deep Learning in Robotics | ShuoYin</title>
+    <title>Cognitive Robotics - Robot Software | ShuoYin</title>
 
-    <link rel="canonical" href="/2024/02/19/cognitive-robotics-deep-learning/">
+    <link rel="canonical" href="/2024/02/28/cognitive-robotics-robot-software/">
 
     
     
@@ -202,8 +202,8 @@
                         </a>
                         
                     </div>
-                    <h1>Cognitive Robotics - Deep Learning in Robotics</h1>
-                    <h2 class="subheading">Study and study</h2>
+                    <h1>Cognitive Robotics - Robot Software</h1>
+                    <h2 class="subheading">Programming Robots!</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -211,10 +211,10 @@
                                 UNKNOWN SPACE
                              
                             on 
-                            Tuesday, February 27, 2024
+                            Wednesday, February 28, 2024
                             
                                 
-                                <br><span class="meta">417 Words, Read 2 minutes</span>
+                                <br><span class="meta">315 Words, Read 2 minutes</span>
                             
                              
                             
@@ -240,43 +240,63 @@
                 post-container">
 
                 
-                <p>This blog is a supplement of deep learning topic as we already explain the fundamental knowledge in this blog: <a href="/2024/01/16/nlp-deep-learning1/">Natural Language Processing - Deep Learning I</a>, where we will mainly focuses on <code>CNN</code>.</p>
-<h2 id="why-deep-learning">Why Deep Learning?</h2>
-<p>The reason why we apply deep learning techniques are quite obvious, which is to ues it handle thee robots&rsquo; vision. The advantage of neural network is learning and building up features to represent the input data, which help us remove the complex and limit feature selection process. However, normal neural networks couldn&rsquo;t satisfy the needs. For example, if we use the classic dataset like <code>MNIST</code>, we would have only 784 input weights(28 x 28). However, if we scale up to choose images which has a size of 200 x 200 x 3, then we would have a total of 120,000 weights! Thus, we need more powerful neural networks.</p>
-<h2 id="cnn-convolution-neural-network">CNN (Convolution Neural Network)</h2>
-<p><code>CNN</code> is inspired by human vision because human vision is made up of many layers. There are two important mechanisms that we need to use in CNN, one of them is <code>feature selection</code>, and the other one is <code>pooling</code>.</p>
-<h3 id="pooling">Pooling</h3>
-<p>Pooling is a technique used for reduce spatial resolution of feature maps, and it will decrease the number of parameter and calculations. In pooling, we will separate the image into non-overlapping regions, and in each region, we collect every values and perform the set operations to the collected values.</p>
-<p>Other than reduce spatial resolutions, another advantage that pooling has is reducing the effects of shifts and distortions brings to the output. This is because pooling saves the partial features and drop unnecessary features to keep the data more stable and average.</p>
-<p>The image below demonstrate the most common pooling method - <code>Max polling</code>, where we take the max value of each region and form the new image.
+                <h2 id="autonomous-robot-workflow">Autonomous Robot Workflow</h2>
+<p>A autonomous robot workflow would be like this: the sensors collect data from the real-world environment, experienced the learning process sensing, reasoning, and acting. Then it give its feedback, doing some movements or actions by sensors.
 
-  <img src="/img/robots/deep/image.png" alt="alt text">
+  <img src="/img/robots/software/image.png" alt="alt text">
 
 </p>
-<h3 id="feature-map">Feature Map</h3>
-<p>Feature maps are feature representation generated by convolution layers in <code>CNN</code>. <code>Convolution</code> is a technique used for extract features, and the operation is quite similar with pooling. In convolution, we all separate the original image into regions, but in this time we need to calculate each pixel in the region, where we multiply them by the value we have in <code>kernel</code>. An image of kernel is here:
+<p>The code below is a great example, where the first line is getting the information from outside world, and the second line is doing some reasoning, limit the distance, and if the distance is less than 0.3, the actuators stops.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>distance <span style="color:#ff79c6">=</span> sensor<span style="color:#ff79c6">.</span>get_distance()
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> distance <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0.3</span>:
+</span></span><span style="display:flex;"><span>	wheels<span style="color:#ff79c6">.</span>stop()
+</span></span></code></pre></div><h2 id="softbank-pepper-robot">Softbank Pepper Robot</h2>
+<p>This is a robot developed by a company used for greeting people in scenarios like banking, hotel, etc. It contains many sensors and actuators as you can see from the picture below.
 
-  <img src="/img/robots/deep/image2.png" alt="alt text">
+  <img src="/img/robots/software/image-1.png" alt="alt text">
 
 </p>
-<p>And a convolution process is like the picture below:
-
-  <img src="/img/robots/deep/image1.png" alt="alt text">
-
-</p>
-<h3 id="cnn-topologies">CNN Topologies</h3>
-<p>A basic CNN structure is in this sequence:</p>
-<ul>
-<li>Input → convolution → fully connected → softmax</li>
-</ul>
-<p>With convolution-pooling module, the sequence become</p>
-<ul>
-<li>Input → ( convolution→pooling ) → fully connected → softmax
-
-  <img src="/img/robots/deep/image3.png" alt="alt text">
-
-</li>
-</ul>
+<h2 id="tools">Tools</h2>
+<p>Now, because we don&rsquo;t want to focus on the basic thing like the code above, we will use middlewares to make the &ldquo;rules&rdquo; for our robots. In middleware, both application and hardware elements are considered as &ldquo;nodes&rdquo; which are connected by the middleware infrastructure, and each node specifies its inputs and outputs. Nowadays, some middleware that we could use are <code>ROS</code>, <code>YARP</code>, <code>NAOqi</code>, etc. Some of them are following one idea - publisher to subscriber structure. In this structure, publishers publish nodes on topics with some information, and the subscriber receive it from the same topic. Here is a code example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#6272a4">## Publisher</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> rospy
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> std_msgs.msg <span style="color:#ff79c6">import</span> String
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">talker</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Publish the message &#34;hello world!&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    pub <span style="color:#ff79c6">=</span> rospy<span style="color:#ff79c6">.</span>Publisher(<span style="color:#f1fa8c">&#39;chatter-topic&#39;</span>，String, queue_size <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>)
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#ff79c6">.</span>init_node(<span style="color:#f1fa8c">&#39;talker&#39;</span>)
+</span></span><span style="display:flex;"><span>    rate <span style="color:#ff79c6">=</span> rospy<span style="color:#ff79c6">.</span>Rate(<span style="color:#bd93f9">10</span>) <span style="color:#6272a4">#10hz</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">not</span> rospy<span style="color:#ff79c6">.</span>is_shutdown():
+</span></span><span style="display:flex;"><span>        hello_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;hello world!&#34;</span>
+</span></span><span style="display:flex;"><span>        pub<span style="color:#ff79c6">.</span>publish(hello_str)
+</span></span><span style="display:flex;"><span>        rate<span style="color:#ff79c6">.</span>sleep()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> __name__ <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    talker()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#6272a4">## listener</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> rospy
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> std_msgs.msg <span style="color:#ff79c6">import</span> String
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">callback</span>(data):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Called when receives the message
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#ff79c6">.</span>loginfo(<span style="color:#f1fa8c">&#34;I heard: </span><span style="color:#f1fa8c">%s</span><span style="color:#f1fa8c">&#34;</span>, data<span style="color:#ff79c6">.</span>data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">listener</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Wait until receive the message &#34;hello world!&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#ff79c6">.</span>init_node(<span style="color:#f1fa8c">&#39;listener&#39;</span>)
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#ff79c6">.</span>Subscriber(<span style="color:#f1fa8c">&#34;chatter-topic&#34;</span>, String, callback)
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#ff79c6">.</span>spin() <span style="color:#6272a4"># loops until killed</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> __name__ <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    listener()
+</span></span></code></pre></div><h3 id="to-be-continue">(To be continue&hellip;)</h3>
 
 
                 
@@ -286,7 +306,7 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2024/02/26/nlu-introduction/" data-toggle="tooltip" data-placement="top" title="Natural Language Understanding - Introduction &amp; Embedding &amp; Model">&larr;
+                        <a href="/2024/02/27/cognitive-robotics-deep-learning/" data-toggle="tooltip" data-placement="top" title="Cognitive Robotics - Deep Learning in Robotics">&larr;
                             Previous Post</a>
                     </li>
                     
@@ -416,7 +436,7 @@
             
            
                    <li>
-                       <a href='/2024/02/19/cognitive-robotics-deep-learning/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2024/02/28/cognitive-robotics-robot-software/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
