@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nlp on UNKNOWN SPACE</title>
-    <link>http://localhost:1313/tags/nlp/</link>
+    <link>https://shuoyin03.github.io/tags/nlp/</link>
     <description>Recent content in Nlp on UNKNOWN SPACE</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shuoyin03.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Natural Language Processing - Deep Learning I</title>
-      <link>http://localhost:1313/2024/01/16/nlp-deep-learning1/</link>
+      <link>https://shuoyin03.github.io/2024/01/16/nlp-deep-learning1/</link>
       <pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/16/nlp-deep-learning1/</guid>
-      <description>&lt;h2 id=&#34;basic-neural-network-structure&#34;&gt;Basic Neural Network Structure&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Single neuron&lt;/code&gt;, the most basic components of neural networks, consist of multiple inputs $[x_1, x_2, &amp;hellip;, x_d]$ and an output $y$.&#xA;&#xD;&#xA;  &lt;img src=&#34;http://localhost:1313/img/nlp/nlp-deep-1/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xD;&#xA;&#xD;&#xA;&#xA;The above picture demonstrated, each input $x$ is multiply by a weight $w$, their sum is added with a bias and then activated by a &lt;code&gt;activation function&lt;/code&gt;. The training process, is to find the best y value from updating the weight in each training epoch.&lt;/p&gt;</description>
+      <guid>https://shuoyin03.github.io/2024/01/16/nlp-deep-learning1/</guid>
+      <description>&lt;h2 id=&#34;basic-neural-network-structure&#34;&gt;Basic Neural Network Structure&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Single neuron&lt;/code&gt;, the most basic components of neural networks, consist of multiple inputs $[x_1, x_2, &amp;hellip;, x_d]$ and an output $y$.&#xA;&#xD;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/nlp/nlp-deep-1/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xD;&#xA;&#xD;&#xA;&#xA;The above picture demonstrated, each input $x$ is multiply by a weight $w$, their sum is added with a bias and then activated by a &lt;code&gt;activation function&lt;/code&gt;. The training process, is to find the best y value from updating the weight in each training epoch.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Natural Language Processing - POS Tagging</title>
-      <link>http://localhost:1313/2024/01/04/nlp-pos-tagging/</link>
+      <link>https://shuoyin03.github.io/2024/01/04/nlp-pos-tagging/</link>
       <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/04/nlp-pos-tagging/</guid>
+      <guid>https://shuoyin03.github.io/2024/01/04/nlp-pos-tagging/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article we will have a look at POS tagging, what is it? How do we apply it to NLP tasks?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;pos&#34;&gt;POS&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;POS&lt;/code&gt; - &amp;ldquo;Part of Speech&amp;rdquo;, represent a &lt;strong&gt;linguistic category&lt;/strong&gt;, defined the syntactic or morphological behavior of words. “Traditional” categories contains 8 tags, they are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;verb&lt;/li&gt;&#xA;&lt;li&gt;None&lt;/li&gt;&#xA;&lt;li&gt;Adverb&lt;/li&gt;&#xA;&lt;li&gt;Adjective&lt;/li&gt;&#xA;&lt;li&gt;Interjection&lt;/li&gt;&#xA;&lt;li&gt;Pronoun&lt;/li&gt;&#xA;&lt;li&gt;Preposition&lt;/li&gt;&#xA;&lt;li&gt;Conjunction&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The previous 5 categories are called the &lt;code&gt;open word classes&lt;/code&gt;, which means that these types always have a large amount of vocabularies and new words could be added into these categories. And the last 3 categories are called &lt;code&gt;closed word classes&lt;/code&gt;, they doesn&amp;rsquo;t acquire new words to add in because most of them are used for &lt;strong&gt;building the text structure and connecting words or sentences&lt;/strong&gt;, which has a limit number of vocabularies.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Natural Language Processing - Text Representation</title>
-      <link>http://localhost:1313/2023/12/21/nlp-text-representation/</link>
+      <link>https://shuoyin03.github.io/2023/12/21/nlp-text-representation/</link>
       <pubDate>Thu, 21 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2023/12/21/nlp-text-representation/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article we will have a look at how to represent texts in data forms for further nlp processes.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;bow-representation&#34;&gt;BoW Representation&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;BoW&lt;/code&gt; - &lt;strong&gt;&amp;ldquo;Bag of words&amp;rdquo;&lt;/strong&gt;, should be the simplest model, which reduce each document into a bag of words.&#xA;&#xD;&#xA;  &lt;img src=&#34;http://localhost:1313/img/nlp/nlp-text-representation/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xD;&#xA;&#xD;&#xA;&#xA;&lt;code&gt;BoW&lt;/code&gt; is an efficient method which nowadays lots of NLP system is using it. However, there are some question we should think of while using it, such as:&lt;/p&gt;</description>
+      <guid>https://shuoyin03.github.io/2023/12/21/nlp-text-representation/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article we will have a look at how to represent texts in data forms for further nlp processes.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;bow-representation&#34;&gt;BoW Representation&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;BoW&lt;/code&gt; - &lt;strong&gt;&amp;ldquo;Bag of words&amp;rdquo;&lt;/strong&gt;, should be the simplest model, which reduce each document into a bag of words.&#xA;&#xD;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/nlp/nlp-text-representation/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xD;&#xA;&#xD;&#xA;&#xA;&lt;code&gt;BoW&lt;/code&gt; is an efficient method which nowadays lots of NLP system is using it. However, there are some question we should think of while using it, such as:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Natural Language Processing - Text Pre-processing</title>
-      <link>http://localhost:1313/2023/12/19/nlp-text-preprocessing/</link>
+      <link>https://shuoyin03.github.io/2023/12/19/nlp-text-preprocessing/</link>
       <pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2023/12/19/nlp-text-preprocessing/</guid>
+      <guid>https://shuoyin03.github.io/2023/12/19/nlp-text-preprocessing/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article, we are going to look at general steps of text pre-processing.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;tokenization&#34;&gt;Tokenization&lt;/h2&gt;&#xA;&lt;h3 id=&#34;word-based-tokenization&#34;&gt;Word-Based Tokenization&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt;Tokenization&lt;/code&gt; is the first step of text pre-processing, it is to split a bunch of text into a list of &lt;code&gt;tokens&lt;/code&gt;. As an example, we could split &lt;strong&gt;“a cat on a pat”&lt;/strong&gt; to &lt;strong&gt;[“a”, “cat”, “on”, “a”, “pet”]&lt;/strong&gt;. For the most basic Tokenization method, we do &lt;code&gt;white space-delimited sequence&lt;/code&gt;, like the above example. However, not all languages use white space, like Chinese (我喜欢西兰花), and we also have to consider punctuation signs, if we want to split “white space-delimited sequence”, we don’t want the result to be &lt;strong&gt;[&amp;ldquo;white&amp;rdquo;, &amp;ldquo;space-delimited&amp;rdquo;, &amp;ldquo;sequence&amp;rdquo;]&lt;/strong&gt;, which breaks the origin meaning of the words.&lt;/p&gt;</description>
     </item>
   </channel>
