@@ -2,75 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Distributed System on UNKNOWN SPACE</title>
-    <link>https://shuoyin03.github.io/tags/distributed-system/</link>
+    <link>http://localhost:1313/tags/distributed-system/</link>
     <description>Recent content in Distributed System on UNKNOWN SPACE</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shuoyin03.github.io/tags/distributed-system/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/distributed-system/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Advanced Distributed System - NoSQL</title>
-      <link>https://shuoyin03.github.io/2024/01/12/distributed-system-nosql/</link>
+      <link>http://localhost:1313/2024/01/12/distributed-system-nosql/</link>
       <pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://shuoyin03.github.io/2024/01/12/distributed-system-nosql/</guid>
-      <description>Unlike SQL focus on data integrity and strict transactional semantics, NoSQL focus on all applications need elastic scaling and simple operations, which operating data in isolation, some characteristics of NoSQL are: expose a simple call-level interface or protocol, offer less strict transactional guarantees, replicate and distribute data over servers&amp;hellip; Let&amp;rsquo;s have a look at NoSQL in this blog.
-Types of NoSQL We could define NoSQL into three types: Key-Value, Document, and Wide Column.</description>
+      <guid>http://localhost:1313/2024/01/12/distributed-system-nosql/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Unlike SQL focus on data integrity and strict transactional semantics, NoSQL focus on all applications need elastic scaling and simple operations, which operating data in isolation, some characteristics of NoSQL are: expose a simple call-level interface or protocol, offer less strict transactional guarantees, replicate and distribute data over servers&amp;hellip; Let&amp;rsquo;s have a look at NoSQL in this blog.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;types-of-nosql&#34;&gt;Types of NoSQL&lt;/h2&gt;&#xA;&lt;p&gt;We could define NoSQL into three types: &lt;code&gt;Key-Value&lt;/code&gt;, &lt;code&gt;Document&lt;/code&gt;, and &lt;code&gt;Wide Column&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Advanced Distributed System - Batch Data and MapReduce</title>
-      <link>https://shuoyin03.github.io/2024/01/09/distributed-system-big-data/</link>
+      <link>http://localhost:1313/2024/01/09/distributed-system-big-data/</link>
       <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://shuoyin03.github.io/2024/01/09/distributed-system-big-data/</guid>
-      <description>Batch processing - a word describing tasks that can run without user interactions, or can be scheduled to run as resources permit. Batch data sets might be huge and need parallel processing. MapReduce is a programming model designed for batch processing, including two steps: &amp;lsquo;map&amp;rsquo; and &amp;lsquo;reduce&amp;rsquo;.
-MapReduce - &amp;lsquo;Map&amp;rsquo; and &amp;lsquo;Reduce&amp;rsquo; Some concepts Job is the unit of work to be performed, it could consist of several map and reduce tasks.</description>
+      <guid>http://localhost:1313/2024/01/09/distributed-system-big-data/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Batch processing - a word describing tasks that can run without user interactions, or can be scheduled to run as resources permit. Batch data sets might be huge and need parallel processing. MapReduce is a programming model designed for batch processing, including two steps: &amp;lsquo;map&amp;rsquo; and &amp;lsquo;reduce&amp;rsquo;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;mapreduce---map-and-reduce&#34;&gt;MapReduce - &amp;lsquo;Map&amp;rsquo; and &amp;lsquo;Reduce&amp;rsquo;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;some-concepts&#34;&gt;Some concepts&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Job&lt;/code&gt; is the unit of work to be performed, it could consist of several &lt;code&gt;map&lt;/code&gt; and &lt;code&gt;reduce&lt;/code&gt; tasks.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Split&lt;/code&gt; is a part of the input.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Task&lt;/code&gt; are map or reduce functions created and run for each split or partition.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Task tracker&lt;/code&gt; tracks the progress of each of the map or reduce tasks on a node and keeps the job tracker informed of progress.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Job tracker&lt;/code&gt; coordinates the different tasks comprising a job.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;map&#34;&gt;Map&lt;/h3&gt;&#xA;&lt;p&gt;A &lt;code&gt;map&lt;/code&gt; function is to generate a key-value pair (key 2, value 2), given a key &amp;lsquo;key 1&amp;rsquo; and a value &amp;lsquo;value 1&amp;rsquo;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Advanced Distributed System - Resource Management</title>
-      <link>https://shuoyin03.github.io/2024/01/06/distributed-system-resource-management/</link>
+      <link>http://localhost:1313/2024/01/06/distributed-system-resource-management/</link>
       <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://shuoyin03.github.io/2024/01/06/distributed-system-resource-management/</guid>
-      <description>What are resources? All stuffs needed for maintaining the run of a system are called resources, such as hardware(CPU, storage, network links), software(web services), and datasets. Applications need to share the resources, and we need to consider how to optimize their use with respect to resources available and resources requested by different applications.
-One example demonstrating a trade-off between time, price and storage resource is that, we could make a software parallelisable and run it with different expensive processors, but it uses lots of storage because large amount of data are processing at the same time.</description>
+      <guid>http://localhost:1313/2024/01/06/distributed-system-resource-management/</guid>
+      <description>&lt;h2 id=&#34;what-are-resources&#34;&gt;What are resources?&lt;/h2&gt;&#xA;&lt;p&gt;All stuffs needed for maintaining the run of a system are called &lt;code&gt;resources&lt;/code&gt;, such as &lt;code&gt;hardware&lt;/code&gt;(CPU, storage, network links), &lt;code&gt;software&lt;/code&gt;(web services), and datasets. Applications need to share the resources, and we need to consider how to optimize their use with respect to resources available and resources requested by different applications.&lt;/p&gt;&#xA;&lt;p&gt;One example demonstrating a trade-off between &lt;strong&gt;time, price and storage resource&lt;/strong&gt; is that, we could make a software &lt;code&gt;parallelisable&lt;/code&gt; and run it with different expensive processors, but it uses lots of storage because large amount of data are processing at the same time. Or, run the software &lt;code&gt;sequentially&lt;/code&gt; on a cheaper processor with less storage used because smaller amount of data is active at the same time.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Advanced Distributed System - Fault Tolerance</title>
-      <link>https://shuoyin03.github.io/2024/01/05/distributed-system-fault-tolerance/</link>
+      <link>http://localhost:1313/2024/01/05/distributed-system-fault-tolerance/</link>
       <pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://shuoyin03.github.io/2024/01/05/distributed-system-fault-tolerance/</guid>
-      <description>In a distributed application, we always have to consider the impact of faults and solutions of how we can solve it while balancing the cost, response time and other performances.
-Type of Failures First of all, let’s have a look at what type of faults do have.
-Omission failures
-The server fails to respond/receive to incoming requests and fail to send messages Timing failures
-The server fails to respond within a certain time Response failures</description>
+      <guid>http://localhost:1313/2024/01/05/distributed-system-fault-tolerance/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In a distributed application, we always have to consider the impact of faults and solutions of how we can solve it while balancing the cost, response time and other performances.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;type-of-failures&#34;&gt;Type of Failures&lt;/h2&gt;&#xA;&lt;p&gt;First of all, let’s have a look at what type of faults do have.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Omission failures&lt;br&gt;&#xA;The server fails to &lt;strong&gt;respond/receive&lt;/strong&gt; to incoming requests and fail to &lt;strong&gt;send&lt;/strong&gt; messages&lt;/li&gt;&#xA;&lt;li&gt;Timing failures&lt;br&gt;&#xA;The server fails to respond within a certain time&lt;/li&gt;&#xA;&lt;li&gt;Response failures&lt;br&gt;&#xA;The server might response incorrect&lt;/li&gt;&#xA;&lt;li&gt;Arbitrary (byzantine) failures&lt;br&gt;&#xA;A component produces output it should have never produced (may not be detected as incorrect): &lt;strong&gt;arbitrary response at arbitrary times&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;Crash&lt;br&gt;&#xA;Server &lt;strong&gt;halts&lt;/strong&gt;!&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;fault-tolerance&#34;&gt;Fault-Tolerance&lt;/h2&gt;&#xA;&lt;p&gt;Usually, we use redundancy to do failure masking, in this article, I will introduce 3 types of redundancy of how and when to use each one.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Advanced Distributed System - Performance Modelling</title>
-      <link>https://shuoyin03.github.io/2023/12/13/distributed-system-performance-modelling/</link>
+      <link>http://localhost:1313/2023/12/13/distributed-system-performance-modelling/</link>
       <pubDate>Tue, 12 Dec 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://shuoyin03.github.io/2023/12/13/distributed-system-performance-modelling/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;It is always good to test the performance of distributed applications to ensure it meets the target, and today we&amp;rsquo;ll learn what is a model and how to build a model to achieve this.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <guid>http://localhost:1313/2023/12/13/distributed-system-performance-modelling/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;It is always good to test the performance of distributed applications to ensure it meets the target, and today we&amp;rsquo;ll learn what is a model and how to build a model to achieve this.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
-    
     <item>
       <title>Advanced Distributed System - Big data</title>
-      <link>https://shuoyin03.github.io/2023/11/06/distributed-system-big-data/</link>
+      <link>http://localhost:1313/2023/11/06/distributed-system-big-data/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://shuoyin03.github.io/2023/11/06/distributed-system-big-data/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;In a shared nothing infrastructure, data storage, update, access and processing takes place across a collection of networked machines. To enhance the performance, processing needs to be take place in parallel, which we have to distribute data, and that&amp;rsquo;s partition. This article will gives an rough idea of partition techniques and details needs to be consider.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <guid>http://localhost:1313/2023/11/06/distributed-system-big-data/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In a shared nothing infrastructure, data storage, update, access and processing takes place across a collection of networked machines. To enhance the performance, processing needs to be take place in parallel, which we have to distribute data, and that&amp;rsquo;s partition. This article will gives an rough idea of partition techniques and details needs to be consider.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
-    
   </channel>
 </rss>

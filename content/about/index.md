@@ -4,11 +4,11 @@ multilingual: true
 ---
 
 ## About Me
-Hi there! my name is **_Shuo Yin_**, a software engineer and a student who currently studying computer science in the University of Manchester. I love learning and using different technologies, and I'm always on the road of discovring.
+Hi there! my name is **_Shuo Yin_**, graduates from The University of Manchester studying Computer Science. I am currently working as a software engineer in [Awaze](https://awaze.com), which I mainly responsible to provide core data to different teams in the company by API and events, as well as developing front-end for managing data. I love learning and using different technologies, and I'm always on the road of discovring.
 
-I am working as a part-time software engineer in |[Sportandmusic](https://sportandmusic.co.uk/), which I mainly focus on automation tasks using python and various APIs.
+I used to work as a part-time software engineer in |[Sportandmusic](https://sportandmusic.co.uk/), which I mainly focus on automation tasks using python and various APIs.
 
-While I am free, I am a blog writer, a Vinyl lover, a song writer and sometimes a hacker (joining hackathons!!).
+While I am free, I am a blog writer, a Vinyl lover and a song writer!
 
 Feel free to connect me at Github and Linkedin, leave your thoughts in his blog or share your ideas by [writing me an email](mailto:shuoyin03@gmail.com). 
 |[Github](https://github.com/ShuoYin03/)

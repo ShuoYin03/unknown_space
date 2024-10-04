@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,20 +10,20 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://shuoyin03.github.io/img/tag-bg.jpg">
-    <meta property="twitter:image" content="https://shuoyin03.github.io/img/tag-bg.jpg" />
+    <meta property="og:image" content="http://localhost:1313//img/tag-bg.jpg">
+    <meta property="twitter:image" content="http://localhost:1313//img/tag-bg.jpg" />
     
 
     
-    <meta name="title" content="Leetcode" />
-    <meta property="og:title" content="Leetcode" />
-    <meta property="twitter:title" content="Leetcode" />
+    <meta name="title" content="Networking - URL Journey From Browser" />
+    <meta property="og:title" content="Networking - URL Journey From Browser" />
+    <meta property="twitter:title" content="Networking - URL Journey From Browser" />
     
 
     
-    <meta name="description" content="Blog for Shuo Yin.">
-    <meta property="og:description" content="Blog for Shuo Yin." />
-    <meta property="twitter:description" content="Blog for Shuo Yin." />
+    <meta name="description" content="Describe the process of how a page is display in the browser">
+    <meta property="og:description" content="Describe the process of how a page is display in the browser" />
+    <meta property="twitter:description" content="Describe the process of how a page is display in the browser" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Leetcode | ShuoYin</title>
+    <title>Networking - URL Journey From Browser | ShuoYin</title>
 
-    <link rel="canonical" href="/tags/leetcode/">
+    <link rel="canonical" href="/2024/10/04/Networking/url-journey/">
 
     
     
@@ -71,8 +71,6 @@
     
 
 </head>
-
-
 
 
 
@@ -160,244 +158,146 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>UNKNOWN SPACE </h1>
-                    
-		    <span class="subheading">Welcome to my world</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/networking" title="Networking">
+                            Networking
+                        </a>
+                        
+                    </div>
+                    <h1>Networking - URL Journey From Browser</h1>
+                    <h2 class="subheading">What happen when I search an URL in the browser?</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Friday, October 4, 2024
+                            
+                                
+                                <br><span class="meta">424 Words, Read 2 minutes</span>
+                            
+                             
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
 </header>
 
 
 
-  
-<div data-pagefind-ignore="all" class="container">
-    <div class="row">
-        
-        
-   	    <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container
-        ">
-            
-<div data-pagefind-ignore="all">
 
-<div class="post-preview">
-    <a href="https://shuoyin03.github.io/2024/01/16/leetcode-beginning/">
-        <h2 class="post-title">
-            Leetcode journal - Beginning
-        </h2>
-	
-        <h3 class="post-subtitle">
-            Record of learning from leetcode
-        </h3>
-	
-        <div class="post-content-preview">
-	
-            Record the process of solving leetcode and try to form a knowledge system of algorithms and data structures
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by UNKNOWN SPACE on Tuesday, January 16, 2024
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-</div>
+<article>
+    <div class="container">
+        <div class="row">
 
             
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>This article will explain the series of processes that occur after a URL is entered into a browser and a query is initiated. The content is based on the book How the Internet Connects with some additional clarifications and expansions for better understanding.</p>
+<h2 id="dns---from-domain-name-to-ip-address">DNS - From Domain Name to IP Address</h2>
+<p>When the browser receives a user&rsquo;s URL request, the first step is to resolve the domain name into an IP address. This is because domain names are easier for humans to remember and are more readable, but computers need IP addresses to identify the location of other machines on the network. When we enter a website in the browser and press the Enter key, the browser will first call a method named <code>gethostbyname</code> from the system&rsquo;s <code>Socket API</code> (Socket is an interface provided by the operating system for network communication. It offers a series of methods for interacting with the network protocol stack within the OS). The <code>gethostbyname</code> method takes a domain name as a parameter, sends a query to the DNS server, and returns the corresponding IP address. (In modern systems, this method is gradually being replaced by <code>getaddrinfo</code>, which supports a wider range of protocols.) The DNS server stores the mappings between domain names and IP addresses, and its task is to handle query requests from clients. The query parameters typically include three elements:</p>
+<ul>
+<li>Domain</li>
+<li>Class</li>
+<li>Record Type</li>
+</ul>
+<p>First, the <code>Domain</code> is the parameter we input in the <code>gethostbyname</code> method. It is important to note that this domain name is not limited to the one we input in the browser. It can also include domain names used by services like mail servers (the part after the @ symbol). Second, the <code>Class</code> parameter is used to identify the type of network. Since the Internet is the most commonly used network today, the most typical input for this parameter is <code>IN</code>, representing the Internet. The third parameter indicates the type of data the client wants to retrieve. Here, we will introduce two common types: the first is the <code>A</code> type, which represents an IP address, the DNS server will return the IPv4 address for this type. The second type is the <code>MX</code> type used by mail servers. In response to this type of query, the DNS server will return the domain name of the mail server, its priority, and the corresponding IP address.</p>
+<p>However, there are so many IP addresses and domain names globally that no single DNS server can handle all the requests worldwide. Therefore, DNS servers are distributed across the world.</p>
 
 
+                
 
-       	</div>
-        
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            
-            
-            
-                    <a href="/tags/algorithm" title="algorithm">
-                        algorithm
-                    </a>
-            
-            
-            
-                    <a href="/tags/cognitive-robotics" title="cognitive-robotics">
-                        cognitive-robotics
-                    </a>
-            
-            
-            
-                    <a href="/tags/cyber-security" title="cyber-security">
-                        cyber-security
-                    </a>
-            
-            
-            
-                    <a href="/tags/data-structure" title="data-structure">
-                        data-structure
-                    </a>
-            
-            
-            
-                    <a href="/tags/distributed-system" title="distributed-system">
-                        distributed-system
-                    </a>
-            
-            
-            
-                    <a href="/tags/hugo" title="hugo">
-                        hugo
-                    </a>
-            
-            
-            
-                    <a href="/tags/leetcode" title="leetcode">
-                        leetcode
-                    </a>
-            
-            
-            
-                    <a href="/tags/nlp" title="nlp">
-                        nlp
-                    </a>
-            
-            
-            
-                    <a href="/tags/nlu" title="nlu">
-                        nlu
-                    </a>
-            
-            
-        </div>
-    </section>
-    
-
-    
-	
-    <section class="visible-md visible-lg">
-        <hr>
-	
-        <div class="short-about">
-            
-            <a href="/about">
-               <img src="/img/sign-post-5655110_640.png" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Software Developer in Sportandmusic, Third year computer science student in the University of Manchester</p>
-            
-           
-           <ul class="list-inline">
-               
-               <li>
-                   <a href="mailto:shuoyin03@gmail.com">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                      </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="/img/wechat.jpg">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/ShuoYin03">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-            
-            
-               
-               
-               
-               
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/02/28/cognitive-robotics-robot-software/" data-toggle="tooltip" data-placement="top" title="Cognitive Robotics - Robot Software">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
                 </ul>
+                
+
+                
+
+
+
             </div>
-    </section>
-	
-    
-    
-   
 
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FRIENDS</h5>
-        <ul class="list-inline">
             
-            <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
             
-        </ul>
-    </section>
-    
-    
-</div>
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
 
-	</div>
-</div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/networking" title="Networking">
+                            Networking
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
 
 
 
@@ -466,7 +366,7 @@
             
            
                    <li>
-                       <a href='/tags/leetcode/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                       <a href='/2024/10/04/Networking/url-journey/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

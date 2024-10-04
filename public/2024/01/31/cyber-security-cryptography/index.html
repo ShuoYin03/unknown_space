@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +10,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://shuoyin03.github.io/img/tag-bg.jpg">
-    <meta property="twitter:image" content="https://shuoyin03.github.io/img/tag-bg.jpg" />
+    <meta property="og:image" content="http://localhost:1313//img/tag-bg.jpg">
+    <meta property="twitter:image" content="http://localhost:1313//img/tag-bg.jpg" />
     
 
     
@@ -330,38 +330,38 @@ Typically 10+ rounds</li>
 <p>We have mentioned <code>DES</code> need 16 rounds of calculation, but what is <code>DES</code>? It is actually stands for <code>Data Encryption Standard</code>, first published in 1977 as a US Federal Standard, and it is also international standard for banking security. The <code>DES</code> is a <code>Feistel block cipher</code> specified multiple standards on variables of <code>Feistel block cipher</code>. For example, the <code>block size</code> is 64 bits, the key $K$ is 56 bits (actually 8 bytes, but the 8th bit in each byte is a $parity-check bit$), the subkeys $k_1, k_2 , &hellip; , k_{16}$ are each 48-bits, generated from key $K$.</p>
 <p><code>DES</code> has some weakness, the 56-bit key is a bit problem - it could be broken on average in $2^55$ trials (<code>brute force</code> attack), a diagram below demonstrate how long can someone broken the <code>DES</code> based on the speed.</p>
 <table>
-<thead>
-<tr>
-<th>Trials</th>
-<th>Time Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>10^9 years</td>
-</tr>
-<tr>
-<td>10^3</td>
-<td>10^6 years</td>
-</tr>
-<tr>
-<td>10^6</td>
-<td>10^3 years</td>
-</tr>
-<tr>
-<td>10^9</td>
-<td>1 year</td>
-</tr>
-<tr>
-<td>10^12</td>
-<td>10 hours</td>
-</tr>
-<tr>
-<td>Therefore, for the computer nowadays, we need at least 128 bits. Based on this we have some improvements on <code>DES</code>, where <code>Triple DES</code> and <code>AES</code> is invented.</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Trials</th>
+          <th style="text-align: left">Time Required</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">10^9 years</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">10^3</td>
+          <td style="text-align: left">10^6 years</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">10^6</td>
+          <td style="text-align: left">10^3 years</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">10^9</td>
+          <td style="text-align: left">1 year</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">10^12</td>
+          <td style="text-align: left">10 hours</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Therefore, for the computer nowadays, we need at least 128 bits. Based on this we have some improvements on <code>DES</code>, where <code>Triple DES</code> and <code>AES</code> is invented.</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="triple-des">Triple DES</h3>
 <p>The <code>Triple DES</code> uses two or three DES keys, we call the DES with two keys <code>EDE2</code> and <code>EDE3</code> for DES with three keys.</p>
@@ -429,42 +429,42 @@ Note that arithmetic follows the ordinary rules of polynomial arithmetic using t
 </p>
 <p>Now, we could compare DES and AES and list some of their characteristics:</p>
 <table>
-<thead>
-<tr>
-<th>DES</th>
-<th>AES</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Substitution-Permutation</td>
-<td>Substitution-Permutation</td>
-</tr>
-<tr>
-<td>iterated cipher, Feistel structure</td>
-<td>iterated cipher</td>
-</tr>
-<tr>
-<td>64-bit block size</td>
-<td>128-bit block size</td>
-</tr>
-<tr>
-<td>56-bit key size</td>
-<td>128/192/256-bit key sizes</td>
-</tr>
-<tr>
-<td>8 different S-boxes</td>
-<td>1 S-box</td>
-</tr>
-<tr>
-<td>design optimized for hardware implementations</td>
-<td>design optimised for byteorientated implementations</td>
-</tr>
-<tr>
-<td>closed (secret) design process</td>
-<td>open design and evaluation process</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">DES</th>
+          <th style="text-align: left">AES</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Substitution-Permutation</td>
+          <td style="text-align: left">Substitution-Permutation</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">iterated cipher, Feistel structure</td>
+          <td style="text-align: left">iterated cipher</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">64-bit block size</td>
+          <td style="text-align: left">128-bit block size</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">56-bit key size</td>
+          <td style="text-align: left">128/192/256-bit key sizes</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">8 different S-boxes</td>
+          <td style="text-align: left">1 S-box</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">design optimized for hardware implementations</td>
+          <td style="text-align: left">design optimised for byteorientated implementations</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">closed (secret) design process</td>
+          <td style="text-align: left">open design and evaluation process</td>
+      </tr>
+  </tbody>
 </table>
 <p><code>N-bit block cipher</code> permutes over $2N$ inputs, so the larger the $N$ value, the longer it takes to attack, thus the more secure the cipher is. However, this also means that the slower the encryption &amp; decryption. The block cipher will only provide <code>computational secrecy</code>, it means that it is not impossible to break the cipher, it is just very expensive. If the time and cost of attacks by using <code>brute-force</code>(when the cipher is secure) exceed the value or the useful lifetime of protected data, the attacker will be unlikely to attack.</p>
 <h2 id="stream-ciphers-one-time-pad">Stream Ciphers: One-time Pad</h2>
@@ -507,34 +507,34 @@ $$C_i = E_K(M_i\ xor\ C_{i-1})$$</p>
 <p>Actually, the CTR mode actually converts a block cipher into a stream cipher. Each of the block is processed independently, that means we are able to access the blocks randomly, the error caused by modifying a block during transmission won&rsquo;t affect other blocks, and the blocks&rsquo; processes are parallelisable. One thing needs to mention is that the counter needs to be synchronized, if a block is inserted into or deleted from the ciphertext stream then synchronization is lost and the plaintext cannot be recovered.</p>
 <h2 id="block-cipher-vs-stream-cipher">Block Cipher VS. Stream Cipher</h2>
 <table>
-<thead>
-<tr>
-<th>Block Cipher</th>
-<th>Stream Cipher</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Encrypt blocks of characters</td>
-<td>Encrypt individual characters</td>
-</tr>
-<tr>
-<td>Slower</td>
-<td>Faster</td>
-</tr>
-<tr>
-<td>Requires more memory space</td>
-<td>Requires less memory space</td>
-</tr>
-<tr>
-<td></td>
-<td>limited or no error propagation</td>
-</tr>
-<tr>
-<td></td>
-<td>built without of block ciphers</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Block Cipher</th>
+          <th style="text-align: left">Stream Cipher</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Encrypt blocks of characters</td>
+          <td style="text-align: left">Encrypt individual characters</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Slower</td>
+          <td style="text-align: left">Faster</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Requires more memory space</td>
+          <td style="text-align: left">Requires less memory space</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">limited or no error propagation</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">built without of block ciphers</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="implementation-flaws">Implementation Flaws</h2>
 <p>Here are some tips about some known vulnerabilities in software implementations:</p>

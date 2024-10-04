@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +10,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://shuoyin03.github.io/img/tag-bg.jpg">
-    <meta property="twitter:image" content="https://shuoyin03.github.io/img/tag-bg.jpg" />
+    <meta property="og:image" content="http://localhost:1313//img/tag-bg.jpg">
+    <meta property="twitter:image" content="http://localhost:1313//img/tag-bg.jpg" />
     
 
     
@@ -233,22 +233,22 @@ By definition, partition involves deciding how to assign data from a sources to 
 <p><strong>Random or Round Robin:</strong><br>
 Data is assigned as it is inserted across different nodes.</p>
 <table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Uniform initial distribution</td>
-<td>Querying involves accessing all notes</td>
-</tr>
-<tr>
-<td>Easy to rebalance on update</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Pros</th>
+          <th style="text-align: left">Cons</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Uniform initial distribution</td>
+          <td style="text-align: left">Querying involves accessing all notes</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Easy to rebalance on update</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 </li>
 <li>
@@ -256,30 +256,30 @@ Data is assigned as it is inserted across different nodes.</p>
 Partitioning often assumes some form of key-value data model. Then partitioning relates to the key
 Key range: each partition is associated with a range of values for the key (e.g. alphabetical or numerical).</p>
 <table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Focused range queries on key</td>
-<td>Risk of hot spots for popular keys</td>
-</tr>
-<tr>
-<td>Focused direct access on key</td>
-<td>Uniform distribution not intrinsic</td>
-</tr>
-<tr>
-<td></td>
-<td>Rebalancing can be expensive</td>
-</tr>
-<tr>
-<td></td>
-<td>Only helps for key-based requests</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Pros</th>
+          <th style="text-align: left">Cons</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Focused range queries on key</td>
+          <td style="text-align: left">Risk of hot spots for popular keys</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Focused direct access on key</td>
+          <td style="text-align: left">Uniform distribution not intrinsic</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Rebalancing can be expensive</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Only helps for key-based requests</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 <li>
@@ -287,60 +287,60 @@ Key range: each partition is associated with a range of values for the key (e.g.
 Partition based on the hash of the keys.<br>
 Assume we have Hash(String) -&gt; Integer, if there is n parition, partition(key) = return(Hash(key) mod n)</p>
 <table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Uniform distribution with certain keys</td>
-<td>Risk of hot spots for popular keys</td>
-</tr>
-<tr>
-<td>Focused direct access on key</td>
-<td>No support for range queries</td>
-</tr>
-<tr>
-<td></td>
-<td>Rebalancing can be expensive</td>
-</tr>
-<tr>
-<td></td>
-<td>Only helps for the requests that have the key</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Pros</th>
+          <th style="text-align: left">Cons</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Uniform distribution with certain keys</td>
+          <td style="text-align: left">Risk of hot spots for popular keys</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Focused direct access on key</td>
+          <td style="text-align: left">No support for range queries</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Rebalancing can be expensive</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Only helps for the requests that have the key</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 <li>
 <p><strong>Meaning based Partition:</strong><br>
 Partitioning by key means choosing a suitable key</p>
 <table>
-<thead>
-<tr>
-<th>Desirable</th>
-<th>Examples</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Useful for range access requests</td>
-<td>Size</td>
-</tr>
-<tr>
-<td>Useful for direct access requests</td>
-<td>Name, Town</td>
-</tr>
-<tr>
-<td>Diverse values</td>
-<td>Id, Name, Town, Size</td>
-</tr>
-<tr>
-<td>Not subject to skew</td>
-<td>Id, Name, Town, Size</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Desirable</th>
+          <th style="text-align: left">Examples</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Useful for range access requests</td>
+          <td style="text-align: left">Size</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Useful for direct access requests</td>
+          <td style="text-align: left">Name, Town</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Diverse values</td>
+          <td style="text-align: left">Id, Name, Town, Size</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Not subject to skew</td>
+          <td style="text-align: left">Id, Name, Town, Size</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 </ol>
@@ -381,30 +381,30 @@ In the previous example the fraction is 1/4</p>
 
 </p>
 <table>
-<thead>
-<tr>
-<th>Query</th>
-<th>Does partition index help?</th>
-<th>Useful Additional Index</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>How many students attend UCL?</td>
-<td>Yes</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>Which Uni have &gt; 40,000 students</td>
-<td>No</td>
-<td>Range index on size</td>
-</tr>
-<tr>
-<td>Which Uni are in Manchester</td>
-<td>No</td>
-<td>Hash or range index on town</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Query</th>
+          <th style="text-align: left">Does partition index help?</th>
+          <th style="text-align: left">Useful Additional Index</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">How many students attend UCL?</td>
+          <td style="text-align: left">Yes</td>
+          <td style="text-align: left">N/A</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Which Uni have &gt; 40,000 students</td>
+          <td style="text-align: left">No</td>
+          <td style="text-align: left">Range index on size</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Which Uni are in Manchester</td>
+          <td style="text-align: left">No</td>
+          <td style="text-align: left">Hash or range index on town</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="local-secondary-index">Local Secondary Index</h3>
 <p>A key question is that where should we store these secondary index? Here are few options to do it:</p>
@@ -416,18 +416,18 @@ In the previous example the fraction is 1/4</p>
 
 </p>
 <table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Updating a document leads to local index changes (so no distributed transactions)</td>
-<td>A lookup needs to go to every transaction, leading to many index lookups</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Pros</th>
+          <th style="text-align: left">Cons</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Updating a document leads to local index changes (so no distributed transactions)</td>
+          <td style="text-align: left">A lookup needs to go to every transaction, leading to many index lookups</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 <li>
@@ -437,18 +437,18 @@ In the previous example the fraction is 1/4</p>
 
 </p>
 <table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Index lookups no longer need to go to all nodes (note some index lookups will have no hits)</td>
-<td>Updates to a document on a node now also lead to index updates (and thus potentially to distributed transactions)</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Pros</th>
+          <th style="text-align: left">Cons</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Index lookups no longer need to go to all nodes (note some index lookups will have no hits)</td>
+          <td style="text-align: left">Updates to a document on a node now also lead to index updates (and thus potentially to distributed transactions)</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 </ol>
