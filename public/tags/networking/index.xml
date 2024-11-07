@@ -6,13 +6,13 @@
     <description>Recent content in Networking on UNKNOWN SPACE</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Networking - URL Journey From Browser</title>
-      <link>http://localhost:1313/2024/10/04/Networking/url-journey/</link>
-      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/10/04/Networking/url-journey/</guid>
+      <link>http://localhost:1313/2024/11/07/Networking/url-journey/</link>
+      <pubDate>Thu, 07 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024/11/07/Networking/url-journey/</guid>
       <description>&lt;p&gt;This article will explain the series of processes that occur after a URL is entered&#xA;into a browser and a query is initiated. The content is based on the book How the&#xA;Internet Connects with some additional clarifications and expansions for better&#xA;understanding.&lt;/p&gt;&#xA;&lt;h2 id=&#34;dns---from-domain-name-to-ip-address&#34;&gt;DNS - From Domain Name to IP Address&lt;/h2&gt;&#xA;&lt;p&gt;When the browser receives a user&amp;rsquo;s URL request, the first step is to resolve the domain&#xA;name into an IP address. This is because domain names are easier for humans to remember&#xA;and are more readable, but computers need IP addresses to identify the location of&#xA;other machines on the network. When we enter a website in the browser and press the&#xA;Enter key, the browser will first call a method named &lt;code&gt;gethostbyname&lt;/code&gt; from the system&amp;rsquo;s&#xA;&lt;code&gt;Socket API&lt;/code&gt; (Socket is an interface provided by the operating system for network&#xA;communication. It offers a series of methods for interacting with the network protocol&#xA;stack within the OS). The &lt;code&gt;gethostbyname&lt;/code&gt; method takes a domain name as a parameter,&#xA;sends a query to the DNS server, and returns the corresponding IP address. (In modern&#xA;systems, this method is gradually being replaced by &lt;code&gt;getaddrinfo&lt;/code&gt;, which supports a&#xA;wider range of protocols.) The DNS server stores the mappings between domain names&#xA;and IP addresses, and its task is to handle query requests from clients. The query&#xA;parameters typically include three elements:&lt;/p&gt;</description>
     </item>
   </channel>

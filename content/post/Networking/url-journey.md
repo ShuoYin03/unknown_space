@@ -2,12 +2,12 @@
 title: "Networking - URL Journey From Browser"
 subtitle:    "What happen when I search an URL in the browser?"
 description: "Describe the process of how a page is display in the browser"
-date: 2024-10-04
+date: 2024-11-07
 author: "UNKNOWN SPACE"
 image: ""
 tags: ["Networking"]
 categories: ["notes"]
-URL: "/2024/10/04/Networking/url-journey"
+URL: "/2024/11/07/Networking/url-journey"
 draft: False
 ---
 

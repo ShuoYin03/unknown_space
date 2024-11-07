@@ -75,6 +75,8 @@
 
 
 
+
+
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 
     <div class="container-fluid">
@@ -95,7 +97,6 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        
                         <a href="/">All Posts</a>
                     </li>
                     
@@ -114,7 +115,6 @@
                         <li><a href="/archive//">ARCHIVE</a></li>
                     
                         <li><a href="/about//">ABOUT</a></li>
-                    
                     
 		            <li>
                         <a href="/search"><i class="fa fa-search"></i></a>
@@ -158,8 +158,6 @@
 
 
 
-
-
 <style type="text/css">
     header.intro-header {
         background-image: url('/img/tag-bg.jpg')
@@ -190,10 +188,7 @@
                             on 
                             Monday, November 6, 2023
                             
-                                
-                                <br><span class="meta">810 Words, Read 4 minutes</span>
                             
-                             
                             
                             
                     </span>
@@ -233,18 +228,18 @@ Data is assigned as it is inserted across different nodes.</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Pros</th>
-          <th style="text-align: left">Cons</th>
+          <th>Pros</th>
+          <th>Cons</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Uniform initial distribution</td>
-          <td style="text-align: left">Querying involves accessing all notes</td>
+          <td>Uniform initial distribution</td>
+          <td>Querying involves accessing all notes</td>
       </tr>
       <tr>
-          <td style="text-align: left">Easy to rebalance on update</td>
-          <td style="text-align: left"></td>
+          <td>Easy to rebalance on update</td>
+          <td></td>
       </tr>
   </tbody>
 </table>
@@ -256,26 +251,26 @@ Key range: each partition is associated with a range of values for the key (e.g.
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Pros</th>
-          <th style="text-align: left">Cons</th>
+          <th>Pros</th>
+          <th>Cons</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Focused range queries on key</td>
-          <td style="text-align: left">Risk of hot spots for popular keys</td>
+          <td>Focused range queries on key</td>
+          <td>Risk of hot spots for popular keys</td>
       </tr>
       <tr>
-          <td style="text-align: left">Focused direct access on key</td>
-          <td style="text-align: left">Uniform distribution not intrinsic</td>
+          <td>Focused direct access on key</td>
+          <td>Uniform distribution not intrinsic</td>
       </tr>
       <tr>
-          <td style="text-align: left"></td>
-          <td style="text-align: left">Rebalancing can be expensive</td>
+          <td></td>
+          <td>Rebalancing can be expensive</td>
       </tr>
       <tr>
-          <td style="text-align: left"></td>
-          <td style="text-align: left">Only helps for key-based requests</td>
+          <td></td>
+          <td>Only helps for key-based requests</td>
       </tr>
   </tbody>
 </table>
@@ -287,26 +282,26 @@ Assume we have Hash(String) -&gt; Integer, if there is n parition, partition(key
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Pros</th>
-          <th style="text-align: left">Cons</th>
+          <th>Pros</th>
+          <th>Cons</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Uniform distribution with certain keys</td>
-          <td style="text-align: left">Risk of hot spots for popular keys</td>
+          <td>Uniform distribution with certain keys</td>
+          <td>Risk of hot spots for popular keys</td>
       </tr>
       <tr>
-          <td style="text-align: left">Focused direct access on key</td>
-          <td style="text-align: left">No support for range queries</td>
+          <td>Focused direct access on key</td>
+          <td>No support for range queries</td>
       </tr>
       <tr>
-          <td style="text-align: left"></td>
-          <td style="text-align: left">Rebalancing can be expensive</td>
+          <td></td>
+          <td>Rebalancing can be expensive</td>
       </tr>
       <tr>
-          <td style="text-align: left"></td>
-          <td style="text-align: left">Only helps for the requests that have the key</td>
+          <td></td>
+          <td>Only helps for the requests that have the key</td>
       </tr>
   </tbody>
 </table>
@@ -317,26 +312,26 @@ Partitioning by key means choosing a suitable key</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Desirable</th>
-          <th style="text-align: left">Examples</th>
+          <th>Desirable</th>
+          <th>Examples</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Useful for range access requests</td>
-          <td style="text-align: left">Size</td>
+          <td>Useful for range access requests</td>
+          <td>Size</td>
       </tr>
       <tr>
-          <td style="text-align: left">Useful for direct access requests</td>
-          <td style="text-align: left">Name, Town</td>
+          <td>Useful for direct access requests</td>
+          <td>Name, Town</td>
       </tr>
       <tr>
-          <td style="text-align: left">Diverse values</td>
-          <td style="text-align: left">Id, Name, Town, Size</td>
+          <td>Diverse values</td>
+          <td>Id, Name, Town, Size</td>
       </tr>
       <tr>
-          <td style="text-align: left">Not subject to skew</td>
-          <td style="text-align: left">Id, Name, Town, Size</td>
+          <td>Not subject to skew</td>
+          <td>Id, Name, Town, Size</td>
       </tr>
   </tbody>
 </table>
@@ -381,26 +376,26 @@ In the previous example the fraction is 1/4</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Query</th>
-          <th style="text-align: left">Does partition index help?</th>
-          <th style="text-align: left">Useful Additional Index</th>
+          <th>Query</th>
+          <th>Does partition index help?</th>
+          <th>Useful Additional Index</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">How many students attend UCL?</td>
-          <td style="text-align: left">Yes</td>
-          <td style="text-align: left">N/A</td>
+          <td>How many students attend UCL?</td>
+          <td>Yes</td>
+          <td>N/A</td>
       </tr>
       <tr>
-          <td style="text-align: left">Which Uni have &gt; 40,000 students</td>
-          <td style="text-align: left">No</td>
-          <td style="text-align: left">Range index on size</td>
+          <td>Which Uni have &gt; 40,000 students</td>
+          <td>No</td>
+          <td>Range index on size</td>
       </tr>
       <tr>
-          <td style="text-align: left">Which Uni are in Manchester</td>
-          <td style="text-align: left">No</td>
-          <td style="text-align: left">Hash or range index on town</td>
+          <td>Which Uni are in Manchester</td>
+          <td>No</td>
+          <td>Hash or range index on town</td>
       </tr>
   </tbody>
 </table>
@@ -416,14 +411,14 @@ In the previous example the fraction is 1/4</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Pros</th>
-          <th style="text-align: left">Cons</th>
+          <th>Pros</th>
+          <th>Cons</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Updating a document leads to local index changes (so no distributed transactions)</td>
-          <td style="text-align: left">A lookup needs to go to every transaction, leading to many index lookups</td>
+          <td>Updating a document leads to local index changes (so no distributed transactions)</td>
+          <td>A lookup needs to go to every transaction, leading to many index lookups</td>
       </tr>
   </tbody>
 </table>
@@ -437,14 +432,14 @@ In the previous example the fraction is 1/4</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Pros</th>
-          <th style="text-align: left">Cons</th>
+          <th>Pros</th>
+          <th>Cons</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Index lookups no longer need to go to all nodes (note some index lookups will have no hits)</td>
-          <td style="text-align: left">Updates to a document on a node now also lead to index updates (and thus potentially to distributed transactions)</td>
+          <td>Index lookups no longer need to go to all nodes (note some index lookups will have no hits)</td>
+          <td>Updates to a document on a node now also lead to index updates (and thus potentially to distributed transactions)</td>
       </tr>
   </tbody>
 </table>
@@ -487,9 +482,9 @@ In the previous example the fraction is 1/4</p>
 
 
 
+
             </div>
 
-            
             
             
             <div class="
@@ -522,8 +517,56 @@ In the previous example the fraction is 1/4</p>
                         
                         
                         
-                        <a href="/tags/distributed-system" title="Distributed System">
-                            Distributed System
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cognitive-robotics" title="cognitive robotics">
+                            cognitive robotics
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cyber-security" title="cyber security">
+                            cyber security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data structure">
+                            data structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed system">
+                            distributed system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/networking" title="networking">
+                            networking
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlu" title="nlu">
+                            nlu
                         </a>
                         
                         
@@ -532,6 +575,16 @@ In the previous example the fraction is 1/4</p>
                 
 
                 
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
+                        
+                    </ul>
+                </section>
                 
             </div>
         </div>
@@ -545,7 +598,7 @@ In the previous example the fraction is 1/4</p>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">                  
+                <ul class="list-inline text-center">
                     
                     <li>
                         <a href="mailto:shuoyin03@gmail.com">
@@ -616,13 +669,7 @@ In the previous example the fraction is 1/4</p>
              </ul>
 		<p class="copyright text-muted">
                     Copyright &copy; UNKNOWN SPACE 2024
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="100px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
-                    </iframe>
+                    
                 </p>
             </div>
         </div>
