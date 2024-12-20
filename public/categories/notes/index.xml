@@ -2,165 +2,165 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notes on UNKNOWN SPACE</title>
-    <link>http://localhost:1313/categories/notes/</link>
+    <link>https://shuoyin03.github.io/categories/notes/</link>
     <description>Recent content in Notes on UNKNOWN SPACE</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Nov 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shuoyin03.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Networking - URL Journey From Browser</title>
-      <link>http://localhost:1313/2024/11/07/Networking/url-journey/</link>
+      <link>https://shuoyin03.github.io/2024/11/07/Networking/url-journey/</link>
       <pubDate>Thu, 07 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/11/07/Networking/url-journey/</guid>
+      <guid>https://shuoyin03.github.io/2024/11/07/Networking/url-journey/</guid>
       <description>&lt;p&gt;This article will explain the series of processes that occur after a URL is entered&#xA;into a browser and a query is initiated. The content is based on the book How the&#xA;Internet Connects with some additional clarifications and expansions for better&#xA;understanding.&lt;/p&gt;&#xA;&lt;h2 id=&#34;dns---from-domain-name-to-ip-address&#34;&gt;DNS - From Domain Name to IP Address&lt;/h2&gt;&#xA;&lt;p&gt;When the browser receives a user&amp;rsquo;s URL request, the first step is to resolve the domain&#xA;name into an IP address. This is because domain names are easier for humans to remember&#xA;and are more readable, but computers need IP addresses to identify the location of&#xA;other machines on the network. When we enter a website in the browser and press the&#xA;Enter key, the browser will first call a method named &lt;code&gt;gethostbyname&lt;/code&gt; from the system&amp;rsquo;s&#xA;&lt;code&gt;Socket API&lt;/code&gt; (Socket is an interface provided by the operating system for network&#xA;communication. It offers a series of methods for interacting with the network protocol&#xA;stack within the OS). The &lt;code&gt;gethostbyname&lt;/code&gt; method takes a domain name as a parameter,&#xA;sends a query to the DNS server, and returns the corresponding IP address. (In modern&#xA;systems, this method is gradually being replaced by &lt;code&gt;getaddrinfo&lt;/code&gt;, which supports a&#xA;wider range of protocols.) The DNS server stores the mappings between domain names&#xA;and IP addresses, and its task is to handle query requests from clients. The query&#xA;parameters typically include three elements:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cognitive Robotics - Robot Software</title>
-      <link>http://localhost:1313/2024/02/28/cognitive-robotics-robot-software/</link>
+      <link>https://shuoyin03.github.io/2024/02/28/cognitive-robotics-robot-software/</link>
       <pubDate>Wed, 28 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/02/28/cognitive-robotics-robot-software/</guid>
-      <description>&lt;h2 id=&#34;autonomous-robot-workflow&#34;&gt;Autonomous Robot Workflow&lt;/h2&gt;&#xA;&lt;p&gt;A autonomous robot workflow would be like this: the sensors collect data from the real-world environment, experienced the learning process sensing, reasoning, and acting. Then it give its feedback, doing some movements or actions by sensors.&#xA;&#xA;  &lt;img src=&#34;http://localhost:1313/img/robots/software/image.png&#34; alt=&#34;alt text&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;The code below is a great example, where the first line is getting the information from outside world, and the second line is doing some reasoning, limit the distance, and if the distance is less than 0.3, the actuators stops.&lt;/p&gt;</description>
+      <guid>https://shuoyin03.github.io/2024/02/28/cognitive-robotics-robot-software/</guid>
+      <description>&lt;h2 id=&#34;autonomous-robot-workflow&#34;&gt;Autonomous Robot Workflow&lt;/h2&gt;&#xA;&lt;p&gt;A autonomous robot workflow would be like this: the sensors collect data from the real-world environment, experienced the learning process sensing, reasoning, and acting. Then it give its feedback, doing some movements or actions by sensors.&#xA;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/robots/software/image.png&#34; alt=&#34;alt text&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;The code below is a great example, where the first line is getting the information from outside world, and the second line is doing some reasoning, limit the distance, and if the distance is less than 0.3, the actuators stops.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cognitive Robotics - Deep Learning in Robotics</title>
-      <link>http://localhost:1313/2024/02/27/cognitive-robotics-deep-learning/</link>
+      <link>https://shuoyin03.github.io/2024/02/27/cognitive-robotics-deep-learning/</link>
       <pubDate>Tue, 27 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/02/27/cognitive-robotics-deep-learning/</guid>
-      <description>&lt;p&gt;This blog is a supplement of deep learning topic as we already explain the fundamental knowledge in this blog: &lt;a href=&#34;http://localhost:1313/2024/01/16/nlp-deep-learning1/&#34;&gt;Natural Language Processing - Deep Learning I&lt;/a&gt;, where we will mainly focuses on &lt;code&gt;CNN&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-deep-learning&#34;&gt;Why Deep Learning?&lt;/h2&gt;&#xA;&lt;p&gt;The reason why we apply deep learning techniques are quite obvious, which is to ues it handle thee robots&amp;rsquo; vision. The advantage of neural network is learning and building up features to represent the input data, which help us remove the complex and limit feature selection process. However, normal neural networks couldn&amp;rsquo;t satisfy the needs. For example, if we use the classic dataset like &lt;code&gt;MNIST&lt;/code&gt;, we would have only 784 input weights(28 x 28). However, if we scale up to choose images which has a size of 200 x 200 x 3, then we would have a total of 120,000 weights! Thus, we need more powerful neural networks.&lt;/p&gt;</description>
+      <guid>https://shuoyin03.github.io/2024/02/27/cognitive-robotics-deep-learning/</guid>
+      <description>&lt;p&gt;This blog is a supplement of deep learning topic as we already explain the fundamental knowledge in this blog: &lt;a href=&#34;https://shuoyin03.github.io/2024/01/16/nlp-deep-learning1/&#34;&gt;Natural Language Processing - Deep Learning I&lt;/a&gt;, where we will mainly focuses on &lt;code&gt;CNN&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-deep-learning&#34;&gt;Why Deep Learning?&lt;/h2&gt;&#xA;&lt;p&gt;The reason why we apply deep learning techniques are quite obvious, which is to ues it handle thee robots&amp;rsquo; vision. The advantage of neural network is learning and building up features to represent the input data, which help us remove the complex and limit feature selection process. However, normal neural networks couldn&amp;rsquo;t satisfy the needs. For example, if we use the classic dataset like &lt;code&gt;MNIST&lt;/code&gt;, we would have only 784 input weights(28 x 28). However, if we scale up to choose images which has a size of 200 x 200 x 3, then we would have a total of 120,000 weights! Thus, we need more powerful neural networks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Natural Language Understanding - Introduction &amp; Embedding &amp; Model</title>
-      <link>http://localhost:1313/2024/02/26/nlu-introduction/</link>
+      <link>https://shuoyin03.github.io/2024/02/26/nlu-introduction/</link>
       <pubDate>Mon, 26 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/02/26/nlu-introduction/</guid>
+      <guid>https://shuoyin03.github.io/2024/02/26/nlu-introduction/</guid>
       <description>&lt;h2 id=&#34;what-is-nlu&#34;&gt;What is NLU?&lt;/h2&gt;&#xA;&lt;p&gt;In the previous blogs I mainly focused on NLP, which refers to processing unstructured data(texts) into structured data by tokenization, lemmatisation, stemming, etc. NLU will more focus on making sure the initial meaning of language and let the machine recognize it while understanding the changes within texts.&lt;/p&gt;&#xA;&lt;p&gt;Such applications of NLU could be make the answers of chatbot more natural like human reaction,  it could make machines more intelligent.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cognitive Robotics - Navigation</title>
-      <link>http://localhost:1313/2024/02/19/cognitive-robotics-sensors-navigation/</link>
+      <link>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-sensors-navigation/</link>
       <pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/02/19/cognitive-robotics-sensors-navigation/</guid>
+      <guid>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-sensors-navigation/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this blog, we will discuss about the navigation - how will the robots go the destination we want them to go?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Navigation&lt;/code&gt;, which in definition it means moving the entire robot from one location to another, this question could also refers to some destination planning. The difference between navigation and manipulation is that, &lt;code&gt;manipulation&lt;/code&gt; refers to the problems moving body part to&#xA;manipulate the environment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;locomotion&#34;&gt;Locomotion&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Locomotion&lt;/code&gt; are the methods to achieve &lt;code&gt;navigation&lt;/code&gt;, there are three types of locomotion:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cognitive Robotics - Sensors and Actuators</title>
-      <link>http://localhost:1313/2024/02/14/cognitive-robotics-sensors-and-actuators/</link>
+      <link>https://shuoyin03.github.io/2024/02/14/cognitive-robotics-sensors-and-actuators/</link>
       <pubDate>Wed, 14 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/02/14/cognitive-robotics-sensors-and-actuators/</guid>
+      <guid>https://shuoyin03.github.io/2024/02/14/cognitive-robotics-sensors-and-actuators/</guid>
       <description>&lt;p&gt;A robot is mainly consist of 4 components, which is:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Physical Body&lt;/li&gt;&#xA;&lt;li&gt;Sensors&lt;/li&gt;&#xA;&lt;li&gt;Effectors and actuators&lt;/li&gt;&#xA;&lt;li&gt;Controller&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Here we will mainly talk about &lt;code&gt;effectors&lt;/code&gt;, &lt;code&gt;actuators&lt;/code&gt; and &lt;code&gt;sensors&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;actuators-effectors-and-actions&#34;&gt;Actuators, Effectors and Actions&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Effectors&lt;/code&gt; are any device that can make an effect on the environment, for example, the arms on human body or robot body. And &lt;code&gt;Actuators&lt;/code&gt; are devices which &lt;strong&gt;enables effectors to execute movements&lt;/strong&gt;. For example, muscles and electric motors. Note that one &lt;code&gt;effector&lt;/code&gt; must have one &lt;code&gt;actuator&lt;/code&gt; to support it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cyber Security - Cryptography</title>
-      <link>http://localhost:1313/2024/01/31/cyber-security-cryptography/</link>
+      <link>https://shuoyin03.github.io/2024/01/31/cyber-security-cryptography/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/31/cyber-security-cryptography/</guid>
+      <guid>https://shuoyin03.github.io/2024/01/31/cyber-security-cryptography/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In order to keep messages secure, they are two measures, one is two prevent the messages is access by un-authorized party, and another one is, secure messages so that even the message is leaked, the attacker couldn&amp;rsquo;t understand the message, and this is achieved by cryptography.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;introduction-to-cryptography&#34;&gt;Introduction To Cryptography&lt;/h2&gt;&#xA;&lt;p&gt;Cryptography is a crucial part of cybersecurity toolbox, which could be applied to various properties and services, for example:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Confidentiality&lt;/code&gt; (secrecy, privacy) of data in transmission &amp;amp; in storage.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Integrity&lt;/code&gt; of data (data authentication/authenticity) in transit &amp;amp; in storage.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Authentication&lt;/code&gt; of an identity (entity authentication).&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Credential&lt;/code&gt; systems (a proof of qualification or competence of a person).&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Digital signatures&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Electronic money&lt;/code&gt; (cryptocurrency, bit coins)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;We use &lt;code&gt;ciphers&lt;/code&gt; or &lt;code&gt;cryptographic primitives&lt;/code&gt; to be building blocks to construct security methods or protocols. There are some examples of the cryptographic algorithms or cryptographic building blocks, such as:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cognitive Robotics - Introduction</title>
-      <link>http://localhost:1313/2024/02/05/cognitive-robotics-introduction/</link>
+      <link>https://shuoyin03.github.io/2024/02/05/cognitive-robotics-introduction/</link>
       <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/02/05/cognitive-robotics-introduction/</guid>
+      <guid>https://shuoyin03.github.io/2024/02/05/cognitive-robotics-introduction/</guid>
       <description>&lt;h2 id=&#34;what-are-robots&#34;&gt;What are Robots?&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;code&gt;robot&lt;/code&gt;, is a machine capable of carrying out a complex series of actions automatically, especially one programmable by a computer. Also, it could be described as an autonomous system which exists in the physical world, can sense its environment, and can act on it to achieve some goals. There are many types of robots that we define today. For example, they are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Humanoid&lt;/li&gt;&#xA;&lt;li&gt;Android&lt;/li&gt;&#xA;&lt;li&gt;Biomimetic&lt;/li&gt;&#xA;&lt;li&gt;Industrial (manipulation, navigation)&lt;/li&gt;&#xA;&lt;li&gt;Medical&lt;/li&gt;&#xA;&lt;li&gt;Assistive&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;humanoid-robots&#34;&gt;Humanoid Robots&lt;/h3&gt;&#xA;&lt;p&gt;A &lt;code&gt;humanoid robot&lt;/code&gt; has an &lt;code&gt;anthropomorphic&lt;/code&gt; body plan and actuators with &lt;code&gt;human-like senses&lt;/code&gt; for human-robot interaction. For example, a &lt;code&gt;humanoid robot&lt;/code&gt; could contains &lt;strong&gt;a head, two legs, two arms and a torso&lt;/strong&gt;, and it contains &lt;strong&gt;cameras, microphones, and touch sensors&lt;/strong&gt; to simulate humans&amp;rsquo; five senses.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cyber Security - Basics</title>
-      <link>http://localhost:1313/2024/01/31/cyber-security-basics/</link>
+      <link>https://shuoyin03.github.io/2024/01/31/cyber-security-basics/</link>
       <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/31/cyber-security-basics/</guid>
+      <guid>https://shuoyin03.github.io/2024/01/31/cyber-security-basics/</guid>
       <description>&lt;p&gt;Currently in our world, there are a huge amount of attacks occurring everyday, bringing unpredictable loss to individuals, organizations or even governments. Such attacks could be: Malware, Ransomware, Adware, Hacking, Spoofing, Phishing, Pharming, DDoS&amp;hellip; It is important that we care about security in the development of anything. In definition, there are three aspects in security, which are &lt;code&gt;confidentiality&lt;/code&gt;, &lt;code&gt;Integrity&lt;/code&gt; and &lt;code&gt;Availability&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;cia-triad&#34;&gt;CIA Triad&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Confidentiality&lt;br&gt;&#xA;The &lt;code&gt;confidentiality&lt;/code&gt; contains two definitions, &lt;code&gt;data confidentiality&lt;/code&gt; and &lt;code&gt;privacy&lt;/code&gt;. The &lt;code&gt;data confidentiality&lt;/code&gt; is to ensure data not to be used by unauthorized people, or leaked to other people. The &lt;code&gt;privacy&lt;/code&gt; is to ensure individuals has the complete control to the data&amp;rsquo;s collection and storage, and they could decide who to leak their data.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Natural Language Processing - Deep Learning I</title>
-      <link>http://localhost:1313/2024/01/16/nlp-deep-learning1/</link>
+      <link>https://shuoyin03.github.io/2024/01/16/nlp-deep-learning1/</link>
       <pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/16/nlp-deep-learning1/</guid>
-      <description>&lt;h2 id=&#34;basic-neural-network-structure&#34;&gt;Basic Neural Network Structure&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Single neuron&lt;/code&gt;, the most basic components of neural networks, consist of multiple inputs $[x_1, x_2, &amp;hellip;, x_d]$ and an output $y$.&#xA;&#xA;  &lt;img src=&#34;http://localhost:1313/img/nlp/nlp-deep-1/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xA;&#xA;&#xA;The above picture demonstrated, each input $x$ is multiply by a weight $w$, their sum is added with a bias and then activated by a &lt;code&gt;activation function&lt;/code&gt;. The training process, is to find the best y value from updating the weight in each training epoch.&lt;/p&gt;</description>
+      <guid>https://shuoyin03.github.io/2024/01/16/nlp-deep-learning1/</guid>
+      <description>&lt;h2 id=&#34;basic-neural-network-structure&#34;&gt;Basic Neural Network Structure&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Single neuron&lt;/code&gt;, the most basic components of neural networks, consist of multiple inputs $[x_1, x_2, &amp;hellip;, x_d]$ and an output $y$.&#xA;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/nlp/nlp-deep-1/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xA;&#xA;&#xA;The above picture demonstrated, each input $x$ is multiply by a weight $w$, their sum is added with a bias and then activated by a &lt;code&gt;activation function&lt;/code&gt;. The training process, is to find the best y value from updating the weight in each training epoch.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advanced Distributed System - NoSQL</title>
-      <link>http://localhost:1313/2024/01/12/distributed-system-nosql/</link>
+      <link>https://shuoyin03.github.io/2024/01/12/distributed-system-nosql/</link>
       <pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/12/distributed-system-nosql/</guid>
+      <guid>https://shuoyin03.github.io/2024/01/12/distributed-system-nosql/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Unlike SQL focus on data integrity and strict transactional semantics, NoSQL focus on all applications need elastic scaling and simple operations, which operating data in isolation, some characteristics of NoSQL are: expose a simple call-level interface or protocol, offer less strict transactional guarantees, replicate and distribute data over servers&amp;hellip; Let&amp;rsquo;s have a look at NoSQL in this blog.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;types-of-nosql&#34;&gt;Types of NoSQL&lt;/h2&gt;&#xA;&lt;p&gt;We could define NoSQL into three types: &lt;code&gt;Key-Value&lt;/code&gt;, &lt;code&gt;Document&lt;/code&gt;, and &lt;code&gt;Wide Column&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advanced Distributed System - Batch Data and MapReduce</title>
-      <link>http://localhost:1313/2024/01/09/distributed-system-big-data/</link>
+      <link>https://shuoyin03.github.io/2024/01/09/distributed-system-big-data/</link>
       <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/09/distributed-system-big-data/</guid>
+      <guid>https://shuoyin03.github.io/2024/01/09/distributed-system-big-data/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Batch processing - a word describing tasks that can run without user interactions, or can be scheduled to run as resources permit. Batch data sets might be huge and need parallel processing. MapReduce is a programming model designed for batch processing, including two steps: &amp;lsquo;map&amp;rsquo; and &amp;lsquo;reduce&amp;rsquo;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;mapreduce---map-and-reduce&#34;&gt;MapReduce - &amp;lsquo;Map&amp;rsquo; and &amp;lsquo;Reduce&amp;rsquo;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;some-concepts&#34;&gt;Some concepts&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Job&lt;/code&gt; is the unit of work to be performed, it could consist of several &lt;code&gt;map&lt;/code&gt; and &lt;code&gt;reduce&lt;/code&gt; tasks.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Split&lt;/code&gt; is a part of the input.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Task&lt;/code&gt; are map or reduce functions created and run for each split or partition.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Task tracker&lt;/code&gt; tracks the progress of each of the map or reduce tasks on a node and keeps the job tracker informed of progress.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Job tracker&lt;/code&gt; coordinates the different tasks comprising a job.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;map&#34;&gt;Map&lt;/h3&gt;&#xA;&lt;p&gt;A &lt;code&gt;map&lt;/code&gt; function is to generate a key-value pair (key 2, value 2), given a key &amp;lsquo;key 1&amp;rsquo; and a value &amp;lsquo;value 1&amp;rsquo;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advanced Distributed System - Resource Management</title>
-      <link>http://localhost:1313/2024/01/06/distributed-system-resource-management/</link>
+      <link>https://shuoyin03.github.io/2024/01/06/distributed-system-resource-management/</link>
       <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/06/distributed-system-resource-management/</guid>
+      <guid>https://shuoyin03.github.io/2024/01/06/distributed-system-resource-management/</guid>
       <description>&lt;h2 id=&#34;what-are-resources&#34;&gt;What are resources?&lt;/h2&gt;&#xA;&lt;p&gt;All stuffs needed for maintaining the run of a system are called &lt;code&gt;resources&lt;/code&gt;, such as &lt;code&gt;hardware&lt;/code&gt;(CPU, storage, network links), &lt;code&gt;software&lt;/code&gt;(web services), and datasets. Applications need to share the resources, and we need to consider how to optimize their use with respect to resources available and resources requested by different applications.&lt;/p&gt;&#xA;&lt;p&gt;One example demonstrating a trade-off between &lt;strong&gt;time, price and storage resource&lt;/strong&gt; is that, we could make a software &lt;code&gt;parallelisable&lt;/code&gt; and run it with different expensive processors, but it uses lots of storage because large amount of data are processing at the same time. Or, run the software &lt;code&gt;sequentially&lt;/code&gt; on a cheaper processor with less storage used because smaller amount of data is active at the same time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advanced Distributed System - Fault Tolerance</title>
-      <link>http://localhost:1313/2024/01/05/distributed-system-fault-tolerance/</link>
+      <link>https://shuoyin03.github.io/2024/01/05/distributed-system-fault-tolerance/</link>
       <pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/05/distributed-system-fault-tolerance/</guid>
+      <guid>https://shuoyin03.github.io/2024/01/05/distributed-system-fault-tolerance/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In a distributed application, we always have to consider the impact of faults and solutions of how we can solve it while balancing the cost, response time and other performances.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;type-of-failures&#34;&gt;Type of Failures&lt;/h2&gt;&#xA;&lt;p&gt;First of all, let’s have a look at what type of faults do have.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Omission failures&lt;br&gt;&#xA;The server fails to &lt;strong&gt;respond/receive&lt;/strong&gt; to incoming requests and fail to &lt;strong&gt;send&lt;/strong&gt; messages&lt;/li&gt;&#xA;&lt;li&gt;Timing failures&lt;br&gt;&#xA;The server fails to respond within a certain time&lt;/li&gt;&#xA;&lt;li&gt;Response failures&lt;br&gt;&#xA;The server might response incorrect&lt;/li&gt;&#xA;&lt;li&gt;Arbitrary (byzantine) failures&lt;br&gt;&#xA;A component produces output it should have never produced (may not be detected as incorrect): &lt;strong&gt;arbitrary response at arbitrary times&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;Crash&lt;br&gt;&#xA;Server &lt;strong&gt;halts&lt;/strong&gt;!&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;fault-tolerance&#34;&gt;Fault-Tolerance&lt;/h2&gt;&#xA;&lt;p&gt;Usually, we use redundancy to do failure masking, in this article, I will introduce 3 types of redundancy of how and when to use each one.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Natural Language Processing - POS Tagging</title>
-      <link>http://localhost:1313/2024/01/04/nlp-pos-tagging/</link>
+      <link>https://shuoyin03.github.io/2024/01/04/nlp-pos-tagging/</link>
       <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/04/nlp-pos-tagging/</guid>
+      <guid>https://shuoyin03.github.io/2024/01/04/nlp-pos-tagging/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article we will have a look at POS tagging, what is it? How do we apply it to NLP tasks?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;pos&#34;&gt;POS&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;POS&lt;/code&gt; - &amp;ldquo;Part of Speech&amp;rdquo;, represent a &lt;strong&gt;linguistic category&lt;/strong&gt;, defined the syntactic or morphological behavior of words. “Traditional” categories contains 8 tags, they are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;verb&lt;/li&gt;&#xA;&lt;li&gt;None&lt;/li&gt;&#xA;&lt;li&gt;Adverb&lt;/li&gt;&#xA;&lt;li&gt;Adjective&lt;/li&gt;&#xA;&lt;li&gt;Interjection&lt;/li&gt;&#xA;&lt;li&gt;Pronoun&lt;/li&gt;&#xA;&lt;li&gt;Preposition&lt;/li&gt;&#xA;&lt;li&gt;Conjunction&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The previous 5 categories are called the &lt;code&gt;open word classes&lt;/code&gt;, which means that these types always have a large amount of vocabularies and new words could be added into these categories. And the last 3 categories are called &lt;code&gt;closed word classes&lt;/code&gt;, they doesn&amp;rsquo;t acquire new words to add in because most of them are used for &lt;strong&gt;building the text structure and connecting words or sentences&lt;/strong&gt;, which has a limit number of vocabularies.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Natural Language Processing - Text Representation</title>
-      <link>http://localhost:1313/2023/12/21/nlp-text-representation/</link>
+      <link>https://shuoyin03.github.io/2023/12/21/nlp-text-representation/</link>
       <pubDate>Thu, 21 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2023/12/21/nlp-text-representation/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article we will have a look at how to represent texts in data forms for further nlp processes.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;bow-representation&#34;&gt;BoW Representation&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;BoW&lt;/code&gt; - &lt;strong&gt;&amp;ldquo;Bag of words&amp;rdquo;&lt;/strong&gt;, should be the simplest model, which reduce each document into a bag of words.&#xA;&#xA;  &lt;img src=&#34;http://localhost:1313/img/nlp/nlp-text-representation/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xA;&#xA;&#xA;&lt;code&gt;BoW&lt;/code&gt; is an efficient method which nowadays lots of NLP system is using it. However, there are some question we should think of while using it, such as:&lt;/p&gt;</description>
+      <guid>https://shuoyin03.github.io/2023/12/21/nlp-text-representation/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article we will have a look at how to represent texts in data forms for further nlp processes.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;bow-representation&#34;&gt;BoW Representation&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;BoW&lt;/code&gt; - &lt;strong&gt;&amp;ldquo;Bag of words&amp;rdquo;&lt;/strong&gt;, should be the simplest model, which reduce each document into a bag of words.&#xA;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/nlp/nlp-text-representation/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xA;&#xA;&#xA;&lt;code&gt;BoW&lt;/code&gt; is an efficient method which nowadays lots of NLP system is using it. However, there are some question we should think of while using it, such as:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Natural Language Processing - Text Pre-processing</title>
-      <link>http://localhost:1313/2023/12/19/nlp-text-preprocessing/</link>
+      <link>https://shuoyin03.github.io/2023/12/19/nlp-text-preprocessing/</link>
       <pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2023/12/19/nlp-text-preprocessing/</guid>
+      <guid>https://shuoyin03.github.io/2023/12/19/nlp-text-preprocessing/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article, we are going to look at general steps of text pre-processing.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;tokenization&#34;&gt;Tokenization&lt;/h2&gt;&#xA;&lt;h3 id=&#34;word-based-tokenization&#34;&gt;Word-Based Tokenization&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt;Tokenization&lt;/code&gt; is the first step of text pre-processing, it is to split a bunch of text into a list of &lt;code&gt;tokens&lt;/code&gt;. As an example, we could split &lt;strong&gt;“a cat on a pat”&lt;/strong&gt; to &lt;strong&gt;[“a”, “cat”, “on”, “a”, “pet”]&lt;/strong&gt;. For the most basic Tokenization method, we do &lt;code&gt;white space-delimited sequence&lt;/code&gt;, like the above example. However, not all languages use white space, like Chinese (我喜欢西兰花), and we also have to consider punctuation signs, if we want to split “white space-delimited sequence”, we don’t want the result to be &lt;strong&gt;[&amp;ldquo;white&amp;rdquo;, &amp;ldquo;space-delimited&amp;rdquo;, &amp;ldquo;sequence&amp;rdquo;]&lt;/strong&gt;, which breaks the origin meaning of the words.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advanced Distributed System - Performance Modelling</title>
-      <link>http://localhost:1313/2023/12/13/distributed-system-performance-modelling/</link>
+      <link>https://shuoyin03.github.io/2023/12/13/distributed-system-performance-modelling/</link>
       <pubDate>Tue, 12 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2023/12/13/distributed-system-performance-modelling/</guid>
+      <guid>https://shuoyin03.github.io/2023/12/13/distributed-system-performance-modelling/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;It is always good to test the performance of distributed applications to ensure it meets the target, and today we&amp;rsquo;ll learn what is a model and how to build a model to achieve this.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>Algorithm and Data Structure - Propositional logic</title>
-      <link>http://localhost:1313/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</link>
+      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</guid>
-      <description>&lt;h2 id=&#34;propositional-logic-satisfiability&#34;&gt;Propositional Logic Satisfiability&lt;/h2&gt;&#xA;&lt;h3 id=&#34;definitions&#34;&gt;Definitions&lt;/h3&gt;&#xA;&lt;p&gt;We call $P = \lbrace p_1, p_2, &amp;hellip; \rbrace $ as &lt;code&gt;propositional letters&lt;/code&gt;. Every element in $P$ is a &lt;code&gt;formula&lt;/code&gt;. If $\psi_1$ and $\psi_2$ are formulas, then the following equations are formulas, too.&#xA;$$(¬\psi_1), (\psi_1 ∨ \psi_2), (\psi_1 ∧ \psi_2), (\psi_1 → \psi_2)$$&lt;/p&gt;&#xA;&lt;p&gt;An &lt;code&gt;assignment&lt;/code&gt; is a function $\theta: P → \lbrace T, F\rbrace$, for example:&#xA;&#xA;  &lt;img src=&#34;http://localhost:1313/img/algorithm/propositional-logic/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xA;&#xA;&#xA;In a simple way, an assignment is like a machine running a logic equation and excute a result. A formula $\psi$ is &lt;code&gt;satisfiable&lt;/code&gt; if there is a formula $\theta$ such that $\theta(\psi)=T$.&lt;/p&gt;</description>
+      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</guid>
+      <description>&lt;h2 id=&#34;propositional-logic-satisfiability&#34;&gt;Propositional Logic Satisfiability&lt;/h2&gt;&#xA;&lt;h3 id=&#34;definitions&#34;&gt;Definitions&lt;/h3&gt;&#xA;&lt;p&gt;We call $P = \lbrace p_1, p_2, &amp;hellip; \rbrace $ as &lt;code&gt;propositional letters&lt;/code&gt;. Every element in $P$ is a &lt;code&gt;formula&lt;/code&gt;. If $\psi_1$ and $\psi_2$ are formulas, then the following equations are formulas, too.&#xA;$$(¬\psi_1), (\psi_1 ∨ \psi_2), (\psi_1 ∧ \psi_2), (\psi_1 → \psi_2)$$&lt;/p&gt;&#xA;&lt;p&gt;An &lt;code&gt;assignment&lt;/code&gt; is a function $\theta: P → \lbrace T, F\rbrace$, for example:&#xA;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/algorithm/propositional-logic/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xA;&#xA;&#xA;In a simple way, an assignment is like a machine running a logic equation and excute a result. A formula $\psi$ is &lt;code&gt;satisfiable&lt;/code&gt; if there is a formula $\theta$ such that $\theta(\psi)=T$.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Algorithm and Data Structure - Time, Space and Determinism</title>
-      <link>http://localhost:1313/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</link>
+      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</link>
       <pubDate>Mon, 27 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</guid>
+      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</guid>
       <description>&lt;h2 id=&#34;1-introduction-to-time-and-space&#34;&gt;1. Introduction to Time and Space&lt;/h2&gt;&#xA;&lt;h3 id=&#34;definitions&#34;&gt;Definitions&lt;/h3&gt;&#xA;&lt;p&gt;Consider there is a turing machine M with alphabet Σ, and g is a function &lt;strong&gt;N → N&lt;/strong&gt;, we say M &lt;strong&gt;runs in time g&lt;/strong&gt; and &lt;strong&gt;runs in space g&lt;/strong&gt; with at most &lt;strong&gt;g(|x|) steps&lt;/strong&gt; and &lt;strong&gt;g(|x|) squares&lt;/strong&gt; with a finite x many Strings. If there is a language L over some alphabet, we say L runs in &lt;code&gt;Time(g)&lt;/code&gt; and &lt;code&gt;Space(g)&lt;/code&gt; such that there is a deterministic turing machine M recognizing L runs in time and space g. In another words, this is the definition of time and space complexity in a turing machine view.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Advanced Distributed System - Big data</title>
-      <link>http://localhost:1313/2023/11/06/distributed-system-big-data/</link>
+      <link>https://shuoyin03.github.io/2023/11/06/distributed-system-big-data/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2023/11/06/distributed-system-big-data/</guid>
+      <guid>https://shuoyin03.github.io/2023/11/06/distributed-system-big-data/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In a shared nothing infrastructure, data storage, update, access and processing takes place across a collection of networked machines. To enhance the performance, processing needs to be take place in parallel, which we have to distribute data, and that&amp;rsquo;s partition. This article will gives an rough idea of partition techniques and details needs to be consider.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>Algorithm and Data Structure - Turing Machine</title>
-      <link>http://localhost:1313/2023/11/06/algorithm-and-data-structure-turing-machine/</link>
+      <link>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2023/11/06/algorithm-and-data-structure-turing-machine/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article, we are going to look at the formal definition of Turing Machine and the therom with it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;introduction-of-turing-machine&#34;&gt;Introduction of turing machine&lt;/h2&gt;&#xA;&lt;p&gt;The picture below is a &lt;code&gt;multi-tape&lt;/code&gt; turing machine&#xA;&#xA;  &lt;img src=&#34;http://localhost:1313/img/algorithm/turing-machine/image.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;&#xA;&lt;p&gt;In a formal definition, a turing machine could be define as a quintuple:&lt;/p&gt;&#xA;&lt;p style=&#34;text-align:center;&#34;&gt;M = [ K, Σ, Q, q0, T ]&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;K ≥ 2 (number of tapes)&lt;/li&gt;&#xA;&lt;li&gt;Σ is a non-empty, finite set (alphabet)&lt;/li&gt;&#xA;&lt;li&gt;Q is a non-empty, finite set (set of states)&lt;/li&gt;&#xA;&lt;li&gt;q0 ∈ Q (initial state)&lt;/li&gt;&#xA;&lt;li&gt;T is a set of transitions (for K, Σ and Q)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;symbol&#34;&gt;Symbol&lt;/h3&gt;&#xA;&lt;p&gt;A &lt;code&gt;symbol&lt;/code&gt; is an element of&#xA;&#xA;  &lt;img src=&#34;http://localhost:1313/img/algorithm/turing-machine/image2.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&#xA;which means &lt;code&gt;blank&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt; separately.&lt;br&gt;&#xA;We denote the &lt;code&gt;set of finite strings&lt;/code&gt; over Σ by Σ∗&lt;/p&gt;</description>
+      <guid>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article, we are going to look at the formal definition of Turing Machine and the therom with it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;introduction-of-turing-machine&#34;&gt;Introduction of turing machine&lt;/h2&gt;&#xA;&lt;p&gt;The picture below is a &lt;code&gt;multi-tape&lt;/code&gt; turing machine&#xA;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/algorithm/turing-machine/image.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;&#xA;&lt;p&gt;In a formal definition, a turing machine could be define as a quintuple:&lt;/p&gt;&#xA;&lt;p style=&#34;text-align:center;&#34;&gt;M = [ K, Σ, Q, q0, T ]&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;K ≥ 2 (number of tapes)&lt;/li&gt;&#xA;&lt;li&gt;Σ is a non-empty, finite set (alphabet)&lt;/li&gt;&#xA;&lt;li&gt;Q is a non-empty, finite set (set of states)&lt;/li&gt;&#xA;&lt;li&gt;q0 ∈ Q (initial state)&lt;/li&gt;&#xA;&lt;li&gt;T is a set of transitions (for K, Σ and Q)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;symbol&#34;&gt;Symbol&lt;/h3&gt;&#xA;&lt;p&gt;A &lt;code&gt;symbol&lt;/code&gt; is an element of&#xA;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/algorithm/turing-machine/image2.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&#xA;which means &lt;code&gt;blank&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt; separately.&lt;br&gt;&#xA;We denote the &lt;code&gt;set of finite strings&lt;/code&gt; over Σ by Σ∗&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

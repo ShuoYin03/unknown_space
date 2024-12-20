@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cyber Security on UNKNOWN SPACE</title>
-    <link>http://localhost:1313/tags/cyber-security/</link>
+    <link>https://shuoyin03.github.io/tags/cyber-security/</link>
     <description>Recent content in Cyber Security on UNKNOWN SPACE</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/cyber-security/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shuoyin03.github.io/tags/cyber-security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cyber Security - Cryptography</title>
-      <link>http://localhost:1313/2024/01/31/cyber-security-cryptography/</link>
+      <link>https://shuoyin03.github.io/2024/01/31/cyber-security-cryptography/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/31/cyber-security-cryptography/</guid>
+      <guid>https://shuoyin03.github.io/2024/01/31/cyber-security-cryptography/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In order to keep messages secure, they are two measures, one is two prevent the messages is access by un-authorized party, and another one is, secure messages so that even the message is leaked, the attacker couldn&amp;rsquo;t understand the message, and this is achieved by cryptography.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;introduction-to-cryptography&#34;&gt;Introduction To Cryptography&lt;/h2&gt;&#xA;&lt;p&gt;Cryptography is a crucial part of cybersecurity toolbox, which could be applied to various properties and services, for example:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Confidentiality&lt;/code&gt; (secrecy, privacy) of data in transmission &amp;amp; in storage.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Integrity&lt;/code&gt; of data (data authentication/authenticity) in transit &amp;amp; in storage.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Authentication&lt;/code&gt; of an identity (entity authentication).&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Credential&lt;/code&gt; systems (a proof of qualification or competence of a person).&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Digital signatures&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Electronic money&lt;/code&gt; (cryptocurrency, bit coins)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;We use &lt;code&gt;ciphers&lt;/code&gt; or &lt;code&gt;cryptographic primitives&lt;/code&gt; to be building blocks to construct security methods or protocols. There are some examples of the cryptographic algorithms or cryptographic building blocks, such as:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cyber Security - Basics</title>
-      <link>http://localhost:1313/2024/01/31/cyber-security-basics/</link>
+      <link>https://shuoyin03.github.io/2024/01/31/cyber-security-basics/</link>
       <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2024/01/31/cyber-security-basics/</guid>
+      <guid>https://shuoyin03.github.io/2024/01/31/cyber-security-basics/</guid>
       <description>&lt;p&gt;Currently in our world, there are a huge amount of attacks occurring everyday, bringing unpredictable loss to individuals, organizations or even governments. Such attacks could be: Malware, Ransomware, Adware, Hacking, Spoofing, Phishing, Pharming, DDoS&amp;hellip; It is important that we care about security in the development of anything. In definition, there are three aspects in security, which are &lt;code&gt;confidentiality&lt;/code&gt;, &lt;code&gt;Integrity&lt;/code&gt; and &lt;code&gt;Availability&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;cia-triad&#34;&gt;CIA Triad&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Confidentiality&lt;br&gt;&#xA;The &lt;code&gt;confidentiality&lt;/code&gt; contains two definitions, &lt;code&gt;data confidentiality&lt;/code&gt; and &lt;code&gt;privacy&lt;/code&gt;. The &lt;code&gt;data confidentiality&lt;/code&gt; is to ensure data not to be used by unauthorized people, or leaked to other people. The &lt;code&gt;privacy&lt;/code&gt; is to ensure individuals has the complete control to the data&amp;rsquo;s collection and storage, and they could decide who to leak their data.&lt;/p&gt;</description>
     </item>
   </channel>

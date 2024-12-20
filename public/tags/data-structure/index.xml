@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Structure on UNKNOWN SPACE</title>
-    <link>http://localhost:1313/tags/data-structure/</link>
+    <link>https://shuoyin03.github.io/tags/data-structure/</link>
     <description>Recent content in Data Structure on UNKNOWN SPACE</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shuoyin03.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Algorithm and Data Structure - Propositional logic</title>
-      <link>http://localhost:1313/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</link>
+      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</link>
       <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</guid>
-      <description>&lt;h2 id=&#34;propositional-logic-satisfiability&#34;&gt;Propositional Logic Satisfiability&lt;/h2&gt;&#xA;&lt;h3 id=&#34;definitions&#34;&gt;Definitions&lt;/h3&gt;&#xA;&lt;p&gt;We call $P = \lbrace p_1, p_2, &amp;hellip; \rbrace $ as &lt;code&gt;propositional letters&lt;/code&gt;. Every element in $P$ is a &lt;code&gt;formula&lt;/code&gt;. If $\psi_1$ and $\psi_2$ are formulas, then the following equations are formulas, too.&#xA;$$(¬\psi_1), (\psi_1 ∨ \psi_2), (\psi_1 ∧ \psi_2), (\psi_1 → \psi_2)$$&lt;/p&gt;&#xA;&lt;p&gt;An &lt;code&gt;assignment&lt;/code&gt; is a function $\theta: P → \lbrace T, F\rbrace$, for example:&#xA;&#xA;  &lt;img src=&#34;http://localhost:1313/img/algorithm/propositional-logic/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xA;&#xA;&#xA;In a simple way, an assignment is like a machine running a logic equation and excute a result. A formula $\psi$ is &lt;code&gt;satisfiable&lt;/code&gt; if there is a formula $\theta$ such that $\theta(\psi)=T$.&lt;/p&gt;</description>
+      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-13-algorithm-and-data-structure-logic/</guid>
+      <description>&lt;h2 id=&#34;propositional-logic-satisfiability&#34;&gt;Propositional Logic Satisfiability&lt;/h2&gt;&#xA;&lt;h3 id=&#34;definitions&#34;&gt;Definitions&lt;/h3&gt;&#xA;&lt;p&gt;We call $P = \lbrace p_1, p_2, &amp;hellip; \rbrace $ as &lt;code&gt;propositional letters&lt;/code&gt;. Every element in $P$ is a &lt;code&gt;formula&lt;/code&gt;. If $\psi_1$ and $\psi_2$ are formulas, then the following equations are formulas, too.&#xA;$$(¬\psi_1), (\psi_1 ∨ \psi_2), (\psi_1 ∧ \psi_2), (\psi_1 → \psi_2)$$&lt;/p&gt;&#xA;&lt;p&gt;An &lt;code&gt;assignment&lt;/code&gt; is a function $\theta: P → \lbrace T, F\rbrace$, for example:&#xA;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/algorithm/propositional-logic/image.png&#34; alt=&#34;Alt text&#34;&gt;&#xA;&#xA;&#xA;In a simple way, an assignment is like a machine running a logic equation and excute a result. A formula $\psi$ is &lt;code&gt;satisfiable&lt;/code&gt; if there is a formula $\theta$ such that $\theta(\psi)=T$.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Algorithm and Data Structure - Time, Space and Determinism</title>
-      <link>http://localhost:1313/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</link>
+      <link>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</link>
       <pubDate>Mon, 27 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</guid>
+      <guid>https://shuoyin03.github.io/post/comp36111-algorithm/2023-11-27-algorithm-and-data-structure-time-space/</guid>
       <description>&lt;h2 id=&#34;1-introduction-to-time-and-space&#34;&gt;1. Introduction to Time and Space&lt;/h2&gt;&#xA;&lt;h3 id=&#34;definitions&#34;&gt;Definitions&lt;/h3&gt;&#xA;&lt;p&gt;Consider there is a turing machine M with alphabet Σ, and g is a function &lt;strong&gt;N → N&lt;/strong&gt;, we say M &lt;strong&gt;runs in time g&lt;/strong&gt; and &lt;strong&gt;runs in space g&lt;/strong&gt; with at most &lt;strong&gt;g(|x|) steps&lt;/strong&gt; and &lt;strong&gt;g(|x|) squares&lt;/strong&gt; with a finite x many Strings. If there is a language L over some alphabet, we say L runs in &lt;code&gt;Time(g)&lt;/code&gt; and &lt;code&gt;Space(g)&lt;/code&gt; such that there is a deterministic turing machine M recognizing L runs in time and space g. In another words, this is the definition of time and space complexity in a turing machine view.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Algorithm and Data Structure - Turing Machine</title>
-      <link>http://localhost:1313/2023/11/06/algorithm-and-data-structure-turing-machine/</link>
+      <link>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2023/11/06/algorithm-and-data-structure-turing-machine/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article, we are going to look at the formal definition of Turing Machine and the therom with it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;introduction-of-turing-machine&#34;&gt;Introduction of turing machine&lt;/h2&gt;&#xA;&lt;p&gt;The picture below is a &lt;code&gt;multi-tape&lt;/code&gt; turing machine&#xA;&#xA;  &lt;img src=&#34;http://localhost:1313/img/algorithm/turing-machine/image.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;&#xA;&lt;p&gt;In a formal definition, a turing machine could be define as a quintuple:&lt;/p&gt;&#xA;&lt;p style=&#34;text-align:center;&#34;&gt;M = [ K, Σ, Q, q0, T ]&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;K ≥ 2 (number of tapes)&lt;/li&gt;&#xA;&lt;li&gt;Σ is a non-empty, finite set (alphabet)&lt;/li&gt;&#xA;&lt;li&gt;Q is a non-empty, finite set (set of states)&lt;/li&gt;&#xA;&lt;li&gt;q0 ∈ Q (initial state)&lt;/li&gt;&#xA;&lt;li&gt;T is a set of transitions (for K, Σ and Q)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;symbol&#34;&gt;Symbol&lt;/h3&gt;&#xA;&lt;p&gt;A &lt;code&gt;symbol&lt;/code&gt; is an element of&#xA;&#xA;  &lt;img src=&#34;http://localhost:1313/img/algorithm/turing-machine/image2.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&#xA;which means &lt;code&gt;blank&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt; separately.&lt;br&gt;&#xA;We denote the &lt;code&gt;set of finite strings&lt;/code&gt; over Σ by Σ∗&lt;/p&gt;</description>
+      <guid>https://shuoyin03.github.io/2023/11/06/algorithm-and-data-structure-turing-machine/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this article, we are going to look at the formal definition of Turing Machine and the therom with it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;introduction-of-turing-machine&#34;&gt;Introduction of turing machine&lt;/h2&gt;&#xA;&lt;p&gt;The picture below is a &lt;code&gt;multi-tape&lt;/code&gt; turing machine&#xA;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/algorithm/turing-machine/image.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;&#xA;&lt;p&gt;In a formal definition, a turing machine could be define as a quintuple:&lt;/p&gt;&#xA;&lt;p style=&#34;text-align:center;&#34;&gt;M = [ K, Σ, Q, q0, T ]&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;K ≥ 2 (number of tapes)&lt;/li&gt;&#xA;&lt;li&gt;Σ is a non-empty, finite set (alphabet)&lt;/li&gt;&#xA;&lt;li&gt;Q is a non-empty, finite set (set of states)&lt;/li&gt;&#xA;&lt;li&gt;q0 ∈ Q (initial state)&lt;/li&gt;&#xA;&lt;li&gt;T is a set of transitions (for K, Σ and Q)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;symbol&#34;&gt;Symbol&lt;/h3&gt;&#xA;&lt;p&gt;A &lt;code&gt;symbol&lt;/code&gt; is an element of&#xA;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/algorithm/turing-machine/image2.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&#xA;which means &lt;code&gt;blank&lt;/code&gt; and &lt;code&gt;start&lt;/code&gt; separately.&lt;br&gt;&#xA;We denote the &lt;code&gt;set of finite strings&lt;/code&gt; over Σ by Σ∗&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
