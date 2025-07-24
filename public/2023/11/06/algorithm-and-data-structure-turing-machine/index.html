@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +10,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://shuoyin03.github.io//img/tag-bg.jpg">
-    <meta property="twitter:image" content="https://shuoyin03.github.io//img/tag-bg.jpg" />
+    <meta property="og:image" content="http://localhost:1313//img/tag-bg.jpg">
+    <meta property="twitter:image" content="http://localhost:1313//img/tag-bg.jpg" />
     
 
     
@@ -217,8 +217,7 @@
 
                 
                 <blockquote>
-<p>In this article, we are going to look at the formal definition of Turing Machine and the therom with it.</p>
-</blockquote>
+<p>In this article, we are going to look at the formal definition of Turing Machine and the therom with it.</p></blockquote>
 <h2 id="introduction-of-turing-machine">Introduction of turing machine</h2>
 <p>The picture below is a <code>multi-tape</code> turing machine
 
@@ -253,8 +252,7 @@ We denote the <code>set of finite strings</code> over Σ by Σ∗</p>
 </ol>
 <p>An informal explanation of transition is:</p>
 <blockquote>
-<p>If you are in state p, and the current node being scanned is s¯, then set the new state to be q, write the symbol of t¯ on the tape and move as what d¯ says.</p>
-</blockquote>
+<p>If you are in state p, and the current node being scanned is s¯, then set the new state to be q, write the symbol of t¯ on the tape and move as what d¯ says.</p></blockquote>
 <p>Here are few rules that a Turing Machine must follows:</p>
 <ol>
 <li>The tape never moves to the left of <code>start</code> symbol.</li>
@@ -273,27 +271,23 @@ This states that the head is currently at position i, where sk,i-1 is not scanne
 </ol>
 <p>Here&rsquo;s a therom:</p>
 <blockquote>
-<p>Let M be a deterministic Turing machine over alphabet Σ, and let x ∈ Σ∗. If M ↓ x, then the output tape of M will contain a definite string y &gt;∈ Σ∗; and we can define the partial function <strong>fM : Σ∗ → Σ∗</strong> as follows.</p>
-</blockquote>
+<p>Let M be a deterministic Turing machine over alphabet Σ, and let x ∈ Σ∗. If M ↓ x, then the output tape of M will contain a definite string y &gt;∈ Σ∗; and we can define the partial function <strong>fM : Σ∗ → Σ∗</strong> as follows.</p></blockquote>
 <p style="text-align:center;">fM(x) = if M ↓ x then y else undefined</p>
 <p>In this case M <code>computes</code> the function fM. A partial function f : Σ∗ → Σ∗ is <code>computable</code> if it is computed by some (deterministic) Turing machine.</p>
 <h3 id="encoding">Encoding</h3>
 <p>A turing machine could be encoding into digits (prime power encoding). If we encode a turing machine M with code m, then we could input <strong>m;x</strong>(input x to a encoded turing machine m) to other turing machines.</p>
 <p>Definition:</p>
 <blockquote>
-<p>Define a turing machine U, a turing machine M over alphabet Σ with code m, and strings x, y ∈ Σ∗. U is terminating on input (m;x) with output y if and only if M is terminating on input x with output y. This also work with non-terminating.</p>
-</blockquote>
+<p>Define a turing machine U, a turing machine M over alphabet Σ with code m, and strings x, y ∈ Σ∗. U is terminating on input (m;x) with output y if and only if M is terminating on input x with output y. This also work with non-terminating.</p></blockquote>
 <p>More Definition (I hate it as well):</p>
 <blockquote>
-<p>Acceptance: Define a turing machine M with input x ∈ Σ. M <code>accepts</code> x means M has a halting run with the first head over the leftmost square. In this case, x is <code>recognized</code> by M (recognition).</p>
-</blockquote>
+<p>Acceptance: Define a turing machine M with input x ∈ Σ. M <code>accepts</code> x means M has a halting run with the first head over the leftmost square. In this case, x is <code>recognized</code> by M (recognition).</p></blockquote>
 <p>Even more definition (Dear god):</p>
 <blockquote>
 <p>If a language is recognized by some Turing machine M, then it is recognized by some deterministic Turing Machine M&rsquo;.<br>
 A language is <code>recursively enumerable</code> (simplified as r.e.) if there is a deterministic turing machine which recognizes it.<br>
 A language L over alphabet Σ is <code>co-recursively enumerable</code> (simplified as co-r.e.) if Σ∗ \ L is r.e.<br>
-A language is <code>recursive</code> if and only if it is both r.e. and co-r.e.</p>
-</blockquote>
+A language is <code>recursive</code> if and only if it is both r.e. and co-r.e.</p></blockquote>
 <h2 id="decision-problem--decidable-problem">Decision Problem &amp; Decidable Problem</h2>
 <p>A <code>decision problem</code> is some problem which has a yes or no answer in some language, and a <code>recursive problem</code> is some problem which test whether a decision problem is <code>decidable</code> (possible to give an answer).</p>
 <p>We represent decision problems in this form:
@@ -386,6 +380,18 @@ This is an undicidable problem. Here&rsquo;s the prove (First appear in 1936):</
                         
                         
                         
+                        <a href="/tags/bm25s" title="bm25s">
+                            bm25s
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/case-study" title="case study">
+                            case study
+                        </a>
+                        
+                        
+                        
                         <a href="/tags/cognitive-robotics" title="cognitive robotics">
                             cognitive robotics
                         </a>
@@ -410,6 +416,12 @@ This is an undicidable problem. Here&rsquo;s the prove (First appear in 1936):</
                         
                         
                         
+                        <a href="/tags/flask" title="flask">
+                            flask
+                        </a>
+                        
+                        
+                        
                         <a href="/tags/hugo" title="hugo">
                             hugo
                         </a>
@@ -422,6 +434,12 @@ This is an undicidable problem. Here&rsquo;s the prove (First appear in 1936):</
                         
                         
                         
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
                         <a href="/tags/nlp" title="nlp">
                             nlp
                         </a>
@@ -430,6 +448,12 @@ This is an undicidable problem. Here&rsquo;s the prove (First appear in 1936):</
                         
                         <a href="/tags/nlu" title="nlu">
                             nlu
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/scraping" title="scraping">
+                            scraping
                         </a>
                         
                         
@@ -531,7 +555,7 @@ This is an undicidable problem. Here&rsquo;s the prove (First appear in 1936):</
             
              </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; UNKNOWN SPACE 2024
+                    Copyright &copy; UNKNOWN SPACE 2025
                     
                 </p>
             </div>

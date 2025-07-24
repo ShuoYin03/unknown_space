@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cognitive Robotics on UNKNOWN SPACE</title>
-    <link>https://shuoyin03.github.io/tags/cognitive-robotics/</link>
+    <link>http://localhost:1313/tags/cognitive-robotics/</link>
     <description>Recent content in Cognitive Robotics on UNKNOWN SPACE</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 28 Feb 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://shuoyin03.github.io/tags/cognitive-robotics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/cognitive-robotics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cognitive Robotics - Robot Software</title>
-      <link>https://shuoyin03.github.io/2024/02/28/cognitive-robotics-robot-software/</link>
+      <link>http://localhost:1313/2024/02/28/cognitive-robotics-robot-software/</link>
       <pubDate>Wed, 28 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://shuoyin03.github.io/2024/02/28/cognitive-robotics-robot-software/</guid>
-      <description>&lt;h2 id=&#34;autonomous-robot-workflow&#34;&gt;Autonomous Robot Workflow&lt;/h2&gt;&#xA;&lt;p&gt;A autonomous robot workflow would be like this: the sensors collect data from the real-world environment, experienced the learning process sensing, reasoning, and acting. Then it give its feedback, doing some movements or actions by sensors.&#xA;&#xA;  &lt;img src=&#34;https://shuoyin03.github.io/img/robots/software/image.png&#34; alt=&#34;alt text&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;The code below is a great example, where the first line is getting the information from outside world, and the second line is doing some reasoning, limit the distance, and if the distance is less than 0.3, the actuators stops.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/2024/02/28/cognitive-robotics-robot-software/</guid>
+      <description>&lt;h2 id=&#34;autonomous-robot-workflow&#34;&gt;Autonomous Robot Workflow&lt;/h2&gt;&#xA;&lt;p&gt;A autonomous robot workflow would be like this: the sensors collect data from the real-world environment, experienced the learning process sensing, reasoning, and acting. Then it give its feedback, doing some movements or actions by sensors.&#xA;&#xD;&#xA;  &lt;img src=&#34;http://localhost:1313/img/robots/software/image.png&#34; alt=&#34;alt text&#34;&gt;&#xD;&#xA;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;The code below is a great example, where the first line is getting the information from outside world, and the second line is doing some reasoning, limit the distance, and if the distance is less than 0.3, the actuators stops.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cognitive Robotics - Deep Learning in Robotics</title>
-      <link>https://shuoyin03.github.io/2024/02/27/cognitive-robotics-deep-learning/</link>
+      <link>http://localhost:1313/2024/02/27/cognitive-robotics-deep-learning/</link>
       <pubDate>Tue, 27 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://shuoyin03.github.io/2024/02/27/cognitive-robotics-deep-learning/</guid>
-      <description>&lt;p&gt;This blog is a supplement of deep learning topic as we already explain the fundamental knowledge in this blog: &lt;a href=&#34;https://shuoyin03.github.io/2024/01/16/nlp-deep-learning1/&#34;&gt;Natural Language Processing - Deep Learning I&lt;/a&gt;, where we will mainly focuses on &lt;code&gt;CNN&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-deep-learning&#34;&gt;Why Deep Learning?&lt;/h2&gt;&#xA;&lt;p&gt;The reason why we apply deep learning techniques are quite obvious, which is to ues it handle thee robots&amp;rsquo; vision. The advantage of neural network is learning and building up features to represent the input data, which help us remove the complex and limit feature selection process. However, normal neural networks couldn&amp;rsquo;t satisfy the needs. For example, if we use the classic dataset like &lt;code&gt;MNIST&lt;/code&gt;, we would have only 784 input weights(28 x 28). However, if we scale up to choose images which has a size of 200 x 200 x 3, then we would have a total of 120,000 weights! Thus, we need more powerful neural networks.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/2024/02/27/cognitive-robotics-deep-learning/</guid>
+      <description>&lt;p&gt;This blog is a supplement of deep learning topic as we already explain the fundamental knowledge in this blog: &lt;a href=&#34;http://localhost:1313/2024/01/16/nlp-deep-learning1/&#34;&gt;Natural Language Processing - Deep Learning I&lt;/a&gt;, where we will mainly focuses on &lt;code&gt;CNN&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-deep-learning&#34;&gt;Why Deep Learning?&lt;/h2&gt;&#xA;&lt;p&gt;The reason why we apply deep learning techniques are quite obvious, which is to ues it handle thee robots&amp;rsquo; vision. The advantage of neural network is learning and building up features to represent the input data, which help us remove the complex and limit feature selection process. However, normal neural networks couldn&amp;rsquo;t satisfy the needs. For example, if we use the classic dataset like &lt;code&gt;MNIST&lt;/code&gt;, we would have only 784 input weights(28 x 28). However, if we scale up to choose images which has a size of 200 x 200 x 3, then we would have a total of 120,000 weights! Thus, we need more powerful neural networks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cognitive Robotics - Navigation</title>
-      <link>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-sensors-navigation/</link>
+      <link>http://localhost:1313/2024/02/19/cognitive-robotics-sensors-navigation/</link>
       <pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://shuoyin03.github.io/2024/02/19/cognitive-robotics-sensors-navigation/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this blog, we will discuss about the navigation - how will the robots go the destination we want them to go?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Navigation&lt;/code&gt;, which in definition it means moving the entire robot from one location to another, this question could also refers to some destination planning. The difference between navigation and manipulation is that, &lt;code&gt;manipulation&lt;/code&gt; refers to the problems moving body part to&#xA;manipulate the environment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;locomotion&#34;&gt;Locomotion&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Locomotion&lt;/code&gt; are the methods to achieve &lt;code&gt;navigation&lt;/code&gt;, there are three types of locomotion:&lt;/p&gt;</description>
+      <guid>http://localhost:1313/2024/02/19/cognitive-robotics-sensors-navigation/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In this blog, we will discuss about the navigation - how will the robots go the destination we want them to go?&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Navigation&lt;/code&gt;, which in definition it means moving the entire robot from one location to another, this question could also refers to some destination planning. The difference between navigation and manipulation is that, &lt;code&gt;manipulation&lt;/code&gt; refers to the problems moving body part to&#xA;manipulate the environment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;locomotion&#34;&gt;Locomotion&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Locomotion&lt;/code&gt; are the methods to achieve &lt;code&gt;navigation&lt;/code&gt;, there are three types of locomotion:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cognitive Robotics - Sensors and Actuators</title>
-      <link>https://shuoyin03.github.io/2024/02/14/cognitive-robotics-sensors-and-actuators/</link>
+      <link>http://localhost:1313/2024/02/14/cognitive-robotics-sensors-and-actuators/</link>
       <pubDate>Wed, 14 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://shuoyin03.github.io/2024/02/14/cognitive-robotics-sensors-and-actuators/</guid>
+      <guid>http://localhost:1313/2024/02/14/cognitive-robotics-sensors-and-actuators/</guid>
       <description>&lt;p&gt;A robot is mainly consist of 4 components, which is:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Physical Body&lt;/li&gt;&#xA;&lt;li&gt;Sensors&lt;/li&gt;&#xA;&lt;li&gt;Effectors and actuators&lt;/li&gt;&#xA;&lt;li&gt;Controller&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Here we will mainly talk about &lt;code&gt;effectors&lt;/code&gt;, &lt;code&gt;actuators&lt;/code&gt; and &lt;code&gt;sensors&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;actuators-effectors-and-actions&#34;&gt;Actuators, Effectors and Actions&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Effectors&lt;/code&gt; are any device that can make an effect on the environment, for example, the arms on human body or robot body. And &lt;code&gt;Actuators&lt;/code&gt; are devices which &lt;strong&gt;enables effectors to execute movements&lt;/strong&gt;. For example, muscles and electric motors. Note that one &lt;code&gt;effector&lt;/code&gt; must have one &lt;code&gt;actuator&lt;/code&gt; to support it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cognitive Robotics - Introduction</title>
-      <link>https://shuoyin03.github.io/2024/02/05/cognitive-robotics-introduction/</link>
+      <link>http://localhost:1313/2024/02/05/cognitive-robotics-introduction/</link>
       <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://shuoyin03.github.io/2024/02/05/cognitive-robotics-introduction/</guid>
+      <guid>http://localhost:1313/2024/02/05/cognitive-robotics-introduction/</guid>
       <description>&lt;h2 id=&#34;what-are-robots&#34;&gt;What are Robots?&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;code&gt;robot&lt;/code&gt;, is a machine capable of carrying out a complex series of actions automatically, especially one programmable by a computer. Also, it could be described as an autonomous system which exists in the physical world, can sense its environment, and can act on it to achieve some goals. There are many types of robots that we define today. For example, they are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Humanoid&lt;/li&gt;&#xA;&lt;li&gt;Android&lt;/li&gt;&#xA;&lt;li&gt;Biomimetic&lt;/li&gt;&#xA;&lt;li&gt;Industrial (manipulation, navigation)&lt;/li&gt;&#xA;&lt;li&gt;Medical&lt;/li&gt;&#xA;&lt;li&gt;Assistive&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;humanoid-robots&#34;&gt;Humanoid Robots&lt;/h3&gt;&#xA;&lt;p&gt;A &lt;code&gt;humanoid robot&lt;/code&gt; has an &lt;code&gt;anthropomorphic&lt;/code&gt; body plan and actuators with &lt;code&gt;human-like senses&lt;/code&gt; for human-robot interaction. For example, a &lt;code&gt;humanoid robot&lt;/code&gt; could contains &lt;strong&gt;a head, two legs, two arms and a torso&lt;/strong&gt;, and it contains &lt;strong&gt;cameras, microphones, and touch sensors&lt;/strong&gt; to simulate humans&amp;rsquo; five senses.&lt;/p&gt;</description>
     </item>
   </channel>
