@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Advanced Distributed System - Batch Data and MapReduce on UNKNOWN SPACE</title>
-    <link>http://localhost:1313/2024/01/09/distributed-system-big-data/</link>
+    <link>https://shuoyin03.github.io/2024/01/09/distributed-system-big-data/</link>
     <description>Recent content in Advanced Distributed System - Batch Data and MapReduce on UNKNOWN SPACE</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/2024/01/09/distributed-system-big-data/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shuoyin03.github.io/2024/01/09/distributed-system-big-data/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
