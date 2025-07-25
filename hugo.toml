@@ -1,4 +1,4 @@
-baseURL = "https://shuoyin03.github.io/"
+baseURL = "https://shuoyin03.github.io"
 title = "UNKNOWN SPACE"
 theme = "hugo-theme-cleanwhite"
 languageCode = "en-us"
@@ -88,11 +88,11 @@ enableInlineShortcodes = true
   
   [[params.addtional_menus]]
   title =  "ARCHIVE"
-  href =  "/archive/"
+  href =  "/archive"
 
   [[params.addtional_menus]]
   title =  "ABOUT"
-  href =  "/about/"
+  href =  "/about"
 
   [outputFormats.Algolia]
   baseName = "algolia"
