@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="UNKNOWN SPACE">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://shuoyin03.github.io//img/tag-bg.jpg">
+    <meta property="twitter:image" content="https://shuoyin03.github.io//img/tag-bg.jpg" />
+    
+
+    
+    <meta name="title" content="Cognitive Robotics - Navigation" />
+    <meta property="og:title" content="Cognitive Robotics - Navigation" />
+    <meta property="twitter:title" content="Cognitive Robotics - Navigation" />
+    
+
+    
+    <meta name="description" content="Introduction to Robots&#39; motion">
+    <meta property="og:description" content="Introduction to Robots&#39; motion" />
+    <meta property="twitter:description" content="Introduction to Robots&#39; motion" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Cognitive Robotics - Navigation | ShuoYin</title>
+
+    <link rel="canonical" href="/2024/02/19/cognitive-robotics-sensors-navigation/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/post/">post</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive//">ARCHIVE</a></li>
+                    
+                        <li><a href="/about//">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/cognitive-robotics" title="Cognitive Robotics">
+                            Cognitive Robotics
+                        </a>
+                        
+                    </div>
+                    <h1>Cognitive Robotics - Navigation</h1>
+                    <h2 class="subheading">Go to the destination!</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Monday, February 19, 2024
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <blockquote>
+<p>In this blog, we will discuss about the navigation - how will the robots go the destination we want them to go?</p></blockquote>
+<h2 id="navigation">Navigation</h2>
+<p><code>Navigation</code>, which in definition it means moving the entire robot from one location to another, this question could also refers to some destination planning. The difference between navigation and manipulation is that, <code>manipulation</code> refers to the problems moving body part to
+manipulate the environment.</p>
+<h2 id="locomotion">Locomotion</h2>
+<p><code>Locomotion</code> are the methods to achieve <code>navigation</code>, there are three types of locomotion:</p>
+<ul>
+<li><code>Mechanical locomotion</code><br>
+Wheels (synchro-drive, omnidirectional wheels)</li>
+<li><code>Biomimetic locomotion</code><br>
+Crawling, sliding, running</li>
+<li><code>Legged locomotion</code><br>
+This is a special type of locomotion because we could have multiple states based on how many legs we have(Maybe I got 6). The way to calculate the overall states is by using this equation: $N = (2k-1)!$</li>
+</ul>
+<h2 id="separate-problems-4-key-questions">Separate Problems: 4 Key Questions</h2>
+<p>In robot <code>navigation</code>, there are four questions we need to consider:</p>
+<ol>
+<li>Where am I going? (and why?) (Mission planning)</li>
+<li>What is the best way there? (Path planning)</li>
+<li>Where have I been? (Map making (Simultaneous Localization and Mapping))</li>
+<li>Where am I? (Localization)</li>
+</ol>
+<p>We won&rsquo;t go through the first question in this blog, but we will cover some details for the rest of them.</p>
+<h2 id="path-planning">Path Planning</h2>
+<p>There are two methods of path planning, <code>qualitative</code> path planning and <code>quantitative</code> path planning.</p>
+<ol>
+<li><code>Qualitative</code> path planning (Topological/Route navigation)</li>
+</ol>
+<ul>
+<li>Agent’s perspective</li>
+<li>Topological route with distinctive landmarks</li>
+<li>Topological route with associations (reactive)</li>
+<li>AI search and planning</li>
+</ul>
+<ol start="2">
+<li><code>Quantitative</code> path planning (Metric navigation)</li>
+</ol>
+<ul>
+<li>Metrics or layout map (bird’s eye view map)</li>
+<li>Orientation- and position-independent</li>
+</ul>
+<p>Let&rsquo;s have a look at the following graph:
+
+  <img src="/img/robots/navigation/image.png" alt="alt text">
+
+
+where <code>distinctive places</code>(placing landmarks) and <code>associative methods</code> are two methods to achieve <code>qualitative</code> path planning.</p>
+<h3 id="distinctive-places-landmark-methods">Distinctive Places (Landmark Methods)</h3>
+<p>Distinctive places (Landmark methods)</p>
+<p>In this method, we choose distinctive features as landmarks which are easy ato recognize, let the robots go to somewhere when or after they &lsquo;see&rsquo; the landmarks. We could choose many different landmarks, some types of landmarks are:</p>
+<ul>
+<li><code>Natural</code> landmark: object or scene</li>
+<li><code>Artificial</code> landmark: sign or visual pattern (e.g. QR-like)</li>
+<li><code>Gateway</code>: landmark to change behavior (e.g. junction)</li>
+</ul>
+<h3 id="associative-methods">Associative Methods</h3>
+<p>The associative methods refers to some associations between perceptual state and movement. One possible method is <code>visual homing</code>, where visual patterns associated with locations/routes. An example could be <code>bee navigation</code>, where the bees determines direction and position through the sun, visual landmarks and geomagnetic sensing to achieve effective movement and positioning.</p>
+<p>Another possible method is <code>QualNav</code>, in this method we infers location from relative positions of landmarks change, such as <strong>constellations</strong>.</p>
+<h2 id="map-making-topological-navigation-relational-graph-methods">Map Making: Topological Navigation (Relational Graph Methods)</h2>
+<p>All the other methods mentioned above, we don&rsquo;t have a map for robots to let them know where exactly they are on the map. But now, we are going to take the map into consideration. We represent the world as a relational graph of nodes and edges. <code>Nodes</code> represent <strong>gateways, landmarks, or goals</strong>, and edges represent a <strong>navigable path between two nodes</strong>.</p>
+<p>Here we have an example:
+
+  <img src="/img/robots/navigation/image1.png" alt="alt text">
+
+</p>
+<p>And here we have the code to allows it go from R7 to R2:
+
+  <img src="/img/robots/navigation/image2.png" alt="alt text">
+
+</p>
+<p>However, nowadays, we have different expectations for robots - we want them to recognize the environment they located in, without the need of a given map(they still need one!), so they could move in any environment because they are learning through their intelligence. <code>SLAM</code>(Simultaneous Localisation and Mapping) algorithm is the method to do this, we will explain it later.</p>
+<p>Now, before we look into <code>SLAM</code>, let&rsquo;s think about the possible challenges in achieving the effects we described above:</p>
+<ul>
+<li>How can you build the map of a (new) world?</li>
+<li>How do you recognise where you are?</li>
+<li>How can you simultaneously map the world and be sure where you are?</li>
+<li>How do you explore new areas efficiently and consistently?</li>
+<li>How do you label the map with objects and features or terrain?</li>
+</ul>
+<p>We will answer them one by one.</p>
+<h2 id="robot-localization">Robot Localization</h2>
+<p>As the robots still need a map to understand the environment they are in, a wonderful sensor(laser !) which we introduced in the last blog could be used, you could click <a href="https://shuoyin03.github.io/2024/02/14/cognitive-robotics-sensors-and-actuators/">here</a> to go back.</p>
+<p>After we have the map, we need robots to know where they are, and this need a representation of their current location. The pose $x$ of a robot contains its position $(x, y)$ and a orientation. The math equation is like this:
+$$x = (x, y, \theta)^T$$
+We use <code>Bayesian</code> algorithms to estimate probable location, there are two methods, the first one is <code>feature-based localization</code>(Marcov, Extended Kalman Filters) and the other one is <code>iconic localization</code>(Monte Carlo localisation / Particles)</p>
+<h3 id="feature-based-localization">Feature-Based Localization</h3>
+<p>For this method, we extract features like corners, walls, and doors from raw data and match them to the map efficiently using <code>Markov localization</code> and <code>extended Kalman Filters</code>.</p>
+<h4 id="marcov-localization">Marcov Localization</h4>
+<p>Let&rsquo;s have a look at an example first:
+
+  <img src="/img/robots/navigation/image3.png" alt="alt text">
+
+</p>
+<p>In this graph, consider picture a on the top-left corner, the robot is between a door and a wall. The robot extract the features and understand this fact, and now it knows some possible locations it might be in (shown in picture b). After it uses all the information it could use, it moves to find if there are any other features. In this example, the robot moves to a point between door 4 and a wall (shown in picture c). Now, after it extract the information, it clearly knows that it is not possible to be in the location of $X_3$ and $X_4$, because the features and environment doesn&rsquo;t match, therefore now it only has two choices. And then it moves again (picture e), and $X_2$ is filtered and it clearly know its location.</p>
+<h3 id="extended-kalman-filters">Extended Kalman Filters</h3>
+<p>The extended kalman filter&rsquo;s idea is that, after the robot has known all the features of its current location, it predicts what it will see if it moves forward, and it takes difference between the prediction and what it actually senses, to correct/finetune the estimations.</p>
+<h4 id="iconic-localization">Iconic Localization</h4>
+<p>For this kind of localization method, there is no abstract features but a real image about the environment. It is a grid-based method that the world partitioned into tesselation of convex polygons, we will calculate the likelihood(belief) of all possible poses within each polygon, and for each poses we will add a particle, some particles will “die” if they have a low probability, and the rest of them are the poses that the robot is likely to be in.</p>
+<p>Here is an example in youtube. <a href="https://www.youtube.com/watch?v=qsNGoHi7o2U">Iconic localization</a></p>
+<h3 id="slam-simultaneous-localization-and-mapping">SLAM (Simultaneous Localization and Mapping)</h3>
+<p><code>SLAM</code> is a technology that simultaneously localizes and constructs locations at the same time, and is a new environment for exploration. Among them, Rao-Blackwellized Particle Filter is a commonly used calculation method, where each particle has one path diameter and one local area. Every time I look at it, I only update the area that I can sense, and each time I calculate the accuracy of each particle. At the same time, the history of the history of the past use is preserved, and it is convenient to go back and forth. In addition, the Loop closure technology is used to ensure correctness of the layout of the area, and the accuracy of the route information system and the improvement of the area.</p>
+<p>Here is a youtube video of an example of <code>SLAM</code>, this is the link: <a href="https://www.youtube.com/watch?v=OV6wNr62nqQ">3D Lidar-SLAM With Loop Closure</a>. In this video, when the robot made a circle and rotates back to its original point, the map get updates that it closes the loop.</p>
+<h2 id="cognitive-navigation">Cognitive Navigation</h2>
+<p>As this series of blog is about cognitive robotics, we will discover some method for robots to &ldquo;think&rdquo; using their brain. An obvious disadvantage of the previous methods is, even we have the whole map generated of its current environment, it would be difficult for robots to handle changes in the environment (a car drives away), because a single change will causes the result of &ldquo;my current location is not the same as what the map says&rdquo;. But cognitive systems are used for handling this situations.</p>
+<h3 id="ratslam">RatSLAM</h3>
+<p><code>RatSLAM</code> simulates the mouse hippocampal system&rsquo;s overall navigation ability, which can also be used in a large-scale military environment. Compared to <code>SLAM</code>, the accuracy is low, but the suitability is more flexible, and it can handle complex, noisy input and circumstances. In <code>ratSLAM</code>, we will use some cells discovered from rats&rsquo; brain, they are <code>place cells</code>, <code>head direction cells</code> and <code>grid cells</code>.</p>
+<h4 id="place-cell">Place Cell</h4>
+<p>The <code>place cells</code> are used to help rat recognize specific familiar place that it has been to before, this type of cell will fires when rats arrives at the familiar places. The &ldquo;fire&rdquo; behaviors are influenced by input from the external environment or events as well as input from the internal path integration system (self-motion). Cognitive maps in the hippocampus are composed of thousands of place cells that cover the surface of space and act as a mapping system to help animals build and maintain cognitive maps of their environment.</p>
+<h4 id="head-direction-cell">Head Direction Cell</h4>
+<p><code>Head direction cells</code> activate when the mouse&rsquo;s head is pointed in a specific direction, and its activity is independent of the animal&rsquo;s body position. All directions are represented by populations of head-direction cells, whose activity forms a map of all possible directions. Tuning curves for head direction cells are shown in polar coordinates, showing that their activity is not related to the path taken by the mouse, but only to the direction of the head.</p>
+<h4 id="grid-cell">Grid Cell</h4>
+<p><code>Grid cells</code> are continuously active in a regular pattern across the entire surface of a given environment, similar to place cells but with multiple firing fields. Grid cells activated when the mouse was located at any vertex of a hexagonal pattern in the environment. These cells vary in spacing, phase, and orientation. The activity of grid cells provides signals for measuring displacement distance and direction, thereby forming a metric space.</p>
+<p>So, by connecting the SLAM and the different cells we have learned so far, we could know that ratSLAM is the robot navigation and SLAM based on computational models of the hippocampus. It is made up of <code>pose cells</code>(analogous to rat’s grid cells), local view cells(interface to the robot’s sensors) and experience map(replaces place cells). Here are some of its characteristics:</p>
+<ul>
+<li>appearance based visual scene matching</li>
+<li>competitive attractor networks</li>
+<li>semi-metric topological map representation</li>
+</ul>
+<p>
+  <img src="/img/robots/navigation/image4.png" alt="alt text">
+
+</p>
+<p>As you can see from the above image, the initial map is similar with the normal SLAM algorithm output, but with the more training process, the map is gradually being concise and accurate.</p>
+<p>
+  <img src="/img/robots/navigation/image5.png" alt="alt text">
+
+</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/02/14/cognitive-robotics-sensors-and-actuators/" data-toggle="tooltip" data-placement="top" title="Cognitive Robotics - Sensors and Actuators">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/02/26/nlu-introduction/" data-toggle="tooltip" data-placement="top" title="Natural Language Understanding - Introduction &amp; Embedding &amp; Model">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bm25s" title="bm25s">
+                            bm25s
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/case-study" title="case study">
+                            case study
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cognitive-robotics" title="cognitive robotics">
+                            cognitive robotics
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cyber-security" title="cyber security">
+                            cyber security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data structure">
+                            data structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed system">
+                            distributed system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/flask" title="flask">
+                            flask
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/networking" title="networking">
+                            networking
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlu" title="nlu">
+                            nlu
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/scraping" title="scraping">
+                            scraping
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:shuoyin03@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ShuoYin03">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='/2024/02/19/cognitive-robotics-sensors-navigation/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; UNKNOWN SPACE 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

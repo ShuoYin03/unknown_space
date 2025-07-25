@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="UNKNOWN SPACE">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://shuoyin03.github.io//img/tag-bg.jpg">
+    <meta property="twitter:image" content="https://shuoyin03.github.io//img/tag-bg.jpg" />
+    
+
+    
+    <meta name="title" content="Natural Language Processing - Deep Learning I" />
+    <meta property="og:title" content="Natural Language Processing - Deep Learning I" />
+    <meta property="twitter:title" content="Natural Language Processing - Deep Learning I" />
+    
+
+    
+    <meta name="description" content="Neural Networks">
+    <meta property="og:description" content="Neural Networks" />
+    <meta property="twitter:description" content="Neural Networks" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Natural Language Processing - Deep Learning I | ShuoYin</title>
+
+    <link rel="canonical" href="/2024/01/16/nlp-deep-learning1/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/post/">post</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive//">ARCHIVE</a></li>
+                    
+                        <li><a href="/about//">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                    </div>
+                    <h1>Natural Language Processing - Deep Learning I</h1>
+                    <h2 class="subheading">Deep Learning</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Tuesday, January 16, 2024
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="basic-neural-network-structure">Basic Neural Network Structure</h2>
+<p><code>Single neuron</code>, the most basic components of neural networks, consist of multiple inputs $[x_1, x_2, &hellip;, x_d]$ and an output $y$.
+
+  <img src="/img/nlp/nlp-deep-1/image.png" alt="Alt text">
+
+
+The above picture demonstrated, each input $x$ is multiply by a weight $w$, their sum is added with a bias and then activated by a <code>activation function</code>. The training process, is to find the best y value from updating the weight in each training epoch.</p>
+<h3 id="activation-function">Activation function</h3>
+<p>The meaning of activation function is to give the data non-linear features to allow networks capture more complex changes and pattern. Some common activation functions are: <code>Sigmoid function</code>, <code>Tanh function</code>, <code>Relu function</code>, <code>Parametric Relu</code> and <code>ELU</code>. Each activation function has their own suitable scenario, and we will discuss them in the future.</p>
+<ol>
+<li>
+<p>Sigmoid function<br>
+The <code>sigmoid function</code> could returns the data in a range of 0 and 1, the math function and graph is like below:
+$$ϕ(v) = \frac{1}{1 + \exp(-v)}$$
+
+  <img src="/img/nlp/nlp-deep-1/image2.png" alt="Alt text">
+
+</p>
+</li>
+<li>
+<p>Tanh function<br>
+The <code>tanh function</code> could returns the data in a range of -1 and 1.
+$$ϕ(v) = \tanh(v) = \frac{\exp(2v) - 1}{\exp(2v) + 1} ∈ (-1, +1)$$
+
+  <img src="/img/nlp/nlp-deep-1/image3.png" alt="Alt text">
+
+</p>
+</li>
+<li>
+<p>Relu function<br>
+The <code>relu function</code> keep the data above 0 normal, and set to 0 to all the data below 0.
+$$ϕ(v) = \begin{cases} v, &amp; \text{if v ≥ 0} \\ 0, &amp; \text{if v &lt; 0} \end{cases}$$
+
+  <img src="/img/nlp/nlp-deep-1/image4.png" alt="Alt text">
+
+</p>
+</li>
+<li>
+<p>Parametric Relu<br>
+The <code>parametric relu function</code> vary the <code>relu function</code> - set data below 0 as $av$, with a = 0.01 in <a href="https://paperswithcode.com/method/leaky-relu">Leaky Relu</a>.
+$$ϕ(v) = \begin{cases} v &amp; \text{if } v \geq 0 \\ av &amp; \text{if } v &lt; 0 \end{cases}$$
+
+  <img src="/img/nlp/nlp-deep-1/image5.png" alt="Alt text">
+
+</p>
+</li>
+<li>
+<p>ELU<br>
+The <code>ELU function</code> another variants of <code>relu function</code>
+$$ϕ(v) = \begin{cases} v &amp; \text{if } v \geq 0 \\ a(e^v - 1) &amp; \text{if } v &lt; 0 \end{cases}$$
+
+  <img src="/img/nlp/nlp-deep-1/image6.png" alt="Alt text">
+
+</p>
+</li>
+</ol>
+<h3 id="single-layer-perceptron">Single Layer Perceptron</h3>
+<p>A single layer perceptron (SLP) has one input layer and one output layer. Each layer is consist of <code>single neurons</code>.
+
+  <img src="/img/nlp/nlp-deep-1/image7.png" alt="Alt text">
+
+</p>
+<h3 id="multilayer-perceptron">Multilayer Perceptron</h3>
+<p>A <code>Multilayer Perceptron</code>(MLP), also called a <code>feedforward neural network</code>(FNN), consist of at least a input layer, a hidden layer and an output layer, which each neuron in each layers connected to all neurons in other adjacent layers.
+
+  <img src="/img/nlp/nlp-deep-1/image8.png" alt="Alt text">
+
+
+The below picture is a <code>feedforward</code> network architecture, here we will introduce it step by step:
+
+  <img src="/img/nlp/nlp-deep-1/image9.png" alt="Alt text">
+
+
+Each word input is first processed by an embedding layer, we denote the result of this step as F, after multiply it by one hot vector, we could input it into the network. The concatenated form of all word input is a vector $x = [x_1, x_2, x_3&hellip;]$, and we take it to the next formula shown in the picture calculating $h_1$. The next layer uses the output of the previous layer and the product of the weight matrix of the current layer and the input vector(every next layers is calculated like this). And after this we could use a logistic regression function to transform $h_k$ into the predicted output.</p>
+<h2 id="rnn">RNN</h2>
+<p><code>RNN</code> is a type of neural network collecting the last output as the input for next layer, the picture below demonstrate the basic structure of a <code>RNN</code> network.
+
+  <img src="/img/nlp/nlp-deep-1/image10.png" alt="Alt text">
+
+
+As we can see from the picture, the information transmitting in different layers is $h_t$, which consist of three components $x_t$, $h_{t-1}$ and $W$, for example, $h_1 = f(x_1, h_0, W)$(Note that $h_0$ could either be trained or set to a fixed value). $X$ allows multiple means of input, such as output of a feature extractor, word vectors, or directly trained from another neural network. $W$ is the weight, our goal is to get the best weight for generating the best result. The function $f$ could be <code>SLP</code>, <code>MLP</code> that we have already looked at, or we could use <code>LSTM</code>, <code>GRU</code> that we will introduce later. Based on the method we take to calculate $h_t$, there extended some types of RNN: <code>Vanilla RNN</code>, <code>LSTM RNN</code>, <code>GRU RNN</code>&hellip;</p>
+<h3 id="vanilla-rnn">Vanilla RNN</h3>
+<p><code>Vanilla RNN</code>, the most basic RNN, calculating $h_t$ by using a standard neuron operation. The equation is as below:
+$$h(k) = ϕ(W_xx_k + W_hh_{k−1} + b)$$
+The biggest disadvantage of <code>Vanilla</code> is <code>vanishing gradient</code>. What is <code>vanishing gradient</code>? Let&rsquo;s look at a equation first.
+$$G_{ki} = (W_{h})^{k-i} \prod_{j=i+1}^{k} D_{j}$$
+$W_h$, represents weight in calculating the gradient $G_{ki}$, might be vanishing or explosion with respect to $k-i$, where k is the state of interest and i is the previous state. This leads to a short-term memory of the model or unstable &rsquo;learning&rsquo; process and inefficient. In this case, we could make some changes to to the standard neuron operation, and we have <code>LSTM RNN</code> and <code>GRU RNN</code>.</p>
+<h3 id="lstm-rnn">LSTM RNN</h3>
+<p>The idea of <code>LSTM RNN</code> is to add multiple <strong>gates</strong> to control input of current and previous content vector and output. First of all, copy the operation of standard neuron operation, change the activation function to <code>tanh</code>, and name the new operation as $c_k$ to represents the updated information about current state.
+$$c_k = tanh(W_xx_k + W_hh_{k−1} + b)$$</p>
+<p>Afterwards, we could define the equation of $h_k$ (The <code>·</code> symbol represents element wise multiplication).
+$$h_k = o_k · tanh(f_k · c_{k-1} + i_k · c_k)$$</p>
+<p>There are three <strong>gates</strong> in the equation, which $o_k$ represents the <code>output gate</code>, $f_k$ represents the <code>forgot gate</code>, and $i_k$ represents the <code>input gate</code>.</p>
+<ol>
+<li>Output Gate<br>
+The <code>output gate</code> controls the selection of which numbers could be return in the mixed of both previous and current content vectors. The equation for $o_k$ is:
+$$o_k = σ(W^o_xx_k + W^o_hh_{k-1} + b^o)$$</li>
+<li>Forgot Gate<br>
+The <code>forgot gate</code> controls which numbers in the previous state are selected. The equation is:
+$$f_k = σ(W^f_xx_k + W^f_hh_{k-1} + b^f)$$</li>
+<li>Input Gate<br>
+The <code>input gate</code> controls which numbers in the current state are selected. The equation is:
+$$i_k = σ(W^i_xx_k + W^i_hh_{k-1} + b^i)$$</li>
+</ol>
+<p>By the control of gates, the LSTM function could have a kind of long-term memory.</p>
+<h3 id="gru-rnn">GRU RNN</h3>
+<p>Due to the fact that <code>LSTM RNN</code> has too many parameters, therefore it has a slow running speed. Therefore, compare to <code>LSTM RNN</code>, <code>GRU RNN</code> keeps the idea of <strong>gates</strong>, but it decreases the gates and parameters it used to optimize the running speed. An equation for calculating content vector $c_k$ is shown below:
+$$c_k = tanh(W_xx_k + W_h(r_k·h_{k−1}) + b)$$
+Within the equation for $c_k$, we have a <code>reset gate</code> which having similar function as <code>forgot gate</code>, it selects which numbers in the previous representation vector to use. The equation for it is as below:
+$$r_k = σ(W^r_xx_k + W^r_hh_{k-1} + b^r)$$
+And the equation for $h_k$ is:
+$$h_k = (1-u_k) · h_{k-1} + u_k · c_k$$
+$u_k$ represents the <code>update gate</code>. It selects for both previous representation vector and current content vector about which numbers to use. The equation for <code>update gate</code> is:
+$$u_k = σ(W^u_xx_k + W^u_hh_{k-1} + b^u)$$</p>
+<h2 id="rnn-application-seq2seq-model">RNN Application: Seq2seq Model</h2>
+<p>
+  <img src="/img/nlp/nlp-deep-1/image11.png" alt="Alt text">
+
+
+The above picture is an example of a seq2seq model, we could see that it contains two separate parts: <code>encoder</code> and <code>decoder</code>. They have different responsibilities in this model. First of all, the <code>encoder</code> works as normal RNN, recursively process each input word vectors and calculating each $h_k$ by using <code>vanilla</code> or <code>LSTM</code> or <code>GRU</code> RNN. Then for the last representation vector of <code>encoder</code> $h_3$, make it as the first representation of decoder $\tilde{h}_0$, combining it with <code>&lt;start&gt;</code> as the first content vector. After a list of calculation, we got $\tilde{h}_1$, now we could use a logistic regression function $\tilde{Y}_k$ to transmit our vector into a Chinese word, where in the example, <strong>&ldquo;这&rdquo;</strong>. This Chinese word will be used as the next input word vector, and keep running until the ends.</p>
+<h2 id="advanced-rnn-architectures">Advanced RNN Architectures</h2>
+<p>Except <code>LSTM</code> and <code>GRU</code> RNN, we still have another two advanced RNN architectures, with their structure changed instead of calculations. They are <code>bi-directional RNN</code> and <code>multi-layer RNN</code>.</p>
+<h3 id="bi-directional-rnn">Bi-directional RNN</h3>
+<p>The motivation for <code>bi-directional RNN</code> is to take care of both left and right context, as the representation vectors could be influence by both left and right representation vectors. In this case, we use two RNNs with original and reversed input respectively. The picture below demonstrate a structure of <code>bi-directional RNN</code>:
+
+  <img src="/img/nlp/nlp-deep-1/image12.png" alt="Alt text">
+
+</p>
+<h3 id="multi-layer-rnn">Multi-layer RNN</h3>
+<p>The motivation for multi-layer RNN is to compute more complex representation vectors and improve model performance. To achieve this, we could stack multiple layers of RNN, normally 2 - 4 layers.
+
+  <img src="/img/nlp/nlp-deep-1/image13.png" alt="Alt text">
+
+</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/01/12/distributed-system-nosql/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - NoSQL">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/01/31/cyber-security-basics/" data-toggle="tooltip" data-placement="top" title="Cyber Security - Basics">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bm25s" title="bm25s">
+                            bm25s
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/case-study" title="case study">
+                            case study
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cognitive-robotics" title="cognitive robotics">
+                            cognitive robotics
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cyber-security" title="cyber security">
+                            cyber security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data structure">
+                            data structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed system">
+                            distributed system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/flask" title="flask">
+                            flask
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/networking" title="networking">
+                            networking
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlu" title="nlu">
+                            nlu
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/scraping" title="scraping">
+                            scraping
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:shuoyin03@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ShuoYin03">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='/2024/01/16/nlp-deep-learning1/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; UNKNOWN SPACE 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

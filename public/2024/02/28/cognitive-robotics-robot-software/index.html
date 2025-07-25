@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="UNKNOWN SPACE">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://shuoyin03.github.io//img/tag-bg.jpg">
+    <meta property="twitter:image" content="https://shuoyin03.github.io//img/tag-bg.jpg" />
+    
+
+    
+    <meta name="title" content="Cognitive Robotics - Robot Software" />
+    <meta property="og:title" content="Cognitive Robotics - Robot Software" />
+    <meta property="twitter:title" content="Cognitive Robotics - Robot Software" />
+    
+
+    
+    <meta name="description" content="Introduction to programming of robots">
+    <meta property="og:description" content="Introduction to programming of robots" />
+    <meta property="twitter:description" content="Introduction to programming of robots" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Cognitive Robotics - Robot Software | ShuoYin</title>
+
+    <link rel="canonical" href="/2024/02/28/cognitive-robotics-robot-software/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/post/">post</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive//">ARCHIVE</a></li>
+                    
+                        <li><a href="/about//">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/cognitive-robotics" title="Cognitive Robotics">
+                            Cognitive Robotics
+                        </a>
+                        
+                    </div>
+                    <h1>Cognitive Robotics - Robot Software</h1>
+                    <h2 class="subheading">Programming Robots!</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Wednesday, February 28, 2024
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="autonomous-robot-workflow">Autonomous Robot Workflow</h2>
+<p>A autonomous robot workflow would be like this: the sensors collect data from the real-world environment, experienced the learning process sensing, reasoning, and acting. Then it give its feedback, doing some movements or actions by sensors.
+
+  <img src="/img/robots/software/image.png" alt="alt text">
+
+</p>
+<p>The code below is a great example, where the first line is getting the information from outside world, and the second line is doing some reasoning, limit the distance, and if the distance is less than 0.3, the actuators stops.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>distance <span style="color:#ff79c6">=</span> sensor<span style="color:#ff79c6">.</span>get_distance()
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> distance <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0.3</span>:
+</span></span><span style="display:flex;"><span>	wheels<span style="color:#ff79c6">.</span>stop()
+</span></span></code></pre></div><h2 id="softbank-pepper-robot">Softbank Pepper Robot</h2>
+<p>This is a robot developed by a company used for greeting people in scenarios like banking, hotel, etc. It contains many sensors and actuators as you can see from the picture below.
+
+  <img src="/img/robots/software/image-1.png" alt="alt text">
+
+</p>
+<h2 id="tools">Tools</h2>
+<p>Now, because we don&rsquo;t want to focus on the basic thing like the code above, we will use middlewares to make the &ldquo;rules&rdquo; for our robots. In middleware, both application and hardware elements are considered as &ldquo;nodes&rdquo; which are connected by the middleware infrastructure, and each node specifies its inputs and outputs. Nowadays, some middleware that we could use are <code>ROS</code>, <code>YARP</code>, <code>NAOqi</code>, etc. Some of them are following one idea - publisher to subscriber structure. In this structure, publishers publish nodes on topics with some information, and the subscriber receive it from the same topic. Here is a code example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#6272a4">## Publisher</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> rospy
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> std_msgs.msg <span style="color:#ff79c6">import</span> String
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">talker</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Publish the message &#34;hello world!&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    pub <span style="color:#ff79c6">=</span> rospy<span style="color:#ff79c6">.</span>Publisher(<span style="color:#f1fa8c">&#39;chatter-topic&#39;</span>，String, queue_size <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>)
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#ff79c6">.</span>init_node(<span style="color:#f1fa8c">&#39;talker&#39;</span>)
+</span></span><span style="display:flex;"><span>    rate <span style="color:#ff79c6">=</span> rospy<span style="color:#ff79c6">.</span>Rate(<span style="color:#bd93f9">10</span>) <span style="color:#6272a4">#10hz</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">not</span> rospy<span style="color:#ff79c6">.</span>is_shutdown():
+</span></span><span style="display:flex;"><span>        hello_str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;hello world!&#34;</span>
+</span></span><span style="display:flex;"><span>        pub<span style="color:#ff79c6">.</span>publish(hello_str)
+</span></span><span style="display:flex;"><span>        rate<span style="color:#ff79c6">.</span>sleep()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> __name__ <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    talker()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#6272a4">## listener</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> rospy
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> std_msgs.msg <span style="color:#ff79c6">import</span> String
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">callback</span>(data):
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Called when receives the message
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#ff79c6">.</span>loginfo(<span style="color:#f1fa8c">&#34;I heard: </span><span style="color:#f1fa8c">%s</span><span style="color:#f1fa8c">&#34;</span>, data<span style="color:#ff79c6">.</span>data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">listener</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Wait until receive the message &#34;hello world!&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#ff79c6">.</span>init_node(<span style="color:#f1fa8c">&#39;listener&#39;</span>)
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#ff79c6">.</span>Subscriber(<span style="color:#f1fa8c">&#34;chatter-topic&#34;</span>, String, callback)
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#ff79c6">.</span>spin() <span style="color:#6272a4"># loops until killed</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> __name__ <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    listener()
+</span></span></code></pre></div><h3 id="to-be-continue">(To be continue&hellip;)</h3>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/02/27/cognitive-robotics-deep-learning/" data-toggle="tooltip" data-placement="top" title="Cognitive Robotics - Deep Learning in Robotics">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/11/07/Networking/url-journey/" data-toggle="tooltip" data-placement="top" title="Networking - URL Journey From Browser">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bm25s" title="bm25s">
+                            bm25s
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/case-study" title="case study">
+                            case study
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cognitive-robotics" title="cognitive robotics">
+                            cognitive robotics
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cyber-security" title="cyber security">
+                            cyber security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data structure">
+                            data structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed system">
+                            distributed system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/flask" title="flask">
+                            flask
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/networking" title="networking">
+                            networking
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlu" title="nlu">
+                            nlu
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/scraping" title="scraping">
+                            scraping
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:shuoyin03@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ShuoYin03">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='/2024/02/28/cognitive-robotics-robot-software/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; UNKNOWN SPACE 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

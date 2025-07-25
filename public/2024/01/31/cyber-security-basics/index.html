@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="UNKNOWN SPACE">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://shuoyin03.github.io//img/tag-bg.jpg">
+    <meta property="twitter:image" content="https://shuoyin03.github.io//img/tag-bg.jpg" />
+    
+
+    
+    <meta name="title" content="Cyber Security - Basics" />
+    <meta property="og:title" content="Cyber Security - Basics" />
+    <meta property="twitter:title" content="Cyber Security - Basics" />
+    
+
+    
+    <meta name="description" content="Introduced the what threats do we have in the our world, security properties and models">
+    <meta property="og:description" content="Introduced the what threats do we have in the our world, security properties and models" />
+    <meta property="twitter:description" content="Introduced the what threats do we have in the our world, security properties and models" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Cyber Security - Basics | ShuoYin</title>
+
+    <link rel="canonical" href="/2024/01/31/cyber-security-basics/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/post/">post</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive//">ARCHIVE</a></li>
+                    
+                        <li><a href="/about//">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/cyber-security" title="Cyber Security">
+                            Cyber Security
+                        </a>
+                        
+                    </div>
+                    <h1>Cyber Security - Basics</h1>
+                    <h2 class="subheading">Security Basics</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Wednesday, January 31, 2024
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>Currently in our world, there are a huge amount of attacks occurring everyday, bringing unpredictable loss to individuals, organizations or even governments. Such attacks could be: Malware, Ransomware, Adware, Hacking, Spoofing, Phishing, Pharming, DDoS&hellip; It is important that we care about security in the development of anything. In definition, there are three aspects in security, which are <code>confidentiality</code>, <code>Integrity</code> and <code>Availability</code>.</p>
+<h2 id="cia-triad">CIA Triad</h2>
+<ol>
+<li>
+<p>Confidentiality<br>
+The <code>confidentiality</code> contains two definitions, <code>data confidentiality</code> and <code>privacy</code>. The <code>data confidentiality</code> is to ensure data not to be used by unauthorized people, or leaked to other people. The <code>privacy</code> is to ensure individuals has the complete control to the data&rsquo;s collection and storage, and they could decide who to leak their data.</p>
+</li>
+<li>
+<p>Integrity<br>
+The <code>integrity</code> contains <code>entity integrity</code>, <code>content integrity</code>, and <code>origin integrity</code>. <code>Entity integrity</code> ensures that entities in the data indeed possess the claimed identity. The <code>content integrity</code> ensures the data is unchanged during transmission, as well as detecting the replayed transmissions. And the <code>origin integrity</code> ensures the data source is claimed before.</p>
+</li>
+<li>
+<p>Availability<br>
+As the name saids, the <code>availability</code> ensures the data is available to authorized users.</p>
+</li>
+</ol>
+<p>Above are the contents of <code>CIA</code>, however, some people think we need more definitions to describe security for a comprehensive description, therefore we have:</p>
+<ol start="4">
+<li>
+<p>Freshness<br>
+It ensures data is not a re-transmission from the old ones.</p>
+</li>
+<li>
+<p>Non-repudiation<br>
+It ensures that users can&rsquo;t deny the operations they did in the past. For example, they can not deny they didn&rsquo;t conduct a transaction.</p>
+</li>
+<li>
+<p>Fairness<br>
+It ensures everyone receive nothing or receive the same information that is useful.</p>
+</li>
+</ol>
+<p>Similar to software development, cyber security has its own <code>life-cycle</code>, to ensure we are doing the right things on security.</p>
+<h2 id="security-life-cycle">Security Life-Cycle</h2>
+<p>The <code>security Life-Cycle</code> consist three main parts:</p>
+<ol>
+<li>
+<p>We have to define what kind of protect should we achieve, what kinds of threats should we focus on (<code>threat analysis</code>) and what are the specified security policy? .</p>
+</li>
+<li>
+<p>The second step is to design, and implement the method we are going to take to achieve the security goal.</p>
+</li>
+<li>
+<p>By doing some valuation, we access how well does our method achieves the goal to assure the security effects.</p>
+</li>
+</ol>
+<p>Below we will talk about it one by one to go into some details. First of all, let&rsquo;s have a look at what is <code>threat analysis</code>.</p>
+<h2 id="threat-analysis">Threat Analysis</h2>
+<p>The <code>threat analysis</code> is to identify three things: <code>assets</code>, <code>threats</code> and <code>vulnerabilities</code>. We are going to ask some questions and answer them to get the result. The questions are:</p>
+<ol>
+<li>What are the assets to protect?</li>
+<li>What is the value of each asset (to see if it is worth protecting)?</li>
+<li>What are the threats?</li>
+<li>Where are they from or how are they mounted?</li>
+<li>Where are the vulnerabilities? What are the likelihood of their exploitation?</li>
+<li>Who are the adversaries, and what are their resources?</li>
+</ol>
+<p>Remember, not all of the threats worth to be protect, there might be a cost vs benefit trade-off that need to be consider. There is a method to help us doing <code>threat analysis</code>, which is <code>attack tree analysis</code>.</p>
+<h3 id="attack-tree-analysis">Attack Tree Analysis</h3>
+<p>The <code>attack tree</code>, or <code>threat tree</code>, is a conceptual tree diagram demonstrating the possible attacking methods.
+
+  <img src="/img/cyber-security/basics/image.png" alt="Alt text">
+
+</p>
+<p>As we can see from the above example, the <code>root node</code> symbolize the attack goal, and it is also the thing we want to prevent. The child nodes are conditions or methods to achieve the attack goal, where we might have a value indicated for each nodes. There are many kinds of values, like likelihood that an attacker will mount the attack, or possibilities of succeeding the attack. All the edges are either &lsquo;OR&rsquo; or &lsquo;AND&rsquo; demonstrating the relationship between nodes, where &lsquo;OR&rsquo; means to use an alternative attack methods, and &lsquo;AND&rsquo; means there are multiple steps required to launch the attack.</p>
+<p>Once the <code>attack tree</code> is completed, it is better for us to evaluate from any paths on the diagram make decisions on trade-offs.</p>
+<h2 id="design--implementation">Design &amp; Implementation</h2>
+<p>There are lots of measures we could take to achieve protection goals.</p>
+<ol>
+<li>
+<p>Security Measures<br>
+The <code>security measures</code> are used to <strong>mitigate the observed risks</strong>, by using technique measures, procedure measures, recovery measures, etc.</p>
+</li>
+<li>
+<p>Preventive Measures<br>
+<code>Preventive measures</code> are methods preventing attacks, for example, we could close vulnerabilities by doing penetration testing and ethical hacking. Or we could make the attacks harder to success by adding access control, firewalls, encryption, digital signatures, etc. And, some tricks might be useful, like adding some Honeypots.</p>
+</li>
+<li>
+<p>Detective Measures
+<code>Detective measures</code> are methods we take during or after the attacks, like during logging or auditing, or during intrusion detected system.</p>
+</li>
+</ol>
+<p>The above three measures are measures we take to immediately stops the attacks, and below are some other things we care.</p>
+<ol>
+<li>
+<p>Response and Recovery<br>
+With <code>response and recovery</code>, if the attacks succeeded, we need to take some methods to recover the system, for example, we could use a back-up, or adding more redundancies for the system.</p>
+</li>
+<li>
+<p>Ignore<br>
+In some cases we could just ignore the attacks, do nothing to it.</p>
+</li>
+</ol>
+<p>Notes that, in this stage, as we have the design of specific security measures, we have to consider about the cost-benefit analysis to identify which measures are worth to take and which are not.</p>
+<h2 id="security-assurance">Security Assurance</h2>
+<p>This is the final stage in a security life-cycle, where we need some standard set up and try to access how well our measures could protect the assets.</p>
+<p>Overall, the deployment of security also has its corresponding cycle. Like software, it is easier and less expensive to consider the security implications into the development process at the beginning than to consider security issues at the end.</p>
+<h2 id="security-models">Security Models</h2>
+<p>In the following blog, we will discuss about different security models, where we will use a model to represent components of security better.</p>
+<h3 id="distributed-system-security-model">Distributed System Security Model</h3>
+<p>
+  <img src="/img/cyber-security/basics/image-1.png" alt="alt text">
+
+
+This model consist of two roles: clients and servers. These two roles communicate with a network connection. The security issues within this model is that, the channel should be secured. We have to prevent perpetrators on the network to read, copy, alter, or inject messages as they travel across the network and gateways, or to save copies of messages and to replay them at a later time. We should also ask some questions within this model:</p>
+<ol>
+<li>Could the server be certain about the identity of the principal behind the invocation?</li>
+<li>Could the client be certain about the invocation response message?</li>
+<li>Are the messages from the intended server?</li>
+<li>Has the messages been altered during transit?</li>
+</ol>
+<h3 id="communication-security-model">Communication Security Model</h3>
+<p>
+  <img src="/img/cyber-security/basics/image-2.png" alt="alt text">
+
+
+This model is aim to protect data over the channel, where we have two communication hosts, sending messages to each other through some encryption &amp; decryption methods. Security questions in this model could be about authenticity (prove the origin of a message + its integrity) and confidentiality.</p>
+<h3 id="networked-system-security-model">Networked System Security Model</h3>
+<p>
+  <img src="/img/cyber-security/basics/image-3.png" alt="alt text">
+
+
+Here the focus is on protecting data and services on a network against <strong>external attacks or unauthorized usage</strong>. An complex variable to this model is the <strong>use of mobile devices</strong>, which will make the <code>boundary</code>(the boundary of network) hard to define, because mobile devices could connect and disconnect to the network anytime and anywhere, therefore, we need multi-level security measures for protecting both internal and external devices.</p>
+<h3 id="e-commerce-security-model">E-commerce Security Model</h3>
+<p>
+  <img src="/img/cyber-security/basics/image-4.png" alt="alt text">
+
+
+For this security model we have three roles, <code>customer</code>, <code>merchant</code> and <code>TTP</code>(a trusted third party). Unlike other model which focuses on external attackers, within this model, our &rsquo;enemy&rsquo; is now <code>misbehaving insider</code> - it might be <strong>employees, partners, or any other internal participants</strong>. An important concept for this model is that <code>Non-repudiation service</code>, which all parties involved in the transaction cannot deny their actions.</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/01/16/nlp-deep-learning1/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - Deep Learning I">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/02/05/cognitive-robotics-introduction/" data-toggle="tooltip" data-placement="top" title="Cognitive Robotics - Introduction">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bm25s" title="bm25s">
+                            bm25s
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/case-study" title="case study">
+                            case study
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cognitive-robotics" title="cognitive robotics">
+                            cognitive robotics
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cyber-security" title="cyber security">
+                            cyber security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data structure">
+                            data structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed system">
+                            distributed system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/flask" title="flask">
+                            flask
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/networking" title="networking">
+                            networking
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlu" title="nlu">
+                            nlu
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/scraping" title="scraping">
+                            scraping
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:shuoyin03@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ShuoYin03">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='/2024/01/31/cyber-security-basics/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; UNKNOWN SPACE 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

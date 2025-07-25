@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="UNKNOWN SPACE">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://shuoyin03.github.io//img/tag-bg.jpg">
+    <meta property="twitter:image" content="https://shuoyin03.github.io//img/tag-bg.jpg" />
+    
+
+    
+    <meta name="title" content="Cyber Security - Cryptography" />
+    <meta property="og:title" content="Cyber Security - Cryptography" />
+    <meta property="twitter:title" content="Cyber Security - Cryptography" />
+    
+
+    
+    <meta name="description" content="Introduced different ciphers and applications of them in real-world">
+    <meta property="og:description" content="Introduced different ciphers and applications of them in real-world" />
+    <meta property="twitter:description" content="Introduced different ciphers and applications of them in real-world" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Cyber Security - Cryptography | ShuoYin</title>
+
+    <link rel="canonical" href="/2024/01/31/cyber-security-cryptography/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/post/">post</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive//">ARCHIVE</a></li>
+                    
+                        <li><a href="/about//">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/cyber-security" title="Cyber Security">
+                            Cyber Security
+                        </a>
+                        
+                    </div>
+                    <h1>Cyber Security - Cryptography</h1>
+                    <h2 class="subheading">Cryptography</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Tuesday, February 6, 2024
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <blockquote>
+<p>In order to keep messages secure, they are two measures, one is two prevent the messages is access by un-authorized party, and another one is, secure messages so that even the message is leaked, the attacker couldn&rsquo;t understand the message, and this is achieved by cryptography.</p></blockquote>
+<h2 id="introduction-to-cryptography">Introduction To Cryptography</h2>
+<p>Cryptography is a crucial part of cybersecurity toolbox, which could be applied to various properties and services, for example:</p>
+<ul>
+<li><code>Confidentiality</code> (secrecy, privacy) of data in transmission &amp; in storage.</li>
+<li><code>Integrity</code> of data (data authentication/authenticity) in transit &amp; in storage.</li>
+<li><code>Authentication</code> of an identity (entity authentication).</li>
+<li><code>Credential</code> systems (a proof of qualification or competence of a person).</li>
+<li><code>Digital signatures</code>.</li>
+<li><code>Electronic money</code> (cryptocurrency, bit coins)</li>
+</ul>
+<p>We use <code>ciphers</code> or <code>cryptographic primitives</code> to be building blocks to construct security methods or protocols. There are some examples of the cryptographic algorithms or cryptographic building blocks, such as:</p>
+<ul>
+<li><code>Symmetric ciphers</code>: The same key is used to encrypt and decrypt the message, and plaintext and the ciphertext have the same size. e.g. <code>DES</code>, <code>AES</code>, <code>one-time pad</code> (Block Ciphers &amp; Stream Ciphers)</li>
+<li><code>Asymmetric ciphers</code>: <code>RSA</code>, <code>DSA</code> and <code>DH</code> (different keys are used)</li>
+<li><code>Hash</code> and <code>MACing</code> functions: e.g. <code>SHA256</code>, <code>AES-CBC</code></li>
+</ul>
+<p>We could use these building blocks to construct cryptographic methods and protocols, examples are:</p>
+<ul>
+<li>Modes of encryptions, e.g. <code>CBC</code> (Cipher Block Chaining) mode, <code>CTR</code> (Counter) mode.</li>
+<li><code>HMAC</code> message authentication code.</li>
+<li>Key distribution/agreement protocols.</li>
+<li><code>IPSec</code> protocol, <code>SSL</code>, …</li>
+</ul>
+<h2 id="block-cipher">Block Cipher</h2>
+<p>As we said above, <code>block cipher</code> is the basic building components of cryptographic methods and protocols, the following structure demonstrates the basic structure of a <code>block cipher</code>.
+
+  <img src="/img/cyber-security/cryptography/image.png" alt="alt text">
+
+
+In this picture, $M$ and $C$ represents <code>plaintext block</code> and <code>cipher text block</code> respectively, and $K$ is a secret (either a <code>symmetric key</code> or a <code>private key</code>). And the $E$ in the middle represents some encryption methods, where combines with $K$ it becomes $E_K(.)$ ($.$ represents input of the function). Therefore this picture demonstrate a process of encryption, where we input some plaintext and a key, processed by an encryption method, and we could get the cipher text.</p>
+<p>Note that if we want to decrypt the cipher text, we need to have a decryption function. The math expression for both encryption and decryption is:
+$$C = E_K(M)\ (or\ C = E(K, M))$$
+$$M = D_K(C)\ (or\ M = D(K, C))$$</p>
+<h3 id="design-of-block-cipher">Design of Block Cipher</h3>
+<p>When we design the block cipher, we have to achieve the following three aspects:</p>
+<ol>
+<li>
+<p>Completeness
+Each bit of the output should depend on every bit of the input and every bit of the key. The purpose is that, even two plaintext is similar and only different with one bit, their cipher text should be completely different.</p>
+</li>
+<li>
+<p>Avalanche effect
+This is to say, if we change one bit in plaintext, the cipher text should change a lot, this prevent analyzing with changing the plaintext and observer the difference.</p>
+</li>
+<li>
+<p>Statistical independence
+The relationship between plaintext and cipher text should be complex and not linear, even if the attackers got lots of plaintext and cipher texts examples, they can not observe obvious patterns from them.</p>
+</li>
+</ol>
+<p>A good, secure block cipher should have two key properties: <code>confusion</code> and <code>diffusion</code>, where <code>diffusion</code> could achieve <code>Avalanche effect</code> and <code>confusion</code> could achieve <code>Statistical independence</code>. We could achieve these two properties by some <code>round functions</code>(repeat simple functions many times), some examples of simple operations could be <code>substitutions</code>, <code>permutations</code>, <code>XOR</code>, <code>modular multiplication</code> ().</p>
+<h3 id="feistel-block-cipher">Feistel Block Cipher</h3>
+<p>The <code>Feistel block cipher</code> is first announce by Horst Feistel in 1970, uses his idea of round function. A graph of the structure is shown below.
+
+  <img src="/img/cyber-security/cryptography/image-1.png" alt="alt text">
+
+
+The Feistel block cipher will split plaintext into <code>block size</code> of plaintext and do encryption &amp; decryption on each of them. At the beginning, we have a <code>initial permutation</code> for plaintext, this is a non-encrypted pre-processing step that <strong>scrambles the data</strong>. Then we split them into left ($L$) and right ($R$) part, in each round, we perform <code>round functions</code> represent by $f$ and a key $K$ added to either calculate with left or right part. There are a total of $r$ rounds, for <code>DES</code>, $r$ is equals to 16. After all the calculations are done, we need one more operation which is to <strong>inverse the initial permutation to get the original permutation</strong>. We could use math to represents this block cipher:</p>
+<pre tabindex="0"><code>Plaintext = (L0, R0)
+
+For 1 &lt;= i &lt;= r
+    Li = Ri-1
+    Ri = Li-1 xor f(Ri-1, Ki)
+Subkeys Ki is derived from key K
+Cipher text = (Rr, Lr) 
+</code></pre><p>Here is a graph with the decryption added:
+
+  <img src="/img/cyber-security/cryptography/image-2.png" alt="alt text">
+
+
+For the decryption, we just need to reverse our operations and perform on cipher text. First, perform the same <code>initial permutation</code> as the encryption does, and use the <strong>inverse round function</strong> with the <strong>inverse sequence of key</strong> ($K_{16}, K_{15}, &hellip;, K_{1}$) to undo the 16 rounds of calculations in encryption, and in the last, undo the initial permutation for itself.</p>
+<p>Here are some more explanations to each variables in <code>Feistel block cipher</code>:</p>
+<ul>
+<li><code>Round function</code> $f$:<br>
+Typically use permutations, substitutions, modular arithmetic.<br>
+Takes a $n$-bit block and outputs a $n$-bit block.<br>
+Each use of the round function employs a different subkey derived from K.</li>
+<li><code>Block size</code> $n$<br>
+larger block sizes mean greater security but make encryption &amp; decryption slower. Typically $n$ is 128-bit or 256-bits.</li>
+<li><code>Key size</code> $s$<br>
+larger key size means greater security but reduced speed, a 128-bit size has become a norm.</li>
+<li><code>Number of rounds</code> $r$<br>
+Typically 10+ rounds</li>
+</ul>
+<h2 id="des">DES</h2>
+<p>We have mentioned <code>DES</code> need 16 rounds of calculation, but what is <code>DES</code>? It is actually stands for <code>Data Encryption Standard</code>, first published in 1977 as a US Federal Standard, and it is also international standard for banking security. The <code>DES</code> is a <code>Feistel block cipher</code> specified multiple standards on variables of <code>Feistel block cipher</code>. For example, the <code>block size</code> is 64 bits, the key $K$ is 56 bits (actually 8 bytes, but the 8th bit in each byte is a $parity-check bit$), the subkeys $k_1, k_2 , &hellip; , k_{16}$ are each 48-bits, generated from key $K$.</p>
+<p><code>DES</code> has some weakness, the 56-bit key is a bit problem - it could be broken on average in $2^55$ trials (<code>brute force</code> attack), a diagram below demonstrate how long can someone broken the <code>DES</code> based on the speed.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Trials</th>
+          <th>Time Required</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>10^9 years</td>
+      </tr>
+      <tr>
+          <td>10^3</td>
+          <td>10^6 years</td>
+      </tr>
+      <tr>
+          <td>10^6</td>
+          <td>10^3 years</td>
+      </tr>
+      <tr>
+          <td>10^9</td>
+          <td>1 year</td>
+      </tr>
+      <tr>
+          <td>10^12</td>
+          <td>10 hours</td>
+      </tr>
+      <tr>
+          <td>Therefore, for the computer nowadays, we need at least 128 bits. Based on this we have some improvements on <code>DES</code>, where <code>Triple DES</code> and <code>AES</code> is invented.</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="triple-des">Triple DES</h3>
+<p>The <code>Triple DES</code> uses two or three DES keys, we call the DES with two keys <code>EDE2</code> and <code>EDE3</code> for DES with three keys.</p>
+<p><code>EDE2</code>&rsquo;s equation is ($K1$ is the first key and $K2$ is the second key):
+$$C = E_{K1} (D_{K2} (E_{K1} (M)))$$</p>
+<p>The key length is now 112 bits, which is more complex than 56-bit keys. Note that if $K1$ equals $K2$, the <code>EDE2</code> will be same as single DES, as the decryption method will un-do the first encryption.</p>
+<p>The <code>EDE3</code>&rsquo;s equation is:
+$$C = E_{K3} (D_{K2} (E_{K1} (M)))$$
+where each key is 168 bits long.</p>
+<h2 id="aes">AES</h2>
+<p><code>AES</code> is also a symmetric cipher, which its block size is 128 bits, and key lengths are 128, 192 or 256 bits, based on the key lengths, we name them as <code>AES-128</code>, <code>AES-192</code> and <code>AES-256</code>. AES uses <code>substitution-permutation</code> methods involving r rounds, where r equals 10, 12 and 14 for different key lengths respectively.
+
+  <img src="/img/cyber-security/cryptography/image3.png" alt="alt text">
+
+</p>
+<p>The <code>AES</code> operate on bytes, the 128-bits plaintext will be transformed into a 4 x 4 input matrix, it is called <code>input states</code>. The input state will have a initial transformation, and in each following round, we will do 4 transformations to the state, except for the last round, where we only have three transformations. Moreover, don&rsquo;t forget about the key. The key is also transformed into a matrix, and processed by a stage called key expansion, where we focus on making the key non-linear, but it doesn&rsquo;t need to be reversible. In each round we will add the key, doing combination with the input states. This is just an overview of <code>AES</code>, we will look at the details step by step.</p>
+<h3 id="input-state">Input State</h3>
+<p>Because <code>AES</code> has a fixed length of block size of 128-bits (16 bytes), and in the most common encoding method a letter is 8 bits (1 byte), if out input plaintext is &ldquo;ABCDEFGHIJKLMNOP&rdquo;, it will be transformed into the matrix and processed by ASCII encoding.
+
+  <img src="/img/cyber-security/cryptography/image-4.png" alt="alt text">
+
+</p>
+<p>Then, we comes to the step doing the 4 transformations, a basic structure is like this:
+
+  <img src="/img/cyber-security/cryptography/image-5.png" alt="alt text">
+
+</p>
+<p>The four transformations are:</p>
+<ol>
+<li><code>Substitute Bytes</code></li>
+<li><code>Shift Rows</code></li>
+<li><code>Mix Columns</code></li>
+<li><code>Add Round key</code></li>
+</ol>
+<p>Let&rsquo;s talk about it one by one.</p>
+<h3 id="substitute-bytes">Substitute Bytes</h3>
+<p>In <code>substitute bytes</code>, we have a simple table which we call it <code>S-box</code>, used for us to do look-up operations. <code>S-box</code> is a 16 x 16 matrix of byte values, it contains all possible 256 8-bit values. In order to do transformation, we take out the input state, which is a 4 X 4 matrix with a hexadecimal representation in each cell, take the left half(4 bits) of it to determine the x value in <code>S-box</code>, and the right half(4 bits) to determine the y value in <code>S-box</code>. For example, if the cell is &lsquo;83&rsquo;, then we use 8 as x and 3 as y(In hexadecimal representations, each letter or number is 4 bits).
+
+  <img src="/img/cyber-security/cryptography/image-6.png" alt="alt text">
+
+</p>
+<h3 id="shift-rows">Shift Rows</h3>
+<p>The <code>shift rows</code> transformation is a simple permutation (circular byte shift), the first row of 4 x 4 matrix doesn&rsquo;t change, the second row does a 1-byte circular left shift, the second row does a 2-byte circular left shift, and the third row does a 3-byte circular left shift. The decryption process inverse the left shift to right shift. An visual representation of this operation is as below.
+
+  <img src="/img/cyber-security/cryptography/image-7.png" alt="alt text">
+
+</p>
+<h3 id="mix-columns">Mix Columns</h3>
+<p>The <code>mix columns</code> is done by polynomial multiplication in the finite field, in this step, we treat our input in forms of
+$$a_{n-1}, a_{n-2} , &hellip; , a_1, a_0$$
+and we express them like this:
+$$f(x) = a_{n-1}x^{n-1} + a_{n-2}x^{n-2} + &hellip; + a_1x + a_0$$
+Note that arithmetic follows the ordinary rules of polynomial arithmetic using the basic rules of algebra, with the following two refinements:</p>
+<ol>
+<li>Arithmetic on the coefficients is performed modulo p (when p = 2, addition and subtraction are done by bitwise XOR)</li>
+<li>If a multiplication result is a polynomial of degree greater than (n-1), then the polynomial is reduced by modulo some irreducible polynomial m(x) of degree n, i.e., divide it by m(x) and keep the remainder.</li>
+</ol>
+<h3 id="add-round-key">Add Round key</h3>
+<p>The <code>add round key</code> is achieved by using <strong>bitwise XOR</strong> for the 128-bits state and 128-bits key, as this is easy, we just skip the example.</p>
+<h3 id="pseudo-code">Pseudo Code</h3>
+<p>Now, below is the pseudo code for both encryption and decryption. Because all of the four operations are reversible, therefore we just apply the inverse form to undo all transformations.
+
+  <img src="/img/cyber-security/cryptography/image-8.png" alt="alt text">
+
+</p>
+<p>Now, we could compare DES and AES and list some of their characteristics:</p>
+<table>
+  <thead>
+      <tr>
+          <th>DES</th>
+          <th>AES</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Substitution-Permutation</td>
+          <td>Substitution-Permutation</td>
+      </tr>
+      <tr>
+          <td>iterated cipher, Feistel structure</td>
+          <td>iterated cipher</td>
+      </tr>
+      <tr>
+          <td>64-bit block size</td>
+          <td>128-bit block size</td>
+      </tr>
+      <tr>
+          <td>56-bit key size</td>
+          <td>128/192/256-bit key sizes</td>
+      </tr>
+      <tr>
+          <td>8 different S-boxes</td>
+          <td>1 S-box</td>
+      </tr>
+      <tr>
+          <td>design optimized for hardware implementations</td>
+          <td>design optimised for byteorientated implementations</td>
+      </tr>
+      <tr>
+          <td>closed (secret) design process</td>
+          <td>open design and evaluation process</td>
+      </tr>
+  </tbody>
+</table>
+<p><code>N-bit block cipher</code> permutes over $2N$ inputs, so the larger the $N$ value, the longer it takes to attack, thus the more secure the cipher is. However, this also means that the slower the encryption &amp; decryption. The block cipher will only provide <code>computational secrecy</code>, it means that it is not impossible to break the cipher, it is just very expensive. If the time and cost of attacks by using <code>brute-force</code>(when the cipher is secure) exceed the value or the useful lifetime of protected data, the attacker will be unlikely to attack.</p>
+<h2 id="stream-ciphers-one-time-pad">Stream Ciphers: One-time Pad</h2>
+<p>Stream Cipher, different from block cipher, is easy and efficient, it is suitable to use in some situations like video meetings, audio transmitting and other real time scenarios. A image below shows the basic structure of One-time Pad cipher:
+
+  <img src="/img/cyber-security/cryptography/image-9.png" alt="alt text">
+
+
+The input plaintext is processed by Exclusive-or with a non-repeating stream of digits, the math expression could be:
+$$ciphertext (C) = plaintext (M)\ xor\ keystream (KS)$$</p>
+<p>In stream cipher, the key must have the length of the plaintext, and we need as many possible keys as possible plaintext, and every key is equally likely. If there exists a reused key, it means the cipher is no more secure, this is because
+$$M1\ xor\ K = C1, M2\ xor\ K = C2$$
+and this results in:
+$$M1\ xor\ M2 = C1\ xor\ C2$$
+Moreover, if the attacker holds the set of ${ M1, C1 }$, the K is equals to $M1\ xor\ C1$</p>
+<p>Therefore, to deal with this problem, we could replace the random generated keys by a pseudo-random sequence, which generated by a <code>cryptographic pseudo-random generator</code> that is &ldquo;seeded&rdquo; with the key.</p>
+<h2 id="modes-of-encryption">Modes of Encryption</h2>
+<p>If a message is longer than a block size, block cipher can be used in a number of ways/modes to encrypt the message, in this blog we will introduce three of them, which these modes have been standardised internationally and are applicable to any block ciphers, which is <code>ECB</code>, <code>CBC</code> and <code>CTR</code>.</p>
+<h3 id="ecb---electronic-code-book-mode">ECB - Electronic Code Book Mode</h3>
+<p><code>ECB</code> mode is the most basic mode. In this mode, we use the same key to encrypt every blocks <strong>one by one</strong>, and we use the last byte to <strong>indicate the number of padding</strong> added. The math equation is like this:</p>
+<p>Encryption:
+$$C_n = E_K(M_n)\ (or E(K, M_n))$$
+Decryption:
+$$M_n = D_K(C_n); n = {1, 2, …}$$</p>
+<p>For this mode, if we use the same plaintext to do encryption, the ciphertext will be <strong>exactly the same</strong> because we use the same key. And because of we encrypt the blocks one by one, <strong>reordering ciphertext blocks results in correspondingly reordered plaintext blocks</strong>. But the good thing is, errors in one ciphertext block <strong>only affects the same plaintext block</strong>, they do not propagate to other blocks.</p>
+<h3 id="cbc---cipher-block-chaining-mode">CBC - Cipher Block Chaining Mode</h3>
+<p>The <code>CBC</code> mode is quiet similar to <code>RNN</code> neural network, where we use the encryption of last block into the next block encryption.
+
+  <img src="/img/cyber-security/cryptography/image-10.png" alt="alt text">
+
+
+We use the encryption result to add in the next encryption process, for the first encryption process we have a initial vector $C_0$, which is randomly selected and doesn&rsquo;t need to be secure. The math representation is as below:
+$$C_i = E_K(M_i\ xor\ C_{i-1})$$</p>
+<h3 id="ctr---counter-mode">CTR - Counter Mode</h3>
+<p>The idea of <code>CTR</code> mode is to use a block cipher encryption function as the pseudorandom number generator to generate the key stream. We use this key stream, plus a <code>counter value</code>, which equals to the block size, being initialized with some value and plus 1 for each subsequent block(modulo 2n, where n is the block length), to do the encryption(xor operation) with plaintext. The structure is shown below:
+
+  <img src="/img/cyber-security/cryptography/image-11.png" alt="alt text">
+
+</p>
+<p>Actually, the CTR mode actually converts a block cipher into a stream cipher. Each of the block is processed independently, that means we are able to access the blocks randomly, the error caused by modifying a block during transmission won&rsquo;t affect other blocks, and the blocks&rsquo; processes are parallelisable. One thing needs to mention is that the counter needs to be synchronized, if a block is inserted into or deleted from the ciphertext stream then synchronization is lost and the plaintext cannot be recovered.</p>
+<h2 id="block-cipher-vs-stream-cipher">Block Cipher VS. Stream Cipher</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Block Cipher</th>
+          <th>Stream Cipher</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Encrypt blocks of characters</td>
+          <td>Encrypt individual characters</td>
+      </tr>
+      <tr>
+          <td>Slower</td>
+          <td>Faster</td>
+      </tr>
+      <tr>
+          <td>Requires more memory space</td>
+          <td>Requires less memory space</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>limited or no error propagation</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>built without of block ciphers</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="implementation-flaws">Implementation Flaws</h2>
+<p>Here are some tips about some known vulnerabilities in software implementations:</p>
+<ol>
+<li>Should use a secure random function from a crypto library. For example, rand() function in C should&rsquo;t be use for security-critical applications.</li>
+<li>IVs should be random</li>
+</ol>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/02/05/cognitive-robotics-introduction/" data-toggle="tooltip" data-placement="top" title="Cognitive Robotics - Introduction">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/02/14/cognitive-robotics-sensors-and-actuators/" data-toggle="tooltip" data-placement="top" title="Cognitive Robotics - Sensors and Actuators">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bm25s" title="bm25s">
+                            bm25s
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/case-study" title="case study">
+                            case study
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cognitive-robotics" title="cognitive robotics">
+                            cognitive robotics
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cyber-security" title="cyber security">
+                            cyber security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data structure">
+                            data structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed system">
+                            distributed system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/flask" title="flask">
+                            flask
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/networking" title="networking">
+                            networking
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlu" title="nlu">
+                            nlu
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/scraping" title="scraping">
+                            scraping
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">哪有Friends啊哥们</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:shuoyin03@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ShuoYin03">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yin-shuo-78a154275/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='/2024/01/31/cyber-security-cryptography/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; UNKNOWN SPACE 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
