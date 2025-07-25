@@ -1,4 +1,4 @@
-baseURL = "https://shuoyin03.github.io"
+baseURL = "https://shuoyin03.github.io/"
 title = "UNKNOWN SPACE"
 theme = "hugo-theme-cleanwhite"
 languageCode = "en-us"
