@@ -4,7 +4,7 @@ subtitle:    "Scraping & Management"
 description: "Scraped 20+ websites with auction & lots data"
 date:        2025-07-24
 author: UNKNOWN_SPACE
-URL:         "/2025/07/24/wine-auction-management/"
+URL:         "/2025/07/24/wine-auction-management"
 image:       ""
 tags:        ["Scraping", "BM25s", "Flask", "Next.js", "Case Study"]
 categories:  ["post"]
