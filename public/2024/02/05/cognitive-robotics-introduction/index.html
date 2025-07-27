@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="UNKNOWN SPACE">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://shuoyin03.github.io//img/tag-bg.jpg">
+    <meta property="twitter:image" content="https://shuoyin03.github.io//img/tag-bg.jpg" />
+    
+
+    
+    <meta name="title" content="Cognitive Robotics - Introduction" />
+    <meta property="og:title" content="Cognitive Robotics - Introduction" />
+    <meta property="twitter:title" content="Cognitive Robotics - Introduction" />
+    
+
+    
+    <meta name="description" content="Introduction to some basics definitions">
+    <meta property="og:description" content="Introduction to some basics definitions" />
+    <meta property="twitter:description" content="Introduction to some basics definitions" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Cognitive Robotics - Introduction | ShuoYin</title>
+
+    <link rel="canonical" href="/2024/02/05/cognitive-robotics-introduction/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/post/">post</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/about/">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/cognitive-robotics" title="Cognitive Robotics">
+                            Cognitive Robotics
+                        </a>
+                        
+                    </div>
+                    <h1>Cognitive Robotics - Introduction</h1>
+                    <h2 class="subheading">Can they understand?</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Monday, February 5, 2024
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="what-are-robots">What are Robots?</h2>
+<p>A <code>robot</code>, is a machine capable of carrying out a complex series of actions automatically, especially one programmable by a computer. Also, it could be described as an autonomous system which exists in the physical world, can sense its environment, and can act on it to achieve some goals. There are many types of robots that we define today. For example, they are:</p>
+<ul>
+<li>Humanoid</li>
+<li>Android</li>
+<li>Biomimetic</li>
+<li>Industrial (manipulation, navigation)</li>
+<li>Medical</li>
+<li>Assistive</li>
+</ul>
+<h3 id="humanoid-robots">Humanoid Robots</h3>
+<p>A <code>humanoid robot</code> has an <code>anthropomorphic</code> body plan and actuators with <code>human-like senses</code> for human-robot interaction. For example, a <code>humanoid robot</code> could contains <strong>a head, two legs, two arms and a torso</strong>, and it contains <strong>cameras, microphones, and touch sensors</strong> to simulate humans&rsquo; five senses.</p>
+<h3 id="android-robots">Android Robots</h3>
+<p>An <code>android robot</code> is intentionally designed with the goal of being human-like and <strong>indistinguishable from humans</strong> in its external appearance and behavior, the difference between <code>android robots</code> and <code>humanoid robots</code> is that humanoid robots keeps the external appearance of a robot, which is distinguishable from human beings.</p>
+<p>Note that there is a theory related to <code>android robots</code>, which is <code>uncanny valley</code>. It describes that humans affinity significantly reduced for robots that are similar but slightly different from real people. This is also the reason why we feeling scary to some human-like products. The following graph represents the <code>uncanny valley</code> in a data perspective.
+
+  <img src="/img/robots/introduction/image.png" alt="alt text">
+
+</p>
+<h3 id="biomimetic-robots">Biomimetic Robots</h3>
+<p>A <code>biomimetic robot</code> has an <code>animal-like</code> (humans, animals, plants) body plan and actuators, used to <strong>exploit biological structures and mechanisms</strong>.</p>
+<h3 id="industrial-robots-manipulation--navigation">Industrial Robots (Manipulation &amp; Navigation)</h3>
+<p>As the name describes, <code>industrial robots</code> are used in factories for manufacturing tasks, or, used for logistics centres, (semi)autonomous flying, and autonomous vehicles.</p>
+<h2 id="what-is-cognition">What is Cognition?</h2>
+<p><code>Cognition</code> is the process by which an <code>autonomous system</code> perceives its environment, learns from experience, anticipates the outcome of events, acts to pursue goals, and adapts to changing circumstances. The <code>cognition</code> could be defined as many stages, the following image could describe cognition by a cycle of <code>anticipation</code>:
+
+  <img src="/img/robots/introduction/image-2.png" alt="alt text">
+
+</p>
+<p>If we want to develop some cognitive robotics robots, we have to make some sense of abstraction, for example, an abstraction of movement, because we can not abstract everything. Here we have <code>Marr's Levels of Abstraction</code>, proposed by <code>David Marr</code>, is a framework for understanding how information processing systems, particularly in the context of vision and perception, operate at different levels of abstraction. There are three levels of abstraction, which are:</p>
+<ol>
+<li>Computational / theory<br>
+This is the highest level of Marr&rsquo;s framework, where we focuses on define the problem, arise questions like what should the system does and why does it does it.</li>
+<li>Representation / algorithmic
+This level mainly focuses on the specific methods and strategies for solving the problem, it also defines how the information processes in the system.</li>
+<li>Implementation
+This is the most concrete level in Marr&rsquo;s framework, it deals with physical realization of the system, including hardware, neural mechanisms, or any other physical substrate.
+
+  <img src="/img/robots/introduction/image-1.png" alt="alt text">
+
+</li>
+</ol>
+<h2 id="what-is-cognitive-robotics">What is cognitive robotics?</h2>
+<p>In definition, <code>cognitive robotics</code> combines insights and methods from AI, as well as <code>cognitive</code> and <code>biological</code> sciences, to perform the design of <code>sensorimotor</code> and <code>cognitive capabilities</code> in <code>intelligent robots</code>(Engineering approach to the design of intelligent capabilities
+in robots using any Artificial Intelligence methods). For all the normal robots, it is easy if we <code>pre-programmed</code> the robots so they can memorize dictionaries and achieve some goal in communicating with human beings, however, they are <strong>not able to understand the language</strong> they use.</p>
+<p>Here we also have a definition for <code>artificial cognitive systems</code>, as it is use to design a cognitive robotics robot, by using the modelling of simulated and embodied/robotic agents taking inspiration from natural and cognitive systems.</p>
+<p>There are four approaches to implement cognitive robotics, which is <code>developmental robotics</code> (Cangelosi &amp; Schlesinger 2015), <code>evolutionary robotics</code> (Nolfi &amp; Floreano 2002), <code>swarm Robotics</code> (Dorigo et al. 2014; Hamann 2018), and <code>soft Robotics</code> (Laschi et al. 2016; Veri et al. 2015).</p>
+<h2 id="developmental-robotics">Developmental Robotics</h2>
+<p><code>Developmental Robotics</code> is the <strong>interdisciplinary approach</strong> to the autonomous design of behavioral and cognitive capabilities in artificial agents (robots) that takes <strong>direct inspiration from the developmental principles and mechanisms observed in natural cognitive systems</strong>.</p>
+<p>There are few principles to consider while designing the developmental robotics. They are:</p>
+<ol>
+<li>Dynamical System</li>
+<li>Phylogenetic &amp; Ontogenetic Interaction</li>
+<li>Embodied &amp; Situated Development</li>
+<li>Intrinsic Motivation and Social Learning</li>
+<li>Nonlinear, Stage-Like Development</li>
+<li>Online Open-Ended Cumulative Learning</li>
+</ol>
+<h3 id="dynamical-system">Dynamical System</h3>
+<p><code>Dynamical system</code> emphasizes the role of dynamic systems in <code>self-organization</code> and <code>emergence</code>. It describes the <code>decentralized nature</code> of a system, that is, the system consists of many interacting parts, and the interaction between these parts produces the behavior and structure of the whole. This self-organizing nature leads to the <code>multicausality</code>, and when they develops over time they <strong>nested at different time scales</strong>.</p>
+<p>Child development is a great example of dynamical system, the picture blow demonstrate a child who is learning walking.
+
+  <img src="/img/robots/introduction/image-3.png" alt="alt text">
+
+</p>
+<h3 id="evolution--learning">Evolution &amp; Learning</h3>
+<p>For <code>evolution</code> and <code>learning</code>, evolution involves the evolution of species, known as <code>phylogeny</code>, which affects the basic design and structure of robots. Development then involves the process of growth and development of an individual, known as ontogeny, including aspects such as maturation and critical periods. Finally, learning refers to the robot gradually improving and optimizing its behavior and capabilities through interaction with the environment and accumulation of experience. These processes interact to shape the robot&rsquo;s behavior and intelligence.</p>
+<h3 id="embodied--situated">Embodied &amp; Situated</h3>
+<p><code>Embodiment</code> refers to robots learning and adapting through the interaction of their body, brain, and environment. <code>Situation</code> refers to the robot learning and acting in specific environments and situations, including the robot&rsquo;s unique model of the world, morphological computation, and understanding of the basis of language. These concepts emphasize the close connection between the robot and its environment and guide the robot to learn and act in real environments.</p>
+<h3 id="intrinsic-motivation--social-learning">Intrinsic Motivation &amp; Social Learning</h3>
+<p>In this part, <code>intrinsic motivation</code> involves factors that drive a robot from within, such as curiosity, a sense of wonder, seeking novelty, values, and motivations. <code>Social learning</code> and imitation involve robots learning by observing and imitating the behavior of others. These concepts emphasize the importance of the intrinsic dynamics of robot learning and social interaction for its development and progress.</p>
+<h3 id="non-linear-stage-development">Non Linear, Stage Development</h3>
+<p><code>Stage development</code> refers to that, the development of a child (or robot) is separated into stages and we could observe milestones within the stage. In Piaget&rsquo;s <code>genetic epistemology theory</code>, there are four stages in total, they are:</p>
+<ol>
+<li>Sensorimotor stage: Birth to 2 years</li>
+<li>Preoperational stage: Ages 2 to 7</li>
+<li>Concrete operational stage: Ages 7 to 11</li>
+<li>Formal operational stage: Ages 12 and up</li>
+</ol>
+<p>Detailed information for Piaget&rsquo;s theory could be find here: <a href="https://www.verywellmind.com/piagets-stages-of-cognitive-development-2795457">Piaget&rsquo;s 4 Stages of Cognitive Development Explained</a>.</p>
+<p>Note that the development of children will be show in a data perspective in a U-shape, look at the following graph.
+
+  <img src="/img/robots/introduction/image-4.png" alt="alt text">
+
+
+The chart on the left shows an infant&rsquo;s cumulative vocabulary growth as he ages. We can see from the figure that the growth of vocabulary is not a straight line, but a step-like curve, which shows that the growth rate of infant vocabulary is significantly different in different time periods. The picture on the right represents the U-shaped development phenomenon in language acquisition. This refers to a typical phenomenon when children acquire certain grammatical structures during the language learning process, especially when children learn a second language. At first, children may intuitively use the correct form (for example, using the past tense of the irregular verb &ldquo;spoke&rdquo;). Then as time goes by and the rules of grammar are learned, they may overgeneralize the rules, mistakenly creating forms like &ldquo;spoken&rdquo; (this is wrong because they are trying to apply the past tense construction of regular verbs to something other than regular verbs). Eventually, with more learning and revision, they will use the correct form again (using &ldquo;spoke&rdquo; again). This process presents a U-shaped curve, from correct to incorrect, and then to correct again.</p>
+<h3 id="online-open-ended-cumulative">Online, Open Ended, Cumulative</h3>
+<p>This part emphasizes the importance of online learning, which means that learning is an ongoing process that can occur at any time. Furthermore, cumulative learning means that knowledge and experience are gradually accumulated, resulting in a deeper and richer understanding. This learning style also spans different modes of perception and cognitive domains, promoting cognitive enlightenment and development.</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/01/31/cyber-security-basics/" data-toggle="tooltip" data-placement="top" title="Cyber Security - Basics">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/01/31/cyber-security-cryptography/" data-toggle="tooltip" data-placement="top" title="Cyber Security - Cryptography">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bm25s" title="bm25s">
+                            bm25s
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/case-study" title="case study">
+                            case study
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cognitive-robotics" title="cognitive robotics">
+                            cognitive robotics
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cyber-security" title="cyber security">
+                            cyber security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data structure">
+                            data structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed system">
+                            distributed system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/flask" title="flask">
+                            flask
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/networking" title="networking">
+                            networking
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlu" title="nlu">
+                            nlu
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/scraping" title="scraping">
+                            scraping
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">Temporary Unavailable</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:shuoyin03@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ShuoYin03">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yin-shuo/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='/2024/02/05/cognitive-robotics-introduction/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; UNKNOWN SPACE 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

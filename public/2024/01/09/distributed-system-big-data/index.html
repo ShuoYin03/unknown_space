@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="UNKNOWN SPACE">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://shuoyin03.github.io//img/tag-bg.jpg">
+    <meta property="twitter:image" content="https://shuoyin03.github.io//img/tag-bg.jpg" />
+    
+
+    
+    <meta name="title" content="Advanced Distributed System - Batch Data and MapReduce" />
+    <meta property="og:title" content="Advanced Distributed System - Batch Data and MapReduce" />
+    <meta property="twitter:title" content="Advanced Distributed System - Batch Data and MapReduce" />
+    
+
+    
+    <meta name="description" content="Introducing Batching processing, MapReduce and Hadoop">
+    <meta property="og:description" content="Introducing Batching processing, MapReduce and Hadoop" />
+    <meta property="twitter:description" content="Introducing Batching processing, MapReduce and Hadoop" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Advanced Distributed System - Batch Data and MapReduce | ShuoYin</title>
+
+    <link rel="canonical" href="/2024/01/09/distributed-system-big-data/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/post/">post</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/about/">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/distributed-system" title="Distributed System">
+                            Distributed System
+                        </a>
+                        
+                    </div>
+                    <h1>Advanced Distributed System - Batch Data and MapReduce</h1>
+                    <h2 class="subheading">MapReduce Programming</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Tuesday, January 9, 2024
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <blockquote>
+<p>Batch processing - a word describing tasks that can run without user interactions, or can be scheduled to run as resources permit. Batch data sets might be huge and need parallel processing. MapReduce is a programming model designed for batch processing, including two steps: &lsquo;map&rsquo; and &lsquo;reduce&rsquo;.</p></blockquote>
+<h2 id="mapreduce---map-and-reduce">MapReduce - &lsquo;Map&rsquo; and &lsquo;Reduce&rsquo;</h2>
+<h3 id="some-concepts">Some concepts</h3>
+<ul>
+<li><code>Job</code> is the unit of work to be performed, it could consist of several <code>map</code> and <code>reduce</code> tasks.</li>
+<li><code>Split</code> is a part of the input.</li>
+<li><code>Task</code> are map or reduce functions created and run for each split or partition.</li>
+<li><code>Task tracker</code> tracks the progress of each of the map or reduce tasks on a node and keeps the job tracker informed of progress.</li>
+<li><code>Job tracker</code> coordinates the different tasks comprising a job.</li>
+</ul>
+<h3 id="map">Map</h3>
+<p>A <code>map</code> function is to generate a key-value pair (key 2, value 2), given a key &lsquo;key 1&rsquo; and a value &lsquo;value 1&rsquo;.</p>
+<pre tabindex="0"><code>map(key1, value1) -&gt; [(key2,value2)]
+
+## Pseudo-code
+map(documentId key1, document value1) {
+    for each word w in value1 do
+        emit(word w, 1)
+}
+</code></pre><p>A <code>map</code> task is created for each split, and if possible, the <code>map</code> function will be run on the node where the input data is stored. Here are steps to take for a map task:</p>
+<ol>
+<li>The map task runs on the split, generating key-value pairs.</li>
+<li>The output of the map is partitioned into groups, for sending to reduce tasks, typically by hashing.</li>
+<li>The partitions are sorted by key.</li>
+<li>Output is written (to the local filesystem).</li>
+<li>The job tracker is informed by the task tracker when a task has completed.</li>
+</ol>
+<p>
+  <img src="/img/distributed/distributed-mapreduce/image2.png" alt="Alt text">
+
+</p>
+<h3 id="reduce">Reduce</h3>
+<p>A <code>reduce</code> function is to return a new collection of key-value pairs, given a &lsquo;key 2&rsquo; output by &lsquo;map&rsquo;, and a collection of all values &lsquo;value 2&rsquo; with that key.</p>
+<pre tabindex="0"><code>reduce(key2, [value2]) -&gt; [(key3, value3)]
+
+## Pseudo-code
+reduce(word key2, list of count value2) {
+    sum = 0
+    for each count in value2 do
+        sum = sum + count;
+        emit(word key2, sum)
+} 
+</code></pre><p>Here are steps for a reduce task:</p>
+<ol>
+<li>Relevant map partitions are copied to the associated reduce nodes.</li>
+<li>Data from different maps is merged to produce the inputs for individual reduce operations.</li>
+<li>The reduce task is run.</li>
+<li>Outputs are written to the distributed filesystem.
+
+  <img src="/img/distributed/distributed-mapreduce/image3.png" alt="Alt text">
+
+</li>
+</ol>
+<h3 id="an-example">An Example</h3>
+<p>
+  <img src="/img/distributed/distributed-mapreduce/image.png" alt="Alt text">
+
+
+The above picture demonstrate a <strong>word-count</strong> program contains <code>map</code> and <code>reduce</code> operations, where we can see that the <code>map</code> operation <strong>split</strong> the document into list of words and record its appearance, and <code>reduce</code> combine all same words and accumulate their occurrences.</p>
+<h2 id="basket-analysis">Basket Analysis</h2>
+<p>Basket analysis is another web-scale, data intensive application about users shopping on the internet.
+It records the value of each basket of products from customer&rsquo;s purchases. A simple analysis could be average the total prices of a customer&rsquo;s all purchases records.</p>
+<p>
+  <img src="/img/distributed/distributed-mapreduce/image4.png" alt="Alt text">
+
+</p>
+<p>The graph above is a record of customers and their interactions, we will now write the pseudo-code for both <code>map</code> and <code>reduce</code> operations.</p>
+<pre tabindex="0"><code>## Map
+
+map(key, value) {
+    for each (customerID CID, basketValue v) in value do
+        emit(customerID CID, basketValue v)
+}
+</code></pre><pre tabindex="0"><code>## Reduce
+
+reduce(customerID key, list of basketValue value) {
+    sum = 0
+    count = length(value)
+    for each v in value do
+        sum = sum + v;
+    emit(customerID key, sum/count)
+}
+</code></pre><h2 id="mapreduce-design-pattern">MapReduce Design Pattern</h2>
+<p>There are some patterns while we are using MapReduce for better solving some common tasks, here we will introduce <code>Summarization Patterns(Numerical Summarization)</code>, <code>Inverted Index Pattern</code>, <code>Filtering Pattern</code> and <code>Join Pattern</code>.</p>
+<h3 id="summarization-patterns">Summarization Patterns</h3>
+<p>In this pattern, we want to send less data from mappers to reducers while providing what the reducer needs. An example is <code>numerical summarization</code>.
+Where we interest in giving data like [(&ldquo;the&rdquo;, 2), (&ldquo;two&rdquo;, 2)] instead of [(&ldquo;the&rdquo;, 1), (&ldquo;a&rdquo;, 1), (&ldquo;the&rdquo;, 1), (&ldquo;a&rdquo;, 1)]. Some aggregates could be used
+are min, max or sum. Below is the pseudo-code for <code>map</code> and <code>reduce</code>.</p>
+<pre tabindex="0"><code>map(documentId key1, document value1){
+    localCache = Hashmap(String -&gt; Integer)
+    for each word w in value1 do
+        if (localCache.containsKey(word))
+            count = localCache.get(word);
+            localCache.put(word,(count + 1));
+        else
+            localCache.put(word,1)
+        endif
+    endfor
+    for each (word,count) in localCache do
+        emit(word w, count)
+    end-for
+}
+</code></pre><pre tabindex="0"><code>reduce(customerID key, list of basketValue value) {
+    running_count = 0
+    running_sum = 0
+    for each (count, sum) in value do {
+        running_count = running_count + count;
+        summing_sum = running_sum + sum;
+    }
+    emit(customerID key, (running_sum/running_count))
+}
+</code></pre><h3 id="inverted-index-pattern">Inverted Index Pattern</h3>
+<p>• An <code>inverted index pattern</code> invert the relationship between document and contents. Generally, the data is represented as:</p>
+<pre tabindex="0"><code>Name: d1
+Contents: hello there world
+</code></pre><p>But in <code>inverted index pattern</code>, we want it to be:</p>
+<pre tabindex="0"><code>hello → d1
+there → d1
+world → d1
+</code></pre><p>The pseudo-code for <code>map</code> function in this pattern is:</p>
+<pre tabindex="0"><code>Map(key, value):
+    fetch identifier of input d
+    for each v in tokenise(value)
+        emit(v, d)
+</code></pre><h3 id="filtering-pattern">Filtering Pattern</h3>
+<p>As the name describes, the <code>filtering pattern</code> will filtering some data from the data set. Some rules of filtering could be <strong>producing representative examples</strong>,
+<strong>choosing the best k examples</strong> or <strong>removing duplicated data</strong>.</p>
+<p>Pseudo-code:</p>
+<pre tabindex="0"><code>Map(key, value):
+    for each v in value
+        if (inDictionary(v))
+            emit(v, 1)
+</code></pre><h3 id="join-pattern">Join Pattern</h3>
+<p>MapReduce can partition the data from the tables to be joined on their join columns, we need two mappers to read from different inputs, then the infrastructure
+does most of the join.
+Pseudo-code:</p>
+<pre tabindex="0"><code>MapA(key, A):
+    for each row in A
+        emit(A.u, “A” + row)
+
+MapB(key, B):
+    for each row in B
+        emit(B.v, “B” + row)
+
+Reduce(key, List of rows R):
+    for each a in R with prefix “A”
+        for each b in R with prefix “B”
+            emit(a, b)
+</code></pre>
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/01/06/distributed-system-resource-management/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Resource Management">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/01/12/distributed-system-nosql/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - NoSQL">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bm25s" title="bm25s">
+                            bm25s
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/case-study" title="case study">
+                            case study
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cognitive-robotics" title="cognitive robotics">
+                            cognitive robotics
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cyber-security" title="cyber security">
+                            cyber security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data structure">
+                            data structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed system">
+                            distributed system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/flask" title="flask">
+                            flask
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/networking" title="networking">
+                            networking
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlu" title="nlu">
+                            nlu
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/scraping" title="scraping">
+                            scraping
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="">Temporary Unavailable</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:shuoyin03@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ShuoYin03">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yin-shuo/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='/2024/01/09/distributed-system-big-data/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; UNKNOWN SPACE 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
