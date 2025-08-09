@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="UNKNOWN SPACE">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://shuoyin03.github.io//img/tag-bg.jpg">
+    <meta property="twitter:image" content="https://shuoyin03.github.io//img/tag-bg.jpg" />
+    
+
+    
+    <meta name="title" content="Natural Language Processing - POS Tagging" />
+    <meta property="og:title" content="Natural Language Processing - POS Tagging" />
+    <meta property="twitter:title" content="Natural Language Processing - POS Tagging" />
+    
+
+    
+    <meta name="description" content="Introduced the POS tagging, what is it? How do we apply it to NLP tasks?">
+    <meta property="og:description" content="Introduced the POS tagging, what is it? How do we apply it to NLP tasks?" />
+    <meta property="twitter:description" content="Introduced the POS tagging, what is it? How do we apply it to NLP tasks?" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Natural Language Processing - POS Tagging | Unknown Space</title>
+
+    <link rel="canonical" href="/2024/01/04/nlp-pos-tagging/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/post/">post</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/about/">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                    </div>
+                    <h1>Natural Language Processing - POS Tagging</h1>
+                    <h2 class="subheading">POS tagging</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Thursday, January 4, 2024
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <blockquote>
+<p>In this article we will have a look at POS tagging, what is it? How do we apply it to NLP tasks?</p></blockquote>
+<h2 id="pos">POS</h2>
+<p><code>POS</code> - &ldquo;Part of Speech&rdquo;, represent a <strong>linguistic category</strong>, defined the syntactic or morphological behavior of words. “Traditional” categories contains 8 tags, they are:</p>
+<ul>
+<li>verb</li>
+<li>None</li>
+<li>Adverb</li>
+<li>Adjective</li>
+<li>Interjection</li>
+<li>Pronoun</li>
+<li>Preposition</li>
+<li>Conjunction</li>
+</ul>
+<p>The previous 5 categories are called the <code>open word classes</code>, which means that these types always have a large amount of vocabularies and new words could be added into these categories. And the last 3 categories are called <code>closed word classes</code>, they doesn&rsquo;t acquire new words to add in because most of them are used for <strong>building the text structure and connecting words or sentences</strong>, which has a limit number of vocabularies.</p>
+<p>Another two notions of the word categories are <code>content words</code> and <code>functional words</code>. <code>Content words</code> define those words which take the responsibilities of demonstrating the meaning of a sentence, such as noun, verbs and adjectives, and most of them will vary in different form based on the tense alternation. <code>Functional words</code> define those words serving to express the grammatical relationships in text within a sentence, they usually doesn&rsquo;t have much lexical meaning.</p>
+<h2 id="pos-tagging">POS Tagging</h2>
+<p>After introduce <code>POS</code>, we could have a look wht is <code>POS tagging</code>, how to do it in steps and why it helps in nlp applications? So <code>POS tagging</code> means assigning POS to each words in the corpus. The example is shown below:</p>
+<p>
+  <img src="/img/nlp/nlp-pos-tagging/image.png" alt="Alt text">
+
+</p>
+<p>Why <code>POS tagging</code> is it useful? It is because of that, the same words in the corpus could have different POS tags depending on the context, which resolve <code>lexical ambiguities</code>. Here&rsquo;s an example:</p>
+<p>I <strong>can</strong> come tomorrow (Auxiliary)<br>
+I open the <strong>can</strong> (Noun) <br>
+We <strong>can</strong> beans in our factory (Verb)</p>
+<h2 id="pos-tag-prediction">POS Tag Prediction</h2>
+<p>There are two cues for doing the prediction of a tag, the <code>internal cues</code> (within the word) are <code>morphology</code> (on particular affixes), for example, <code>-ous</code> is often for adjectives and <code>-ed</code> is often for verbs. And the <code>external cues</code> are the contexts  of the word. For example, in the sentence <strong>&ldquo;I will read a book&rdquo;</strong>, the tag for <strong>&ldquo;book&rdquo;</strong> could be predict by <strong>&ldquo;a&rdquo;</strong>, because <strong>&ldquo;a&rdquo;</strong>, as a <code>DT</code>  (Determiner) often follows a noun.</p>
+<h2 id="pos-taggers">POS Taggers</h2>
+<p>There are different type of POS tagger being developed, here are three types of them:</p>
+<ul>
+<li>Rule-based taggers</li>
+<li>Stochastic taggers</li>
+<li>Transformation taggers</li>
+</ul>
+<h3 id="rule-based-taggers">Rule-based taggers</h3>
+<p>The <code>rule-based</code> taggers always start with a <code>dictionary</code> stores every possible tags for each words in the corpus, and during the tagging process, it <strong>selectively removes tags</strong> based on rules and finally leaving the correct tag.</p>
+<h3 id="stochastic-taggers">Stochastic taggers</h3>
+<p>The key idea of <code>stochastic taggers</code> is to find, what is the best sequence of tags corresponds to this sequence of words? To answer this question, <code>stochastic taggers</code> considers all possible sequence of tags and choose the most probable one. In math language, we want to find the following equation:
+$$\hat{t}_1^n = \underset{t_1^n}{\mathrm{argmax}} \ P(t_1^n\ |\ w_1^n)$$</p>
+<blockquote>
+<p>argmax means the maximum value over all items<br>
+Hat（^） means “our estimate of the best one”</p></blockquote>
+<p>According to <code>Bayes rule</code>, the equation could be transform and simplify.</p>
+<p>$$\hat{t}_1^n = \underset{t_1^n}{\mathrm{argmax}} \ P(t_1^n\ |\ w_1^n) = \underset{t_1^n}{\mathrm{argmax}} \ \frac{P(w_1^n\ |\ t_1^n)P(t_1^n)}{P(w_1^n)}$$</p>
+<p>As $P(w_1^n)$ is the probability of the given sequence of words appear in the corpus, it doesn&rsquo;t affect the result because we focus on the effect of different POS tags and this is a const for any sequence of tags. Therefore we are able to remove it, and the equation becomes:</p>
+<p>$$\hat{t}_1^n = \underset{t_1^n}{\mathrm{argmax}} \ P(w_1^n\ |\ t_1^n)P(t_1^n)$$</p>
+<p>Now, the equation contains two parts - $P(w_1^n\ |\ t_1^n)$ and $P(t_1^n)$, the first part is the <code>likelihood</code>, where given the sequence of tags and we could see the sequence of words. The second part is <code>prior</code>, which is the probability of the sequence of tag. For the <code>likelihood</code>, if we assume every words are <strong>independent</strong> to each other, it can be approximately equal to:</p>
+<p>$$P(t_1^n) \approx \prod_{i=1}^{n} P(w_i | t_i)$$</p>
+<p>And for the <code>prior</code>, transformation could be made by using <code>chain rule</code>, the varied form is as below:</p>
+<p>$$P(w_1^n | t_1^n) \approx \prod_{i=1}^{n} P(t_i | t_{i-1})$$</p>
+<p>Combining every steps we take above, the final equation could be:</p>
+<p>$$\hat{t_1^n}= \underset{t_1^n}{\mathrm{argmax}} P(t_1^n\ |\ w_1^n) \approx \underset{t_1^n}{\mathrm{argmax}} \prod_{i=1}^{n} P(w_i\ |\ t_i)P(t_i\ |\ t_{i-1})$$</p>
+<p>Now, the question become how do we get the value for both likelihood and prior? We could use the <code>count-based estimation</code> introduced in the last blog to solve this problem. The equations are:</p>
+<p>Likelihood:
+$$P(w_i\ |\ t_i) = \frac{C(t_i, w_i)}{C(t_i)}$$</p>
+<p>Prior:
+$$P(t_i\ |\ t_{i-1}) = \frac{C(t_{i-1}, t_i)}{C(t_{i-1})}$$</p>
+<h3 id="transformation-taggers">Transformation taggers</h3>
+<p>The Transformation tagger is based on <code>TBL</code>(Transformation-Based Learning), it contains three stages. In the <code>start</code> stage, it give a simple solution to the problem, and in <code>iteration</code> stage, it apply transformations(including rules automatically induced from training data) to get the best result. Finally <code>TBL</code> reaches <code>stop</code> stage when no more improvements could be made.</p>
+<p><code>Brill POS tagger</code> is an implementation of <code>transformation taggers</code>, below is a picture showing the steps of <code>Brill POS tagger</code>, we&rsquo;ll introduce all it steps.
+
+  <img src="/img/nlp/nlp-pos-tagging/image2.png" alt="Alt text">
+
+</p>
+<h4 id="initial-tagging">Initial Tagging</h4>
+<p>In the initial tagging, we tag all the words with its most likely tag, which are extracted from a tagged corpus. However there will be errors which need to fix it by transformations.</p>
+<h4 id="transformations">Transformations</h4>
+<p>In this stage, the tagger learn multiple rules, which could be separate into two types: <code>non-lexicalized</code> and <code>lexicalized</code>. The difference between these two types is that, <code>non-lexicalized</code> are external cues, and vice versa.
+
+  <figure>
+    <img src="/img/nlp/nlp-pos-tagging/image4.png" alt="Alt text">
+    <center><figcaption>non-lexicalized</figcaption></center>
+  </figure>
+
+
+
+  <figure>
+    <img src="/img/nlp/nlp-pos-tagging/image3.png" alt="Alt text">
+    <center><figcaption>lexicalized</figcaption></center>
+  </figure>
+
+</p>
+<h4 id="tagging">Tagging</h4>
+<p>Once all the rules are learned, we apply them to the corpus to get the final result.</p>
+<h2 id="pos-evaluation">POS Evaluation</h2>
+<p>We could use <code>accuracy</code> to measure for POS tagging, typically, the <code>accuracy</code> could reach 96% to 99%. Or, we could use <code>error rate</code> on particular tags or words, we could create a <code>confusion matrix</code> to demonstrate.
+
+  <img src="/img/nlp/nlp-pos-tagging/image6.png" alt="Alt text">
+
+</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2023/12/21/nlp-text-representation/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - Text Representation">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/01/05/distributed-system-fault-tolerance/" data-toggle="tooltip" data-placement="top" title="Advanced Distributed System - Fault Tolerance">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bm25s" title="bm25s">
+                            bm25s
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/case-study" title="case study">
+                            case study
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cognitive-robotics" title="cognitive robotics">
+                            cognitive robotics
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cyber-security" title="cyber security">
+                            cyber security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data structure">
+                            data structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed system">
+                            distributed system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/flask" title="flask">
+                            flask
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/networking" title="networking">
+                            networking
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlu" title="nlu">
+                            nlu
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/scraping" title="scraping">
+                            scraping
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:shuoyin03@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    <li>
+                        <a href="https://x.com/Ysy3999">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ShuoYin03">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yin-shuo/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='/2024/01/04/nlp-pos-tagging/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; UNKNOWN SPACE 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

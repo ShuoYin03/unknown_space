@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="UNKNOWN SPACE">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://shuoyin03.github.io//img/tag-bg.jpg">
+    <meta property="twitter:image" content="https://shuoyin03.github.io//img/tag-bg.jpg" />
+    
+
+    
+    <meta name="title" content="Natural Language Processing - Text Representation" />
+    <meta property="og:title" content="Natural Language Processing - Text Representation" />
+    <meta property="twitter:title" content="Natural Language Processing - Text Representation" />
+    
+
+    
+    <meta name="description" content="Introduce how to represent texts in data forms for further nlp processes">
+    <meta property="og:description" content="Introduce how to represent texts in data forms for further nlp processes" />
+    <meta property="twitter:description" content="Introduce how to represent texts in data forms for further nlp processes" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Natural Language Processing - Text Representation | Unknown Space</title>
+
+    <link rel="canonical" href="/2023/12/21/nlp-text-representation/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">UNKNOWN SPACE</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/post/">post</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/about/">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/tag-bg.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                    </div>
+                    <h1>Natural Language Processing - Text Representation</h1>
+                    <h2 class="subheading">Data Representations</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                UNKNOWN SPACE
+                             
+                            on 
+                            Thursday, December 21, 2023
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <blockquote>
+<p>In this article we will have a look at how to represent texts in data forms for further nlp processes.</p></blockquote>
+<h2 id="bow-representation">BoW Representation</h2>
+<p><code>BoW</code> - <strong>&ldquo;Bag of words&rdquo;</strong>, should be the simplest model, which reduce each document into a bag of words.
+
+  <img src="/img/nlp/nlp-text-representation/image.png" alt="Alt text">
+
+
+<code>BoW</code> is an efficient method which nowadays lots of NLP system is using it. However, there are some question we should think of while using it, such as:</p>
+<ol>
+<li>Are all the words <strong>equally important</strong>?</li>
+<li>What about (important) <strong>combinations</strong> of words?</li>
+<li>What about <strong>negations</strong>?</li>
+<li>Is the meaning lost without <strong>order</strong>?</li>
+</ol>
+<p>In this case, we should find some methods to solve all these problems. Let&rsquo;s look at some theories first.</p>
+<h2 id="zipfs-law">Zipf&rsquo;s Law</h2>
+<p>All words in our text has frequency, some words are very frequent, such as <strong>&ldquo;the&rdquo;, &ldquo;a&rdquo;, &ldquo;as&rdquo;</strong>, etc. And some other words is not very frequent, like <strong>&ldquo;bazinga&rdquo;</strong>. There are about 50% terms appears once only, therefore we have <code>Zipf's Law</code> announced by <code>George Zipf</code>, which states that: <strong>frequency of any word in a given collection is inversely proportional to its rank in the frequency table</strong>.</p>
+<p>
+  <img src="/img/nlp/nlp-text-representation/image2.png" alt="Alt text">
+
+</p>
+<p><code>Luhn’s hypothesis</code>, is a theory based on <code>Zipf's Law</code>, defining <code>upper cut-off</code> and <code>lower cut-off</code>, states that the range of words between these two <strong>cut-offs</strong> are the words help figuring the exact meaning of texts.</p>
+<h3 id="removing-stop-words">Removing Stop words</h3>
+<p>Based on the Zipf’s law, we could define <code>stop words</code>, which are the highly occurring words with <strong>less distinguishing power</strong> for representing documents. In this case, we could filter them for a cleaner data and faster process speed. However, not all nlp application will benefit from removing stop words, and for different purposes, we should use different list of stop words.</p>
+<h2 id="vector-representation">Vector Representation</h2>
+<p>The <code>vector representation</code> is a way of implementing the BoW model. We have two method of defining the vector representation. The first one is by <code>incident</code>(0 or 1), which define a vocabulary V consist all words left after all pre-processing procedures, and each document is represented by a V dimensional vector with occurred words in 1 and others in 0.</p>
+<p>$$ d = [w_1, w_2, … , w_{|v|} ] $$</p>
+<p>The second method is by matrix, which is shown in the following picture.
+
+  <img src="/img/nlp/nlp-text-representation/image3.png" alt="Alt text">
+
+</p>
+<h3 id="weight">Weight</h3>
+<p>In order to let our representation more accurate, it is better to consider <code>weight</code>. The most easiest way is <strong>counting the occurrence number of each words</strong>. However, consider <code>Zipf’s law</code> again, the words occurs many times doesn’t mean it is more important. Thus, we have <code>tf.idf</code> weighting.</p>
+<h4 id="tfidf-weighting">TF.IDF Weighting</h4>
+<p>Before we introduce <code>tf.idf</code>, we should know what is <code>document frequency</code> and <code>inverse document frequency</code>. <code>Document frequency</code> is the number of documents that contains term <strong>t</strong>, in other words, It is a measure of <strong>“informativeness”</strong> of <strong>t</strong>. And we could calculate the <code>idf</code>(inverse document frequency) by using the following equation.</p>
+<p>$$ idf_t = log_{10} (N/df_t) $$</p>
+<p>In the equation, <strong>N</strong> is the total number of documents. If the result is high, then it means the term appears in few documents, and vise versa.</p>
+<p>The <code>tf.idf</code> weighting is calculated by multiplying term frequency weight and inverse document frequency weight, the equation is as below:
+$$tf.idf_{t, d} = (1+ log_{10}tf_{t,d} )× log_{10} (N/df_t)$$</p>
+<p>It will increase with the number of <strong>occurrences within a document</strong> and the <strong>rarity</strong> of the term. By replacing the weight in a matrix vector representation, we got a more accurate result.</p>
+<h2 id="language-models">Language Models</h2>
+<p>From now on let&rsquo;s have a look at some language models.</p>
+<h3 id="n-gram-language-models">N-gram Language Models</h3>
+<p>Think about a situation when we dealing with words like <strong>“The United States”</strong>, building representation with each word separately doesn’t show the correct meaning, in this case, we could build a n-gram model to solve this kind of problem. Below is a picture showing the effects of different n number.
+
+  <img src="/img/nlp/nlp-text-representation/image4.png" alt="Alt text">
+
+</p>
+<h3 id="probabilistic-language-models">Probabilistic Language Models</h3>
+<p>Consider a sentence, “I saw a rabbit _______ yesterday”, what do you think is a better word to fill in the blank? It is true that “running” is more likely to be here rather than “flying”. By following this idea, we could use probabilistic language model to measures the probability of natural language utterances, giving higher scores to those that are more common, more grammatical, more “natural”.</p>
+<h4 id="unigram-language-models">Unigram Language Models</h4>
+<p>The first method we could use to add probabilistic in model is <code>unigram language models</code>. In any sequences of words $S = w_1, w_2, &hellip;, w_n$, the probability could be calculate as (assume all words appeared independently and identically distributed, although it is wrong, but it words well in some nlp applications):</p>
+<p>$$p(S) = p(w_1) * p(w_2) * &hellip; * p(w_n) = \prod_{i} p(w_{i})$$</p>
+<p>Now, the question is, how to we know all the probabilistic? Here we could use <code>corpus frequencies</code> - count how many times the words appear in a real-world dataset, and normalize by using the total number of words in the corpus, below is the equation:</p>
+<p>$$ p(w) = \frac{|w|}{\sum_{t} |t|} $$</p>
+<p>Additionally, we have to consider <code>OOV</code>(Out of Vocabulary) words, we can&rsquo;t just let $p(OOV) = 0$ because thus we can never use our model on unseen words. Therefore we could add a <code>add-one smoothing</code>, the changed equation is as below:</p>
+<p>$$ P(w) = \frac{|w| + 1}{\sum_{w&rsquo; \in D} (|w&rsquo;| + 1)} $$</p>
+<p>However, there&rsquo;s still a disadvantage of the current language model we use(not only unigram, but also bigram, trigram&hellip;) - it completely loss order information, and the following situation might exist:</p>
+<p>$$p(\text{&ldquo;the the the the </s>&rdquo;}) &gt; p(\text{&ldquo;the cat in the hat </s>&rdquo;})$$</p>
+<p>It is completely unreasonable! In this case, we could apply <code>chain rule</code>.</p>
+<h4 id="chain-rule">Chain Rule</h4>
+<p>By using <code>chain rule</code>, the probability could be calculated as below:</p>
+<p>$$p(w_1, w_2, w_3, &hellip;, w_L) = p(w_1) p(w_2 | w_1) p(w_3 | w_1, w_2) &hellip; p(w_L | w_1, w_2, \ldots, w_{L-1})$$</p>
+<p>Or, in a simple form:</p>
+<p>$$\prod_{k=1}^{L} p(w_k | w_1, w_2, \ldots, w_{k-1})$$</p>
+<h4 id="markov-assumption">Markov Assumption</h4>
+<p>The question now is, it is quite complicated to calculate by using all previous probabilities. Thus, <code>Markov assumption</code> could be implemented to simplify this case, as we only need to consider the previous words into account. An example could be $p(hat\ |\ the\ cat\ in\ the) ≈ p(hat\ |\ the) $. Afterwards, the equation for unigram language model is:
+$$p(w_{1:L}) = \prod_{k=1}^{L} p(w_k\ |\ w_{k-N+1:k-1}) = \prod_{k=1}^{L} p(w_k)$$
+N represents the n of n-gram model, we only care about N-1 previous words, so for unigram we still use the probability of single words, but the equation of bigram model is:
+$$p(w_{1:L}) = \prod_{k=1}^{L} p(w_k\ |\ w_{k-N+1:k-1}) = \prod_{k=1}^{L} p(w_k\ |\ w_{k-1})$$</p>
+<h4 id="count-based-estimation">Count-based Estimation</h4>
+<p>Before we mentioned the <code>corpus frequencies</code> could be use to calculate the single-word probabilities, but how do we calculate when more than one word is being processed? Here we have <code>count-based estimation</code>.</p>
+<p>$$p(w_k\ |\ w_{k−1}) = \frac{count (w_{k−1}w_k)}{\sum_{w}{count(w_{k-1}w)}} = \frac{count (w_{k−1}w_k)}{count(w_{k-1})} = \frac{C(w_{k-1:k})}{C(w_{k-1})}$$</p>
+<p>The $count (w_{k−1}w_k)$ means the total number of the combination of word $w_{k-1}$ and $w_k$ appearing together, and we normalize it by dividing the total number of $w_{k-1}$ and any other words appearing together. To generalize it to n-gram, we change it to the following equation:
+$$\frac{C(w_{k-N+1:k})}{C(w_{k-N+1:k-1})}$$</p>
+<h4 id="an-example">An Example</h4>
+<p>Combining all the knowledge above, let&rsquo;s have a look at an example:
+
+  <img src="/img/nlp/nlp-text-representation/image7.png" alt="Alt text">
+
+
+
+  <img src="/img/nlp/nlp-text-representation/image6.png" alt="Alt text">
+
+
+The first graph demonstrate the counts of each bigram appearances, and the second one is the total number of each words in the corpus. If we want to know $p(to\ spend)$, we could first read the count of &ldquo;to spend&rdquo; in the table, which is 211, then divided by 2417, the occurrence number of &ldquo;to&rdquo;, and the result is 0.087.</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2023/12/19/nlp-text-preprocessing/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - Text Pre-processing">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/01/04/nlp-pos-tagging/" data-toggle="tooltip" data-placement="top" title="Natural Language Processing - POS Tagging">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/algorithm" title="algorithm">
+                            algorithm
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bm25s" title="bm25s">
+                            bm25s
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/case-study" title="case study">
+                            case study
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cognitive-robotics" title="cognitive robotics">
+                            cognitive robotics
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cyber-security" title="cyber security">
+                            cyber security
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/data-structure" title="data structure">
+                            data structure
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/distributed-system" title="distributed system">
+                            distributed system
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/flask" title="flask">
+                            flask
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/networking" title="networking">
+                            networking
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/next.js" title="next.js">
+                            next.js
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlp" title="nlp">
+                            nlp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/nlu" title="nlu">
+                            nlu
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/scraping" title="scraping">
+                            scraping
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:shuoyin03@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    <li>
+                        <a href="https://x.com/Ysy3999">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ShuoYin03">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yin-shuo/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='/2023/12/21/nlp-text-representation/index.xml' rel="alternate" type="application/rss+xml" title="UNKNOWN SPACE" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; UNKNOWN SPACE 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
