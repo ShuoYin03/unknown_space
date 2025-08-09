@@ -17,9 +17,9 @@ enableInlineShortcodes = true
 
 [params]
   header_image = "img/tag-bg.jpg"
-  SEOTitle = "ShuoYin"
+  SEOTitle = "Unknown Space"
   description = "Blog for Shuo Yin."
-  keywords = "UNKNOWN SPACE, unknown space, Unknown Space, shuoyin, ShuoYin"
+  keywords = "UNKNOWN SPACE, unknown space, Unknown Space, shuoyin, ShuoYin, ShuoYin03"
   slogan = "Welcome to my world"
 
   image_404 = "img/404-bg.jpg"
@@ -38,13 +38,13 @@ enableInlineShortcodes = true
   algolia_apiKey = ""
 
   # Sidebar settings
-  sidebar_about_description = "Software Developer in Sportandmusic, Third year computer science student in the University of Manchester"
+  sidebar_about_description = "Software Engineer in Awaze, Freelancer on Upwork & Fiverr"
   sidebar_avatar = "img/sign-post-5655110_640.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
 
   featured_tags = true 
   featured_condition_size = 0
 
-  friends = true
+  friends = false
   bookmarks = false
   about_me = true
 
@@ -53,12 +53,12 @@ enableInlineShortcodes = true
   email          = "shuoyin03@gmail.com"
   #facebook      = "full profile url in facebook"
   #googleplus    = "full profile url in googleplus"
-  #twitter       = "full profile url in twitter"
+  twitter       = "https://x.com/Ysy3999"
   linkedin       = "https://www.linkedin.com/in/yin-shuo/"
   stackoverflow  = ""
   #instagram     = "full profile url in instagram"
   github         = "https://github.com/ShuoYin03"
-  wechat         = "img/wechat.jpg"
+  #wechat         = ""
   #medium        = "full profile url in medium"
   #slack         = "full workspace url in slack"
   #pinterest     = "full profile url in pinterest"
