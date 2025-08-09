@@ -14,6 +14,7 @@ Feel free to connect me at Github and Linkedin, leave your thoughts in his blog 
 |[Github](https://github.com/ShuoYin03/)
 |[Linkedin](https://www.linkedin.com/in/yin-shuo-78a154275/)
 
+
 <!-- ## Projects
 | Title       |Type        |Link        |
 | ----------- |----------- |----------- |
