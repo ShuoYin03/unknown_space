@@ -18,8 +18,8 @@ jobs:
           hugo-version: '0.119.0'
           extended: false
 
-      - name: Clean public directory
-        run: rm -rf ./public
+      # - name: Clean public directory
+      #   run: rm -rf ./public
 
       - name: Build
         run: hugo
