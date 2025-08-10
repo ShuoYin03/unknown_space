@@ -1,7 +1,7 @@
 ---
-title:       "Wine Auction Management Admin Website"
-subtitle:    "Scraping & Management"
-description: "Scraped 20+ websites with auction & lots data"
+title:       "Wine Auction Management Admin Website - Million Data Scraping"
+subtitle:    "Scraping & Data Management"
+description: "Scraped 20+ websites with millions of auction & lots data"
 date:        2025-07-24
 author: UNKNOWN_SPACE
 URL:         "/2025/07/24/wine-auction-management"

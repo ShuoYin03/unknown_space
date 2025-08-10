@@ -9,7 +9,14 @@
     <lastBuildDate>Thu, 24 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://shuoyin03.github.io/tags/scraping/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Wine Auction Management Admin Website</title>
+      <title>Sweden Companies Contacts Scraping - CEO &amp; Project Managers Emails</title>
+      <link>https://shuoyin03.github.io/2025/07/24/sweden-contact-scraping/</link>
+      <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://shuoyin03.github.io/2025/07/24/sweden-contact-scraping/</guid>
+      <description>&lt;h3 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h3&gt;&#xA;&lt;p&gt;The client’s website hosts a comprehensive list of companies in Sweden. The goal is to scrape the website and gather essential company information, including name, location, and organisation number. Additionally, the project aims to extract CEO and Project Manager (PM) emails from each company’s official website and output this data into a structured CSV file. The website client provides doesn&amp;rsquo;t include the official url, so google search API implementation is needed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wine Auction Management Admin Website - Million Data Scraping</title>
       <link>https://shuoyin03.github.io/2025/07/24/wine-auction-management/</link>
       <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://shuoyin03.github.io/2025/07/24/wine-auction-management/</guid>
